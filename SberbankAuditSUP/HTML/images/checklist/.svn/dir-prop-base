@@ -1,0 +1,21 @@
+K 14
+bugtraq:number
+V 5
+false
+K 15
+bugtraq:message
+V 8
+#%BUGID%
+K 13
+bugtraq:label
+V 13
+JIRA issue #:
+K 11
+bugtraq:url
+V 22
+/jira42/browse/%BUGID%
+K 21
+bugtraq:warnifnoissue
+V 4
+true
+END

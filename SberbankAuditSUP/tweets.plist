@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>indicator</key>
+		<string>2</string>
+		<key>branch</key>
+		<string>ВСП №4567</string>
+		<key>date</key>
+		<string>09.02.2012</string>
+		<key>address</key>
+		<string>г.Сочи,ул.Донская 33</string>
+		<key>status</key>
+		<string>Заполнение КЛ</string>
+		<key>from_user</key>
+		<string>Скоблев А.С.</string>
+		<key>duration</key>
+		<string>120</string>
+		<key>branch_head</key>
+		<string>Блуждайко А.Г.</string>
+		<key>self_responsible</key>
+		<string>Иванов И.И.</string>
+		<key>audit_responsible</key>
+		<string>Петров П.С.</string>
+		<key>self_last_date</key>
+		<string>30.01.2012</string>
+		<key>audit_last_date</key>
+		<string>02.02.2012</string>
+		<key>self_ball</key>
+		<string>88</string>
+		<key>self_dispersion</key>
+		<string>-</string>
+		<key>self_coeff</key>
+		<string>-</string>
+		<key>self_total</key>
+		<string>-</string>
+		<key>audit_ball</key>
+		<string>74</string>
+		<key>audit_dispersion</key>
+		<string>0,16</string>
+		<key>audit_coeff</key>
+		<string>0,95</string>
+		<key>audit_total</key>
+		<string>70</string>
+	</dict>
+	<dict>
+		<key>indicator</key>
+		<string>1</string>
+		<key>branch</key>
+		<string>ВСП №9401</string>
+		<key>date</key>
+		<string>01.03.2012</string>
+		<key>address</key>
+		<string>г.Сочи,ул.Дарвина 93</string>
+		<key>status</key>
+		<string>Назначена</string>
+		<key>from_user</key>
+		<string>Андреев В.С.</string>
+		<key>duration</key>
+		<string>120</string>
+		<key>branch_head</key>
+		<string>Трофимов И.П.</string>
+		<key>self_responsible</key>
+		<string>Касаткин Д.М.</string>
+		<key>audit_responsible</key>
+		<string>Петров П.С.</string>
+		<key>self_last_date</key>
+		<string>27.02.2012</string>
+		<key>audit_last_date</key>
+		<string>08.02.2012</string>
+		<key>self_ball</key>
+		<string>95</string>
+		<key>self_dispersion</key>
+		<string>-</string>
+		<key>self_coeff</key>
+		<string>-</string>
+		<key>self_total</key>
+		<string>-</string>
+		<key>audit_ball</key>
+		<string>90</string>
+		<key>audit_dispersion</key>
+		<string>0,03</string>
+		<key>audit_coeff</key>
+		<string>1</string>
+		<key>audit_total</key>
+		<string>90</string>
+	</dict>
+	<dict>
+		<key>indicator</key>
+		<string>0</string>
+		<key>branch</key>
+		<string>ВСП №3453</string>
+		<key>date</key>
+		<string>02.03.2012</string>
+		<key>address</key>
+		<string>г.Сочи,Проспектный курорт 50</string>
+		<key>status</key>
+		<string>Назначена</string>
+		<key>from_user</key>
+		<string>Мулат И.В.</string>
+		<key>duration</key>
+		<string>120</string>
+		<key>branch_head</key>
+		<string>Сергеев В.И.</string>
+		<key>self_responsible</key>
+		<string>Михайлюк А.А.</string>
+		<key>audit_responsible</key>
+		<string>Коробков Р.В.</string>
+		<key>self_last_date</key>
+		<string>21.02.2012</string>
+		<key>audit_last_date</key>
+		<string>24.02.2012</string>
+		<key>self_ball</key>
+		<string>90</string>
+		<key>self_dispersion</key>
+		<string>-</string>
+		<key>self_coeff</key>
+		<string>-</string>
+		<key>self_total</key>
+		<string>-</string>
+		<key>audit_ball</key>
+		<string>84</string>
+		<key>audit_dispersion</key>
+		<string>0,07</string>
+		<key>audit_coeff</key>
+		<string>0,95</string>
+		<key>audit_total</key>
+		<string>90</string>
+	</dict>
+	<dict>
+		<key>indicator</key>
+		<string>1</string>
+		<key>branch</key>
+		<string>ВСП №2134</string>
+		<key>date</key>
+		<string>29.02.2012</string>
+		<key>address</key>
+		<string>с.Черешня,ул.Владимировская 64А</string>
+		<key>status</key>
+		<string>Назначена</string>
+		<key>from_user</key>
+		<string>Евросеев Г.В.</string>
+		<key>duration</key>
+		<string>120</string>
+		<key>branch_head</key>
+		<string>Воробьев С.М.</string>
+		<key>self_responsible</key>
+		<string>Дмитриев В.К.</string>
+		<key>audit_responsible</key>
+		<string>Петров П.С.</string>
+		<key>self_last_date</key>
+		<string>31.01.2012</string>
+		<key>audit_last_date</key>
+		<string>13.02.2012</string>
+		<key>self_ball</key>
+		<string>82</string>
+		<key>self_dispersion</key>
+		<string>-</string>
+		<key>self_coeff</key>
+		<string>-</string>
+		<key>self_total</key>
+		<string>-</string>
+		<key>audit_ball</key>
+		<string>81</string>
+		<key>audit_dispersion</key>
+		<string>0,01</string>
+		<key>audit_coeff</key>
+		<string>1</string>
+		<key>audit_total</key>
+		<string>81</string>
+	</dict>
+	<dict>
+		<key>indicator</key>
+		<string>2</string>
+		<key>branch</key>
+		<string>ВСП №3468</string>
+		<key>date</key>
+		<string>30.01.2012</string>
+		<key>address</key>
+		<string>г.Сочи,ул.Ленина 219</string>
+		<key>status</key>
+		<string>Назначена</string>
+		<key>from_user</key>
+		<string>Разборчиков П.А.</string>
+		<key>duration</key>
+		<string>120</string>
+		<key>branch_head</key>
+		<string>Смирнов Р.М.</string>
+		<key>self_responsible</key>
+		<string>Вольнов Н.Н.</string>
+		<key>audit_responsible</key>
+		<string>Романов С.С.</string>
+		<key>self_last_date</key>
+		<string>25.01.2012</string>
+		<key>audit_last_date</key>
+		<string>27.01.2012</string>
+		<key>self_ball</key>
+		<string>77</string>
+		<key>self_dispersion</key>
+		<string>-</string>
+		<key>self_coeff</key>
+		<string>-</string>
+		<key>self_total</key>
+		<string>-</string>
+		<key>audit_ball</key>
+		<string>75</string>
+		<key>audit_dispersion</key>
+		<string>0,03</string>
+		<key>audit_coeff</key>
+		<string>0,93</string>
+		<key>audit_total</key>
+		<string>69</string>
+	</dict>
+	<dict>
+		<key>indicator</key>
+		<string>0</string>
+		<key>branch</key>
+		<string>ВСП №2134</string>
+		<key>date</key>
+		<string>05.03.2012</string>
+		<key>address</key>
+		<string>с.Черешня,ул.Владимировская 64А</string>
+		<key>status</key>
+		<string>Назначена</string>
+		<key>from_user</key>
+		<string>Разборчиков П.А.</string>
+		<key>duration</key>
+		<string>120</string>
+		<key>branch_head</key>
+		<string>Воробьев С.М.</string>
+		<key>self_responsible</key>
+		<string>Дмитриев В.К.</string>
+		<key>audit_responsible</key>
+		<string>Петров П.С.</string>
+		<key>self_last_date</key>
+		<string>24.02.2012</string>
+		<key>audit_last_date</key>
+		<string>13.02.2012</string>
+		<key>self_ball</key>
+		<string>87</string>
+		<key>self_dispersion</key>
+		<string>-</string>
+		<key>self_coeff</key>
+		<string>-</string>
+		<key>self_total</key>
+		<string>-</string>
+		<key>audit_ball</key>
+		<string>81</string>
+		<key>audit_dispersion</key>
+		<string>0,01</string>
+		<key>audit_coeff</key>
+		<string>1</string>
+		<key>audit_total</key>
+		<string>81</string>
+	</dict>
+</array>
+</plist>

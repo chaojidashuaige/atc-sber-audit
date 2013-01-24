@@ -1,0 +1,245 @@
+body {
+	font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	overflow: hidden;
+}
+
+.leftPanel {
+	__background-image: url(../../images/checklist/left-bg.png);
+	width: 320px;
+	float: left;
+	__background-size: cover;
+	background-color: #fafafa;
+	overflow: auto;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px
+}
+
+.rightPanel {
+	__background-image: url(../../images/checklist/right-bg.png);
+	background-color: #A0D0A0;
+	width: 100%;
+	float: left;
+	overflow: hidden;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px
+}
+
+.rightPanelFull {
+	overflow: hidden;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px
+}
+
+.ResultsPanel {
+	padding: 5px;
+	__background-size: 100% 100%;
+	__background-image: url(../../images/checklist/right-top-bg.png);
+	color: white;
+	font-weight: bold;
+	font-size: 0.9em;
+	min-height: 20px;
+	background-image: none;
+	background-color: #50a040;
+	overflow: hidden;
+	position: absolute;
+	top: 0px;
+	left: 324px;
+	right: 0px;
+	width: 100%;
+}
+
+.rightPanelContent {
+	overflow: auto;
+	position: absolute;
+	top: 105px;
+	left: 324px;
+	right: 0px;
+	bottom: 0px
+}
+
+.menuGroup {
+	width: 280px;
+	height: 44px;
+	background-image: url(../../images/checklist/menu-group-closed.png);
+	padding-right: 35px;
+	padding-left: 5px;
+	padding-top: 3px;
+	color: black;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.menuGroup.od-expand {
+	background-image: url(../../images/checklist/menu-group-open.png);
+}
+
+.menuGroup.menuDummyBlock.od-expand {
+	background-image: url(../../images/checklist/menu-group-open-dummy.png);
+}
+
+.menuGroup.menu-sub {
+	background-image: url(../../images/checklist/menu-sub-bg.png);
+	color: black;
+	padding-left: 10px;
+	padding-right: 50px;
+	width: 260px;
+}
+
+.menuGroup.menu-sub.od-selected {
+	background-image: url(../../images/checklist/menu-sub-bg-selected.png);
+	color: black;
+	padding-left: 10px;
+	padding-right: 50px;
+}
+
+.menu-text {
+	height: 47px;
+}
+
+.QuestionPanel {
+	padding: 10px;
+	margin-top: 5px;
+	_background-size: 100% 100%;
+	__background-image: url(../../images/checklist/question-bg.png);
+	box-shadow: 1px 1px 3px 0px #606060;
+	border-radius: 5px;
+	font-size: 0.8em;
+	background-image: none;
+	background-color: #F1F1E5;
+}
+
+.question {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.question_desc {
+	font-size: 12px;
+	color: #606060;
+	margin-left: 20px;
+}
+
+.splitter {
+	width: 2px;
+	height: 100%;
+	background-image: url(../../images/checklist/splitter.gif);
+	background-repeat: repeat-y;
+}
+
+.question_result {
+	font-size: 1.1em;
+}
+
+.question_result p {
+	margin: 0px;
+	padding: 0px;
+	clear: both;
+}
+
+.question_result label {
+	display: block;
+	padding: 0.7em 0.1em 0.7em 2.3em;
+	white-space: normal;
+	font-family: Tahoma;
+	font-size: 1.2em;
+}
+
+.question_result input {
+	float: left;
+	margin: 0.7em 0.1em 0.7em 0.5em;
+}
+
+.question_result input[type=radio] {
+	float: left;
+	width: 2em;
+	height: 2em;
+}
+
+p.menuFilterCaption {
+	margin: 0px;
+	padding: 0.2em;
+	padding-left: 0.7em;
+	clear: both; --
+	border: 1px solid green;
+	font-size: 0.8em;
+	font-weight: bold;
+	background-color: #50a040;
+	color: white;
+}
+
+p.menuFilter {
+	margin: 0px;
+	padding: 0px;
+	clear: both; -
+	-border: 1px solid green;
+	font-size: 0.7em;
+	background-color: #A1D590;
+}
+
+p.menuFilter label {
+	display: block;
+	padding: 0.3em 0.1em 0.3em 2.3em;
+	white-space: nowrap;
+}
+
+p.menuFilter input {
+	float: left;
+	position: relative;
+	top: 0.2em;
+	left: 0.2em;
+	width: 1.6em;
+	height: 1.6em;
+	margin: 0px;
+	padding: 0px;
+	height: 1.6em;
+}
+
+.od-hidden {
+	display: none;
+}
+
+.od-show {
+	display: block;
+}
+
+.buttonActivityContainer {
+	
+}
+
+.buttonActivity {
+	width: 100%;
+	margin-top: 2em;
+}
+
+.activityList {
+	cursor: pointer;
+}
+
+.upPagePanel {
+	padding: 10px;
+	margin-top: 5px;
+	box-shadow: 1px 1px 3px 0px #606060;
+	border-radius: 5px;
+	font-size: 0.8em;
+	background-image: none;
+	background-color: #AFFCAC;
+	color: black;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.shouldBeAnswered {
+	background-color: NavajoWhite;
+}

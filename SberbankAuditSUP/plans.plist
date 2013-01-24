@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>indicator</key>
+		<string>1</string>
+		<key>title</key>
+		<string>Прилегающаяя территория</string>
+		<key>description</key>
+		<string>Руководителю ВСП немедленно организовать устранение грязи и мусора</string>
+		<key>date</key>
+		<string>01.03.2012</string>
+		<key>status</key>
+		<string>Назначено</string>
+		<key>responsible</key>
+		<string>Громов А.В.</string>
+	</dict>
+	<dict>
+		<key>indicator</key>
+		<string>0</string>
+		<key>title</key>
+		<string>Навигация</string>
+		<key>description</key>
+		<string>Руководителю ВСП направить в ОСБ заявку на изготовление навигации</string>
+		<key>date</key>
+		<string>27.02.2012</string>
+		<key>status</key>
+		<string>Закрыто</string>
+		<key>responsible</key>
+		<string>Громов А.В.</string>
+	</dict>
+	<dict>
+		<key>indicator</key>
+		<string>2</string>
+		<key>title</key>
+		<string>Оборудование УРМ</string>
+		<key>description</key>
+		<string>Направить заявку в Г(ОСБ) с целью заказа оборудования для УРМ</string>
+		<key>date</key>
+		<string>26.02.2012</string>
+		<key>status</key>
+		<string>Назначено</string>
+		<key>responsible</key>
+		<string>Сухов В.А.</string>
+	</dict>
+	<dict>
+		<key>indicator</key>
+		<string>0</string>
+		<key>title</key>
+		<string>Очередь</string>
+		<key>description</key>
+		<string>Осуществить комплекс мероприятий в соотвествии с пособием &quot;Очередей.Нет!&quot;</string>
+		<key>date</key>
+		<string>15.02.2012</string>
+		<key>status</key>
+		<string>Закрыто</string>
+		<key>responsible</key>
+		<string>Сухов В.А.</string>
+	</dict>
+	<dict>
+		<key>indicator</key>
+		<string>2</string>
+		<key>title</key>
+		<string>Рекламные материалы</string>
+		<key>description</key>
+		<string>Разместить рекламные материалы в удобных для клиентов местах</string>
+		<key>date</key>
+		<string>12.02.2012</string>
+		<key>status</key>
+		<string>Назначено</string>
+		<key>responsible</key>
+		<string>Киселев В.В.</string>
+	</dict>
+	<dict>
+		<key>indicator</key>
+		<string>0</string>
+		<key>title</key>
+		<string>Развитие компетенций сотрудников</string>
+		<key>description</key>
+		<string>Составить для сотрудников ВСП планы личного развития</string>
+		<key>date</key>
+		<string>26.02.2012</string>
+		<key>status</key>
+		<string>Исполнено</string>
+		<key>responsible</key>
+		<string>Киселев В.В.</string>
+	</dict>
+</array>
+</plist>

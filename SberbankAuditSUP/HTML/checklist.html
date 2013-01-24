@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="jquery-ui-1.8.18.custom.min.js"></script>
+		<script type="text/javascript" src="jquery.numeric.js" />
+		<script type="text/javascript" src="jquery.maskedinput-1.3.min.js" />
+
+        <script type="text/javascript" src="1.js"></script>
+		<script type="text/javascript" src="2.js"></script>
+		<script type="text/javascript" src="3.js" />
+		<script type="text/javascript" src="4.js" />
+
+        <script type="text/javascript" src="checklist.js"></script>
+		<script type="text/javascript" src="my.js"></script>
+		<link rel="stylesheet" href="checklist.css" type="text/css" media="all" />
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	</head>
+	<body>
+		<script>
+			$(function() {
+		
+			});
+            
+            
+            
+            
+			var question_ID = "question";
+            var item_ID = "item";
+            var activity_ID = "activity";
+			function addActivity(questionId, itemId) {
+				// Переопределить в конкретном приложении
+                question_ID = questionId;
+                item_ID = itemId;
+				return false;
+			};
+            
+            function abc(){
+                alert('abc');
+            };
+            
+            function openActivityOpen(activityId){
+                activity_ID = activityId;
+                return false;
+            };
+            
+            
+            function QuestionID()
+            {
+                if (question_ID === "undefined") {
+                    return "-1";
+                }
+                if (question_ID == ""){
+                    return "-2";
+                }
+                return question_ID;
+            };
+            
+            function ItemID()
+            {
+                if (item_ID === "undefined") {
+                    return "-1";
+                }
+                if (item_ID == ""){
+                    return "-2";
+                }
+                return item_ID;
+            };
+
+            function ActivityID()
+            {
+                if (activity_ID === "undefined") {
+                    return "-1";
+                }
+                if (activity_ID == ""){
+                    return "-2";
+                }
+                return activity_ID;
+            };
+
+            
+            function clear()
+            {
+                question_ID = "question";
+                item_ID = "item";
+                activity_ID = "activity";
+            };
+            
+            
+            
+            
+            
+			
+			function openActivity(activityId) {
+				// Переопределить в конкретном приложении
+				return false;
+			};
+		</script>
+		
+		<div id="checklistForm:checklistBody">
+		
+		</div>
+        
+        <div id="checklistAnswer" style="display:none;">
+            
+        </div>
+	</body>
+</html>
