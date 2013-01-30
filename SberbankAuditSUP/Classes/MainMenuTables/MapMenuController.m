@@ -193,7 +193,7 @@
         [labelActivity setText:@"50%"];
         [self.view addSubview:labelActivity];
         
-        UIButton *dashboardB = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+        UIButton *dashboardB = [UIButton buttonWithType:UIButtonTypeCustom] ;
         [dashboardB setBackgroundImage:[UIImage imageNamed:@"dash_still@2x.png"] forState:UIControlStateNormal];
         [dashboardB setBackgroundImage:[UIImage imageNamed:@"dash_active@2x.png"] forState:UIControlStateHighlighted];
         [dashboardB setFrame:CGRectMake(13, 680, 174, 56)];
@@ -242,13 +242,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.category = [[NSMutableArray alloc] initWithArray:[NSArray arrayWithObjects:
-                                                           [NSDictionary dictionaryWithObjectsAndKeys:@"ВСП",@"otdel",  nil],
-                                                           [NSDictionary dictionaryWithObjectsAndKeys:@"ОПЕРУ",@"otdel",  nil],
-                                                           [NSDictionary dictionaryWithObjectsAndKeys:@"ОСБ",@"otdel",  nil],
-                                                           [NSDictionary dictionaryWithObjectsAndKeys:@"ГОСБ",@"otdel",  nil],
-                                                           [NSDictionary dictionaryWithObjectsAndKeys:@"ТБ",@"otdel",  nil],
-                                                                                    nil]]; 
+    NSMutableArray *tmpCategory = [[NSMutableArray alloc] initWithArray:[NSArray arrayWithObjects:
+                                                                         [NSDictionary dictionaryWithObjectsAndKeys:@"ВСП",@"otdel",  nil],
+                                                                         [NSDictionary dictionaryWithObjectsAndKeys:@"ОПЕРУ",@"otdel",  nil],
+                                                                         [NSDictionary dictionaryWithObjectsAndKeys:@"ОСБ",@"otdel",  nil],
+                                                                         [NSDictionary dictionaryWithObjectsAndKeys:@"ГОСБ",@"otdel",  nil],
+                                                                         [NSDictionary dictionaryWithObjectsAndKeys:@"ТБ",@"otdel",  nil],
+                                                                         nil]];
+    self.category = tmpCategory;
+    [tmpCategory release];
     
 }
 

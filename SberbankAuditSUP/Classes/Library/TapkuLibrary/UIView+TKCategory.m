@@ -89,7 +89,7 @@ CGFloat demoRGInnerRadius(CGRect bounds)
 	
 	CGContextDrawLinearGradient(context, gradient, start, end, kCGGradientDrawsBeforeStartLocation | kCGGradientDrawsAfterEndLocation);
 	
-	CGColorSpaceRelease(colorSpace);
+//	CGColorSpaceRelease(colorSpace);
 	CGGradientRelease(gradient);
 	CGContextRestoreGState(context);
 	

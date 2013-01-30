@@ -139,7 +139,7 @@
         [segmentedControl release];
 
         
-        UIView *gardientViewTop = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 1024 , 50)] autorelease];
+        UIView *gardientViewTop = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1024 , 50)];
         CAGradientLayer *gradient = [CAGradientLayer layer];
         gradient.frame = gardientViewTop.bounds;
         gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor] CGColor], (id)[[UIColor lightGrayColor] CGColor], nil];
@@ -173,13 +173,11 @@
         [allButton setTintColor:[UIColor darkGrayColor]  ];
         [allButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal  ];
         [self.view addSubview:allButton];
-        [allButton release];
         
         UIButton *detailWindow = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [detailWindow setFrame:CGRectMake(10, 60, 45, 45)];
         [detailWindow addTarget:self action:@selector(showDetailWindow) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:detailWindow];
-        [detailWindow release];
 
         
         UIButton *eightyButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -188,7 +186,6 @@
         [eightyButton setTintColor:[UIColor darkGrayColor]  ];
         [eightyButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal  ];
         [self.view addSubview:eightyButton];
-        [eightyButton release];
         
         UIButton *oldActivity = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [oldActivity setFrame:CGRectMake(440, 10, 110, 30)];
@@ -199,7 +196,6 @@
         [oldActivity setTintColor:[UIColor darkGrayColor]  ];
         [oldActivity setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal  ];
         [self.view addSubview:oldActivity];
-        [oldActivity release];
         
 
 	}

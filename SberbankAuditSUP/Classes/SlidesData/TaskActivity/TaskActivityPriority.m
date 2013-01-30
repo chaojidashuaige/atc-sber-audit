@@ -74,7 +74,7 @@
     
     if(cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     [cell.textLabel setText:[[arrayWithData objectAtIndex:indexPath.row] objectForKey:@"ACTIVITY_PRIORITY_NAME"]];
     return cell;

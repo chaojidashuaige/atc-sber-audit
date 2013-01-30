@@ -637,7 +637,7 @@ const NSInteger SLIDE_VIEWS_START_X_POS = 0;
     
 //    self.delegate = (id)controller.self;
     self.delegate = (id)controller;
-	BOOL isContentSizeForMainViewSet = FALSE;
+//	BOOL isContentSizeForMainViewSet = FALSE;
 	
 	if (isStackStartView) {
 		slideStartPosition = SLIDE_VIEWS_START_X_POS;
@@ -651,7 +651,7 @@ const NSInteger SLIDE_VIEWS_START_X_POS = 0;
 		[[borderViews viewWithTag:2] setHidden:TRUE];
 		[[borderViews viewWithTag:1] setHidden:TRUE];
         [viewControllersStack removeAllObjects];
-		isContentSizeForMainViewSet = TRUE;
+//		isContentSizeForMainViewSet = TRUE;
 	}
 	
 	

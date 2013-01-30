@@ -487,6 +487,7 @@
         [dict setObject:[NSString stringWithFormat:@"%@",[employeer FIRST_NAME]] forKey:@"FIRST_NAME"];
         [dict setObject:[NSString stringWithFormat:@"%@",[employeer PATRONYMIC]] forKey:@"PATRONYMIC"];
         [Responcer.arraySubType addObject:dict];
+        [dict release];
     }
 
     if (calendarPopover != nil) {
@@ -574,7 +575,7 @@
 - (NSMutableArray*)findCreatorEmployeeCellsWithHierarchyLevel:(int)hierarchy withArray:(SUPObjectList *)employeeCells
 {
     NSMutableArray * resultSize = [[NSMutableArray alloc] init];
-    NSMutableArray * result = [[NSMutableArray alloc] init];
+    NSMutableArray * result = [[[NSMutableArray alloc] init] autorelease];
     for (int i = 0; i < employeeCells.size; i++) {
         ODMobileMBOEmployeesSubordinations * cell = [employeeCells objectAtIndex:i];
         //        if (cell != nil) {
@@ -618,6 +619,7 @@
         [cell setEmployees:employees];
         [employees release];
         [result addObject:cell];
+        [cell release];
     }
     
     [resultSize release];
@@ -731,6 +733,7 @@
         [dict setObject:[NSString stringWithFormat:@"%@",[employeer FIRST_NAME]] forKey:@"FIRST_NAME"];
         [dict setObject:[NSString stringWithFormat:@"%@",[employeer PATRONYMIC]] forKey:@"PATRONYMIC"];
         [Inspector.arraySubType addObject:dict];
+        [dict release];
     }
 
     if (calendarPopover != nil) {
@@ -747,7 +750,7 @@
 - (void) getInspectors
 {
     NSString * employee_ID = self.RESPONSER_ID;
-    NSString * level;
+    NSString * level = nil;
     resultInspectors = [[NSMutableArray alloc] init];
     for (EmployeeDTO * emp in resultEmployees) {
         ODMobileMBO_getEmployees * e = [ODMobileMBO_getEmployees findByPrimaryKey:emp.employeeID];
@@ -1283,7 +1286,7 @@
     NSLog(@"статус: %@",self.lastStatus);
     NSLog(@"статус: %@",self.currentStatus);
     
-    NSString * aNotesAreaText = @"";
+//    NSString * aNotesAreaText = @"";
     
     //назначено     1
     //Отменено      2
@@ -3099,6 +3102,7 @@
     double DOUBLE = [str doubleValue]/1000;
     date = [NSDate dateWithTimeIntervalSince1970:DOUBLE];
     str = [dateFormatter stringFromDate:date];
+    [dateFormatter release];
     return str;
 }
 
@@ -3128,6 +3132,7 @@
     DOUBLE = [createString doubleValue]/1000;
     date = [NSDate dateWithTimeIntervalSince1970:DOUBLE];
     createString = [dateFormatter stringFromDate:date];
+    [dateFormatter release];
 
     [createDateLabel setText:[NSString stringWithFormat:@"Дата создания: %@", createString]];
     

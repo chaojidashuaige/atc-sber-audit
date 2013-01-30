@@ -4,7 +4,7 @@
 #define rowHeight 105.0f
 
 @implementation TaskTableViewCell
-@synthesize taskTime,taskTitle,taskAuthor,taskStatus,taskDescription,taskInspector,taskIndicator;
+@synthesize taskTime,taskTitle,taskAuthor,taskStatus,taskDescription,taskInspector = _taskInspector,taskIndicator;
 
 + (int)heightForTweetWithText:(NSString*)tweetText
 {
@@ -113,6 +113,7 @@
         [taskInspector setHighlightedTextColor:[UIColor whiteColor]];
         [self addSubview:taskInspectorTitle];
         [self addSubview:taskInspector];
+        
         
         [taskInspectorTitle release];
 	}

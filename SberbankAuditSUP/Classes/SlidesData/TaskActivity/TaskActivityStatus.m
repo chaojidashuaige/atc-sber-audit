@@ -21,7 +21,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        self.arraySubType = [[NSMutableArray alloc] init];
+        self.arraySubType = [NSMutableArray arrayWithCapacity:0];
     }
     return self;
 }
@@ -39,7 +39,7 @@
 - (void)dealloc
 {
     [taClass release];
-    [self.arraySubType release];
+    self.arraySubType = nil;
     [super dealloc];
 }
 
@@ -67,7 +67,7 @@
     
     if(cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
     [cell.textLabel setText:[[self.arraySubType objectAtIndex:indexPath.row] objectForKey:@"ACTIVITY_STATUS_NAME"]];

@@ -129,8 +129,8 @@
                 isReachabile = YES;
             }
         }
+        CFRelease(reachability);
     }
-    CFRelease(reachability);
     
     return isReachabile;
 }

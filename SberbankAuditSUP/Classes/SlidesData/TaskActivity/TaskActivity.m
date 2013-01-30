@@ -588,6 +588,7 @@
         [dict setObject:[NSString stringWithFormat:@"%@",[employeer FIRST_NAME]] forKey:@"FIRST_NAME"];
         [dict setObject:[NSString stringWithFormat:@"%@",[employeer PATRONYMIC]] forKey:@"PATRONYMIC"];
         [Inspector.arraySubType addObject:dict];
+        [dict release];
     }
     calendarPopover = [[UIPopoverController alloc] initWithContentViewController:Inspector];
     calendarPopover.popoverContentSize = CGSizeMake(700, 400);
@@ -598,7 +599,7 @@
 - (void) getInspectors
 {
     NSString * employee_ID = [activity objectForKey:@"d.EMPLOYEE_ID"];
-    NSString * level;
+    NSString * level = nil;
     resultInspectors = [[NSMutableArray alloc] init];
     for (EmployeeDTO * emp in resultEmployees) {
         ODMobileMBO_getEmployees * e = [ODMobileMBO_getEmployees findByPrimaryKey:emp.employeeID];
@@ -639,6 +640,7 @@
         [dict setObject:[NSString stringWithFormat:@"%@",[employeer FIRST_NAME]] forKey:@"FIRST_NAME"];
         [dict setObject:[NSString stringWithFormat:@"%@",[employeer PATRONYMIC]] forKey:@"PATRONYMIC"];
         [Responcer.arraySubType addObject:dict];
+        [dict release];
     }
     calendarPopover = [[UIPopoverController alloc] initWithContentViewController:Responcer];
     calendarPopover.popoverContentSize = CGSizeMake(700, 400);
@@ -722,7 +724,7 @@
 - (NSMutableArray*)findCreatorEmployeeCellsWithHierarchyLevel:(int)hierarchy withArray:(SUPObjectList *)employeeCells
 {
     NSMutableArray * resultSize = [[NSMutableArray alloc] init];
-    NSMutableArray * result = [[NSMutableArray alloc] init];
+    NSMutableArray * result = [[[NSMutableArray alloc] init] autorelease];
     for (int i = 0; i < employeeCells.size; i++) {
         ODMobileMBOEmployeesSubordinations * cell = [employeeCells objectAtIndex:i];
 //        if (cell != nil) {
@@ -766,6 +768,7 @@
         [cell setEmployees:employees];
         [employees release];
         [result addObject:cell];
+        [cell release];
     }
 
     [resultSize release];
@@ -1558,9 +1561,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.activity = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *tmpDict = [[NSMutableDictionary alloc] init];
+    self.activity = tmpDict;
     hierarchyLevel = 0;
+    [tmpDict release];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

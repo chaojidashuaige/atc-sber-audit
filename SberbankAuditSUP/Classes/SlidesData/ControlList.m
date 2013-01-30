@@ -843,7 +843,7 @@ bool look = false;
 
 - (NSMutableDictionary*)getActivity
 {
-    NSMutableDictionary * theDictionary;
+    NSMutableDictionary * theDictionary = [NSMutableDictionary dictionaryWithCapacity:0];
     
     NSLog(@"TASK_ID = %@",self.taskID);
     
@@ -876,7 +876,8 @@ bool look = false;
         if ([[NSString stringWithFormat:@"%@",[dict valueForKey:@"x.ACTIVITY_ID"]] isEqualToString:currentActivityID]) {
             NSLog(@"Current activity is defined");
             [tweets addObject:dict];
-            theDictionary = [[NSMutableDictionary alloc] initWithDictionary:dict];
+//            theDictionary = [[NSMutableDictionary alloc] initWithDictionary:dict];
+            [theDictionary setDictionary:dict];
         }
 
         [dict release];

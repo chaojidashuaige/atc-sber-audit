@@ -83,7 +83,7 @@
     
     if(cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
     [cell.textLabel setText:[[arraySubType objectAtIndex:indexPath.row] objectForKey:@"ACTIVITY_NAME"]];
@@ -120,6 +120,7 @@
 
         NSDate * ddDate = [NSDate dateWithTimeIntervalSince1970:date];
         NSString * str = [dateFormatter stringFromDate:ddDate];
+        [dateFormatter release];
         
         [taClass.aEndDateButton setTitle:str forState:UIControlStateNormal];
         
@@ -151,6 +152,7 @@
         
         NSDate * ddDate = [NSDate dateWithTimeIntervalSince1970:date];
         NSString * str = [dateFormatter stringFromDate:ddDate];
+        [dateFormatter release];
         
         [tbClass.aEndDateButton setTitle:str forState:UIControlStateNormal];
 

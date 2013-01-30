@@ -260,6 +260,7 @@
         double DOUBLE = [str doubleValue]/1000;
         date = [NSDate dateWithTimeIntervalSince1970:DOUBLE];
         str = [dateFormatter stringFromDate:date];
+        [dateFormatter release];
         NSRange searchByDate = [str rangeOfString:sText options:NSCaseInsensitiveSearch];
 
         
@@ -319,16 +320,13 @@
         }
         [buttonCell.createTp addTarget:self action:@selector(openActivityEdit) forControlEvents:UIControlEventTouchUpInside];
         [buttonCell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    }
-    
-    
-    if(indexPath.row != 0)
-    {
+        return buttonCell;
+    } else {
         cell = (TaskPlanCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
             cell = [[[TaskPlanCell alloc] initWithStyle:UITableViewCellStyleDefault isHeader:NO reuseIdentifier:CellIdentifier] autorelease];
         }
-
+        
         NSMutableDictionary *planData = (isTaskSearch) ? [tweetsSearch objectAtIndex:indexPath.row-1] : [tweets objectAtIndex:indexPath.row-1];
         
         int indicator = 0;//зеленый
@@ -356,22 +354,24 @@
         NSDate * date;
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"dd.MM.yyyy"];
-//        [dateFormatter setDateFormat:@"yyyy.MM.dd HH:mm"];
-//        [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
+        //        [dateFormatter setDateFormat:@"yyyy.MM.dd HH:mm"];
+        //        [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
         
         NSString * str = [NSString stringWithFormat:@"%@",[planData valueForKey:@"x.DUEDATE_DTTM"]];
         double DOUBLE = [str doubleValue]/1000;
         date = [NSDate dateWithTimeIntervalSince1970:DOUBLE];
         str = [dateFormatter stringFromDate:date];
+        [dateFormatter release];
         
         [cell.taskDate setText:[NSString stringWithFormat:@"Выполнить до: %@",[NSString stringWithFormat:@"%@",str]]];
         
         [cell.taskDescription setText:[NSString stringWithFormat:@"%@",[planData valueForKey:@"x.ACTIVITY_NAME"]]];
         
         [cell.taskResponsible setText:[NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"Ответственный: %@ %@ %@",[planData valueForKey:@"d.LAST_NAME"],[planData valueForKey:@"d.FIRST_NAME"],[planData valueForKey:@"d.PATRONYMIC"]]]];
+        return  cell;
     }
     
-    return (indexPath.row == 0) ? buttonCell : cell;
+//    return (indexPath.row == 0) ? buttonCell : cell;
 }
 
 

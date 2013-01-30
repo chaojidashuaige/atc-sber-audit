@@ -43,14 +43,14 @@
         SUPObjectList * taskTypePrivs = [ODMobileMBOTaskTypesPriv findAll];
         
         if (taskTypePrivs.size == 0) {
-            UIButton *taskB = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+            UIButton *taskB = [UIButton buttonWithType:UIButtonTypeCustom];
             [taskB setBackgroundImage:[UIImage imageNamed:@"create_task_up.png"] forState:UIControlStateNormal];
             [taskB setBackgroundImage:[UIImage imageNamed:@"create_task_down.png"] forState:UIControlStateHighlighted];
             [taskB addTarget:self action:@selector(showTaskWindow) forControlEvents:UIControlEventTouchUpInside];
             [taskB setFrame:CGRectMake(13, 145, 174, 56)];
 //            [self.view addSubview:taskB];
             
-            UIButton *gembaB = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+            UIButton *gembaB = [UIButton buttonWithType:UIButtonTypeCustom];
             [gembaB setBackgroundImage:[UIImage imageNamed:@"gemba_button_still.png"] forState:UIControlStateNormal];
             [gembaB setBackgroundImage:[UIImage imageNamed:@"gemba_button_active.png"] forState:UIControlStateHighlighted];
             [gembaB setFrame:CGRectMake(13, taskB.frame.origin.y+taskB.frame.size.height+5, 174, 56)];
@@ -58,7 +58,7 @@
 //            [self.view addSubview:gembaB];
             
             
-            UIButton *synchronization = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+            UIButton *synchronization = [UIButton buttonWithType:UIButtonTypeCustom] ;
             [synchronization setBackgroundImage:[UIImage imageNamed:@"update_data_up.png"] forState:UIControlStateNormal];
             [synchronization setBackgroundImage:[UIImage imageNamed:@"update_data_down.png"] forState:UIControlStateHighlighted];
 //            [synchronization setFrame:CGRectMake(13, taskB.frame.origin.y+taskB.frame.size.height+5, 174, 56)];
@@ -66,7 +66,7 @@
             [synchronization addTarget:self action:@selector(synchronization) forControlEvents:UIControlEventTouchUpInside];
             [self.view addSubview:synchronization];
             
-            UIButton *dashboardB = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+            UIButton *dashboardB = [UIButton buttonWithType:UIButtonTypeCustom];
             [dashboardB setBackgroundImage:[UIImage imageNamed:@"dashboard_up.png"] forState:UIControlStateNormal];
             [dashboardB setBackgroundImage:[UIImage imageNamed:@"dashboard_down.png"] forState:UIControlStateHighlighted];
 //            [dashboardB setFrame:CGRectMake(13, gembaB.frame.origin.y+gembaB.frame.size.height+5, 174, 56)];
@@ -75,7 +75,7 @@
             [self.view addSubview:dashboardB];
             
 
-            CLSaveButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+            CLSaveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             [CLSaveButton setFrame:CGRectMake(13, dashboardB.frame.origin.y+dashboardB.frame.size.height+5, 56, 56)];
 //            [CLSaveButton setFrame:CGRectMake(13, settingsB.frame.origin.y+settingsB.frame.size.height+5, 56, 56)];
             [CLSaveButton setBackgroundImage:[UIImage imageNamed:@"cl_save_still.png"] forState:UIControlStateNormal];
@@ -83,14 +83,14 @@
             [CLSaveButton setAlpha:0.0f];
             [self.view addSubview:CLSaveButton];
             
-            CLDoneButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+            CLDoneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             [CLDoneButton setFrame:CGRectMake(13, CLSaveButton.frame.origin.y+CLSaveButton.frame.size.height+5, 56, 56)];
             [CLDoneButton setBackgroundImage:[UIImage imageNamed:@"cl_complete_still.png"] forState:UIControlStateNormal];
             [CLDoneButton setBackgroundImage:[UIImage imageNamed:@"cl_complete_active.png"] forState:UIControlStateHighlighted];
             [CLDoneButton setAlpha:0.0f];
             [self.view addSubview:CLDoneButton];
             
-            UIButton *settingsB = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+            UIButton *settingsB = [UIButton buttonWithType:UIButtonTypeCustom];
             [settingsB setBackgroundImage:[UIImage imageNamed:@"settings_still.png"] forState:UIControlStateNormal];
             [settingsB setBackgroundImage:[UIImage imageNamed:@"settings_active.png"] forState:UIControlStateHighlighted];
             //            [settingsB setFrame:CGRectMake(13, closed_taskB.frame.origin.y+closed_taskB.frame.size.height+5, 174, 56)];
@@ -100,13 +100,13 @@
             
             
 
-            [settingsB release];
-            [taskB release];
-            [gembaB release];
-            [dashboardB release];
+//            [settingsB release];
+//            [taskB release];
+//            [gembaB release];
+//            [dashboardB release];
         }
         else {
-            UIButton *taskB = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+            UIButton *taskB = [UIButton buttonWithType:UIButtonTypeCustom] ;
             [taskB setBackgroundImage:[UIImage imageNamed:@"create_task_up.png"] forState:UIControlStateNormal];
             [taskB setBackgroundImage:[UIImage imageNamed:@"create_task_down.png"] forState:UIControlStateHighlighted];
             //        [taskB setBackgroundImage:[UIImage imageNamed:@"task_button_still.png"] forState:UIControlStateNormal];
@@ -115,7 +115,7 @@
             [taskB setFrame:CGRectMake(13, 145, 174, 56)];
             [self.view addSubview:taskB];
             
-            UIButton *gembaB = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+            UIButton *gembaB = [UIButton buttonWithType:UIButtonTypeCustom] ;
             [gembaB setBackgroundImage:[UIImage imageNamed:@"gemba_button_still.png"] forState:UIControlStateNormal];
             [gembaB setBackgroundImage:[UIImage imageNamed:@"gemba_button_active.png"] forState:UIControlStateHighlighted];
             [gembaB setFrame:CGRectMake(13, taskB.frame.origin.y+taskB.frame.size.height+5, 174, 56)];
@@ -123,7 +123,7 @@
             //        [self.view addSubview:gembaB];
             
             
-            UIButton *synchronization = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+            UIButton *synchronization = [UIButton buttonWithType:UIButtonTypeCustom];
             [synchronization setBackgroundImage:[UIImage imageNamed:@"update_data_up.png"] forState:UIControlStateNormal];
             [synchronization setBackgroundImage:[UIImage imageNamed:@"update_data_down.png"] forState:UIControlStateHighlighted];
             //        [synchronization setBackgroundImage:[UIImage imageNamed:@"gemba_button_still.png"] forState:UIControlStateNormal];
@@ -132,7 +132,7 @@
             [synchronization addTarget:self action:@selector(synchronization) forControlEvents:UIControlEventTouchUpInside];
             [self.view addSubview:synchronization];
             
-            UIButton *dashboardB = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+            UIButton *dashboardB = [UIButton buttonWithType:UIButtonTypeCustom];
             [dashboardB setBackgroundImage:[UIImage imageNamed:@"dashboard_up.png"] forState:UIControlStateNormal];
             [dashboardB setBackgroundImage:[UIImage imageNamed:@"dashboard_down.png"] forState:UIControlStateHighlighted];
             //        [dashboardB setBackgroundImage:[UIImage imageNamed:@"dash_still.png"] forState:UIControlStateNormal];
@@ -142,7 +142,7 @@
             [self.view addSubview:dashboardB];
             
             
-            CLSaveButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+            CLSaveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             [CLSaveButton setFrame:CGRectMake(13, dashboardB.frame.origin.y+dashboardB.frame.size.height+5, 56, 56)];
 //            [CLSaveButton setFrame:CGRectMake(13, settingsB.frame.origin.y+settingsB.frame.size.height+5, 56, 56)];
             [CLSaveButton setBackgroundImage:[UIImage imageNamed:@"cl_save_still.png"] forState:UIControlStateNormal];
@@ -150,7 +150,7 @@
             [CLSaveButton setAlpha:0.0f];
             [self.view addSubview:CLSaveButton];
             
-            CLDoneButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect] retain];
+            CLDoneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             [CLDoneButton setFrame:CGRectMake(13, CLSaveButton.frame.origin.y+CLSaveButton.frame.size.height+5, 56, 56)];
             [CLDoneButton setBackgroundImage:[UIImage imageNamed:@"cl_complete_still.png"] forState:UIControlStateNormal];
             [CLDoneButton setBackgroundImage:[UIImage imageNamed:@"cl_complete_active.png"] forState:UIControlStateHighlighted];
@@ -158,7 +158,7 @@
             [self.view addSubview:CLDoneButton];
 
             
-            UIButton *settingsB = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+            UIButton *settingsB = [UIButton buttonWithType:UIButtonTypeCustom];
             [settingsB setBackgroundImage:[UIImage imageNamed:@"settings_still.png"] forState:UIControlStateNormal];
             [settingsB setBackgroundImage:[UIImage imageNamed:@"settings_active.png"] forState:UIControlStateHighlighted];
             //            [settingsB setFrame:CGRectMake(13, closed_taskB.frame.origin.y+closed_taskB.frame.size.height+5, 174, 56)];
@@ -167,10 +167,10 @@
 //            [self.view addSubview:settingsB];
 
             
-            [settingsB release];
-            [taskB release];
-            [gembaB release];
-            [dashboardB release];
+//            [settingsB release];
+//            [taskB release];
+//            [gembaB release];
+//            [dashboardB release];
         }
 
         

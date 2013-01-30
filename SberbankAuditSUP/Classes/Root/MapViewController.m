@@ -69,15 +69,15 @@
     
     //add task view when application start
     
-        MainMapView *map = [[MainMapView alloc] initWithFrame:CGRectMake(0, 0, 826, 748)];
-        
-        mapMenuController.delegate = map;
+    MainMapView *map = [[MainMapView alloc] initWithFrame:CGRectMake(0, 0, 826, 748)];
     
-    
-        [[SberbankAuditAppDelegate instance].mapViewController.stackMenuScrollViewController addViewInSlider:map drawShadow:NO invokeByController:mapMenuController isStackStartView:YES];
+    mapMenuController.delegate = map;
 
-        
-      
+
+    [[SberbankAuditAppDelegate instance].mapViewController.stackMenuScrollViewController addViewInSlider:map drawShadow:NO invokeByController:mapMenuController isStackStartView:YES];
+
+    [map release];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
