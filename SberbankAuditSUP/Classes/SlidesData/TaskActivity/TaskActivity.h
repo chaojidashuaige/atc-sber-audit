@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "ODMobileMBOEmployeesSubordinations.h"
 #import "Cell.h"
+#import "CalendarController.h"
 
-@interface TaskActivity : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIScrollViewDelegate,UIAlertViewDelegate>
+@interface TaskActivity : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIScrollViewDelegate,UIAlertViewDelegate, CalendarControllerDelegate>
 {
     UILabel *aTitleLabel;
     UIButton *aTypeButton;
@@ -55,6 +56,8 @@
 
     UILabel * newLabel;
     UIActivityIndicatorView * newIndicator;
+    
+    UIPopoverController *calendarPopover;
 }
 - (id)initWithFrame:(CGRect)frame;
 - (void) openCamera;
@@ -78,14 +81,9 @@
 - (void) dismissTaskWindow;
 - (void)openActivityIndicatorViewWithName:(NSString *)name;
 - (void) closeActivityIndicator;
+- (void)dismissPopover;
 
 
-
-
-
-
-
-@property (nonatomic,retain) UIPopoverController *calendarPopover;
 @property (nonatomic,retain) UIButton *aTypeButton;
 @property (nonatomic,retain) UIButton *aPriorityButton;
 @property (nonatomic,retain) UIButton *aEndDateButton;

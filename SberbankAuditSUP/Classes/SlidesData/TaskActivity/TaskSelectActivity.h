@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "TaskPlan.h"
 #import "Cell.h"
+#import "CalendarController.h"
+
 @class SUPObjectList;
 
-@interface TaskSelectActivity : UIViewController
-
-<UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIScrollViewDelegate>
+@interface TaskSelectActivity : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIScrollViewDelegate, UIPopoverControllerDelegate, CalendarControllerDelegate>
 {
     UILabel *aTitleLabel;
     UIButton *aTypeButton;
@@ -83,6 +83,7 @@
     int hierarchyLevel;
     NSMutableArray * resultEmployees;
     NSMutableArray * resultInspectors;
+    UIPopoverController *calendarPopover;
     
 }
 
@@ -106,14 +107,11 @@
 - (void) getResponsibles;
 - (void) fillParentsWithCell:(Cell *)cell withHierarchyLevel:(int)level withArray:(NSMutableArray *)array;
 - (void) getInspectors;
-
+- (void)dismissPopover;
 
 - (CGFloat) heightForCellWithText:(NSString*)myCell maxHeight:(float)max;
 
 
-
-
-@property (nonatomic,retain) UIPopoverController *calendarPopover;
 @property (nonatomic,retain) UIButton *aTypeButton;
 @property (nonatomic,retain) UIButton *aPriorityButton;
 @property (nonatomic,retain) UIButton *aEndDateButton;

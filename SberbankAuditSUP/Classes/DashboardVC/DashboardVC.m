@@ -72,7 +72,7 @@
     [super viewDidLoad];
     dashboardBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ipad_sber_dashboard_1024x768.png"]];
     [self.view addSubview:dashboardBackground];
-    [dashboardBackground release];
+//    [dashboardBackground release];
     
     mainMapButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     UIImage *image = [UIImage imageNamed:@"sberLogo.png"];
@@ -164,15 +164,16 @@
         [tasksForLastTaskDate addObject:dict];
         [dict release];
 
-        NSDate * date;
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy.MM.dd HH:mm"];
 //        [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
         
         NSString * strDate = [NSString stringWithFormat:@"%@",[[tasksForLastTaskDate objectAtIndex:0] valueForKey:@"x.PLAN_START_DTTM"]];
         double DOUBLE = [strDate doubleValue]/1000;
-        date = [NSDate dateWithTimeIntervalSince1970:DOUBLE];
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:DOUBLE];
         strDate = [dateFormatter stringFromDate:date];
+        
+        [dateFormatter release];
         
         planStartDttm = strDate;
         subbranchName = [NSString stringWithFormat:@"%@",[[tasksForLastTaskDate objectAtIndex:0] valueForKey:@"f.SUBBRANCH_NAME"]];
@@ -386,7 +387,7 @@
         [self.view removeFromSuperview];
         [[SberbankAuditAppDelegate instance] openTasksVC:todayTasks openTask:nil];
         NSString * typeOfTasks = [[NSString alloc] initWithString:@"TODAY"];
-        [SberbankAuditAppDelegate instance].typeOfTasks = [typeOfTasks copy];
+        [SberbankAuditAppDelegate instance].typeOfTasks = typeOfTasks;
         [typeOfTasks release];
     }
     else if(CGRectContainsPoint(inPlanTaskDef, touchLocation))
@@ -394,7 +395,7 @@
         [self.view removeFromSuperview];
         [[SberbankAuditAppDelegate instance] openTasksVC:inPlanTasks openTask:nil];
         NSString * typeOfTasks = [[NSString alloc] initWithString:@"INPLAN"];
-        [SberbankAuditAppDelegate instance].typeOfTasks = [typeOfTasks copy];
+        [SberbankAuditAppDelegate instance].typeOfTasks = typeOfTasks;
         [typeOfTasks release];
     }
     else if(CGRectContainsPoint(expiredAndClosedTaskDef, touchLocation))
@@ -402,7 +403,7 @@
         [self.view removeFromSuperview];
         [[SberbankAuditAppDelegate instance] openTasksVC:closedAndExpiredTasks openTask:nil];
         NSString * typeOfTasks = [[NSString alloc] initWithString:@"CLOSED"];
-        [SberbankAuditAppDelegate instance].typeOfTasks = [typeOfTasks copy];
+        [SberbankAuditAppDelegate instance].typeOfTasks = typeOfTasks;
         [typeOfTasks release];
     }
     else if(CGRectContainsPoint(lastTaskPlaneDef, touchLocation))
@@ -410,7 +411,7 @@
         [self.view removeFromSuperview];
         [[SberbankAuditAppDelegate instance] openTasksVC:tasksForLastTaskDate openTask:nil];
         NSString * typeOfTasks = [[NSString alloc] initWithString:@"NOW"];
-        [SberbankAuditAppDelegate instance].typeOfTasks = [typeOfTasks copy];
+        [SberbankAuditAppDelegate instance].typeOfTasks = typeOfTasks;
         [typeOfTasks release];
     }
     
@@ -427,15 +428,14 @@
 {
     [super dealloc];
     
-    [allTasks release];
+//    [allTasks release];
     [todayTasks release];
     [inPlanTasks release];
     [closedAndExpiredTasks release];
     [tasksForLastTaskDate release];
     [lastTask release];
-    [mapView release];
+//    [mapView release];
     [dashboardBackground release];
-    [mainMapButton release];
     
 }
 

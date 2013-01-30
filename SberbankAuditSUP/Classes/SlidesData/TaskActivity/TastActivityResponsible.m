@@ -94,7 +94,7 @@
         [taClass.activity setObject:[[arraySubType objectAtIndex:indexPath.row] objectForKey:@"LAST_NAME"] forKey:@"d.LAST_NAME"];
         [taClass.activity setObject:[[arraySubType objectAtIndex:indexPath.row] objectForKey:@"FIRST_NAME"] forKey:@"d.FIRST_NAME"];
         [taClass.activity setObject:[[arraySubType objectAtIndex:indexPath.row] objectForKey:@"PATRONYMIC"] forKey:@"d.PATRONYMIC"];
-        [taClass.calendarPopover dismissPopoverAnimated:YES];
+        [taClass dismissPopover];
 //        aResponsibleButton.enabled = NO;
 //        [aResponsibleButton setAlpha:0.5];
 
@@ -109,7 +109,7 @@
         [tbClass.arraySelectActivity setObject:[[arraySubType objectAtIndex:indexPath.row] objectForKey:@"LAST_NAME"] forKey:@"d.LAST_NAME"];
         [tbClass.arraySelectActivity setObject:[[arraySubType objectAtIndex:indexPath.row] objectForKey:@"FIRST_NAME"] forKey:@"d.FIRST_NAME"];
         [tbClass.arraySelectActivity setObject:[[arraySubType objectAtIndex:indexPath.row] objectForKey:@"PATRONYMIC"] forKey:@"d.PATRONYMIC"];
-        [tbClass.calendarPopover dismissPopoverAnimated:YES];
+        [tbClass dismissPopover];
         tbClass.RESPONSER_ID = [[arraySubType objectAtIndex:indexPath.row] objectForKey:@"EMPLOYEE_ID"];
 //        [tbClass.RESPONSER_ID retain];
     }

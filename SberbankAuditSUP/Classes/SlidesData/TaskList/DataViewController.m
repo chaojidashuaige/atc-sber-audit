@@ -81,7 +81,7 @@
         [self.view addSubview:parentTaskSearchBar];
         [parentTaskSearchBar release];
         
-        self.tweets = [[NSMutableArray alloc] init];
+        self.tweets = [NSMutableArray arrayWithCapacity:0];
         
         
 	}
@@ -231,6 +231,8 @@
 //    [self.tweets release];
     self.tweets = arrayWithDictionaries;
 
+    [tasksDictionary release];
+    [arrayWithDictionaries release];
     [dateFormatter release];
 }
 
@@ -276,14 +278,14 @@
     
     id checkClass = (isTaskSearch) ? [tweetsSearch objectAtIndex:indexPath.row] : [[[self.tweets objectAtIndex:indexPath.section] valueForKey:@"content"] objectAtIndex:indexPath.row];
     
-    TaskTableViewCell *TaskCell;
+    TaskTableViewCell *taskCell;
     TaskPlanCell *activityCell;
     
     if ([checkClass valueForKey:@"TASK_OR_ACTIVITY"] == @"TASK") {
-        TaskCell = (TaskTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifierTask];
+        taskCell = (TaskTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifierTask];
         
-        if (TaskCell == nil) {
-            TaskCell = [[[TaskTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifierTask] autorelease];
+        if (taskCell == nil) {
+            taskCell = [[[TaskTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifierTask] autorelease];
         }
 
         int indicator = 0;//зеленый
@@ -302,25 +304,25 @@
         {
             indicator = 0;
         }
-        TaskCell.taskIndicator.image = [UIImage imageNamed:[NSString stringWithFormat:@"indicator_%i.png",indicator]];
+        taskCell.taskIndicator.image = [UIImage imageNamed:[NSString stringWithFormat:@"indicator_%i.png",indicator]];
 //        [TaskCell.taskTitle setText:[NSString stringWithFormat:@"%@ %@",
 //                                     [NSString stringWithFormat:@"%@",[checkClass valueForKey:@"y.TASK_TYPE_NAME"]],
 //                                     [NSString stringWithFormat:@"%@",[checkClass valueForKey:@"f.SUBBRANCH_NAME"]]]];
-        [TaskCell.taskTitle setText:[NSString stringWithFormat:@"%@",
+        [taskCell.taskTitle setText:[NSString stringWithFormat:@"%@",
                                      [NSString stringWithFormat:@"%@",[checkClass valueForKey:@"y.TASK_TYPE_NAME"]]]];
 //        [TaskCell.taskDescription setText:[NSString stringWithFormat:@"%@",[checkClass valueForKey:@"f.ADDRESS"]]];
-        [TaskCell.taskDescription setText:[NSString stringWithFormat:@"%@",[checkClass valueForKey:@"f.SUBBRANCH_NAME"]]];
+        [taskCell.taskDescription setText:[NSString stringWithFormat:@"%@",[checkClass valueForKey:@"f.SUBBRANCH_NAME"]]];
         if (![[NSString stringWithFormat:@"%@",[checkClass valueForKey:@"unions.UNION_NAME"]] isEqualToString:@""]) {
-            [TaskCell.taskDescription setText:[NSString stringWithFormat:@"%@",[checkClass valueForKey:@"unions.UNION_NAME"]]];
+            [taskCell.taskDescription setText:[NSString stringWithFormat:@"%@",[checkClass valueForKey:@"unions.UNION_NAME"]]];
         }
 //        [TaskCell.taskDescription setText:[NSString stringWithFormat:@"%@",[checkClass valueForKey:@"f.ADDRESS"]]];
-        [TaskCell.taskStatus setText:[NSString stringWithFormat:@"%@",[checkClass valueForKey:@"b.TASK_STATUS_NAME"]]];
-        [TaskCell.taskInspector setText:[NSString stringWithFormat:@"%@ %@ %@",[checkClass valueForKey:@"c.LAST_NAME"],[checkClass valueForKey:@"c.FIRST_NAME"],[checkClass valueForKey:@"c.PATRONYMIC"]]];
+        [taskCell.taskStatus setText:[NSString stringWithFormat:@"%@",[checkClass valueForKey:@"b.TASK_STATUS_NAME"]]];
+        [taskCell.taskInspector setText:[NSString stringWithFormat:@"%@ %@ %@",[checkClass valueForKey:@"c.LAST_NAME"],[checkClass valueForKey:@"c.FIRST_NAME"],[checkClass valueForKey:@"c.PATRONYMIC"]]];
         if ([[NSString stringWithFormat:@"%@",[checkClass valueForKey:@"c.LAST_NAME"]] isEqualToString:@""]) {
-            [TaskCell.taskInspector setText:@"Запланировано системой"];
+            [taskCell.taskInspector setText:@"Запланировано системой"];
         }
-        if ([TaskCell.taskInspector.text isEqualToString:@""]) {
-            [TaskCell.taskInspector setText:@"(Не определено)"];
+        if ([taskCell.taskInspector.text isEqualToString:@""]) {
+            [taskCell.taskInspector setText:@"(Не определено)"];
         }
 //        NSLog(@"%@",[checkClass valueForKey:@"b.TASK_STATUS_NAME"]);
         
@@ -333,11 +335,14 @@
         date = [NSDate dateWithTimeIntervalSince1970:DOUBLE];
         str = [dateFormatter stringFromDate:date];
         
-        [TaskCell.taskTime setText:str];
-    }
-    
-    if ([checkClass valueForKey:@"TASK_OR_ACTIVITY"] == @"ACTIVITY") {
+        [dateFormatter release];
         
+        [taskCell.taskTime setText:str];
+        return taskCell;
+    }
+//    else if ([checkClass valueForKey:@"TASK_OR_ACTIVITY"] == @"ACTIVITY") {
+    else {
+    
         activityCell = (TaskPlanCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifierActivity];
         if (activityCell == nil) {
             activityCell = [[[TaskPlanCell alloc] initWithStyle:UITableViewCellStyleDefault isHeader:NO reuseIdentifier:CellIdentifierActivity] autorelease];
@@ -376,6 +381,8 @@
         double DOUBLE = [str doubleValue]/1000;
         date = [NSDate dateWithTimeIntervalSince1970:DOUBLE];
         str = [dateFormatter stringFromDate:date];
+        
+        [dateFormatter release];
 
         [activityCell.taskDate setText:
          [NSString stringWithFormat:@"Выполнить до: %@",
@@ -383,9 +390,10 @@
         [activityCell.taskDescription setText:[NSString stringWithFormat:@"%@",[checkClass valueForKey:@"x.ACTIVITY_NAME"]]];
         [activityCell.taskResponsible setText:[NSString stringWithFormat:@"Ответственный: %@ %@ %@",[checkClass valueForKey:@"d.LAST_NAME"],[checkClass valueForKey:@"d.FIRST_NAME"],[checkClass valueForKey:@"d.PATRONYMIC"]]];
 //        [activityCell.taskResponsible setText:[NSString stringWithFormat:@"Ответственный: %@",[NSString stringWithFormat:@"%@",[checkClass valueForKey:@"x.RESPONSIBLE_DESC"]]]];
+        return activityCell;
     }
     
-    return ([checkClass valueForKey:@"TASK_OR_ACTIVITY"] == @"TASK") ? TaskCell : activityCell;
+//    return ([checkClass valueForKey:@"TASK_OR_ACTIVITY"] == @"TASK") ? TaskCell : activityCell;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -425,8 +433,8 @@
     {
         TaskSelectActivity *selectActivity = [[TaskSelectActivity alloc] initWithFrame:CGRectMake(0, 0, 504, 678)];
 //        selectActivity.taskPlan =  [self retain];
-        selectActivity.taskPlan =  [self retain];
-        selectActivity.arraySelectActivity = [checkClass retain];
+        selectActivity.taskPlan =  self;
+        selectActivity.arraySelectActivity = checkClass;
         selectActivity.modalPresentationStyle = UIModalPresentationFormSheet;
         [self presentModalViewController:selectActivity animated:YES];
         [[selectActivity.view superview] setFrame:CGRectMake(roundf([selectActivity.view superview].center.x-252), roundf([selectActivity.view superview].center.y-339), 504, 678)];
@@ -441,34 +449,35 @@
     NSLog(@"UpdateData function is called");
     NSDate * nowDate = [[NSDate alloc] init];
     long long numberOfSecondsFrom1970 = [nowDate timeIntervalSince1970];
+    [nowDate release];
     long long numberOfMillisecsFrom1970 = (numberOfSecondsFrom1970 + 1) * 1000;
     NSString * str = [NSString stringWithFormat:@"%lld",numberOfMillisecsFrom1970];
 //    NSLog(@"Current time = %@",str);
 
     NSLog(@"Type of tasks: %@",[SberbankAuditAppDelegate instance].typeOfTasks);
     
-    SUPQueryResultSet * Tasks;
+    SUPQueryResultSet * tasks = nil;
     if ([[SberbankAuditAppDelegate instance].typeOfTasks isEqualToString:@"TODAY"]) {
-        Tasks = [ODMobileMBO_getTasks getTodayTasks:str];
+        tasks = [ODMobileMBO_getTasks getTodayTasks:str];
     } else if ([[SberbankAuditAppDelegate instance].typeOfTasks isEqualToString:@"INPLAN"]) {
-        Tasks = [ODMobileMBO_getTasks getFutureTasks:str];
+        tasks = [ODMobileMBO_getTasks getFutureTasks:str];
     } else if ([[SberbankAuditAppDelegate instance].typeOfTasks isEqualToString:@"CLOSED"]){
-        Tasks = [ODMobileMBO_getTasks getPreviousTasks];
+        tasks = [ODMobileMBO_getTasks getPreviousTasks];
     } else if ([[SberbankAuditAppDelegate instance].typeOfTasks isEqualToString:@"NOW"]){
-        Tasks = [ODMobileMBO_getTasks getCurrentTask:str];
+        tasks = [ODMobileMBO_getTasks getCurrentTask:str];
     }
     NSMutableArray * array = [[NSMutableArray alloc]  init];
     NSMutableArray * arrayWithSubbrenchesID = [[NSMutableArray alloc] init];
-    if (Tasks.size != 0) {
-        for (int i = 0; i < Tasks.size; i++) {
+    if (tasks.size != 0) {
+        for (int i = 0; i < tasks.size; i++) {
             NSMutableDictionary * dict = [[NSMutableDictionary alloc] init];
-            for (int j = 0; j < Tasks.columnNames.size; j++) {
-                if ([[Tasks objectAtIndex:i] objectAtIndex:j] == nil) {
-                    [dict setObject:@"" forKey:[[Tasks columnNames] objectAtIndex:j]];
+            for (int j = 0; j < tasks.columnNames.size; j++) {
+                if ([[tasks objectAtIndex:i] objectAtIndex:j] == nil) {
+                    [dict setObject:@"" forKey:[[tasks columnNames] objectAtIndex:j]];
                 }
                 else
                 {
-                    [dict setObject:[[Tasks objectAtIndex:i] objectAtIndex:j] forKey:[[Tasks columnNames] objectAtIndex:j]];
+                    [dict setObject:[[tasks objectAtIndex:i] objectAtIndex:j] forKey:[[tasks columnNames] objectAtIndex:j]];
                 }
             }
             [dict setObject:@"TASK" forKey:@"TASK_OR_ACTIVITY"];
@@ -478,7 +487,7 @@
         }
     }
     NSLog(@"number of actions = %i",array.count);
-    [Tasks close];
+    [tasks close];
     [arrayWithSubbrenchesID release];
     NSLog(@"self.tweets count before save = %i",tweets.count);
 
@@ -499,28 +508,29 @@
     NSLog(@"findMaxTaskID function is called");
     NSDate * nowDate = [[NSDate alloc] init];
     long long numberOfSecondsFrom1970 = [nowDate timeIntervalSince1970];
+    [nowDate release];
     long long numberOfMillisecsFrom1970 = numberOfSecondsFrom1970 * 1000;
     NSString * str = [NSString stringWithFormat:@"%lld",numberOfMillisecsFrom1970];
     //    NSLog(@"Current time = %@",str);
     
     NSLog(@"Type of tasks: %@",[SberbankAuditAppDelegate instance].typeOfTasks);
     
-    SUPQueryResultSet * Tasks;
+    SUPQueryResultSet * tasks = nil;
     if ([[SberbankAuditAppDelegate instance].typeOfTasks isEqualToString:@"TODAY"]) {
-        Tasks = [ODMobileMBO_getTasks getTodayTasks:str];
+        tasks = [ODMobileMBO_getTasks getTodayTasks:str];
     } else if ([[SberbankAuditAppDelegate instance].typeOfTasks isEqualToString:@"INPLAN"]) {
-        Tasks = [ODMobileMBO_getTasks getFutureTasks:str];
+        tasks = [ODMobileMBO_getTasks getFutureTasks:str];
     } else if ([[SberbankAuditAppDelegate instance].typeOfTasks isEqualToString:@"CLOSED"]){
-        Tasks = [ODMobileMBO_getTasks getPreviousTasks];
+        tasks = [ODMobileMBO_getTasks getPreviousTasks];
     } else if ([[SberbankAuditAppDelegate instance].typeOfTasks isEqualToString:@"NOW"]){
-        Tasks = [ODMobileMBO_getTasks getCurrentTask:str];
+        tasks = [ODMobileMBO_getTasks getCurrentTask:str];
     }
-    NSString * lastTaskID;
-    if (Tasks.size > 0) {
-        lastTaskID = [NSString stringWithFormat:@"%@",[[Tasks objectAtIndex:0] objectForKey:@"x.TASK_ID"]];
+    NSString * lastTaskID = nil;
+    if (tasks.size > 0) {
+        lastTaskID = [NSString stringWithFormat:@"%@",[[tasks objectAtIndex:0] objectForKey:@"x.TASK_ID"]];
         NSLog(@"%@",lastTaskID);
-        for (int i = 1; i < Tasks.size; i++) {
-            NSString * curTaskID = [NSString stringWithFormat:@"%@",[[Tasks objectAtIndex:i] objectForKey:@"x.TASK_ID"]];
+        for (int i = 1; i < tasks.size; i++) {
+            NSString * curTaskID = [NSString stringWithFormat:@"%@",[[tasks objectAtIndex:i] objectForKey:@"x.TASK_ID"]];
             NSLog(@"%@",curTaskID);
             if ([lastTaskID doubleValue] < [curTaskID doubleValue]) {
                 lastTaskID = curTaskID;
@@ -544,7 +554,7 @@
 
 - (void)dealloc {
 	[formatter release];
-	[self.tweets release];
+	self.tweets = nil;
     [_tableView release];
 //    [SBOpenDetailSlide release];
     [userActivities release];

@@ -104,7 +104,7 @@
         [taClass.activity setObject:[[arraySubType objectAtIndex:indexPath.row] objectForKey:@"LAST_NAME"] forKey:@"h.LAST_NAME"];
         [taClass.activity setObject:[[arraySubType objectAtIndex:indexPath.row] objectForKey:@"FIRST_NAME"] forKey:@"h.FIRST_NAME"];
         [taClass.activity setObject:[[arraySubType objectAtIndex:indexPath.row] objectForKey:@"PATRONYMIC"] forKey:@"h.PATRONYMIC"];
-        [taClass.calendarPopover dismissPopoverAnimated:YES];
+        [taClass dismissPopover];
     }
     if (tbClass != nil) {
         [tbClass.aInspectorButton setTitle:[NSString stringWithFormat:@"%@ %@ %@",[[arraySubType objectAtIndex:indexPath.row] objectForKey:@"LAST_NAME"],
@@ -116,7 +116,7 @@
         [tbClass.arraySelectActivity setObject:[[arraySubType objectAtIndex:indexPath.row] objectForKey:@"PATRONYMIC"] forKey:@"h.PATRONYMIC"];
         tbClass.INSPECTOR_ID = [[arraySubType objectAtIndex:indexPath.row] objectForKey:@"EMPLOYEE_ID"];
 
-        [tbClass.calendarPopover dismissPopoverAnimated:YES];
+        [tbClass dismissPopover];
     }
 }
 

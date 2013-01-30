@@ -123,7 +123,7 @@
         
         [taClass.aEndDateButton setTitle:str forState:UIControlStateNormal];
         
-        [taClass.calendarPopover dismissPopoverAnimated:YES];
+        [taClass dismissPopover];
     }
     if (tbClass != nil) {
         [tbClass.aNotesText setText:[[arraySubType objectAtIndex:indexPath.row] objectForKey:@"ACTIVITY_NAME"]];
@@ -155,7 +155,7 @@
         [tbClass.aEndDateButton setTitle:str forState:UIControlStateNormal];
 
         
-        [tbClass.calendarPopover dismissPopoverAnimated:YES];
+        [tbClass dismissPopover];
     }
 }
 

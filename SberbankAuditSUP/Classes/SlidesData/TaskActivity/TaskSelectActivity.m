@@ -9,7 +9,6 @@
 #import "TaskSelectActivity.h"
 #import "SberbankAuditAppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
-#import "CalendarController.h"
 #import "SUPApplication.h"
 #import "SUPConnectionProfile.h"
 #import "ODMobileODMobileDB.h"
@@ -53,7 +52,6 @@
 
 @implementation TaskSelectActivity
 
-@synthesize calendarPopover;
 @synthesize aTypeButton;
 @synthesize aPriorityButton;
 @synthesize aEndDateButton;
@@ -103,10 +101,10 @@
         isResponser = false;
         isInspertor = false;
         
-        self.lastStatus = [[NSString alloc] init];
-        self.currentStatus = [[NSString alloc] init];
+        self.lastStatus = [NSString string];
+        self.currentStatus = [NSString string];
         
-        scroll = [[UIScrollView alloc] initWithFrame:self.view.frame];
+//        scroll = [[UIScrollView alloc] initWithFrame:self.view.frame];
 
 //        label = [[UILabel alloc] initWithFrame:CGRectMake(300, 500, 200, 60)];
 //        [label setText:@"Идет синхронизация"];
@@ -123,7 +121,7 @@
         
 
         
-        self.arrayWithStatuses = [[NSMutableArray alloc] init];
+        self.arrayWithStatuses = [NSMutableArray arrayWithCapacity:0];
         
         scroll = [[UIScrollView alloc] initWithFrame:self.view.frame];
         scroll.showsHorizontalScrollIndicator = YES;
@@ -170,13 +168,14 @@
         
         
         
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"dd.MM.yyyy"];
-        NSString * createString = [NSString stringWithFormat:@"%@",[arraySelectActivity valueForKey:@"CREATED_DTTM"]];
-        double DOUBLE = [createString doubleValue]/1000;
-        NSDate * date = [NSDate dateWithTimeIntervalSince1970:DOUBLE];
-        createString = [dateFormatter stringFromDate:date];
+//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//        [dateFormatter setDateFormat:@"dd.MM.yyyy"];
+//        NSString * createString = [NSString stringWithFormat:@"%@",[arraySelectActivity valueForKey:@"CREATED_DTTM"]];
+//        double DOUBLE = [createString doubleValue]/1000;
+//        NSDate * date = [NSDate dateWithTimeIntervalSince1970:DOUBLE];
+//        createString = [dateFormatter stringFromDate:date];
 
+//        [dateFormatter release];
 
 
         createDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 130, 330, 17)];
@@ -406,9 +405,12 @@
         [Template.arraySubType addObject:dict];
         [dict release];
     }
-    self.calendarPopover = [[UIPopoverController alloc] initWithContentViewController:Template];
-    self.calendarPopover.popoverContentSize = CGSizeMake(600, 250);
-    [self.calendarPopover presentPopoverFromRect:aNotesButton.bounds inView:aNotesButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    if (calendarPopover != nil) {
+        [calendarPopover release];
+    }
+    calendarPopover = [[UIPopoverController alloc] initWithContentViewController:Template];
+    calendarPopover.popoverContentSize = CGSizeMake(600, 250);
+    [calendarPopover presentPopoverFromRect:aNotesButton.bounds inView:aNotesButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     [Template release];
 }
 
@@ -417,10 +419,13 @@
     NSLog(@"choose date");
     CalendarController *rtCalendar = [[CalendarController alloc] initWithNibName:nil bundle:nil];
     UIViewController *calendarViewController = (UIViewController*)rtCalendar;
-    self.calendarPopover = [[UIPopoverController alloc] initWithContentViewController:calendarViewController];
-    [self.calendarPopover setPopoverContentSize:CGSizeMake(rtCalendar.calendar.frame.size.width, rtCalendar.calendar.frame.size.height)];
-    rtCalendar.bSender = self;
-    [self.calendarPopover presentPopoverFromRect:aEndDateButton.bounds inView:aEndDateButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    if (calendarPopover != nil) {
+        [calendarPopover release];
+    }
+    calendarPopover = [[UIPopoverController alloc] initWithContentViewController:calendarViewController];
+    [calendarPopover setPopoverContentSize:CGSizeMake(rtCalendar.calendar.frame.size.width, rtCalendar.calendar.frame.size.height)];
+    rtCalendar.delegate = self;
+    [calendarPopover presentPopoverFromRect:aEndDateButton.bounds inView:aEndDateButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     [rtCalendar release];
 
 }
@@ -435,9 +440,12 @@
     for (int i = 0; i < self.arrayWithStatuses.count; i++) {
         [Status.arraySubType addObject:[self.arrayWithStatuses objectAtIndex:i]];
     }
-    self.calendarPopover = [[UIPopoverController alloc] initWithContentViewController:Status];
-    self.calendarPopover.popoverContentSize = CGSizeMake(300, 140);
-    [self.calendarPopover presentPopoverFromRect:aStatusButton.bounds inView:aStatusButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    if (calendarPopover != nil) {
+        [calendarPopover release];
+    }
+    calendarPopover = [[UIPopoverController alloc] initWithContentViewController:Status];
+    calendarPopover.popoverContentSize = CGSizeMake(300, 140);
+    [calendarPopover presentPopoverFromRect:aStatusButton.bounds inView:aStatusButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     [Status release];
 
 }
@@ -455,9 +463,12 @@
         [Priority.arrayWithData addObject:dict];
         [dict release];
     }
-    self.calendarPopover = [[UIPopoverController alloc] initWithContentViewController:Priority];
-    self.calendarPopover.popoverContentSize = CGSizeMake(300, 140);
-    [self.calendarPopover presentPopoverFromRect:aPriorityButton.bounds inView:aPriorityButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    if (calendarPopover != nil) {
+        [calendarPopover release];
+    }
+    calendarPopover = [[UIPopoverController alloc] initWithContentViewController:Priority];
+    calendarPopover.popoverContentSize = CGSizeMake(300, 140);
+    [calendarPopover presentPopoverFromRect:aPriorityButton.bounds inView:aPriorityButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     [Priority release];
 
 }
@@ -478,10 +489,12 @@
         [Responcer.arraySubType addObject:dict];
     }
 
-    
-    self.calendarPopover = [[UIPopoverController alloc] initWithContentViewController:Responcer];
-    self.calendarPopover.popoverContentSize = CGSizeMake(700, 400);
-    [self.calendarPopover presentPopoverFromRect:aResponsibleButton.bounds inView:aResponsibleButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    if (calendarPopover != nil) {
+        [calendarPopover release];
+    }
+    calendarPopover = [[UIPopoverController alloc] initWithContentViewController:Responcer];
+    calendarPopover.popoverContentSize = CGSizeMake(700, 400);
+    [calendarPopover presentPopoverFromRect:aResponsibleButton.bounds inView:aResponsibleButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     [Responcer release];
 
 }
@@ -720,10 +733,13 @@
         [Inspector.arraySubType addObject:dict];
     }
 
+    if (calendarPopover != nil) {
+        [calendarPopover release];
+    }
     
-    self.calendarPopover = [[UIPopoverController alloc] initWithContentViewController:Inspector];
-    self.calendarPopover.popoverContentSize = CGSizeMake(700, 400);
-    [self.calendarPopover presentPopoverFromRect:aInspectorButton.bounds inView:aInspectorButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    calendarPopover = [[UIPopoverController alloc] initWithContentViewController:Inspector];
+    calendarPopover.popoverContentSize = CGSizeMake(700, 400);
+    [calendarPopover presentPopoverFromRect:aInspectorButton.bounds inView:aInspectorButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     [Inspector release];
 
 }
@@ -1219,6 +1235,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    calendarPopover = nil;
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -3221,6 +3238,59 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return YES;
+}
+
+- (void)dismissPopover
+{
+    if (calendarPopover != nil) {
+        [calendarPopover dismissPopoverAnimated:YES];
+    }
+}
+
+#pragma mark - CalendarControllerDelegate
+
+- (void)dismissPopoverWithSelectedDate:(NSDate *)d
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    NSDate * now = [NSDate date];
+    [formatter setDateFormat:@"yyyy.MM.dd"];
+    NSString * nowStr = [formatter stringFromDate:now];
+    NSString * dStr = [formatter stringFromDate:d];
+    [formatter setDateFormat:@"dd.MM.yyyy"];
+
+    if ([dStr compare:nowStr] == NSOrderedDescending || [nowStr compare:dStr] == NSOrderedSame) {
+        [self.aEndDateButton setTitle:[formatter stringFromDate:d] forState:UIControlStateNormal];
+    }
+    else
+    {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Неверная дата" message:@"Нельзя назначить дату исполнения в прошлом" delegate:self cancelButtonTitle:@"Закрыть" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        [self.aEndDateButton setTitle:[formatter stringFromDate:now] forState:UIControlStateNormal];
+    }
+//        [bSender.aEndDateButton setTitle:[formatter stringFromDate:d] forState:UIControlStateNormal];
+
+    long long date = [d timeIntervalSince1970];
+    NSLog(@"%lld",date);
+    NSString * stringDate = [NSString stringWithFormat:@"%lld000",date];
+    
+    [self.arraySelectActivity setObject:stringDate forKey:@"x.DUEDATE_DTTM"];
+    [calendarPopover dismissPopoverAnimated:YES];
+    
+    [formatter release];
+
+}
+
+- (void)setContentSizeForPopover:(CGSize)size
+{
+    calendarPopover.popoverContentSize = size;
+}
+
+#pragma mark - UIPopoverControllerDelegate
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    [popoverController release];
 }
 
 @end

@@ -24,7 +24,6 @@
     NSMutableDictionary *taskData;
     ControlList *controlList;
     UIAlertView * alert;
-    UIAlertView * completeAlert;
     UIAlertView * cancelTaskAlert;
     UIAlertView * errorAlert;
     UIScrollView * _scroll;

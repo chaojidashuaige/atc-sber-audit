@@ -131,14 +131,16 @@
 {
     [super viewWillAppear:animated];
     
-    self.taskLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 30, 724, 30)];
+    UILabel *tmpTaskLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 30, 724, 30)];
+    self.taskLabel = tmpTaskLabel;
+    [tmpTaskLabel release];
     [self.taskLabel setText:@"Создание задачи \"Проверка руководства\""];
     [self.taskLabel setBackgroundColor:[UIColor clearColor]];
     [self.taskLabel setFont:[UIFont systemFontOfSize:24]];
     [self.taskLabel setTextAlignment:NSTextAlignmentCenter];
     [self.self.view addSubview:self.taskLabel];
     
-    self.aCancelButton = [[UIButton buttonWithType:UIButtonTypeRoundedRect]retain];
+    self.aCancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     //        [aCancelButton setFrame:CGRectMake(190, 635, 120, 35)];
     [self.aCancelButton setFrame:CGRectMake(192+150, 620, 120, 35)];
     [self.aCancelButton setTitle:@"Отменить" forState:UIControlStateNormal];
@@ -156,10 +158,10 @@
 {
     NSLog(@"didUpdateToLocationFrom method called");
     if (!check) {
-        locationCoord2D = [newLocation coordinate];
+//        locationCoord2D = [newLocation coordinate];
 
-//        locationCoord2D.longitude = 37.579894;
-//        locationCoord2D.latitude = 55.700009;
+        locationCoord2D.longitude = 37.579894;
+        locationCoord2D.latitude = 55.700009;
 
         [self syncGeoData];
         [self updateSubbranchesList];
@@ -177,10 +179,10 @@
 {
     NSLog(@"didUpdateLocations method called");
     if (!check) {
-        locationCoord2D = [[locationManager location] coordinate];
+//        locationCoord2D = [[locationManager location] coordinate];
         
-//        locationCoord2D.longitude = 37.579894;
-//        locationCoord2D.latitude = 55.700009;
+        locationCoord2D.longitude = 37.579894;
+        locationCoord2D.latitude = 55.700009;
         
         [self syncGeoData];
         [self updateSubbranchesList];
@@ -360,9 +362,9 @@
     [_tableView release];
     [subbranchAdapterList release];
     [taskTypeAdapterList release];
-    [self.taskLabel release];
-    [self.aCancelButton release];
-    [self.cancelAlert release];
+    self.taskLabel = nil;
+    self.aCancelButton = nil;
+    self.cancelAlert = nil;
     [indicator release];
     [label release];
     [largeLabel release];
@@ -416,7 +418,7 @@
         selectedUnion = [ODMobileMBOUnionsGeo findByPrimaryKey:selectedObjectID];
     }
 
-    NSMutableArray * filteredTypes = [[NSMutableArray alloc] init];
+    NSMutableArray * filteredTypes = [NSMutableArray arrayWithCapacity:0];
     SUPObjectList * taskTypes = [ODMobileMBOTaskTypesPriv findAll];
     
     if (selectedSubbranch != nil) {

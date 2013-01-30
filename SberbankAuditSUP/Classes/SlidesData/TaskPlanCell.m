@@ -198,7 +198,6 @@
 
 - (void)dealloc
 {
-	[super dealloc];
     
     self.taskDate = nil;
     self.taskDescription = nil;
@@ -207,5 +206,7 @@
     self.taskTitle = nil;
     self.taskStatus = nil;
     self.createTp = nil;
+    
+    [super dealloc];
 }
 @end

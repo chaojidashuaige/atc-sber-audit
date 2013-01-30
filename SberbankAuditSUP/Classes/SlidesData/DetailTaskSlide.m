@@ -232,8 +232,8 @@
         }
     }
     if (!isComplete) {
-        NSString * status;
-        NSString * message;
+        NSString * status = nil;
+        NSString * message = nil;
         if ([self.lastStatus isEqualToString:@"Отменена"]) {
             status = @"Задача отменена";
             message = @"Просмотреть задачу можно в списке 'Завершенные'";
@@ -242,8 +242,9 @@
             status = @"Задача выполнена и перенесена в 'Завершенные'";
             message = @"Контрольный лист будет закрыт";
         }
-        completeAlert = [[UIAlertView alloc] initWithTitle:status message:message delegate:self cancelButtonTitle:@"Продолжить" otherButtonTitles:nil, nil];
+        UIAlertView * completeAlert = [[UIAlertView alloc] initWithTitle:status message:message delegate:self cancelButtonTitle:@"Продолжить" otherButtonTitles:nil, nil];
         [completeAlert show];
+        [completeAlert release];
         [controlList.view removeFromSuperview];
         [[SberbankAuditAppDelegate instance].rootViewController.mainDataVC.detailViewController.view removeFromSuperview];
     }
@@ -269,7 +270,9 @@
 //	[[SberbankAuditAppDelegate instance].rootViewController.stackScrollViewController addViewInSlider:detailViewController drawShadow:YES invokeByController:self isStackStartView:NO];
 //    //[detailViewController release];
 
-    self.detailViewController = [[TaskPlan alloc] initWithFrame:CGRectMake(0, 0, 477, self.view.frame.size.height)];
+    TaskPlan *tmpTaskPlan = [[TaskPlan alloc] initWithFrame:CGRectMake(0, 0, 477, self.view.frame.size.height)];
+    self.detailViewController = tmpTaskPlan;
+    [tmpTaskPlan release];
     NSNumber * branch = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.SUBBRANCH_ID"] ] integerValue]];
     self.detailViewController.branchId = branch;
     NSNumber * union_ID = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@",[taskData valueForKey:@"unions.UNION_ID"] ] integerValue]];
@@ -429,6 +432,7 @@
         double DOUBLE = [str doubleValue]/1000;
         date = [NSDate dateWithTimeIntervalSince1970:DOUBLE];
         str = [dateFormatter stringFromDate:date];
+        [dateFormatter release];
         [taskDate setText:str];
         [topDetailPart addSubview:taskDate];
         
@@ -773,13 +777,13 @@
 
 - (void)cancelMethod
 {
-    bool canCancelTask;
+//    bool canCancelTask;
     
     NSLog(@"TASK_ID from CancelMethod: %@",[taskData valueForKey:@"x.TASK_ID"]);
     ODMobileMBO_getTasks * currentTask = [ODMobileMBO_getTasks findByPrimaryKey:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.TASK_ID"]]];
     
     if ([[NSString stringWithFormat:@"%@",[taskData valueForKey:@"b.TASK_STATUS_NAME"]] isEqualToString:@"Назначена"] || [[NSString stringWithFormat:@"%@",[taskData valueForKey:@"b.TASK_STATUS_NAME"]] isEqualToString:@"В работе"]){
-        canCancelTask = true;
+//        canCancelTask = true;
     }
     
     NSString * employeeID = [NSString stringWithFormat:@"%@",[SberbankAuditAppDelegate instance].EMPLOYEE_ID];
@@ -1505,7 +1509,6 @@
 //    [cancelButton release];
     [taskData release];
     [alert release];
-    [completeAlert release];
     [cancelTaskAlert release];
     [errorAlert release];
     [_scroll release];

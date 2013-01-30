@@ -96,7 +96,7 @@
     [taClass.aTypeButton setTitle:[[arraySubType objectAtIndex:indexPath.row] objectForKey:@"ACTIVITY_TYPE_NAME"] forState:UIControlStateNormal];
     [taClass.activity setObject:[[arraySubType objectAtIndex:indexPath.row] objectForKey:@"ACTIVITY_TYPE_NAME"] forKey:@"z.ACTIVITY_TYPE_NAME"];
     [taClass.activity setObject:[[arraySubType objectAtIndex:indexPath.row] objectForKey:@"ACTIVITY_TYPE_ID"] forKey:@"z.ACTIVITY_TYPE_ID"];
-    [taClass.calendarPopover dismissPopoverAnimated:YES];
+    [taClass dismissPopover];
 //    taClass.selectedActivityType = [[arraySubType objectAtIndex:indexPath.row] objectForKey:@"ACTIVITY_TYPE_ID"];
 }
 

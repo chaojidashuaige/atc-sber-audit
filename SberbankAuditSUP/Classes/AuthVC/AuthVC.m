@@ -79,7 +79,7 @@
 //        userLogin.text = @"Chuvikina-AS";
 //        userLogin.text = @"Kiverova-VA";
 //        userLogin.text = @"e_larionova";
-//        userLogin.text = @"Gusatnikov-SA";
+        userLogin.text = @"Gusatnikov-SA";
 //        userLogin.text = @"Pisarenko-AB";
 //        userLogin.text = @"Azovtsev-VA";
 //        userLogin.text = @"Shvedova-AA";
@@ -112,7 +112,7 @@
 //        userPassword.text = @"Dolgov-MM";
 //        userPassword.text = @"Kiverova-VA";
 //        userPassword.text = @"e_larionova";
-//        userPassword.text = @"Gusatnikov-SA";
+        userPassword.text = @"Gusatnikov-SA";
 //        userPassword.text = @"Arkhipova-TA";
 //        userPassword.text = @"Chuvikina-AS";
 //        userPassword.text = @"Azovtsev-VA";
@@ -184,7 +184,7 @@
     //не удалять!!!это для логина и пароля, чтобы при повторном входе сохранялись данные
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
     if (defaults) {
-        userLogin.text = [defaults objectForKey:LOGIN_TEXT];
+        //userLogin.text = [defaults objectForKey:LOGIN_TEXT];
 //        userPassword.text = [defaults objectForKey:PASSWORD_TEXT];
         [SberbankAuditAppDelegate instance].userLogin = userLogin.text;
     }
@@ -321,7 +321,7 @@
 
             BOOL check = [app userLogonWithLogin:_login andPassword:_password];
             if (!check) {
-                dispatch_sync(dispatch_get_main_queue(), ^{
+                 dispatch_sync(dispatch_get_main_queue(), ^{
                     [self closeActivityIndicator];
                     
                     [getLogon setEnabled:YES];

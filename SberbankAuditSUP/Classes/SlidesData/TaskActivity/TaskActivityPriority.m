@@ -87,12 +87,12 @@
     if (tbClass != nil) {
         [tbClass.aPriorityButton setTitle:[[arrayWithData objectAtIndex:indexPath.row] objectForKey:@"ACTIVITY_PRIORITY_NAME"] forState:UIControlStateNormal];
         [tbClass.activity setObject:[[arrayWithData objectAtIndex:indexPath.row] objectForKey:@"ACTIVITY_PRIORITY_NAME"] forKey:@"a.ACTIVITY_PRIORITY_NAME"];
-        [tbClass.calendarPopover dismissPopoverAnimated:YES];
+        [tbClass dismissPopover];
     }
     if (taClass != nil) {
         [taClass.aPriorityButton setTitle:[[arrayWithData objectAtIndex:indexPath.row] objectForKey:@"ACTIVITY_PRIORITY_NAME"] forState:UIControlStateNormal];
         [taClass.arraySelectActivity setObject:[[arrayWithData objectAtIndex:indexPath.row] objectForKey:@"ACTIVITY_PRIORITY_NAME"] forKey:@"a.ACTIVITY_PRIORITY_NAME"];
-        [taClass.calendarPopover dismissPopoverAnimated:YES];
+        [taClass dismissPopover];
     }
 }
 

@@ -19,7 +19,7 @@
 @class WaitingViewController;
 
 @interface SberbankAuditAppDelegate : NSObject <UIApplicationDelegate,SUPApplicationCallback> {
-    UIWindow *window;
+//    UIWindow *window;
 	RootViewController *rootViewController;
     AuthVC *authWindow;
     MenuViewController* menuViewController;

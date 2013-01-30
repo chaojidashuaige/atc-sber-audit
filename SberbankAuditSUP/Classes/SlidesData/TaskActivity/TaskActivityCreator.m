@@ -112,7 +112,7 @@
     [taClass.activity setObject:[[arraySubType objectAtIndex:indexPath.row] objectForKey:@"FIRST_NAME"] forKey:@"e.FIRST_NAME"];
     [taClass.activity setObject:[[arraySubType objectAtIndex:indexPath.row] objectForKey:@"PATRONYMIC"] forKey:@"e.PATRONYMIC"];
     [taClass.activity setObject:[[arraySubType objectAtIndex:indexPath.row] objectForKey:@"EMPLOYEE_ID"] forKey:@"e.EMPLOYEE_ID"];
-    [taClass.calendarPopover dismissPopoverAnimated:YES];
+    [taClass dismissPopover];
 }
 
 

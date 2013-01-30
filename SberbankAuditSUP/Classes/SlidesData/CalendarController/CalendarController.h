@@ -9,8 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "TKCalendarMonthView.h"
 #import "DataViewController.h"
-#import "TaskActivity.h"
-#import "TaskSelectActivity.h"
+//#import "TaskActivity.h"
+//#import "TaskSelectActivity.h"
+
+@protocol CalendarControllerDelegate <NSObject>
+
+- (void)setContentSizeForPopover:(CGSize)size;
+- (void)dismissPopoverWithSelectedDate:(NSDate *)date;
+
+@end
 
 @interface CalendarController : UIViewController <TKCalendarMonthViewDelegate,TKCalendarMonthViewDataSource> 
 
@@ -19,7 +26,8 @@
 }
 
 @property (nonatomic, retain) TKCalendarMonthView *calendar;
-@property (nonatomic, retain) TaskActivity *aSender;
-@property (nonatomic, retain) TaskSelectActivity *bSender;
+//@property (nonatomic, retain) TaskActivity *aSender;
+//@property (nonatomic, retain) TaskSelectActivity *bSender;
+@property (nonatomic, assign) id<CalendarControllerDelegate> delegate;
 
 @end

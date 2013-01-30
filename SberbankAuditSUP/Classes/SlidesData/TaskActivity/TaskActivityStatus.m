@@ -84,7 +84,7 @@
     [taClass.aStatusButton setTitle:[NSString stringWithFormat:@"%@",[[self.arraySubType objectAtIndex:indexPath.row] objectForKey:@"ACTIVITY_STATUS_NAME"]] forState:UIControlStateNormal];
     [taClass.arraySelectActivity setObject:[NSString stringWithFormat:@"%@",[[self.arraySubType objectAtIndex:indexPath.row] objectForKey:@"ACTIVITY_STATUS_NAME"]] forKey:@"i.ACTIVITY_STATUS_NAME"];
     taClass.currentStatus =  [[self.arraySubType objectAtIndex:indexPath.row] objectForKey:@"ACTIVITY_STATUS_ID"];
-    [taClass.calendarPopover dismissPopoverAnimated:YES];
+    [taClass dismissPopover];
     [taClass mainLogic];
 }
 

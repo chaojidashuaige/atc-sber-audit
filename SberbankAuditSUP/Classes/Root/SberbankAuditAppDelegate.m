@@ -90,6 +90,7 @@
     zeroAddress.sin_family = AF_INET;
     
     SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, (const struct sockaddr*)&zeroAddress);
+    BOOL isReachabile = NO;
     if(reachability != NULL) {
         //NetworkStatus retVal = NotReachable;
         SCNetworkReachabilityFlags flags;
@@ -97,14 +98,14 @@
             if ((flags & kSCNetworkReachabilityFlagsReachable) == 0)
             {
                 // if target host is not reachable
-                return NO;
+                isReachabile = NO;
             }
             
             if ((flags & kSCNetworkReachabilityFlagsConnectionRequired) == 0)
             {
                 // if target host is reachable and no connection is required
                 //  then we'll assume (for now) that your on Wi-Fi
-                return YES;
+                isReachabile = YES;
             }
             
             
@@ -117,7 +118,7 @@
                 if ((flags & kSCNetworkReachabilityFlagsInterventionRequired) == 0)
                 {
                     // ... and no [user] intervention is needed
-                    return YES;
+                    isReachabile = YES;
                 }
             }
             
@@ -125,12 +126,13 @@
             {
                 // ... but WWAN connections are OK if the calling application
                 //     is using the CFNetwork (CFSocketStream?) APIs.
-                return YES;
+                isReachabile = YES;
             }
         }
     }
+    CFRelease(reachability);
     
-    return NO;
+    return isReachabile;
 }
 
 
@@ -146,7 +148,7 @@
     
     self.idName = [[UIDevice currentDevice] uniqueIdentifier];
     self.serverName = SERVER_NAME;
-    self.typeOfTasks = [[NSString alloc] initWithString:@""];
+    self.typeOfTasks = @"";
     self.IPAdress = [self GetOurIpAddress];
     self.connectionID = [NSString stringWithFormat:@"%@",[[SUPApplication applicationSettings] connectionId]];
     NSLog(@"IP adress: %@",self.IPAdress);
@@ -233,6 +235,7 @@
     self.window.rootViewController = dashboardWindow;
     [self.window setBackgroundColor:[UIColor clearColor]];
     [self.window makeKeyAndVisible];
+    [dashboardWindow release];
  
 }
 
@@ -261,21 +264,7 @@
 }
 
 
-- (void)onDeviceConditionChanged:(SUPDeviceConditionType)condition
-{
-}
-- (void)onApplicationSettingsChanged:(SUPStringList *)names
-{
-}
-- (void)onHttpCommunicationError:(int32_t)errorCode :(NSString *)errorMessage :(SUPStringProperties *)responseHeaders
-{
-}
-- (void)onRegistrationStatusChanged:(SUPRegistrationStatusType)registrationStatus :(int32_t)errorCode :(NSString *)errorMessage
-{
-}
-- (void)onConnectionStatusChanged:(SUPConnectionStatusType)connectionStatus :(int32_t)errorCode :(NSString *)errorMessage
-{
-}
+
 
 - (void)registerApplication
 {
@@ -431,7 +420,7 @@
 //    NSString * didPK = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     NSString * didPK = [[UIDevice currentDevice] uniqueIdentifier];
 //    NSLog(@"%@",didPK);
-    NSMutableString * did = [[NSMutableString alloc] init];
+    NSMutableString * did = [NSMutableString stringWithCapacity:0];
     [did appendString:didPK];
     [did appendString:@";"];
     [did appendString:[NSString stringWithFormat:@"%@",[[SUPApplication applicationSettings] connectionId]]];
@@ -448,14 +437,14 @@
     NSMutableString * loginText = [NSMutableString stringWithString:login];
     NSString * encryptedLogin = [self encodingWithString:loginText];
     NSData * dataLogin = [encryptedLogin dataUsingEncoding:NSUTF8StringEncoding];
-//    login = [dataLogin base64Encoding];
-    login = [[dataLogin base64Encoding] copy];
+    login = [NSString stringWithFormat:@"%@", [dataLogin base64Encoding]];
+//    login = [[dataLogin base64Encoding] copy];
 
     NSMutableString * passwordText = [NSMutableString stringWithString:password];
     NSString * encryptedPassword = [self encodingWithString:passwordText];
     NSData * dataPassword = [encryptedPassword dataUsingEncoding:NSUTF8StringEncoding];
-//    password = [dataPassword base64Encoding];
-    password = [[dataPassword base64Encoding] copy];
+    password = [NSString stringWithFormat:@"%@", [dataPassword base64Encoding]];
+//    password = [[dataPassword base64Encoding] copy];
 
     
     NSLog(@"login = %@, retaintCount = %i",login,login.retainCount);
@@ -676,8 +665,8 @@
         return TRUE;
     }
     NSString * fileName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    NSMutableArray * ios_app_Array = [[NSMutableArray alloc] initWithArray:[self.odmobile_ios_app_version componentsSeparatedByString:@"."]];
-    NSMutableArray * fileNameArray = [[NSMutableArray alloc] initWithArray:[fileName componentsSeparatedByString:@"."]];
+    NSMutableArray * ios_app_Array = [NSMutableArray arrayWithArray:[self.odmobile_ios_app_version componentsSeparatedByString:@"."]];
+    NSMutableArray * fileNameArray = [NSMutableArray arrayWithArray:[fileName componentsSeparatedByString:@"."]];
     NSLog(@"ios_array = %@",ios_app_Array);
     NSLog(@"fileNamearray = %@",fileNameArray);
     int iosCount = [ios_app_Array count];
@@ -792,18 +781,39 @@
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
     /*
      Free up as much memory as possible by purging cached data objects that can be recreated (or reloaded from disk) later.
-     */
+ с    */
 }
 
 
-- (void)dealloc {
-    [authWindow release];
-    [rootViewController release];
-    [mapViewController release];
-    [window release];
-    [typeOfTasks release];
-    [super dealloc];
-}
+//- (void)dealloc {
+//    [authWindow release];
+//    [rootViewController release];
+//    [mapViewController release];
+//    [self.window release];
+//    [self.typeOfTasks release];
+//    [self.IPAdress release];
+//    [super dealloc];
+//}
 
+#pragma mark - SUPApplicationCallback
+- (void)onDeviceConditionChanged:(SUPDeviceConditionType)condition
+{
+}
+- (void)onApplicationSettingsChanged:(SUPStringList *)names
+{
+}
+- (void)onHttpCommunicationError:(int32_t)errorCode :(NSString *)errorMessage :(SUPStringProperties *)responseHeaders
+{
+}
+- (void)onRegistrationStatusChanged:(SUPRegistrationStatusType)registrationStatus :(int32_t)errorCode :(NSString *)errorMessage
+{
+}
+- (void)onConnectionStatusChanged:(SUPConnectionStatusType)connectionStatus :(int32_t)errorCode :(NSString *)errorMessage
+{
+}
+- (BOOL)onHttpsCertificateChallenge:(NSString*)certInfo
+{
+    return NO;
+}
 
 @end
