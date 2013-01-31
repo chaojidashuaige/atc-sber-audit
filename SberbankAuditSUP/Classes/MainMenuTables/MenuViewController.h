@@ -2,6 +2,7 @@
 
 #import <UIKit/UIKit.h> 
 #import "CreateNewTaskController.h"
+#import "ODRefreshControl.h"
 
 @class MenuFooterTable;
 @class DataViewController;
@@ -14,6 +15,7 @@
     UIButton *CLSaveButton;
     UIButton *CLDoneButton;
     CreateNewTaskController * newTaskController;
+    ODRefreshControl *refresh;
 }
 //- (id)initWithFrame:(CGRect)frame;
 - (void) showGembaSheet;

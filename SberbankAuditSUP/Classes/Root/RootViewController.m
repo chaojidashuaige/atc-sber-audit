@@ -40,11 +40,11 @@
     [leftMenuView setAutoresizesSubviews:YES];
 	leftMenuView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
 //	leftMenuView.clipsToBounds = YES;
-    menuViewController = [[MenuViewController alloc] init];
+//    menuViewController = [[MenuViewController alloc] init];
 
     mainDataVC = [[DataViewController alloc] initWithFrame:CGRectMake(0, 0, 477, self.view.frame.size.height)];
     mainDataVC.tweets = SBTasks;
-    
+    menuViewController = [[MenuViewController alloc] init];
     menuViewController.view.frame = CGRectMake(0, 0, leftMenuView.frame.size.width, leftMenuView.frame.size.height);
     menuViewController.taskVC = mainDataVC;
 //    menuViewController.view.backgroundColor = [UIColor whiteColor];

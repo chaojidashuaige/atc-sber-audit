@@ -58,13 +58,13 @@
 //            [self.view addSubview:gembaB];
             
             
-            UIButton *synchronization = [UIButton buttonWithType:UIButtonTypeCustom] ;
-            [synchronization setBackgroundImage:[UIImage imageNamed:@"update_data_up.png"] forState:UIControlStateNormal];
-            [synchronization setBackgroundImage:[UIImage imageNamed:@"update_data_down.png"] forState:UIControlStateHighlighted];
-//            [synchronization setFrame:CGRectMake(13, taskB.frame.origin.y+taskB.frame.size.height+5, 174, 56)];
-            [synchronization setFrame:CGRectMake(13, 145, 174, 56)];
-            [synchronization addTarget:self action:@selector(synchronization) forControlEvents:UIControlEventTouchUpInside];
-            [self.view addSubview:synchronization];
+//            UIButton *synchronization = [UIButton buttonWithType:UIButtonTypeCustom] ;
+//            [synchronization setBackgroundImage:[UIImage imageNamed:@"update_data_up.png"] forState:UIControlStateNormal];
+//            [synchronization setBackgroundImage:[UIImage imageNamed:@"update_data_down.png"] forState:UIControlStateHighlighted];
+////            [synchronization setFrame:CGRectMake(13, taskB.frame.origin.y+taskB.frame.size.height+5, 174, 56)];
+//            [synchronization setFrame:CGRectMake(13, 145, 174, 56)];
+//            [synchronization addTarget:self action:@selector(synchronization) forControlEvents:UIControlEventTouchUpInside];
+//            [self.view addSubview:synchronization];
             
             UIButton *dashboardB = [UIButton buttonWithType:UIButtonTypeCustom];
             [dashboardB setBackgroundImage:[UIImage imageNamed:@"dashboard_up.png"] forState:UIControlStateNormal];
@@ -123,14 +123,14 @@
             //        [self.view addSubview:gembaB];
             
             
-            UIButton *synchronization = [UIButton buttonWithType:UIButtonTypeCustom];
-            [synchronization setBackgroundImage:[UIImage imageNamed:@"update_data_up.png"] forState:UIControlStateNormal];
-            [synchronization setBackgroundImage:[UIImage imageNamed:@"update_data_down.png"] forState:UIControlStateHighlighted];
-            //        [synchronization setBackgroundImage:[UIImage imageNamed:@"gemba_button_still.png"] forState:UIControlStateNormal];
-            //        [synchronization setBackgroundImage:[UIImage imageNamed:@"gemba_button_active.png"] forState:UIControlStateHighlighted];
-            [synchronization setFrame:CGRectMake(13, taskB.frame.origin.y+taskB.frame.size.height+5, 174, 56)];
-            [synchronization addTarget:self action:@selector(synchronization) forControlEvents:UIControlEventTouchUpInside];
-            [self.view addSubview:synchronization];
+//            UIButton *synchronization = [UIButton buttonWithType:UIButtonTypeCustom];
+//            [synchronization setBackgroundImage:[UIImage imageNamed:@"update_data_up.png"] forState:UIControlStateNormal];
+//            [synchronization setBackgroundImage:[UIImage imageNamed:@"update_data_down.png"] forState:UIControlStateHighlighted];
+//            //        [synchronization setBackgroundImage:[UIImage imageNamed:@"gemba_button_still.png"] forState:UIControlStateNormal];
+//            //        [synchronization setBackgroundImage:[UIImage imageNamed:@"gemba_button_active.png"] forState:UIControlStateHighlighted];
+//            [synchronization setFrame:CGRectMake(13, taskB.frame.origin.y+taskB.frame.size.height+5, 174, 56)];
+//            [synchronization addTarget:self action:@selector(synchronization) forControlEvents:UIControlEventTouchUpInside];
+//            [self.view addSubview:synchronization];
             
             UIButton *dashboardB = [UIButton buttonWithType:UIButtonTypeCustom];
             [dashboardB setBackgroundImage:[UIImage imageNamed:@"dashboard_up.png"] forState:UIControlStateNormal];
@@ -225,7 +225,18 @@
 //    [gembaSheet release];
 }
 
-- (void) synchronization
+- (void)addODRefreshControl
+{
+//    DataViewController *tmp = [SberbankAuditAppDelegate instance].rootViewController.mainDataVC;
+    refresh = [[ODRefreshControl alloc] initInScrollView:[SberbankAuditAppDelegate instance].rootViewController.mainDataVC._tableView];
+    [refresh addTarget:self action:@selector(synchronization:) forControlEvents:UIControlEventValueChanged];
+//    if (self.refreshControl == nil) {
+//        self.refreshControl = [[ODRefreshControl alloc] initInScrollView:self.tableView];
+//        [self.refreshControl addTarget:[RootViewController sharedController] action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
+//    }
+}
+
+- (void) synchronization:(ODRefreshControl *)refreshControl
 {
     @try
     {
@@ -238,28 +249,54 @@
             
             
             [[SberbankAuditAppDelegate instance] openActivityIndicatorViewWithName:@"Синхронизация данных"];
+//            NSLog(@"TaskSG sync started");
+//            [ODMobileODMobileDB synchronize:@"TasksSG"];
+//            NSLog(@"TaskSG sync finished");
+//            NSLog(@"DIMSG sync started");
+//            [ODMobileODMobileDB synchronize:@"DIMSG"];
+//            NSLog(@"DIMSG sync finished");
+//            NSLog(@"DIMSG_TASK_REL sync started");
+//            [ODMobileODMobileDB synchronize:@"DIMSG_TASK_REL"];
+//            NSLog(@"DIMSG_TASK_REL sync finished");
+//            
+//            [[SberbankAuditAppDelegate instance].rootViewController.mainDataVC updateData];
+//            if ([SberbankAuditAppDelegate instance].rootViewController.mainDataVC.detailViewController != nil) {
+//                [[SberbankAuditAppDelegate instance].rootViewController.mainDataVC.detailViewController updateData];
+//                if ([SberbankAuditAppDelegate instance].rootViewController.mainDataVC.detailViewController.detailViewController != nil) {
+//                    [[SberbankAuditAppDelegate instance].rootViewController.mainDataVC.detailViewController.detailViewController updateData];
+//                }
+//            }
+//            
+//            [[SberbankAuditAppDelegate instance] closeActivityIndicator];
+//            
+//            NSLog(@"SberbankAuditAppDelegate: синхронизация по группам прошла");
+//            [refreshControl endRefreshing];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+                NSLog(@"TaskSG sync started");
+                [ODMobileODMobileDB synchronize:@"TasksSG"];
+                NSLog(@"TaskSG sync finished");
+                NSLog(@"DIMSG sync started");
+                [ODMobileODMobileDB synchronize:@"DIMSG"];
+                NSLog(@"DIMSG sync finished");
+                NSLog(@"DIMSG_TASK_REL sync started");
+                [ODMobileODMobileDB synchronize:@"DIMSG_TASK_REL"];
+                NSLog(@"DIMSG_TASK_REL sync finished");
+                dispatch_sync(dispatch_get_main_queue(), ^(void){
+                    [[SberbankAuditAppDelegate instance].rootViewController.mainDataVC updateData];
+                    if ([SberbankAuditAppDelegate instance].rootViewController.mainDataVC.detailViewController != nil) {
+                        [[SberbankAuditAppDelegate instance].rootViewController.mainDataVC.detailViewController updateData];
+                        if ([SberbankAuditAppDelegate instance].rootViewController.mainDataVC.detailViewController.detailViewController != nil) {
+                            [[SberbankAuditAppDelegate instance].rootViewController.mainDataVC.detailViewController.detailViewController updateData];
+                        }
+                    }
+                    
+                    [[SberbankAuditAppDelegate instance] closeActivityIndicator];
+                    
+                    NSLog(@"SberbankAuditAppDelegate: синхронизация по группам прошла");
+                    [refreshControl endRefreshing];
+                });
+            });
             
-            NSLog(@"TaskSG sync started");
-            [ODMobileODMobileDB synchronize:@"TasksSG"];
-            NSLog(@"TaskSG sync finished");
-            NSLog(@"DIMSG sync started");
-            [ODMobileODMobileDB synchronize:@"DIMSG"];
-            NSLog(@"DIMSG sync finished");
-            NSLog(@"DIMSG_TASK_REL sync started");
-            [ODMobileODMobileDB synchronize:@"DIMSG_TASK_REL"];
-            NSLog(@"DIMSG_TASK_REL sync finished");
-            
-            [[SberbankAuditAppDelegate instance].rootViewController.mainDataVC updateData];
-            if ([SberbankAuditAppDelegate instance].rootViewController.mainDataVC.detailViewController != nil) {
-                [[SberbankAuditAppDelegate instance].rootViewController.mainDataVC.detailViewController updateData];
-                if ([SberbankAuditAppDelegate instance].rootViewController.mainDataVC.detailViewController.detailViewController != nil) {
-                    [[SberbankAuditAppDelegate instance].rootViewController.mainDataVC.detailViewController.detailViewController updateData];
-                }
-            }
-            
-            [[SberbankAuditAppDelegate instance] closeActivityIndicator];
-            
-            NSLog(@"SberbankAuditAppDelegate: синхронизация по группам прошла");
         }
     }
     @catch (SUPPersistenceException *exception)
@@ -269,8 +306,15 @@
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Ошибка синхронизации" message:nil delegate:self cancelButtonTitle:@"Закрыть" otherButtonTitles:nil, nil];
         [alert show];
         [alert release];
+        [refreshControl endRefreshing];
     }
+    
 }
+
+//- (void)setStateToODRefreshControl:(ODRefreshControl *)refreshControl
+//{
+//    [refreshControl endRefreshing];
+//}
 
 - (void) showDashboard
 {
@@ -290,6 +334,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addODRefreshControl];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -354,6 +399,7 @@
     [CLDoneButton release];
     [taskVC release];
     [newTaskController release];
+    [refresh release];
     [super dealloc];
 }
 
