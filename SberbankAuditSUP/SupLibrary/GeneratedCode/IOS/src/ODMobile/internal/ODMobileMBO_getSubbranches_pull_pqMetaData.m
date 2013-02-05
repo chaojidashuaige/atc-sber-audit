@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_username = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			358:
+			1009:
 			[SUPDataType forName:@"string?"]:@"varchar(300)":@"username":@"":@"username":
 			@"":300:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_username setColumn:@"username"];
 		SUPAttributeMetaDataRBS* a_remoteId = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			359:
+			1010:
 			[SUPDataType forName:@"string?"]:@"varchar(300)":@"remoteId":@"":@"remoteId":
 			@"":300:0:0:
 			@"null":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_remoteId setColumn:@"remoteId"];
 		SUPAttributeMetaDataRBS* a_RESOURCE_EMPLOYEE_IDParam = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			360:
+			1011:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"RESOURCE_EMPLOYEE_IDParam":@"":@"RESOURCE_EMPLOYEE_IDParam":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -58,7 +58,7 @@
 			YES:SUPPersonalizationType_None:NO];
 		[a_RESOURCE_EMPLOYEE_IDParam setColumn:@"RESOURCE_EMPLOYEE_IDParam"];
 		SUPAttributeMetaDataRBS* a_id = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			357:
+			1008:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"id":@"":@"id":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -123,7 +123,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mbo_getsubbranches_pull_pq";
+		self.table = @"odmobile_1_21_mbo_getsubbranches_pull_pq";
 		self.synchronizationGroup = @"unsubscribe";
 
 		SUPIndexMetaData *i_remoteId = [[[SUPIndexMetaData alloc] init] autorelease];

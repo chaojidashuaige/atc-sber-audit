@@ -34,7 +34,7 @@ static SUPClassDelegate *g_ODMobileOdObject_delegate = nil;
 {
     switch(id_)
     {
-    case 0:
+    case 651:
         return (SUPJsonObject*)[[ODMobileObjField delegate] toJsonArray:self.fl];
         default:
         return [super getAttributeJson:id_];
@@ -45,7 +45,7 @@ static SUPClassDelegate *g_ODMobileOdObject_delegate = nil;
 {
     switch(id_)
     { 
-    case 0:
+    case 651:
         self.fl = (SUPObjectList*)[[ODMobileObjField delegate] fromJsonArray:(SUPJsonArray*)value];
         break;
         default:
@@ -84,7 +84,7 @@ static SUPClassMetaDataRBS* ODMobileOdObject_META_DATA;
 {
     switch(id_)
     {
-    case 1:
+    case 652:
         return self.rn;
     default:
         return [super getAttributeNullableLong:id_];
@@ -95,7 +95,7 @@ static SUPClassMetaDataRBS* ODMobileOdObject_META_DATA;
 {
     switch(id_)
     {
-    case 1:
+    case 652:
         self.rn = v;
         break;;
     default:
@@ -107,7 +107,7 @@ static SUPClassMetaDataRBS* ODMobileOdObject_META_DATA;
 {
     switch(id_)
     {
-    case 0:
+    case 651:
         return self.fl;
     default:
         return [super getAttributeObject:id_];
@@ -118,7 +118,7 @@ static SUPClassMetaDataRBS* ODMobileOdObject_META_DATA;
 {
     switch(id_)
     {
-    case 0:
+    case 651:
         self.fl = v;
         break;;
     default:

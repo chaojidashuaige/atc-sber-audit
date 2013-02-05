@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_PROPERTIES = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			45:
+			696:
 			[SUPDataType forName:@"string"]:@"varchar(2400)":@"PROPERTIES":@"":@"a":
 			@"":2400:0:0:
 			@"null":NO:@"":
@@ -76,7 +76,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_replayFailure setColumn:@"_rf"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			46:
+			697:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"b":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -198,7 +198,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mboproperties";
+		self.table = @"odmobile_1_21_mboproperties";
 		self.synchronizationGroup = @"PROPERTIES";
 
 			

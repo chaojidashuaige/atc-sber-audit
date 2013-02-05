@@ -24,7 +24,7 @@
  
 		SUPObjectList *attributes = [SUPObjectList listWithCapacity:7];
 		SUPAttributeMetaDataRBS* a_didPK = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			385:
+			1036:
 			[SUPDataType forName:@"string?"]:@"varchar(300)":@"didPK":@"":@"":
 			@"":300:0:0:
 			@"null":YES:@"":
@@ -33,7 +33,7 @@
 			NO:SUPPersonalizationType_Client:NO];
   		[attributes addThis:a_didPK];
 		SUPAttributeMetaDataRBS* a_didPKUserDefined = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			386:
+			1037:
 			[SUPDataType forName:@"boolean"]:@"tinyint":@"didPKUserDefined":@"":@"":
 			@"":-1:0:0:
 			@"false":NO:@"":
@@ -42,7 +42,7 @@
 			NO:SUPPersonalizationType_None:NO];
   		[attributes addThis:a_didPKUserDefined];
 		SUPAttributeMetaDataRBS* a_userLoginPK = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			387:
+			1038:
 			[SUPDataType forName:@"string?"]:@"varchar(300)":@"userLoginPK":@"":@"":
 			@"":300:0:0:
 			@"null":YES:@"":
@@ -51,7 +51,7 @@
 			NO:SUPPersonalizationType_Client:NO];
   		[attributes addThis:a_userLoginPK];
 		SUPAttributeMetaDataRBS* a_userLoginPKUserDefined = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			388:
+			1039:
 			[SUPDataType forName:@"boolean"]:@"tinyint":@"userLoginPKUserDefined":@"":@"":
 			@"":-1:0:0:
 			@"false":NO:@"":
@@ -60,7 +60,7 @@
 			NO:SUPPersonalizationType_None:NO];
   		[attributes addThis:a_userLoginPKUserDefined];
 		SUPAttributeMetaDataRBS* a_userPasswordPK = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			389:
+			1040:
 			[SUPDataType forName:@"string?"]:@"varchar(300)":@"userPasswordPK":@"":@"":
 			@"":300:0:0:
 			@"null":YES:@"":
@@ -69,7 +69,7 @@
 			NO:SUPPersonalizationType_Client:NO];
   		[attributes addThis:a_userPasswordPK];
 		SUPAttributeMetaDataRBS* a_userPasswordPKUserDefined = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			390:
+			1041:
 			[SUPDataType forName:@"boolean"]:@"tinyint":@"userPasswordPKUserDefined":@"":@"":
 			@"":-1:0:0:
 			@"false":NO:@"":
@@ -78,7 +78,7 @@
 			NO:SUPPersonalizationType_None:NO];
   		[attributes addThis:a_userPasswordPKUserDefined];
 		SUPAttributeMetaDataRBS* a_username = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			391:
+			1042:
 			[SUPDataType forName:@"string"]:@"varchar(300)":@"username":@"":@"":
 			@"":300:0:0:
 			@"null":YES:@"":
@@ -87,7 +87,7 @@
 			NO:SUPPersonalizationType_Session:NO];
   		[attributes addThis:a_username];
 		SUPAttributeMetaDataRBS* a_usernameUserDefined = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			392:
+			1043:
 			[SUPDataType forName:@"boolean"]:@"tinyint":@"usernameUserDefined":@"":@"":
 			@"":-1:0:0:
 			@"false":NO:@"":
@@ -96,7 +96,7 @@
 			NO:SUPPersonalizationType_None:NO];
   		[attributes addThis:a_usernameUserDefined];
 		SUPAttributeMetaDataRBS* a_password = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			393:
+			1044:
 			[SUPDataType forName:@"string"]:@"varchar(300)":@"password":@"":@"":
 			@"":300:0:0:
 			@"null":YES:@"":
@@ -105,7 +105,7 @@
 			NO:SUPPersonalizationType_Session:YES];
   		[attributes addThis:a_password];
 		SUPAttributeMetaDataRBS* a_passwordUserDefined = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			394:
+			1045:
 			[SUPDataType forName:@"boolean"]:@"tinyint":@"passwordUserDefined":@"":@"":
 			@"":-1:0:0:
 			@"false":NO:@"":

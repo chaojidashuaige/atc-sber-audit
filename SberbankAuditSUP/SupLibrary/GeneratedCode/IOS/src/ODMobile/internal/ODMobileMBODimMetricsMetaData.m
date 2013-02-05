@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_METRIC_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			25:
+			676:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"METRIC_ID":@"":@"a":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_METRIC_ID setColumn:@"a"];
 		SUPAttributeMetaDataRBS* a_METRIC_NAME = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			26:
+			677:
 			[SUPDataType forName:@"string?"]:@"varchar(800)":@"METRIC_NAME":@"":@"b":
 			@"":800:0:0:
 			@"null":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_METRIC_NAME setColumn:@"b"];
 		SUPAttributeMetaDataRBS* a_METRIC_KEY = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			27:
+			678:
 			[SUPDataType forName:@"string?"]:@"varchar(400)":@"METRIC_KEY":@"":@"c":
 			@"":400:0:0:
 			@"null":NO:@"":
@@ -94,7 +94,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_replayFailure setColumn:@"_rf"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			28:
+			679:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"d":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -231,7 +231,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mbodimmetrics";
+		self.table = @"odmobile_1_21_mbodimmetrics";
 		self.synchronizationGroup = @"DIMSG";
 
 		SUPIndexMetaData *i_findByPrimaryKeyIndex = [[[SUPIndexMetaData alloc] init] autorelease];

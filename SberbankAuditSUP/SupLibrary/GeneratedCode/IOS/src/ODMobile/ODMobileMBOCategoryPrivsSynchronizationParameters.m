@@ -144,7 +144,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOCategoryPrivsSynchronizationParameters_M
 {
     switch(id_)
     {
-    case 273:
+    case 924:
         return self.employeeId;
     default:
          return [super getAttributeNullableString:id_];
@@ -155,7 +155,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOCategoryPrivsSynchronizationParameters_M
 {
     switch(id_)
     {
-    case 273:
+    case 924:
         self.employeeId = v;
         break;;
     default:
@@ -167,7 +167,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOCategoryPrivsSynchronizationParameters_M
 {
     switch(id_)
     {
-    case 275:
+    case 926:
         return self.user_sp;
     default:
          return [super getAttributeString:id_];
@@ -178,7 +178,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOCategoryPrivsSynchronizationParameters_M
 {
     switch(id_)
     {
-    case 275:
+    case 926:
         self.user_sp = v;
         break;;
     default:
@@ -190,7 +190,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOCategoryPrivsSynchronizationParameters_M
 {
     switch(id_)
     {
-    case 276:
+    case 927:
         return self.size_sp;
     default:
          return [super getAttributeInt:id_];
@@ -201,7 +201,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOCategoryPrivsSynchronizationParameters_M
 {
     switch(id_)
     {
-    case 276:
+    case 927:
         self.size_sp = v;
         break;;
     default:
@@ -213,7 +213,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOCategoryPrivsSynchronizationParameters_M
 {
     switch(id_)
     {
-    case 274:
+    case 925:
         return self.employeeIdUserDefined;
     default:
          return [super getAttributeBoolean:id_];
@@ -224,7 +224,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOCategoryPrivsSynchronizationParameters_M
 {
     switch(id_)
     {
-    case 274:
+    case 925:
         self.employeeIdUserDefined = v;
         break;;
     default:

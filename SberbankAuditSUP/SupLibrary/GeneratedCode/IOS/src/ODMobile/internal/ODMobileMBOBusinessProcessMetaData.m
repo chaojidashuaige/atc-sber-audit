@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_BUSINESS_PROCESS_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			18:
+			669:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"BUSINESS_PROCESS_ID":@"":@"a":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_BUSINESS_PROCESS_ID setColumn:@"a"];
 		SUPAttributeMetaDataRBS* a_BUSINESS_PROCESS_KEY = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			19:
+			670:
 			[SUPDataType forName:@"string?"]:@"varchar(400)":@"BUSINESS_PROCESS_KEY":@"":@"b":
 			@"":400:0:0:
 			@"null":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_BUSINESS_PROCESS_KEY setColumn:@"b"];
 		SUPAttributeMetaDataRBS* a_BUSINESS_PROCESS_NAME = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			20:
+			671:
 			[SUPDataType forName:@"string?"]:@"varchar(1200)":@"BUSINESS_PROCESS_NAME":@"":@"c":
 			@"":1200:0:0:
 			@"null":NO:@"":
@@ -94,7 +94,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_replayFailure setColumn:@"_rf"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			21:
+			672:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"d":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -231,7 +231,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mbobusinessprocess";
+		self.table = @"odmobile_1_21_mbobusinessprocess";
 		self.synchronizationGroup = @"NOT_LOAD";
 
 		SUPIndexMetaData *i_findByPrimaryKeyIndex = [[[SUPIndexMetaData alloc] init] autorelease];

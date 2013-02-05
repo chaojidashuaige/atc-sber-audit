@@ -226,7 +226,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTaskStatuses_META_DATA;
 {
     switch(id_)
     {
-    case 169:
+    case 820:
         return self.surrogateKey;
     default:
          return [super getAttributeLong:id_];
@@ -237,7 +237,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTaskStatuses_META_DATA;
 {
     switch(id_)
     {
-    case 169:
+    case 820:
         self.surrogateKey = v;
         break;;
     default:
@@ -249,9 +249,9 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTaskStatuses_META_DATA;
 {
     switch(id_)
     {
-    case 167:
+    case 818:
         return self.TASK_STATUS_NAME;
-    case 168:
+    case 819:
         return self.TASK_STATUS_KEY;
     default:
          return [super getAttributeNullableString:id_];
@@ -262,10 +262,10 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTaskStatuses_META_DATA;
 {
     switch(id_)
     {
-    case 167:
+    case 818:
         self.TASK_STATUS_NAME = v;
         break;;
-    case 168:
+    case 819:
         self.TASK_STATUS_KEY = v;
         break;;
     default:
@@ -277,7 +277,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTaskStatuses_META_DATA;
 {
     switch(id_)
     {
-    case 166:
+    case 817:
         return self.TASK_STATUS_ID;
     default:
          return [super getAttributeString:id_];
@@ -288,7 +288,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTaskStatuses_META_DATA;
 {
     switch(id_)
     {
-    case 166:
+    case 817:
         self.TASK_STATUS_ID = v;
         break;;
     default:
@@ -388,7 +388,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTaskStatuses_META_DATA;
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:277] autorelease];
-	[_selectSQL appendString:@" x.\"a\",x.\"b\",x.\"c\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"d\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_20_mbo_gettaskstatuses\" x where (((x.\"_pf\" = 1 or not exists (select x_os.\"d\" from \"odmobile_1_20_mbo_gettaskstatuses_os\" x_os where x_os.\"d\" = x.\"d\"))))"];
+	[_selectSQL appendString:@" x.\"a\",x.\"b\",x.\"c\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"d\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_21_mbo_gettaskstatuses\" x where (((x.\"_pf\" = 1 or not exists (select x_os.\"d\" from \"odmobile_1_21_mbo_gettaskstatuses_os\" x_os where x_os.\"d\" = x.\"d\"))))"];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
 	[sql autorelease];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
@@ -406,7 +406,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTaskStatuses_META_DATA;
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:302] autorelease];
-	[_selectSQL appendString:@"SELECT x.\"a\",x.\"b\",x.\"c\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"d\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_20_mbo_gettaskstatuses\" x WHERE (((x.\"_pf\" = 1 or not exists (select x_os.\"d\" from \"odmobile_1_20_mbo_gettaskstatuses_os\" x_os where x_os.\"d\" = x.\"d\")))) and ( x.\"a\" = ?)"];
+	[_selectSQL appendString:@"SELECT x.\"a\",x.\"b\",x.\"c\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"d\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_21_mbo_gettaskstatuses\" x WHERE (((x.\"_pf\" = 1 or not exists (select x_os.\"d\" from \"odmobile_1_21_mbo_gettaskstatuses_os\" x_os where x_os.\"d\" = x.\"d\")))) and ( x.\"a\" = ?)"];
 	sql = [[NSMutableString alloc] initWithFormat:@"%@", _selectSQL];
 	[sql autorelease];
 	SUPStringList *ids = [SUPStringList listWithCapacity:0];
@@ -432,7 +432,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTaskStatuses_META_DATA;
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:302] autorelease];
-	[_selectSQL appendString:@"SELECT x.\"a\",x.\"b\",x.\"c\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"d\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_20_mbo_gettaskstatuses\" x WHERE (((x.\"_pf\" = 1 or not exists (select x_os.\"d\" from \"odmobile_1_20_mbo_gettaskstatuses_os\" x_os where x_os.\"d\" = x.\"d\")))) and ( x.\"c\" = ?)"];
+	[_selectSQL appendString:@"SELECT x.\"a\",x.\"b\",x.\"c\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"d\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_21_mbo_gettaskstatuses\" x WHERE (((x.\"_pf\" = 1 or not exists (select x_os.\"d\" from \"odmobile_1_21_mbo_gettaskstatuses_os\" x_os where x_os.\"d\" = x.\"d\")))) and ( x.\"c\" = ?)"];
 	sql = [[NSMutableString alloc] initWithFormat:@"%@", _selectSQL];
 	[sql autorelease];
 	SUPStringList *ids = [SUPStringList listWithCapacity:0];

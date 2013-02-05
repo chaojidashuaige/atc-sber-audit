@@ -144,7 +144,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getSubbranchesSynchronizationParameters
 {
     switch(id_)
     {
-    case 353:
+    case 1004:
         return self.RESOURCE_EMPLOYEE_ID;
     default:
          return [super getAttributeNullableString:id_];
@@ -155,7 +155,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getSubbranchesSynchronizationParameters
 {
     switch(id_)
     {
-    case 353:
+    case 1004:
         self.RESOURCE_EMPLOYEE_ID = v;
         break;;
     default:
@@ -167,7 +167,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getSubbranchesSynchronizationParameters
 {
     switch(id_)
     {
-    case 355:
+    case 1006:
         return self.user_sp;
     default:
          return [super getAttributeString:id_];
@@ -178,7 +178,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getSubbranchesSynchronizationParameters
 {
     switch(id_)
     {
-    case 355:
+    case 1006:
         self.user_sp = v;
         break;;
     default:
@@ -190,7 +190,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getSubbranchesSynchronizationParameters
 {
     switch(id_)
     {
-    case 356:
+    case 1007:
         return self.size_sp;
     default:
          return [super getAttributeInt:id_];
@@ -201,7 +201,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getSubbranchesSynchronizationParameters
 {
     switch(id_)
     {
-    case 356:
+    case 1007:
         self.size_sp = v;
         break;;
     default:
@@ -213,7 +213,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getSubbranchesSynchronizationParameters
 {
     switch(id_)
     {
-    case 354:
+    case 1005:
         return self.RESOURCE_EMPLOYEE_IDUserDefined;
     default:
          return [super getAttributeBoolean:id_];
@@ -224,7 +224,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getSubbranchesSynchronizationParameters
 {
     switch(id_)
     {
-    case 354:
+    case 1005:
         self.RESOURCE_EMPLOYEE_IDUserDefined = v;
         break;;
     default:

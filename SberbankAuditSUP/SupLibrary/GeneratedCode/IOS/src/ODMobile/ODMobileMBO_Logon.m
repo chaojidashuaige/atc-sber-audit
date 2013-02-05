@@ -194,7 +194,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_Logon_META_DATA;
 {
     switch(id_)
     {
-    case 94:
+    case 745:
         return self.surrogateKey;
     default:
          return [super getAttributeLong:id_];
@@ -205,7 +205,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_Logon_META_DATA;
 {
     switch(id_)
     {
-    case 94:
+    case 745:
         self.surrogateKey = v;
         break;;
     default:
@@ -217,7 +217,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_Logon_META_DATA;
 {
     switch(id_)
     {
-    case 93:
+    case 744:
         return self.logonReturn;
     default:
          return [super getAttributeNullableString:id_];
@@ -228,7 +228,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_Logon_META_DATA;
 {
     switch(id_)
     {
-    case 93:
+    case 744:
         self.logonReturn = v;
         break;;
     default:
@@ -324,7 +324,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_Logon_META_DATA;
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:241] autorelease];
-	[_selectSQL appendString:@" x.\"a\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"b\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_20_mbo_logon\" x where (((x.\"_pf\" = 1 or not exists (select x_os.\"b\" from \"odmobile_1_20_mbo_logon_os\" x_os where x_os.\"b\" = x.\"b\"))))"];
+	[_selectSQL appendString:@" x.\"a\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"b\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_21_mbo_logon\" x where (((x.\"_pf\" = 1 or not exists (select x_os.\"b\" from \"odmobile_1_21_mbo_logon_os\" x_os where x_os.\"b\" = x.\"b\"))))"];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
 	[sql autorelease];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];

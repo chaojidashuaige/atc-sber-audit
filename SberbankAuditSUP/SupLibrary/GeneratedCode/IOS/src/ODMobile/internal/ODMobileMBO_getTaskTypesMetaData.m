@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_TASK_TYPE_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			170:
+			821:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"TASK_TYPE_ID":@"":@"a":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_TASK_TYPE_ID setColumn:@"a"];
 		SUPAttributeMetaDataRBS* a_TASK_TYPE_NAME = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			171:
+			822:
 			[SUPDataType forName:@"string?"]:@"varchar(1200)":@"TASK_TYPE_NAME":@"":@"b":
 			@"":1200:0:0:
 			@"null":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_TASK_TYPE_NAME setColumn:@"b"];
 		SUPAttributeMetaDataRBS* a_TASK_TYPE_KEY = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			172:
+			823:
 			[SUPDataType forName:@"string?"]:@"varchar(400)":@"TASK_TYPE_KEY":@"":@"c":
 			@"":400:0:0:
 			@"null":NO:@"":
@@ -58,7 +58,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_TASK_TYPE_KEY setColumn:@"c"];
 		SUPAttributeMetaDataRBS* a_VISIT_TYPE_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			173:
+			824:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"VISIT_TYPE_ID":@"":@"d":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -67,7 +67,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_VISIT_TYPE_ID setColumn:@"d"];
 		SUPAttributeMetaDataRBS* a_BUSINESS_PROCESS_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			174:
+			825:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"BUSINESS_PROCESS_ID":@"":@"e":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -76,7 +76,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_BUSINESS_PROCESS_ID setColumn:@"e"];
 		SUPAttributeMetaDataRBS* a_CATEGORY_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			175:
+			826:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"CATEGORY_ID":@"":@"f":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -85,7 +85,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_CATEGORY_ID setColumn:@"f"];
 		SUPAttributeMetaDataRBS* a_OBJECT_TYPE_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			176:
+			827:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"OBJECT_TYPE_ID":@"":@"g":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -94,7 +94,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_OBJECT_TYPE_ID setColumn:@"g"];
 		SUPAttributeMetaDataRBS* a_TASK_DURATION = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			177:
+			828:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"TASK_DURATION":@"":@"h":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -139,7 +139,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_replayFailure setColumn:@"_rf"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			178:
+			829:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"i":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -294,7 +294,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mbo_gettasktypes";
+		self.table = @"odmobile_1_21_mbo_gettasktypes";
 		self.synchronizationGroup = @"DIMSG";
 
 		SUPIndexMetaData *i_findByPrimaryKeyIndex = [[[SUPIndexMetaData alloc] init] autorelease];

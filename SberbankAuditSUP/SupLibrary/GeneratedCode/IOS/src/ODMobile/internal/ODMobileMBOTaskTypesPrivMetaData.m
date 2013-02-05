@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_TASK_TYPE_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			68:
+			719:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"TASK_TYPE_ID":@"":@"a":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_TASK_TYPE_ID setColumn:@"a"];
 		SUPAttributeMetaDataRBS* a_EMPLOYEE_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			69:
+			720:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"EMPLOYEE_ID":@"":@"b":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -85,7 +85,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_replayFailure setColumn:@"_rf"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			70:
+			721:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"c":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -255,7 +255,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mbotasktypespriv";
+		self.table = @"odmobile_1_21_mbotasktypespriv";
 		self.synchronizationGroup = @"DIMSG";
 
 		SUPIndexMetaData *i_findByPrimaryKeyIndex = [[[SUPIndexMetaData alloc] init] autorelease];

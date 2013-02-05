@@ -26,7 +26,7 @@
 	if(self->_CHECKLIST_BODY == nil)
 	{
 		self->_CHECKLIST_BODY = [ODMobileODMobileDB createBigString];
-		[self->_CHECKLIST_BODY setString:@"table":@"odmobile_1_20_mbo_getchecklists"];
+		[self->_CHECKLIST_BODY setString:@"table":@"odmobile_1_21_mbo_getchecklists"];
 		[self->_CHECKLIST_BODY setString:@"column":@"b"];
 		[self->_CHECKLIST_BODY setDbClass:[ODMobileODMobileDB class]];
 		[self->_CHECKLIST_BODY setMboClass:[ODMobileMBO_getChecklists class]];
@@ -156,7 +156,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getChecklists_META_DATA;
 {
     switch(id_)
     {
-    	case 137:
+    	case 788:
              return nil;
         break;
         default:
@@ -168,7 +168,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getChecklists_META_DATA;
 {
     switch(id_)
     { 
-    	case 137:
+    	case 788:
              self.CHECKLIST_BODY = nil;
         break;
         default:
@@ -245,9 +245,9 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getChecklists_META_DATA;
 {
     switch(id_)
     {
-    case 138:
+    case 789:
         return self.surrogateKey;
-    case 573:
+    case 1224:
         return self.CHECKLIST_BODYLength;
     default:
          return [super getAttributeLong:id_];
@@ -258,10 +258,10 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getChecklists_META_DATA;
 {
     switch(id_)
     {
-    case 138:
+    case 789:
         self.surrogateKey = v;
         break;;
-    case 573:
+    case 1224:
         self.CHECKLIST_BODYLength = v;
         break;;
     default:
@@ -273,7 +273,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getChecklists_META_DATA;
 {
     switch(id_)
     {
-    case 136:
+    case 787:
         return self.CHECKLIST_TEMPLATE_ID;
     default:
          return [super getAttributeString:id_];
@@ -284,7 +284,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getChecklists_META_DATA;
 {
     switch(id_)
     {
-    case 136:
+    case 787:
         self.CHECKLIST_TEMPLATE_ID = v;
         break;;
     default:
@@ -296,7 +296,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getChecklists_META_DATA;
 {
     switch(id_)
     {
-    	case 137:
+    	case 788:
             if(loadFromDB)
             {
                 return self.CHECKLIST_BODY;
@@ -312,7 +312,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getChecklists_META_DATA;
 {
     switch(id_)
     {
-    	case 137:
+    	case 788:
              self.CHECKLIST_BODY = nil;
         break;
         default:
@@ -395,7 +395,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getChecklists_META_DATA;
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:285] autorelease];
-	[_selectSQL appendString:@" x.\"a\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"c\",x.\"_rc\",x.\"_ds\",x.\"CHECKLIST_BODY_length\" FROM \"odmobile_1_20_mbo_getchecklists\" x where (((x.\"_pf\" = 1 or not exists (select x_os.\"c\" from \"odmobile_1_20_mbo_getchecklists_os\" x_os where x_os.\"c\" = x.\"c\"))))"];
+	[_selectSQL appendString:@" x.\"a\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"c\",x.\"_rc\",x.\"_ds\",x.\"CHECKLIST_BODY_length\" FROM \"odmobile_1_21_mbo_getchecklists\" x where (((x.\"_pf\" = 1 or not exists (select x_os.\"c\" from \"odmobile_1_21_mbo_getchecklists_os\" x_os where x_os.\"c\" = x.\"c\"))))"];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
 	[sql autorelease];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
@@ -413,7 +413,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getChecklists_META_DATA;
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:319] autorelease];
-	[_selectSQL appendString:@"SELECT x.\"a\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"c\",x.\"_rc\",x.\"_ds\",x.\"CHECKLIST_BODY_length\" FROM \"odmobile_1_20_mbo_getchecklists\" x WHERE (((x.\"_pf\" = 1 or not exists (select x_os.\"c\" from \"odmobile_1_20_mbo_getchecklists_os\" x_os where x_os.\"c\" = x.\"c\")))) and ( x.\"a"
+	[_selectSQL appendString:@"SELECT x.\"a\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"c\",x.\"_rc\",x.\"_ds\",x.\"CHECKLIST_BODY_length\" FROM \"odmobile_1_21_mbo_getchecklists\" x WHERE (((x.\"_pf\" = 1 or not exists (select x_os.\"c\" from \"odmobile_1_21_mbo_getchecklists_os\" x_os where x_os.\"c\" = x.\"c\")))) and ( x.\"a"
 	                               "\" = ?)"];
 	sql = [[NSMutableString alloc] initWithFormat:@"%@", _selectSQL];
 	[sql autorelease];

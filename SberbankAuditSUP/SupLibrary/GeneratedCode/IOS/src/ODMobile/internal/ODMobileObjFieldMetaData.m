@@ -24,7 +24,7 @@
  
 		SUPObjectList *attributes = [SUPObjectList listWithCapacity:7];
 		SUPAttributeMetaDataRBS* a_vl = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			2:
+			653:
 			[SUPDataType forName:@"string"]:@"varchar(300)":@"vl":@"":@"":
 			@"":300:0:0:
 			@"null":NO:@"":
@@ -33,7 +33,7 @@
 			NO:SUPPersonalizationType_None:NO];
   		[attributes addThis:a_vl];
 		SUPAttributeMetaDataRBS* a_nm = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			3:
+			654:
 			[SUPDataType forName:@"string"]:@"varchar(300)":@"nm":@"":@"":
 			@"":300:0:0:
 			@"null":NO:@"":

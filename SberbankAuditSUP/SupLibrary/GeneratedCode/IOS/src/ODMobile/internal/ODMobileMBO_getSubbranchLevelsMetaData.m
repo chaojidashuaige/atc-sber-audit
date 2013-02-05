@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_SUBBRANCH_LEVEL_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			147:
+			798:
 			[SUPDataType forName:@"string"]:@"varchar(40)":@"SUBBRANCH_LEVEL_ID":@"":@"a":
 			@"":40:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_SUBBRANCH_LEVEL_ID setColumn:@"a"];
 		SUPAttributeMetaDataRBS* a_SUBBRANCH_LEVEL_NAME = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			148:
+			799:
 			[SUPDataType forName:@"string?"]:@"varchar(400)":@"SUBBRANCH_LEVEL_NAME":@"":@"b":
 			@"":400:0:0:
 			@"null":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_SUBBRANCH_LEVEL_NAME setColumn:@"b"];
 		SUPAttributeMetaDataRBS* a_SUBBRANCH_LEVEL_KEY = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			149:
+			800:
 			[SUPDataType forName:@"string?"]:@"varchar(400)":@"SUBBRANCH_LEVEL_KEY":@"":@"c":
 			@"":400:0:0:
 			@"null":NO:@"":
@@ -94,7 +94,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_replayFailure setColumn:@"_rf"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			150:
+			801:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"d":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -244,7 +244,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mbo_getsubbranchlevels";
+		self.table = @"odmobile_1_21_mbo_getsubbranchlevels";
 		self.synchronizationGroup = @"DIMSG";
 
 		SUPIndexMetaData *i_findByPrimaryKeyIndex = [[[SUPIndexMetaData alloc] init] autorelease];

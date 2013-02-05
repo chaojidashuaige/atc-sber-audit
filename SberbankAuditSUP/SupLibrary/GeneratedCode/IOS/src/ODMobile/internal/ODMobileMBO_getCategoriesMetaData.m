@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_CATEGORY_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			132:
+			783:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"CATEGORY_ID":@"":@"a":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_CATEGORY_ID setColumn:@"a"];
 		SUPAttributeMetaDataRBS* a_CATEGORY_NAME = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			133:
+			784:
 			[SUPDataType forName:@"string?"]:@"varchar(1200)":@"CATEGORY_NAME":@"":@"b":
 			@"":1200:0:0:
 			@"null":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_CATEGORY_NAME setColumn:@"b"];
 		SUPAttributeMetaDataRBS* a_CATEGORY_KEY = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			134:
+			785:
 			[SUPDataType forName:@"string?"]:@"varchar(400)":@"CATEGORY_KEY":@"":@"c":
 			@"":400:0:0:
 			@"null":NO:@"":
@@ -94,7 +94,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_replayFailure setColumn:@"_rf"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			135:
+			786:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"d":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -231,7 +231,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mbo_getcategories";
+		self.table = @"odmobile_1_21_mbo_getcategories";
 		self.synchronizationGroup = @"DIMSG";
 
 		SUPIndexMetaData *i_findByPrimaryKeyIndex = [[[SUPIndexMetaData alloc] init] autorelease];

@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_EMPLOYEE_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			22:
+			673:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"EMPLOYEE_ID":@"":@"a":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_EMPLOYEE_ID setColumn:@"a"];
 		SUPAttributeMetaDataRBS* a_CATEGORY_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			23:
+			674:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"CATEGORY_ID":@"":@"b":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -85,7 +85,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_replayFailure setColumn:@"_rf"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			24:
+			675:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"c":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -214,7 +214,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mbocategoryprivs";
+		self.table = @"odmobile_1_21_mbocategoryprivs";
 		self.synchronizationGroup = @"DIMSG";
 
 			

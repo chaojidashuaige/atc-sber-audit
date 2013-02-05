@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_username = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			336:
+			987:
 			[SUPDataType forName:@"string?"]:@"varchar(300)":@"username":@"":@"username":
 			@"":300:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_username setColumn:@"username"];
 		SUPAttributeMetaDataRBS* a_remoteId = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			337:
+			988:
 			[SUPDataType forName:@"string?"]:@"varchar(300)":@"remoteId":@"":@"remoteId":
 			@"":300:0:0:
 			@"null":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_remoteId setColumn:@"remoteId"];
 		SUPAttributeMetaDataRBS* a_LON_DELTAParam = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			338:
+			989:
 			[SUPDataType forName:@"string?"]:@"varchar(48)":@"LON_DELTAParam":@"":@"LON_DELTAParam":
 			@"":48:0:0:
 			@"null":NO:@"":
@@ -58,7 +58,7 @@
 			YES:SUPPersonalizationType_None:NO];
 		[a_LON_DELTAParam setColumn:@"LON_DELTAParam"];
 		SUPAttributeMetaDataRBS* a_LAT_DELTAParam = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			339:
+			990:
 			[SUPDataType forName:@"string?"]:@"varchar(48)":@"LAT_DELTAParam":@"":@"LAT_DELTAParam":
 			@"":48:0:0:
 			@"null":NO:@"":
@@ -67,7 +67,7 @@
 			YES:SUPPersonalizationType_None:NO];
 		[a_LAT_DELTAParam setColumn:@"LAT_DELTAParam"];
 		SUPAttributeMetaDataRBS* a_LATParam = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			340:
+			991:
 			[SUPDataType forName:@"string?"]:@"varchar(48)":@"LATParam":@"":@"LATParam":
 			@"":48:0:0:
 			@"null":NO:@"":
@@ -76,7 +76,7 @@
 			YES:SUPPersonalizationType_None:NO];
 		[a_LATParam setColumn:@"LATParam"];
 		SUPAttributeMetaDataRBS* a_LONParam = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			341:
+			992:
 			[SUPDataType forName:@"string?"]:@"varchar(48)":@"LONParam":@"":@"LONParam":
 			@"":48:0:0:
 			@"null":NO:@"":
@@ -85,7 +85,7 @@
 			YES:SUPPersonalizationType_None:NO];
 		[a_LONParam setColumn:@"LONParam"];
 		SUPAttributeMetaDataRBS* a_id = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			335:
+			986:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"id":@"":@"id":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -159,7 +159,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mbounionsgeo_pull_pq";
+		self.table = @"odmobile_1_21_mbounionsgeo_pull_pq";
 		self.synchronizationGroup = @"unsubscribe";
 
 		SUPIndexMetaData *i_remoteId = [[[SUPIndexMetaData alloc] init] autorelease];

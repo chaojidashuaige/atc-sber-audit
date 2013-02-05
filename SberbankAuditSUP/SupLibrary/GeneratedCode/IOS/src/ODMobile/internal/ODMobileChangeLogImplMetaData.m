@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_operationType = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			268:
+			919:
 			[SUPDataType forName:@"char"]:@"char(1)":@"operationType":@"":@"c":
 			@"":1:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_operationType setColumn:@"c"];
 		SUPAttributeMetaDataRBS* a_rootEntityType = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			269:
+			920:
 			[SUPDataType forName:@"int"]:@"integer":@"rootEntityType":@"":@"d":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_rootEntityType setColumn:@"d"];
 		SUPAttributeMetaDataRBS* a_rootSurrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			270:
+			921:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"rootSurrogateKey":@"":@"e":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -58,7 +58,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_rootSurrogateKey setColumn:@"e"];
 		SUPAttributeMetaDataRBS* a_entityType = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			266:
+			917:
 			[SUPDataType forName:@"int"]:@"integer":@"entityType":@"":@"a":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -67,7 +67,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_entityType setColumn:@"a"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			267:
+			918:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"b":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -132,7 +132,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_changelogimpl";
+		self.table = @"odmobile_1_21_changelogimpl";
 		self.synchronizationGroup = @"PROPERTIES";
 
 			

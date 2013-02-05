@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_logonReturn = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			93:
+			744:
 			[SUPDataType forName:@"string?"]:@"varchar(400)":@"logonReturn":@"":@"a":
 			@"":400:0:0:
 			@"null":NO:@"":
@@ -76,7 +76,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_replayFailure setColumn:@"_rf"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			94:
+			745:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"b":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -198,7 +198,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mbo_logon";
+		self.table = @"odmobile_1_21_mbo_logon";
 		self.synchronizationGroup = @"LogonSG";
 
 			

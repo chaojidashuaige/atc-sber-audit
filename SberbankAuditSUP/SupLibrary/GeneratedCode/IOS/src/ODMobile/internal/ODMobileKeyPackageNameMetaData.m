@@ -24,7 +24,7 @@
  
 		SUPObjectList *attributes = [SUPObjectList listWithCapacity:7];
 		SUPAttributeMetaDataRBS* a_key_name = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			378:
+			1029:
 			[SUPDataType forName:@"string"]:@"varchar(255)":@"key_name":@"":@"":
 			@"":255:0:0:
 			@"null":NO:@"":
@@ -33,7 +33,7 @@
 			NO:SUPPersonalizationType_None:NO];
   		[attributes addThis:a_key_name];
 		SUPAttributeMetaDataRBS* a_package_name = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			380:
+			1031:
 			[SUPDataType forName:@"string"]:@"varchar(100)":@"package_name":@"":@"":
 			@"":100:0:0:
 			@"null":NO:@"":
@@ -42,7 +42,7 @@
 			NO:SUPPersonalizationType_None:NO];
   		[attributes addThis:a_package_name];
 		SUPAttributeMetaDataRBS* a_user_name = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			379:
+			1030:
 			[SUPDataType forName:@"string"]:@"varchar(255)":@"user_name":@"":@"":
 			@"":255:0:0:
 			@"null":NO:@"":
@@ -51,7 +51,7 @@
 			NO:SUPPersonalizationType_None:NO];
   		[attributes addThis:a_user_name];
 		SUPAttributeMetaDataRBS* a_domain_name = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			381:
+			1032:
 			[SUPDataType forName:@"string"]:@"varchar(100)":@"domain_name":@"":@"":
 			@"":100:0:0:
 			@"null":NO:@"":

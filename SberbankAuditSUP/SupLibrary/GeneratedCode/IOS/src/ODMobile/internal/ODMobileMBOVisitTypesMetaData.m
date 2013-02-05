@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_VISIT_TYPE_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			89:
+			740:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"VISIT_TYPE_ID":@"":@"a":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_VISIT_TYPE_ID setColumn:@"a"];
 		SUPAttributeMetaDataRBS* a_VISIT_TYPE_NAME = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			90:
+			741:
 			[SUPDataType forName:@"string?"]:@"varchar(400)":@"VISIT_TYPE_NAME":@"":@"b":
 			@"":400:0:0:
 			@"null":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_VISIT_TYPE_NAME setColumn:@"b"];
 		SUPAttributeMetaDataRBS* a_VISIT_TYPE_KEY = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			91:
+			742:
 			[SUPDataType forName:@"string?"]:@"varchar(400)":@"VISIT_TYPE_KEY":@"":@"c":
 			@"":400:0:0:
 			@"null":NO:@"":
@@ -94,7 +94,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_replayFailure setColumn:@"_rf"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			92:
+			743:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"d":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -244,7 +244,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mbovisittypes";
+		self.table = @"odmobile_1_21_mbovisittypes";
 		self.synchronizationGroup = @"DIMSG";
 
 		SUPIndexMetaData *i_findByPrimaryKeyIndex = [[[SUPIndexMetaData alloc] init] autorelease];

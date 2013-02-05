@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_ACTIVITY_TEMPLATE_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			8:
+			659:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"ACTIVITY_TEMPLATE_ID":@"":@"a":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_ACTIVITY_TEMPLATE_ID setColumn:@"a"];
 		SUPAttributeMetaDataRBS* a_ACTIVITY_NAME = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			9:
+			660:
 			[SUPDataType forName:@"string?"]:@"varchar(1200)":@"ACTIVITY_NAME":@"":@"b":
 			@"":1200:0:0:
 			@"null":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_ACTIVITY_NAME setColumn:@"b"];
 		SUPAttributeMetaDataRBS* a_TIME_PERIOD = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			10:
+			661:
 			[SUPDataType forName:@"string?"]:@"varchar(40)":@"TIME_PERIOD":@"":@"c":
 			@"":40:0:0:
 			@"null":NO:@"":
@@ -58,7 +58,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_TIME_PERIOD setColumn:@"c"];
 		SUPAttributeMetaDataRBS* a_ACTIVITY_TYPE_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			11:
+			662:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"ACTIVITY_TYPE_ID":@"":@"d":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -67,7 +67,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_ACTIVITY_TYPE_ID setColumn:@"d"];
 		SUPAttributeMetaDataRBS* a_CATEGORY_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			12:
+			663:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"CATEGORY_ID":@"":@"e":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -76,7 +76,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_CATEGORY_ID setColumn:@"e"];
 		SUPAttributeMetaDataRBS* a_ACTIVITY_PRIORITY_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			13:
+			664:
 			[SUPDataType forName:@"string?"]:@"varchar(40)":@"ACTIVITY_PRIORITY_ID":@"":@"f":
 			@"":40:0:0:
 			@"null":NO:@"":
@@ -85,7 +85,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_ACTIVITY_PRIORITY_ID setColumn:@"f"];
 		SUPAttributeMetaDataRBS* a_BUSINESS_PROCESS_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			14:
+			665:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"BUSINESS_PROCESS_ID":@"":@"g":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -94,7 +94,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_BUSINESS_PROCESS_ID setColumn:@"g"];
 		SUPAttributeMetaDataRBS* a_QUESTION_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			15:
+			666:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"QUESTION_ID":@"":@"h":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -103,7 +103,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_QUESTION_ID setColumn:@"h"];
 		SUPAttributeMetaDataRBS* a_ANSWER_ITEM_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			16:
+			667:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"ANSWER_ITEM_ID":@"":@"i":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -148,7 +148,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_replayFailure setColumn:@"_rf"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			17:
+			668:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"j":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -319,7 +319,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mboactivitytemplates";
+		self.table = @"odmobile_1_21_mboactivitytemplates";
 		self.synchronizationGroup = @"DIMSG";
 
 		SUPIndexMetaData *i_findByPrimaryKeyIndex = [[[SUPIndexMetaData alloc] init] autorelease];

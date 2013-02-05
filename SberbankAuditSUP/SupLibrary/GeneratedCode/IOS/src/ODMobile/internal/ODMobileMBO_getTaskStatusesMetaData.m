@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_TASK_STATUS_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			166:
+			817:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"TASK_STATUS_ID":@"":@"a":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_TASK_STATUS_ID setColumn:@"a"];
 		SUPAttributeMetaDataRBS* a_TASK_STATUS_NAME = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			167:
+			818:
 			[SUPDataType forName:@"string?"]:@"varchar(1200)":@"TASK_STATUS_NAME":@"":@"b":
 			@"":1200:0:0:
 			@"null":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_TASK_STATUS_NAME setColumn:@"b"];
 		SUPAttributeMetaDataRBS* a_TASK_STATUS_KEY = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			168:
+			819:
 			[SUPDataType forName:@"string?"]:@"varchar(400)":@"TASK_STATUS_KEY":@"":@"c":
 			@"":400:0:0:
 			@"null":NO:@"":
@@ -94,7 +94,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_replayFailure setColumn:@"_rf"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			169:
+			820:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"d":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -244,7 +244,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mbo_gettaskstatuses";
+		self.table = @"odmobile_1_21_mbo_gettaskstatuses";
 		self.synchronizationGroup = @"DIMSG";
 
 		SUPIndexMetaData *i_findByPrimaryKeyIndex = [[[SUPIndexMetaData alloc] init] autorelease];

@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_TASK_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			62:
+			713:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"TASK_ID":@"":@"a":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_TASK_ID setColumn:@"a"];
 		SUPAttributeMetaDataRBS* a_QUESTION_BLOCK_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			63:
+			714:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"QUESTION_BLOCK_ID":@"":@"b":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_QUESTION_BLOCK_ID setColumn:@"b"];
 		SUPAttributeMetaDataRBS* a_METRIC_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			64:
+			715:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"METRIC_ID":@"":@"c":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -58,7 +58,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_METRIC_ID setColumn:@"c"];
 		SUPAttributeMetaDataRBS* a_METRIC_VALUE = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			65:
+			716:
 			[SUPDataType forName:@"string?"]:@"varchar(120)":@"METRIC_VALUE":@"":@"d":
 			@"":120:0:0:
 			@"null":NO:@"":
@@ -67,7 +67,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_METRIC_VALUE setColumn:@"d"];
 		SUPAttributeMetaDataRBS* a_EMPLOYEE_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			66:
+			717:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"EMPLOYEE_ID":@"":@"e":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -112,7 +112,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_replayFailure setColumn:@"_rf"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			67:
+			718:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"f":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -257,7 +257,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mbotaskblockmetrics";
+		self.table = @"odmobile_1_21_mbotaskblockmetrics";
 		self.synchronizationGroup = @"TasksSG";
 
 		SUPIndexMetaData *i_getByTaskIdIndex = [[[SUPIndexMetaData alloc] init] autorelease];

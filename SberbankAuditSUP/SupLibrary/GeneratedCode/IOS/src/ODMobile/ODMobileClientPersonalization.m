@@ -203,7 +203,7 @@ static SUPEntityMetaDataRBS* ODMobileClientPersonalization_META_DATA;
 {
     switch(id_)
     {
-    case 372:
+    case 1023:
         return self.id_;
     default:
          return [super getAttributeLong:id_];
@@ -214,7 +214,7 @@ static SUPEntityMetaDataRBS* ODMobileClientPersonalization_META_DATA;
 {
     switch(id_)
     {
-    case 372:
+    case 1023:
         self.id_ = v;
         break;;
     default:
@@ -226,9 +226,9 @@ static SUPEntityMetaDataRBS* ODMobileClientPersonalization_META_DATA;
 {
     switch(id_)
     {
-    case 375:
+    case 1026:
         return self.value;
-    case 377:
+    case 1028:
         return self.description_;
     default:
          return [super getAttributeNullableString:id_];
@@ -239,10 +239,10 @@ static SUPEntityMetaDataRBS* ODMobileClientPersonalization_META_DATA;
 {
     switch(id_)
     {
-    case 375:
+    case 1026:
         self.value = v;
         break;;
-    case 377:
+    case 1028:
         self.description_ = v;
         break;;
     default:
@@ -254,9 +254,9 @@ static SUPEntityMetaDataRBS* ODMobileClientPersonalization_META_DATA;
 {
     switch(id_)
     {
-    case 373:
+    case 1024:
         return self.key_name;
-    case 374:
+    case 1025:
         return self.user;
     default:
          return [super getAttributeString:id_];
@@ -267,10 +267,10 @@ static SUPEntityMetaDataRBS* ODMobileClientPersonalization_META_DATA;
 {
     switch(id_)
     {
-    case 373:
+    case 1024:
         self.key_name = v;
         break;;
-    case 374:
+    case 1025:
         self.user = v;
         break;;
     default:
@@ -282,7 +282,7 @@ static SUPEntityMetaDataRBS* ODMobileClientPersonalization_META_DATA;
 {
     switch(id_)
     {
-    case 376:
+    case 1027:
         return self.user_defined;
     default:
          return [super getAttributeBoolean:id_];
@@ -293,7 +293,7 @@ static SUPEntityMetaDataRBS* ODMobileClientPersonalization_META_DATA;
 {
     switch(id_)
     {
-    case 376:
+    case 1027:
         self.user_defined = v;
         break;;
     default:

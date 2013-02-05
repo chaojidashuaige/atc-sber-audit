@@ -163,7 +163,7 @@ static SUPClassMetaDataRBS* ODMobilePersonalizationParameters_META_DATA;
         [self setClassDelegate:[[self class] delegate]];
         _usernameUserDefined = NO;
         _passwordUserDefined = NO;   
-        clientPersonalizationTableName = @"co_odmobile_1_20_clientpersonalization";
+        clientPersonalizationTableName = @"co_odmobile_1_21_clientpersonalization";
         [self load];
         
     }
@@ -174,11 +174,11 @@ static SUPClassMetaDataRBS* ODMobilePersonalizationParameters_META_DATA;
 {
     switch(id_)
     {
-    case 385:
+    case 1036:
         return self.didPK;
-    case 387:
+    case 1038:
         return self.userLoginPK;
-    case 389:
+    case 1040:
         return self.userPasswordPK;
     default:
         return [super getAttributeNullableString:id_];
@@ -189,13 +189,13 @@ static SUPClassMetaDataRBS* ODMobilePersonalizationParameters_META_DATA;
 {
     switch(id_)
     {
-    case 385:
+    case 1036:
         self.didPK = v;
         break;;
-    case 387:
+    case 1038:
         self.userLoginPK = v;
         break;;
-    case 389:
+    case 1040:
         self.userPasswordPK = v;
         break;;
     default:
@@ -207,9 +207,9 @@ static SUPClassMetaDataRBS* ODMobilePersonalizationParameters_META_DATA;
 {
     switch(id_)
     {
-    case 391:
+    case 1042:
         return self.username;
-    case 393:
+    case 1044:
         return self.password;
     default:
         return [super getAttributeString:id_];
@@ -220,10 +220,10 @@ static SUPClassMetaDataRBS* ODMobilePersonalizationParameters_META_DATA;
 {
     switch(id_)
     {
-    case 391:
+    case 1042:
         self.username = v;
         break;;
-    case 393:
+    case 1044:
         self.password = v;
         break;;
     default:
@@ -235,15 +235,15 @@ static SUPClassMetaDataRBS* ODMobilePersonalizationParameters_META_DATA;
 {
     switch(id_)
     {
-    case 386:
+    case 1037:
         return self.didPKUserDefined;
-    case 388:
+    case 1039:
         return self.userLoginPKUserDefined;
-    case 390:
+    case 1041:
         return self.userPasswordPKUserDefined;
-    case 392:
+    case 1043:
         return self.usernameUserDefined;
-    case 394:
+    case 1045:
         return self.passwordUserDefined;
     default:
         return [super getAttributeBoolean:id_];
@@ -254,19 +254,19 @@ static SUPClassMetaDataRBS* ODMobilePersonalizationParameters_META_DATA;
 {
     switch(id_)
     {
-    case 386:
+    case 1037:
         self.didPKUserDefined = v;
         break;;
-    case 388:
+    case 1039:
         self.userLoginPKUserDefined = v;
         break;;
-    case 390:
+    case 1041:
         self.userPasswordPKUserDefined = v;
         break;;
-    case 392:
+    case 1043:
         self.usernameUserDefined = v;
         break;;
-    case 394:
+    case 1045:
         self.passwordUserDefined = v;
         break;;
     default:

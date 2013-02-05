@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_key_name = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			373:
+			1024:
 			[SUPDataType forName:@"string"]:@"varchar(300)":@"key_name":@"":@"key_name":
 			@"":300:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_key_name setColumn:@"key_name"];
 		SUPAttributeMetaDataRBS* a_user = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			374:
+			1025:
 			[SUPDataType forName:@"string"]:@"varchar(300)":@"user":@"":@"user":
 			@"":300:0:0:
 			@"null":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_user setColumn:@"user"];
 		SUPAttributeMetaDataRBS* a_value = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			375:
+			1026:
 			[SUPDataType forName:@"string?"]:@"LONG VARCHAR":@"value":@"":@"value":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -58,7 +58,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_value setColumn:@"value"];
 		SUPAttributeMetaDataRBS* a_user_defined = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			376:
+			1027:
 			[SUPDataType forName:@"boolean"]:@"tinyint":@"user_defined":@"":@"user_defined":
 			@"":-1:0:0:
 			@"true":NO:@"":
@@ -67,7 +67,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_user_defined setColumn:@"user_defined"];
 		SUPAttributeMetaDataRBS* a_description = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			377:
+			1028:
 			[SUPDataType forName:@"string?"]:@"varchar(300)":@"description":@"":@"description":
 			@"":300:0:0:
 			@"null":NO:@"":
@@ -76,7 +76,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_description setColumn:@"description"];
 		SUPAttributeMetaDataRBS* a_id = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			372:
+			1023:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"id":@"":@"id":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -122,7 +122,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"co_odmobile_1_20_clientpersonalization";
+		self.table = @"co_odmobile_1_21_clientpersonalization";
 		self.synchronizationGroup = @"";
 
 			

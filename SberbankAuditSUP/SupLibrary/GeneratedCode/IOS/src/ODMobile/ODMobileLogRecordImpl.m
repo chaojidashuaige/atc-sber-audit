@@ -309,7 +309,7 @@ static SUPEntityMetaDataRBS* ODMobileLogRecordImpl_META_DATA;
 {
     switch(id_)
     {
-    case 217:
+    case 868:
         return self.messageId;
     default:
          return [super getAttributeLong:id_];
@@ -320,7 +320,7 @@ static SUPEntityMetaDataRBS* ODMobileLogRecordImpl_META_DATA;
 {
     switch(id_)
     {
-    case 217:
+    case 868:
         self.messageId = v;
         break;;
     default:
@@ -332,17 +332,17 @@ static SUPEntityMetaDataRBS* ODMobileLogRecordImpl_META_DATA;
 {
     switch(id_)
     {
-    case 220:
+    case 871:
         return self.eisCode;
-    case 221:
+    case 872:
         return self.message;
-    case 222:
+    case 873:
         return self.component;
-    case 223:
+    case 874:
         return self.entityKey;
-    case 224:
+    case 875:
         return self.operation;
-    case 225:
+    case 876:
         return self.requestId;
     default:
          return [super getAttributeNullableString:id_];
@@ -353,22 +353,22 @@ static SUPEntityMetaDataRBS* ODMobileLogRecordImpl_META_DATA;
 {
     switch(id_)
     {
-    case 220:
+    case 871:
         self.eisCode = v;
         break;;
-    case 221:
+    case 872:
         self.message = v;
         break;;
-    case 222:
+    case 873:
         self.component = v;
         break;;
-    case 223:
+    case 874:
         self.entityKey = v;
         break;;
-    case 224:
+    case 875:
         self.operation = v;
         break;;
-    case 225:
+    case 876:
         self.requestId = v;
         break;;
     default:
@@ -380,7 +380,7 @@ static SUPEntityMetaDataRBS* ODMobileLogRecordImpl_META_DATA;
 {
     switch(id_)
     {
-    case 226:
+    case 877:
         return self.timestamp;
     default:
          return [super getAttributeNullableDateTime:id_];
@@ -391,7 +391,7 @@ static SUPEntityMetaDataRBS* ODMobileLogRecordImpl_META_DATA;
 {
     switch(id_)
     {
-    case 226:
+    case 877:
         self.timestamp = v;
         break;;
     default:
@@ -403,9 +403,9 @@ static SUPEntityMetaDataRBS* ODMobileLogRecordImpl_META_DATA;
 {
     switch(id_)
     {
-    case 218:
+    case 869:
         return self.level;
-    case 219:
+    case 870:
         return self.code;
     default:
          return [super getAttributeInt:id_];
@@ -416,10 +416,10 @@ static SUPEntityMetaDataRBS* ODMobileLogRecordImpl_META_DATA;
 {
     switch(id_)
     {
-    case 218:
+    case 869:
         self.level = v;
         break;;
-    case 219:
+    case 870:
         self.code = v;
         break;;
     default:

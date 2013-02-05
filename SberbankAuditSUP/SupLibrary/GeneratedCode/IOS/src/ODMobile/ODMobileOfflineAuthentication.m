@@ -145,7 +145,7 @@ static SUPEntityMetaDataRBS* ODMobileOfflineAuthentication_META_DATA;
 {
     switch(id_)
     {
-    case 271:
+    case 922:
         return self.user;
     default:
          return [super getAttributeString:id_];
@@ -156,7 +156,7 @@ static SUPEntityMetaDataRBS* ODMobileOfflineAuthentication_META_DATA;
 {
     switch(id_)
     {
-    case 271:
+    case 922:
         self.user = v;
         break;;
     default:
@@ -168,7 +168,7 @@ static SUPEntityMetaDataRBS* ODMobileOfflineAuthentication_META_DATA;
 {
     switch(id_)
     {
-    case 272:
+    case 923:
         return self.passwordHash;
     default:
          return [super getAttributeInt:id_];
@@ -179,7 +179,7 @@ static SUPEntityMetaDataRBS* ODMobileOfflineAuthentication_META_DATA;
 {
     switch(id_)
     {
-    case 272:
+    case 923:
         self.passwordHash = v;
         break;;
     default:

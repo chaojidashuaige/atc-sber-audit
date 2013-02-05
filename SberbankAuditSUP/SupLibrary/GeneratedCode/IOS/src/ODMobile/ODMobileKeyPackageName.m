@@ -79,13 +79,13 @@ static SUPClassMetaDataRBS* ODMobileKeyPackageName_META_DATA;
 {
     switch(id_)
     {
-    case 378:
+    case 1029:
         return self.key_name;
-    case 380:
+    case 1031:
         return self.package_name;
-    case 379:
+    case 1030:
         return self.user_name;
-    case 381:
+    case 1032:
         return self.domain_name;
     default:
         return [super getAttributeString:id_];
@@ -96,16 +96,16 @@ static SUPClassMetaDataRBS* ODMobileKeyPackageName_META_DATA;
 {
     switch(id_)
     {
-    case 378:
+    case 1029:
         self.key_name = v;
         break;;
-    case 380:
+    case 1031:
         self.package_name = v;
         break;;
-    case 379:
+    case 1030:
         self.user_name = v;
         break;;
-    case 381:
+    case 1032:
         self.domain_name = v;
         break;;
     default:

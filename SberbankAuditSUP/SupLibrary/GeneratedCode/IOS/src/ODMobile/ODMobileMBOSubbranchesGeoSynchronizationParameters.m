@@ -225,13 +225,13 @@ static SUPEntityMetaDataRBS* ODMobileMBOSubbranchesGeoSynchronizationParameters_
 {
     switch(id_)
     {
-    case 281:
+    case 932:
         return self.LAT_DELTA;
-    case 283:
+    case 934:
         return self.LAT;
-    case 285:
+    case 936:
         return self.LON_DELTA;
-    case 287:
+    case 938:
         return self.LON;
     default:
          return [super getAttributeNullableString:id_];
@@ -242,16 +242,16 @@ static SUPEntityMetaDataRBS* ODMobileMBOSubbranchesGeoSynchronizationParameters_
 {
     switch(id_)
     {
-    case 281:
+    case 932:
         self.LAT_DELTA = v;
         break;;
-    case 283:
+    case 934:
         self.LAT = v;
         break;;
-    case 285:
+    case 936:
         self.LON_DELTA = v;
         break;;
-    case 287:
+    case 938:
         self.LON = v;
         break;;
     default:
@@ -263,7 +263,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOSubbranchesGeoSynchronizationParameters_
 {
     switch(id_)
     {
-    case 289:
+    case 940:
         return self.user_sp;
     default:
          return [super getAttributeString:id_];
@@ -274,7 +274,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOSubbranchesGeoSynchronizationParameters_
 {
     switch(id_)
     {
-    case 289:
+    case 940:
         self.user_sp = v;
         break;;
     default:
@@ -286,7 +286,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOSubbranchesGeoSynchronizationParameters_
 {
     switch(id_)
     {
-    case 290:
+    case 941:
         return self.size_sp;
     default:
          return [super getAttributeInt:id_];
@@ -297,7 +297,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOSubbranchesGeoSynchronizationParameters_
 {
     switch(id_)
     {
-    case 290:
+    case 941:
         self.size_sp = v;
         break;;
     default:
@@ -309,13 +309,13 @@ static SUPEntityMetaDataRBS* ODMobileMBOSubbranchesGeoSynchronizationParameters_
 {
     switch(id_)
     {
-    case 282:
+    case 933:
         return self.LAT_DELTAUserDefined;
-    case 284:
+    case 935:
         return self.LATUserDefined;
-    case 286:
+    case 937:
         return self.LON_DELTAUserDefined;
-    case 288:
+    case 939:
         return self.LONUserDefined;
     default:
          return [super getAttributeBoolean:id_];
@@ -326,16 +326,16 @@ static SUPEntityMetaDataRBS* ODMobileMBOSubbranchesGeoSynchronizationParameters_
 {
     switch(id_)
     {
-    case 282:
+    case 933:
         self.LAT_DELTAUserDefined = v;
         break;;
-    case 284:
+    case 935:
         self.LATUserDefined = v;
         break;;
-    case 286:
+    case 937:
         self.LON_DELTAUserDefined = v;
         break;;
-    case 288:
+    case 939:
         self.LONUserDefined = v;
         break;;
     default:

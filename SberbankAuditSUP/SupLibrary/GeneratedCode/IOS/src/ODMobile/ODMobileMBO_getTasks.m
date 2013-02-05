@@ -630,9 +630,9 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 {
     switch(id_)
     {
-    case 210:
+    case 861:
         return [[ODMobileOdObject delegate] toJsonObject:(SUPAbstractStructure*)self.updateOdObject];
-    case 213:
+    case 864:
         return [[ODMobileOdObject delegate] toJsonObject:(SUPAbstractStructure*)self.createOdObject];
         default:
         return [super getAttributeJson:id_];
@@ -643,10 +643,10 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 {
     switch(id_)
     { 
-    case 210:
+    case 861:
         self.updateOdObject = (ODMobileOdObject*)[[ODMobileOdObject delegate] fromJsonObject:(SUPJsonObject*)value];
         break;
-    case 213:
+    case 864:
         self.createOdObject = (ODMobileOdObject*)[[ODMobileOdObject delegate] fromJsonObject:(SUPJsonObject*)value];
         break;
         default:
@@ -723,7 +723,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 {
     switch(id_)
     {
-    case 207:
+    case 858:
         return self.surrogateKey;
     default:
          return [super getAttributeLong:id_];
@@ -734,7 +734,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 {
     switch(id_)
     {
-    case 207:
+    case 858:
         self.surrogateKey = v;
         break;;
     default:
@@ -746,61 +746,61 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 {
     switch(id_)
     {
-    case 179:
+    case 830:
         return self.UNION_ID;
-    case 181:
+    case 832:
         return self.TASK_TYPE_ID;
-    case 182:
+    case 833:
         return self.TASK_STATUS_ID;
-    case 183:
+    case 834:
         return self.CREATOR_EMPLOYEE_ID;
-    case 185:
+    case 836:
         return self.TASK_DURATION;
-    case 186:
+    case 837:
         return self.TASK_DESC;
-    case 187:
+    case 838:
         return self.PLAN_START_DTTM;
-    case 188:
+    case 839:
         return self.CHECKLIST_TEMPLATE_ID;
-    case 189:
+    case 840:
         return self.INITIAL_DATA;
-    case 190:
+    case 841:
         return self.SUBBRANCH_ID;
-    case 191:
+    case 842:
         return self.FACT_START_DTTM;
-    case 192:
+    case 843:
         return self.FACT_END_DTTM;
-    case 193:
+    case 844:
         return self.SELF_CHECK_ID;
-    case 194:
+    case 845:
         return self.SELF_CHECK_RESOURCE_FIO;
-    case 195:
+    case 846:
         return self.SELF_CHECK_FACT_END_DTTM;
-    case 196:
+    case 847:
         return self.OTHER_CHECK_ID;
-    case 197:
+    case 848:
         return self.OTHER_CHECK_RESOURCE_FIO;
-    case 198:
+    case 849:
         return self.OTHER_CHECK_FACT_END_DTTM;
-    case 199:
+    case 850:
         return self.QUALITY_CONTROL_ID;
-    case 200:
+    case 851:
         return self.QUALITY_CONTROL_RESOURCE_FIO;
-    case 201:
+    case 852:
         return self.QUALITY_CONTROL_FACT_END_DTTM;
-    case 202:
+    case 853:
         return self.INSPECTOR_CONTROL_ID;
-    case 203:
+    case 854:
         return self.INSPECTOR_CONTROL_RESOURCE_FIO;
-    case 204:
+    case 855:
         return self.INSPECTOR_CONTROL_FACT_END_DTTM;
-    case 205:
+    case 856:
         return self.PLAN_END_DTTM;
-    case 206:
+    case 857:
         return self.CHANGED_DTTM;
-    case 209:
+    case 860:
         return self.updateObjectName;
-    case 212:
+    case 863:
         return self.createObjectName;
     default:
          return [super getAttributeNullableString:id_];
@@ -811,88 +811,88 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 {
     switch(id_)
     {
-    case 179:
+    case 830:
         self.UNION_ID = v;
         break;;
-    case 181:
+    case 832:
         self.TASK_TYPE_ID = v;
         break;;
-    case 182:
+    case 833:
         self.TASK_STATUS_ID = v;
         break;;
-    case 183:
+    case 834:
         self.CREATOR_EMPLOYEE_ID = v;
         break;;
-    case 185:
+    case 836:
         self.TASK_DURATION = v;
         break;;
-    case 186:
+    case 837:
         self.TASK_DESC = v;
         break;;
-    case 187:
+    case 838:
         self.PLAN_START_DTTM = v;
         break;;
-    case 188:
+    case 839:
         self.CHECKLIST_TEMPLATE_ID = v;
         break;;
-    case 189:
+    case 840:
         self.INITIAL_DATA = v;
         break;;
-    case 190:
+    case 841:
         self.SUBBRANCH_ID = v;
         break;;
-    case 191:
+    case 842:
         self.FACT_START_DTTM = v;
         break;;
-    case 192:
+    case 843:
         self.FACT_END_DTTM = v;
         break;;
-    case 193:
+    case 844:
         self.SELF_CHECK_ID = v;
         break;;
-    case 194:
+    case 845:
         self.SELF_CHECK_RESOURCE_FIO = v;
         break;;
-    case 195:
+    case 846:
         self.SELF_CHECK_FACT_END_DTTM = v;
         break;;
-    case 196:
+    case 847:
         self.OTHER_CHECK_ID = v;
         break;;
-    case 197:
+    case 848:
         self.OTHER_CHECK_RESOURCE_FIO = v;
         break;;
-    case 198:
+    case 849:
         self.OTHER_CHECK_FACT_END_DTTM = v;
         break;;
-    case 199:
+    case 850:
         self.QUALITY_CONTROL_ID = v;
         break;;
-    case 200:
+    case 851:
         self.QUALITY_CONTROL_RESOURCE_FIO = v;
         break;;
-    case 201:
+    case 852:
         self.QUALITY_CONTROL_FACT_END_DTTM = v;
         break;;
-    case 202:
+    case 853:
         self.INSPECTOR_CONTROL_ID = v;
         break;;
-    case 203:
+    case 854:
         self.INSPECTOR_CONTROL_RESOURCE_FIO = v;
         break;;
-    case 204:
+    case 855:
         self.INSPECTOR_CONTROL_FACT_END_DTTM = v;
         break;;
-    case 205:
+    case 856:
         self.PLAN_END_DTTM = v;
         break;;
-    case 206:
+    case 857:
         self.CHANGED_DTTM = v;
         break;;
-    case 209:
+    case 860:
         self.updateObjectName = v;
         break;;
-    case 212:
+    case 863:
         self.createObjectName = v;
         break;;
     default:
@@ -904,9 +904,9 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 {
     switch(id_)
     {
-    case 180:
+    case 831:
         return self.TASK_ID;
-    case 184:
+    case 835:
         return self.RESOURCE_EMPLOYEE_ID;
     default:
          return [super getAttributeString:id_];
@@ -917,10 +917,10 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 {
     switch(id_)
     {
-    case 180:
+    case 831:
         self.TASK_ID = v;
         break;;
-    case 184:
+    case 835:
         self.RESOURCE_EMPLOYEE_ID = v;
         break;;
     default:
@@ -932,9 +932,9 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 {
     switch(id_)
     {
-    case 208:
+    case 859:
         return self.updateCalled;
-    case 211:
+    case 862:
         return self.createCalled;
     default:
          return [super getAttributeBoolean:id_];
@@ -945,10 +945,10 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 {
     switch(id_)
     {
-    case 208:
+    case 859:
         self.updateCalled = v;
         break;;
-    case 211:
+    case 862:
         self.createCalled = v;
         break;;
     default:
@@ -960,7 +960,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 {
     switch(id_)
     {
-    case 210:
+    case 861:
         if (loadFromDBIfInvalid)
         {
             return self.updateOdObject;
@@ -968,7 +968,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
         {
             return _updateOdObject;
         }
-    case 213:
+    case 864:
         if (loadFromDBIfInvalid)
         {
             return self.createOdObject;
@@ -985,10 +985,10 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 {
     switch(id_)
     {
-    case 210:
+    case 861:
         self.updateOdObject = v;
         break;;
-    case 213:
+    case 864:
         self.createOdObject = v;
         break;;
     default:
@@ -1187,7 +1187,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:533] autorelease];
 	[_selectSQL appendString:@" x.\"a\",x.\"b\",x.\"c\",x.\"d\",x.\"e\",x.\"f\",x.\"g\",x.\"h\",x.\"i\",x.\"j\",x.\"l\",x.\"m\",x.\"n\",x.\"o\",x.\"p\",x.\"q\",x.\"r\",x.\"s\",x.\"t\",x.\"u\",x.\"v\",x.\"w\",x.\"x\",x.\"y\",x.\"z\",x.\"ba\",x.\"bb\",x.\"bc\",x.\"be\",x.\"bf\",x.\"bg\",x.\"bh\",x.\"bi\",x.\"bj\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"bd\",x.\"_rc\",x.\"_ds\" F"
-	                               "ROM \"odmobile_1_20_mbo_gettasks\" x where (((x.\"_pf\" = 1 or not exists (select x_os.\"bd\" from \"odmobile_1_20_mbo_gettasks_os\" x_os where x_os.\"bd\" = x.\"bd\"))))"];
+	                               "ROM \"odmobile_1_21_mbo_gettasks\" x where (((x.\"_pf\" = 1 or not exists (select x_os.\"bd\" from \"odmobile_1_21_mbo_gettasks_os\" x_os where x_os.\"bd\" = x.\"bd\"))))"];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
 	[sql autorelease];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
@@ -1206,7 +1206,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:558] autorelease];
 	[_selectSQL appendString:@"SELECT x.\"a\",x.\"b\",x.\"c\",x.\"d\",x.\"e\",x.\"f\",x.\"g\",x.\"h\",x.\"i\",x.\"j\",x.\"l\",x.\"m\",x.\"n\",x.\"o\",x.\"p\",x.\"q\",x.\"r\",x.\"s\",x.\"t\",x.\"u\",x.\"v\",x.\"w\",x.\"x\",x.\"y\",x.\"z\",x.\"ba\",x.\"bb\",x.\"bc\",x.\"be\",x.\"bf\",x.\"bg\",x.\"bh\",x.\"bi\",x.\"bj\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"bd\",x.\"_rc\",x.\""
-	                               "_ds\" FROM \"odmobile_1_20_mbo_gettasks\" x WHERE (((x.\"_pf\" = 1 or not exists (select x_os.\"bd\" from \"odmobile_1_20_mbo_gettasks_os\" x_os where x_os.\"bd\" = x.\"bd\")))) and ( x.\"b\" = ?)"];
+	                               "_ds\" FROM \"odmobile_1_21_mbo_gettasks\" x WHERE (((x.\"_pf\" = 1 or not exists (select x_os.\"bd\" from \"odmobile_1_21_mbo_gettasks_os\" x_os where x_os.\"bd\" = x.\"bd\")))) and ( x.\"b\" = ?)"];
 	sql = [[NSMutableString alloc] initWithFormat:@"%@", _selectSQL];
 	[sql autorelease];
 	SUPStringList *ids = [SUPStringList listWithCapacity:0];
@@ -1239,15 +1239,15 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 {
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
-	_selectSQL = [[[NSMutableString alloc] initWithCapacity:2558] autorelease];
+	_selectSQL = [[[NSMutableString alloc] initWithCapacity:2567] autorelease];
 	[_selectSQL appendString:@" x.\"b\", x.\"d\", y.\"b\", f.\"b\", f.\"e\", b.\"b\", x.\"i\", x.\"bb\", x.\"g\", x.\"m\", x.\"h\", c.\"c\", c.\"b\", c.\"d\", c.\"e\", creator_branch.\"b\", unions.\"a\", unions.\"b\", d.\"c\", d.\"b\", d.\"d\", e.\"a\", e.\"c\", e.\"b\", e.\"d\", x.\"e\", x.\"j\", x.\"p\", x.\"q\", x.\"r\", x.\"s\", x.\"t\", x.\"u\", x.\"v\", x.\"w\", "
-	                               "x.\"x\", x.\"y\", x.\"z\", x.\"ba\" FROM \"odmobile_1_20_mbo_gettasks\" x left outer join \"odmobile_1_20_mbo_gettasktypes\" y ON (x.\"c\" like y.\"a\") left outer join \"odmobile_1_20_mbo_gettaskstatuses\" b ON (x.\"d\" like b.\"a\") left outer join \"odmobile_1_20_mbo_getemployees\" c ON (x.\"e\" like c.\"a\") left outer joi"
-	                               "n \"odmobile_1_20_mbo_getsubbranches\" creator_branch ON (c.\"f\" like creator_branch.\"a\") left outer join \"odmobile_1_20_mbo_getemployees\" d ON (x.\"f\" like d.\"a\") left outer join \"odmobile_1_20_mbo_getsubbranches\" f ON (x.\"m\" like f.\"a\") left outer join \"odmobile_1_20_mbo_getemployees\" e ON (f.\"c\" like"
-	                               " e.\"a\") left outer join \"odmobile_1_20_mbounions\" unions ON (x.\"a\" LIKE unions.\"a\") WHERE (((f.\"_pf\" = 1 or not exists (select f_os.\"p\" from \"odmobile_1_20_mbo_getsubbranches_os\" f_os where f_os.\"p\" = f.\"p\"))) and ((d.\"_pf\" = 1 or not exists (select d_os.\"h\" from \"odmobile_1_20_mbo_getemployees_os\" "
-	                               "d_os where d_os.\"h\" = d.\"h\"))) and ((unions.\"_pf\" = 1 or not exists (select unions_os.\"g\" from \"odmobile_1_20_mbounions_os\" unions_os where unions_os.\"g\" = unions.\"g\"))) and ((e.\"_pf\" = 1 or not exists (select e_os.\"h\" from \"odmobile_1_20_mbo_getemployees_os\" e_os where e_os.\"h\" = e.\"h\"))) and ((b.\""
-	                               "_pf\" = 1 or not exists (select b_os.\"d\" from \"odmobile_1_20_mbo_gettaskstatuses_os\" b_os where b_os.\"d\" = b.\"d\"))) and ((c.\"_pf\" = 1 or not exists (select c_os.\"h\" from \"odmobile_1_20_mbo_getemployees_os\" c_os where c_os.\"h\" = c.\"h\"))) and ((creator_branch.\"_pf\" = 1 or not exists (select creator_bra"
-	                               "nch_os.\"p\" from \"odmobile_1_20_mbo_getsubbranches_os\" creator_branch_os where creator_branch_os.\"p\" = creator_branch.\"p\"))) and ((y.\"_pf\" = 1 or not exists (select y_os.\"i\" from \"odmobile_1_20_mbo_gettasktypes_os\" y_os where y_os.\"i\" = y.\"i\"))) and ((x.\"_pf\" = 1 or not exists (select x_os.\"bd\" from "
-	                               "\"odmobile_1_20_mbo_gettasks_os\" x_os where x_os.\"bd\" = x.\"bd\")))) and ( (cast(x.\"i\" as bigint) < (cast(? as bigint) + 43200000)) AND (b.\"c\" IN (\'TST_ASSIGNED\', \'TST_CL_FILLING\')))  ORDER BY x.\"i\""];
+	                               "x.\"x\", x.\"y\", x.\"z\", x.\"ba\" FROM \"odmobile_1_21_mbo_gettasks\" x left outer join \"odmobile_1_21_mbo_gettasktypes\" y ON (x.\"c\" like y.\"a\") left outer join \"odmobile_1_21_mbo_gettaskstatuses\" b ON (x.\"d\" like b.\"a\") left outer join \"odmobile_1_21_mbo_getemployees\" c ON (x.\"e\" like c.\"a\") left outer joi"
+	                               "n \"odmobile_1_21_mbo_getsubbranches\" creator_branch ON (c.\"f\" like creator_branch.\"a\") left outer join \"odmobile_1_21_mbo_getemployees\" d ON (x.\"f\" like d.\"a\") left outer join \"odmobile_1_21_mbo_getsubbranches\" f ON (x.\"m\" like f.\"a\") left outer join \"odmobile_1_21_mbo_getemployees\" e ON (f.\"c\" like"
+	                               " e.\"a\") left outer join \"odmobile_1_21_mbounions\" unions ON (x.\"a\" LIKE unions.\"a\") WHERE (((f.\"_pf\" = 1 or not exists (select f_os.\"p\" from \"odmobile_1_21_mbo_getsubbranches_os\" f_os where f_os.\"p\" = f.\"p\"))) and ((d.\"_pf\" = 1 or not exists (select d_os.\"h\" from \"odmobile_1_21_mbo_getemployees_os\" "
+	                               "d_os where d_os.\"h\" = d.\"h\"))) and ((unions.\"_pf\" = 1 or not exists (select unions_os.\"g\" from \"odmobile_1_21_mbounions_os\" unions_os where unions_os.\"g\" = unions.\"g\"))) and ((e.\"_pf\" = 1 or not exists (select e_os.\"h\" from \"odmobile_1_21_mbo_getemployees_os\" e_os where e_os.\"h\" = e.\"h\"))) and ((b.\""
+	                               "_pf\" = 1 or not exists (select b_os.\"d\" from \"odmobile_1_21_mbo_gettaskstatuses_os\" b_os where b_os.\"d\" = b.\"d\"))) and ((c.\"_pf\" = 1 or not exists (select c_os.\"h\" from \"odmobile_1_21_mbo_getemployees_os\" c_os where c_os.\"h\" = c.\"h\"))) and ((creator_branch.\"_pf\" = 1 or not exists (select creator_bra"
+	                               "nch_os.\"p\" from \"odmobile_1_21_mbo_getsubbranches_os\" creator_branch_os where creator_branch_os.\"p\" = creator_branch.\"p\"))) and ((y.\"_pf\" = 1 or not exists (select y_os.\"i\" from \"odmobile_1_21_mbo_gettasktypes_os\" y_os where y_os.\"i\" = y.\"i\"))) and ((x.\"_pf\" = 1 or not exists (select x_os.\"bd\" from "
+	                               "\"odmobile_1_21_mbo_gettasks_os\" x_os where x_os.\"bd\" = x.\"bd\")))) and ( (cast(x.\"i\" as bigint) < (cast(? as bigint) + 43200000)) AND (b.\"c\" IN (\'TST_ASSIGNED\', \'TST_CL_FILLING\')))  ORDER BY x.\"i\", x.\"b\""];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
 	[sql autorelease];
 	SUPObjectList *dts = [SUPObjectList getInstance];
@@ -1354,15 +1354,15 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 {
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
-	_selectSQL = [[[NSMutableString alloc] initWithCapacity:2525] autorelease];
+	_selectSQL = [[[NSMutableString alloc] initWithCapacity:2534] autorelease];
 	[_selectSQL appendString:@" x.\"b\", x.\"d\", y.\"b\", f.\"b\", unions.\"a\", unions.\"b\", f.\"e\", b.\"b\", x.\"i\", x.\"bb\", x.\"g\", x.\"m\", x.\"h\", c.\"c\", c.\"b\", c.\"d\", c.\"e\", creator_branch.\"b\", d.\"c\", d.\"b\", d.\"d\", e.\"a\", e.\"c\", e.\"b\", e.\"d\", x.\"e\", x.\"j\", x.\"p\", x.\"q\", x.\"r\", x.\"s\", x.\"t\", x.\"u\", x.\"v\", x.\"w\", "
-	                               "x.\"x\", x.\"y\", x.\"z\", x.\"ba\" FROM \"odmobile_1_20_mbo_gettasks\" x left outer join \"odmobile_1_20_mbo_gettasktypes\" y ON (x.\"c\" like y.\"a\") left outer join \"odmobile_1_20_mbo_gettaskstatuses\" b ON (x.\"d\" like b.\"a\") left outer join \"odmobile_1_20_mbo_getemployees\" c ON (x.\"e\" like c.\"a\") left outer joi"
-	                               "n \"odmobile_1_20_mbo_getsubbranches\" creator_branch ON (c.\"f\" like creator_branch.\"a\") left outer join \"odmobile_1_20_mbo_getemployees\" d ON (x.\"f\" like d.\"a\") left outer join \"odmobile_1_20_mbo_getsubbranches\" f ON (x.\"m\" like f.\"a\") left outer join \"odmobile_1_20_mbo_getemployees\" e ON (f.\"c\" like"
-	                               " e.\"a\") left outer join \"odmobile_1_20_mbounions\" unions ON (x.\"a\" LIKE unions.\"a\") WHERE (((f.\"_pf\" = 1 or not exists (select f_os.\"p\" from \"odmobile_1_20_mbo_getsubbranches_os\" f_os where f_os.\"p\" = f.\"p\"))) and ((d.\"_pf\" = 1 or not exists (select d_os.\"h\" from \"odmobile_1_20_mbo_getemployees_os\" "
-	                               "d_os where d_os.\"h\" = d.\"h\"))) and ((unions.\"_pf\" = 1 or not exists (select unions_os.\"g\" from \"odmobile_1_20_mbounions_os\" unions_os where unions_os.\"g\" = unions.\"g\"))) and ((e.\"_pf\" = 1 or not exists (select e_os.\"h\" from \"odmobile_1_20_mbo_getemployees_os\" e_os where e_os.\"h\" = e.\"h\"))) and ((b.\""
-	                               "_pf\" = 1 or not exists (select b_os.\"d\" from \"odmobile_1_20_mbo_gettaskstatuses_os\" b_os where b_os.\"d\" = b.\"d\"))) and ((c.\"_pf\" = 1 or not exists (select c_os.\"h\" from \"odmobile_1_20_mbo_getemployees_os\" c_os where c_os.\"h\" = c.\"h\"))) and ((creator_branch.\"_pf\" = 1 or not exists (select creator_bra"
-	                               "nch_os.\"p\" from \"odmobile_1_20_mbo_getsubbranches_os\" creator_branch_os where creator_branch_os.\"p\" = creator_branch.\"p\"))) and ((y.\"_pf\" = 1 or not exists (select y_os.\"i\" from \"odmobile_1_20_mbo_gettasktypes_os\" y_os where y_os.\"i\" = y.\"i\"))) and ((x.\"_pf\" = 1 or not exists (select x_os.\"bd\" from "
-	                               "\"odmobile_1_20_mbo_gettasks_os\" x_os where x_os.\"bd\" = x.\"bd\")))) and ( (b.\"c\" IN (\'TST_APPROVED\', \'TST_CANCELLED\', \'TST_FAILED\', \'TST_VISED\')))  ORDER BY x.\"i\""];
+	                               "x.\"x\", x.\"y\", x.\"z\", x.\"ba\" FROM \"odmobile_1_21_mbo_gettasks\" x left outer join \"odmobile_1_21_mbo_gettasktypes\" y ON (x.\"c\" like y.\"a\") left outer join \"odmobile_1_21_mbo_gettaskstatuses\" b ON (x.\"d\" like b.\"a\") left outer join \"odmobile_1_21_mbo_getemployees\" c ON (x.\"e\" like c.\"a\") left outer joi"
+	                               "n \"odmobile_1_21_mbo_getsubbranches\" creator_branch ON (c.\"f\" like creator_branch.\"a\") left outer join \"odmobile_1_21_mbo_getemployees\" d ON (x.\"f\" like d.\"a\") left outer join \"odmobile_1_21_mbo_getsubbranches\" f ON (x.\"m\" like f.\"a\") left outer join \"odmobile_1_21_mbo_getemployees\" e ON (f.\"c\" like"
+	                               " e.\"a\") left outer join \"odmobile_1_21_mbounions\" unions ON (x.\"a\" LIKE unions.\"a\") WHERE (((f.\"_pf\" = 1 or not exists (select f_os.\"p\" from \"odmobile_1_21_mbo_getsubbranches_os\" f_os where f_os.\"p\" = f.\"p\"))) and ((d.\"_pf\" = 1 or not exists (select d_os.\"h\" from \"odmobile_1_21_mbo_getemployees_os\" "
+	                               "d_os where d_os.\"h\" = d.\"h\"))) and ((unions.\"_pf\" = 1 or not exists (select unions_os.\"g\" from \"odmobile_1_21_mbounions_os\" unions_os where unions_os.\"g\" = unions.\"g\"))) and ((e.\"_pf\" = 1 or not exists (select e_os.\"h\" from \"odmobile_1_21_mbo_getemployees_os\" e_os where e_os.\"h\" = e.\"h\"))) and ((b.\""
+	                               "_pf\" = 1 or not exists (select b_os.\"d\" from \"odmobile_1_21_mbo_gettaskstatuses_os\" b_os where b_os.\"d\" = b.\"d\"))) and ((c.\"_pf\" = 1 or not exists (select c_os.\"h\" from \"odmobile_1_21_mbo_getemployees_os\" c_os where c_os.\"h\" = c.\"h\"))) and ((creator_branch.\"_pf\" = 1 or not exists (select creator_bra"
+	                               "nch_os.\"p\" from \"odmobile_1_21_mbo_getsubbranches_os\" creator_branch_os where creator_branch_os.\"p\" = creator_branch.\"p\"))) and ((y.\"_pf\" = 1 or not exists (select y_os.\"i\" from \"odmobile_1_21_mbo_gettasktypes_os\" y_os where y_os.\"i\" = y.\"i\"))) and ((x.\"_pf\" = 1 or not exists (select x_os.\"bd\" from "
+	                               "\"odmobile_1_21_mbo_gettasks_os\" x_os where x_os.\"bd\" = x.\"bd\")))) and ( (b.\"c\" IN (\'TST_APPROVED\', \'TST_CANCELLED\', \'TST_FAILED\', \'TST_VISED\')))  ORDER BY x.\"i\", x.\"b\""];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
 	[sql autorelease];
 	SUPObjectList *dts = [SUPObjectList getInstance];
@@ -1467,15 +1467,15 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 {
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
-	_selectSQL = [[[NSMutableString alloc] initWithCapacity:2592] autorelease];
+	_selectSQL = [[[NSMutableString alloc] initWithCapacity:2601] autorelease];
 	[_selectSQL appendString:@" x.\"b\", x.\"d\", y.\"b\", f.\"b\", unions.\"a\", unions.\"b\", f.\"e\", b.\"b\", x.\"i\", x.\"bb\", x.\"g\", x.\"m\", x.\"h\", c.\"c\", c.\"b\", c.\"d\", c.\"e\", creator_branch.\"b\", d.\"c\", d.\"b\", d.\"d\", e.\"a\", e.\"c\", e.\"b\", e.\"d\", x.\"e\", x.\"j\", x.\"p\", x.\"q\", x.\"r\", x.\"s\", x.\"t\", x.\"u\", x.\"v\", x.\"w\", "
-	                               "x.\"x\", x.\"y\", x.\"z\", x.\"ba\" FROM \"odmobile_1_20_mbo_gettasks\" x left outer join \"odmobile_1_20_mbo_gettasktypes\" y ON (x.\"c\" like y.\"a\") left outer join \"odmobile_1_20_mbo_gettaskstatuses\" b ON (x.\"d\" like b.\"a\") left outer join \"odmobile_1_20_mbo_getemployees\" c ON (x.\"e\" like c.\"a\") left outer joi"
-	                               "n \"odmobile_1_20_mbo_getsubbranches\" creator_branch ON (c.\"f\" like creator_branch.\"a\") left outer join \"odmobile_1_20_mbo_getemployees\" d ON (x.\"f\" like d.\"a\") left outer join \"odmobile_1_20_mbo_getsubbranches\" f ON (x.\"m\" like f.\"a\") left outer join \"odmobile_1_20_mbo_getemployees\" e ON (f.\"c\" like"
-	                               " e.\"a\") left outer join \"odmobile_1_20_mbounions\" unions ON (x.\"a\" LIKE unions.\"a\") WHERE (((f.\"_pf\" = 1 or not exists (select f_os.\"p\" from \"odmobile_1_20_mbo_getsubbranches_os\" f_os where f_os.\"p\" = f.\"p\"))) and ((d.\"_pf\" = 1 or not exists (select d_os.\"h\" from \"odmobile_1_20_mbo_getemployees_os\" "
-	                               "d_os where d_os.\"h\" = d.\"h\"))) and ((unions.\"_pf\" = 1 or not exists (select unions_os.\"g\" from \"odmobile_1_20_mbounions_os\" unions_os where unions_os.\"g\" = unions.\"g\"))) and ((e.\"_pf\" = 1 or not exists (select e_os.\"h\" from \"odmobile_1_20_mbo_getemployees_os\" e_os where e_os.\"h\" = e.\"h\"))) and ((b.\""
-	                               "_pf\" = 1 or not exists (select b_os.\"d\" from \"odmobile_1_20_mbo_gettaskstatuses_os\" b_os where b_os.\"d\" = b.\"d\"))) and ((c.\"_pf\" = 1 or not exists (select c_os.\"h\" from \"odmobile_1_20_mbo_getemployees_os\" c_os where c_os.\"h\" = c.\"h\"))) and ((creator_branch.\"_pf\" = 1 or not exists (select creator_bra"
-	                               "nch_os.\"p\" from \"odmobile_1_20_mbo_getsubbranches_os\" creator_branch_os where creator_branch_os.\"p\" = creator_branch.\"p\"))) and ((y.\"_pf\" = 1 or not exists (select y_os.\"i\" from \"odmobile_1_20_mbo_gettasktypes_os\" y_os where y_os.\"i\" = y.\"i\"))) and ((x.\"_pf\" = 1 or not exists (select x_os.\"bd\" from "
-	                               "\"odmobile_1_20_mbo_gettasks_os\" x_os where x_os.\"bd\" = x.\"bd\")))) and ( (cast(x.\"i\" as bigint) > (cast(? as bigint) + 43200000)) AND (b.\"c\" IN (\'TST_CREATED\', \'TST_PLANNED\', \'TST_ASSIGNED\', \'TST_CL_FILLING\')))  ORDER BY x.\"i\""];
+	                               "x.\"x\", x.\"y\", x.\"z\", x.\"ba\" FROM \"odmobile_1_21_mbo_gettasks\" x left outer join \"odmobile_1_21_mbo_gettasktypes\" y ON (x.\"c\" like y.\"a\") left outer join \"odmobile_1_21_mbo_gettaskstatuses\" b ON (x.\"d\" like b.\"a\") left outer join \"odmobile_1_21_mbo_getemployees\" c ON (x.\"e\" like c.\"a\") left outer joi"
+	                               "n \"odmobile_1_21_mbo_getsubbranches\" creator_branch ON (c.\"f\" like creator_branch.\"a\") left outer join \"odmobile_1_21_mbo_getemployees\" d ON (x.\"f\" like d.\"a\") left outer join \"odmobile_1_21_mbo_getsubbranches\" f ON (x.\"m\" like f.\"a\") left outer join \"odmobile_1_21_mbo_getemployees\" e ON (f.\"c\" like"
+	                               " e.\"a\") left outer join \"odmobile_1_21_mbounions\" unions ON (x.\"a\" LIKE unions.\"a\") WHERE (((f.\"_pf\" = 1 or not exists (select f_os.\"p\" from \"odmobile_1_21_mbo_getsubbranches_os\" f_os where f_os.\"p\" = f.\"p\"))) and ((d.\"_pf\" = 1 or not exists (select d_os.\"h\" from \"odmobile_1_21_mbo_getemployees_os\" "
+	                               "d_os where d_os.\"h\" = d.\"h\"))) and ((unions.\"_pf\" = 1 or not exists (select unions_os.\"g\" from \"odmobile_1_21_mbounions_os\" unions_os where unions_os.\"g\" = unions.\"g\"))) and ((e.\"_pf\" = 1 or not exists (select e_os.\"h\" from \"odmobile_1_21_mbo_getemployees_os\" e_os where e_os.\"h\" = e.\"h\"))) and ((b.\""
+	                               "_pf\" = 1 or not exists (select b_os.\"d\" from \"odmobile_1_21_mbo_gettaskstatuses_os\" b_os where b_os.\"d\" = b.\"d\"))) and ((c.\"_pf\" = 1 or not exists (select c_os.\"h\" from \"odmobile_1_21_mbo_getemployees_os\" c_os where c_os.\"h\" = c.\"h\"))) and ((creator_branch.\"_pf\" = 1 or not exists (select creator_bra"
+	                               "nch_os.\"p\" from \"odmobile_1_21_mbo_getsubbranches_os\" creator_branch_os where creator_branch_os.\"p\" = creator_branch.\"p\"))) and ((y.\"_pf\" = 1 or not exists (select y_os.\"i\" from \"odmobile_1_21_mbo_gettasktypes_os\" y_os where y_os.\"i\" = y.\"i\"))) and ((x.\"_pf\" = 1 or not exists (select x_os.\"bd\" from "
+	                               "\"odmobile_1_21_mbo_gettasks_os\" x_os where x_os.\"bd\" = x.\"bd\")))) and ( (cast(x.\"i\" as bigint) > (cast(? as bigint) + 43200000)) AND (b.\"c\" IN (\'TST_CREATED\', \'TST_PLANNED\', \'TST_ASSIGNED\', \'TST_CL_FILLING\')))  ORDER BY x.\"i\", x.\"b\""];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
 	[sql autorelease];
 	SUPObjectList *dts = [SUPObjectList getInstance];
@@ -1582,15 +1582,15 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 {
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
-	_selectSQL = [[[NSMutableString alloc] initWithCapacity:2553] autorelease];
+	_selectSQL = [[[NSMutableString alloc] initWithCapacity:2562] autorelease];
 	[_selectSQL appendString:@" TOP 1 x.\"b\", x.\"d\", y.\"b\", f.\"b\", unions.\"a\", unions.\"b\", f.\"e\", b.\"b\", x.\"i\", x.\"bb\", x.\"g\", x.\"m\", x.\"h\", c.\"c\", c.\"b\", c.\"d\", c.\"e\", creator_branch.\"b\", d.\"c\", d.\"b\", d.\"d\", e.\"a\", e.\"c\", e.\"b\", e.\"d\", x.\"e\", x.\"j\", x.\"p\", x.\"q\", x.\"r\", x.\"s\", x.\"t\", x.\"u\", x.\"v\", x"
-	                               ".\"w\", x.\"x\", x.\"y\", x.\"z\", x.\"ba\" FROM \"odmobile_1_20_mbo_gettasks\" x left outer join \"odmobile_1_20_mbo_gettasktypes\" y ON (x.\"c\" like y.\"a\") left outer join \"odmobile_1_20_mbo_gettaskstatuses\" b ON (x.\"d\" like b.\"a\") left outer join \"odmobile_1_20_mbo_getemployees\" c ON (x.\"e\" like c.\"a\") left out"
-	                               "er join \"odmobile_1_20_mbo_getsubbranches\" creator_branch ON (c.\"f\" like creator_branch.\"a\") left outer join \"odmobile_1_20_mbo_getemployees\" d ON (x.\"f\" like d.\"a\") left outer join \"odmobile_1_20_mbo_getsubbranches\" f ON (x.\"m\" like f.\"a\") left outer join \"odmobile_1_20_mbo_getemployees\" e ON (f.\"c"
-	                               "\" like e.\"a\") left outer join \"odmobile_1_20_mbounions\" unions ON (x.\"a\" LIKE unions.\"a\") WHERE (((f.\"_pf\" = 1 or not exists (select f_os.\"p\" from \"odmobile_1_20_mbo_getsubbranches_os\" f_os where f_os.\"p\" = f.\"p\"))) and ((d.\"_pf\" = 1 or not exists (select d_os.\"h\" from \"odmobile_1_20_mbo_getemployee"
-	                               "s_os\" d_os where d_os.\"h\" = d.\"h\"))) and ((unions.\"_pf\" = 1 or not exists (select unions_os.\"g\" from \"odmobile_1_20_mbounions_os\" unions_os where unions_os.\"g\" = unions.\"g\"))) and ((e.\"_pf\" = 1 or not exists (select e_os.\"h\" from \"odmobile_1_20_mbo_getemployees_os\" e_os where e_os.\"h\" = e.\"h\"))) and"
-	                               " ((b.\"_pf\" = 1 or not exists (select b_os.\"d\" from \"odmobile_1_20_mbo_gettaskstatuses_os\" b_os where b_os.\"d\" = b.\"d\"))) and ((c.\"_pf\" = 1 or not exists (select c_os.\"h\" from \"odmobile_1_20_mbo_getemployees_os\" c_os where c_os.\"h\" = c.\"h\"))) and ((creator_branch.\"_pf\" = 1 or not exists (select creat"
-	                               "or_branch_os.\"p\" from \"odmobile_1_20_mbo_getsubbranches_os\" creator_branch_os where creator_branch_os.\"p\" = creator_branch.\"p\"))) and ((y.\"_pf\" = 1 or not exists (select y_os.\"i\" from \"odmobile_1_20_mbo_gettasktypes_os\" y_os where y_os.\"i\" = y.\"i\"))) and ((x.\"_pf\" = 1 or not exists (select x_os.\"bd\""
-	                               " from \"odmobile_1_20_mbo_gettasks_os\" x_os where x_os.\"bd\" = x.\"bd\")))) and ( (cast(x.\"i\" as bigint) > (cast(? as bigint)) AND (b.\"c\" IN (\'TST_ASSIGNED\', \'TST_CL_FILLING\'))))  ORDER BY x.\"i\""];
+	                               ".\"w\", x.\"x\", x.\"y\", x.\"z\", x.\"ba\" FROM \"odmobile_1_21_mbo_gettasks\" x left outer join \"odmobile_1_21_mbo_gettasktypes\" y ON (x.\"c\" like y.\"a\") left outer join \"odmobile_1_21_mbo_gettaskstatuses\" b ON (x.\"d\" like b.\"a\") left outer join \"odmobile_1_21_mbo_getemployees\" c ON (x.\"e\" like c.\"a\") left out"
+	                               "er join \"odmobile_1_21_mbo_getsubbranches\" creator_branch ON (c.\"f\" like creator_branch.\"a\") left outer join \"odmobile_1_21_mbo_getemployees\" d ON (x.\"f\" like d.\"a\") left outer join \"odmobile_1_21_mbo_getsubbranches\" f ON (x.\"m\" like f.\"a\") left outer join \"odmobile_1_21_mbo_getemployees\" e ON (f.\"c"
+	                               "\" like e.\"a\") left outer join \"odmobile_1_21_mbounions\" unions ON (x.\"a\" LIKE unions.\"a\") WHERE (((f.\"_pf\" = 1 or not exists (select f_os.\"p\" from \"odmobile_1_21_mbo_getsubbranches_os\" f_os where f_os.\"p\" = f.\"p\"))) and ((d.\"_pf\" = 1 or not exists (select d_os.\"h\" from \"odmobile_1_21_mbo_getemployee"
+	                               "s_os\" d_os where d_os.\"h\" = d.\"h\"))) and ((unions.\"_pf\" = 1 or not exists (select unions_os.\"g\" from \"odmobile_1_21_mbounions_os\" unions_os where unions_os.\"g\" = unions.\"g\"))) and ((e.\"_pf\" = 1 or not exists (select e_os.\"h\" from \"odmobile_1_21_mbo_getemployees_os\" e_os where e_os.\"h\" = e.\"h\"))) and"
+	                               " ((b.\"_pf\" = 1 or not exists (select b_os.\"d\" from \"odmobile_1_21_mbo_gettaskstatuses_os\" b_os where b_os.\"d\" = b.\"d\"))) and ((c.\"_pf\" = 1 or not exists (select c_os.\"h\" from \"odmobile_1_21_mbo_getemployees_os\" c_os where c_os.\"h\" = c.\"h\"))) and ((creator_branch.\"_pf\" = 1 or not exists (select creat"
+	                               "or_branch_os.\"p\" from \"odmobile_1_21_mbo_getsubbranches_os\" creator_branch_os where creator_branch_os.\"p\" = creator_branch.\"p\"))) and ((y.\"_pf\" = 1 or not exists (select y_os.\"i\" from \"odmobile_1_21_mbo_gettasktypes_os\" y_os where y_os.\"i\" = y.\"i\"))) and ((x.\"_pf\" = 1 or not exists (select x_os.\"bd\""
+	                               " from \"odmobile_1_21_mbo_gettasks_os\" x_os where x_os.\"bd\" = x.\"bd\")))) and ( (cast(x.\"i\" as bigint) > (cast(? as bigint)) AND (b.\"c\" IN (\'TST_ASSIGNED\', \'TST_CL_FILLING\'))))  ORDER BY x.\"i\", x.\"b\""];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
 	[sql autorelease];
 	SUPObjectList *dts = [SUPObjectList getInstance];
@@ -1698,8 +1698,8 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:536] autorelease];
-	[_selectSQL appendString:@" count(x.\"b\") FROM \"odmobile_1_20_mbo_gettasks\" x left outer join \"odmobile_1_20_mbo_gettaskstatuses\" b ON (x.\"d\" like b.\"a\") WHERE (((b.\"_pf\" = 1 or not exists (select b_os.\"d\" from \"odmobile_1_20_mbo_gettaskstatuses_os\" b_os where b_os.\"d\" = b.\"d\"))) and ((x.\"_pf\" = 1"
-	                               " or not exists (select x_os.\"bd\" from \"odmobile_1_20_mbo_gettasks_os\" x_os where x_os.\"bd\" = x.\"bd\")))) and ( (cast(x.\"i\" as bigint) < (cast(? as bigint)  43200000)) AND (b.\"c\" IN (\'TST_ASSIGNED\', \'TST_CL_FILLING\')))"];
+	[_selectSQL appendString:@" count(x.\"b\") FROM \"odmobile_1_21_mbo_gettasks\" x left outer join \"odmobile_1_21_mbo_gettaskstatuses\" b ON (x.\"d\" like b.\"a\") WHERE (((b.\"_pf\" = 1 or not exists (select b_os.\"d\" from \"odmobile_1_21_mbo_gettaskstatuses_os\" b_os where b_os.\"d\" = b.\"d\"))) and ((x.\"_pf\" = 1"
+	                               " or not exists (select x_os.\"bd\" from \"odmobile_1_21_mbo_gettasks_os\" x_os where x_os.\"bd\" = x.\"bd\")))) and ( (cast(x.\"i\" as bigint) < (cast(? as bigint) + 43200000)) AND (b.\"c\" IN (\'TST_ASSIGNED\', \'TST_CL_FILLING\')))"];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
 	[sql autorelease];
 	SUPObjectList *dts = [SUPObjectList getInstance];
@@ -1731,8 +1731,8 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:503] autorelease];
-	[_selectSQL appendString:@" count(x.\"b\") FROM \"odmobile_1_20_mbo_gettasks\" x left outer join \"odmobile_1_20_mbo_gettaskstatuses\" b ON (x.\"d\" like b.\"a\") WHERE (((b.\"_pf\" = 1 or not exists (select b_os.\"d\" from \"odmobile_1_20_mbo_gettaskstatuses_os\" b_os where b_os.\"d\" = b.\"d\"))) and ((x.\"_pf\" = 1"
-	                               " or not exists (select x_os.\"bd\" from \"odmobile_1_20_mbo_gettasks_os\" x_os where x_os.\"bd\" = x.\"bd\")))) and ( (b.\"c\" IN (\'TST_APPROVED\', \'TST_CANCELLED\', \'TST_FAILED\', \'TST_VISED\')))"];
+	[_selectSQL appendString:@" count(x.\"b\") FROM \"odmobile_1_21_mbo_gettasks\" x left outer join \"odmobile_1_21_mbo_gettaskstatuses\" b ON (x.\"d\" like b.\"a\") WHERE (((b.\"_pf\" = 1 or not exists (select b_os.\"d\" from \"odmobile_1_21_mbo_gettaskstatuses_os\" b_os where b_os.\"d\" = b.\"d\"))) and ((x.\"_pf\" = 1"
+	                               " or not exists (select x_os.\"bd\" from \"odmobile_1_21_mbo_gettasks_os\" x_os where x_os.\"bd\" = x.\"bd\")))) and ( (b.\"c\" IN (\'TST_APPROVED\', \'TST_CANCELLED\', \'TST_FAILED\', \'TST_VISED\')))"];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
 	[sql autorelease];
 	SUPObjectList *dts = [SUPObjectList getInstance];
@@ -1762,8 +1762,8 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getTasks_META_DATA;
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:570] autorelease];
-	[_selectSQL appendString:@" count(x.\"b\") FROM \"odmobile_1_20_mbo_gettasks\" x left outer join \"odmobile_1_20_mbo_gettaskstatuses\" b ON (x.\"d\" like b.\"a\") WHERE (((b.\"_pf\" = 1 or not exists (select b_os.\"d\" from \"odmobile_1_20_mbo_gettaskstatuses_os\" b_os where b_os.\"d\" = b.\"d\"))) and ((x.\"_pf\" = 1"
-	                               " or not exists (select x_os.\"bd\" from \"odmobile_1_20_mbo_gettasks_os\" x_os where x_os.\"bd\" = x.\"bd\")))) and ( (cast(x.\"i\" as bigint) > (cast(? as bigint)  43200000)) AND (b.\"c\" IN (\'TST_CREATED\', \'TST_PLANNED\', \'TST_ASSIGNED\', \'TST_CL_FILLING\')))"];
+	[_selectSQL appendString:@" count(x.\"b\") FROM \"odmobile_1_21_mbo_gettasks\" x left outer join \"odmobile_1_21_mbo_gettaskstatuses\" b ON (x.\"d\" like b.\"a\") WHERE (((b.\"_pf\" = 1 or not exists (select b_os.\"d\" from \"odmobile_1_21_mbo_gettaskstatuses_os\" b_os where b_os.\"d\" = b.\"d\"))) and ((x.\"_pf\" = 1"
+	                               " or not exists (select x_os.\"bd\" from \"odmobile_1_21_mbo_gettasks_os\" x_os where x_os.\"bd\" = x.\"bd\")))) and ( (cast(x.\"i\" as bigint) > (cast(? as bigint) + 43200000)) AND (b.\"c\" IN (\'TST_CREATED\', \'TST_PLANNED\', \'TST_ASSIGNED\', \'TST_CL_FILLING\')))"];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
 	[sql autorelease];
 	SUPObjectList *dts = [SUPObjectList getInstance];

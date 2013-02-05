@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_CHECKLIST_TEMPLATE_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			136:
+			787:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"CHECKLIST_TEMPLATE_ID":@"":@"a":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_CHECKLIST_TEMPLATE_ID setColumn:@"a"];
 		SUPAttributeMetaDataRBS* a_CHECKLIST_BODY = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			137:
+			788:
 			[SUPDataType forName:@"bigString?"]:@"long varchar":@"CHECKLIST_BODY":@"":@"b":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -85,7 +85,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_replayFailure setColumn:@"_rf"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			138:
+			789:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"c":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -112,7 +112,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_disableSubmit setColumn:@"_ds"];
 		SUPAttributeMetaDataRBS* a_CHECKLIST_BODYLength = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			573:
+			1224:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"CHECKLIST_BODYLength":@"":@"CHECKLIST_BODY_length":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -231,7 +231,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mbo_getchecklists";
+		self.table = @"odmobile_1_21_mbo_getchecklists";
 		self.synchronizationGroup = @"DIMSG";
 
 		SUPIndexMetaData *i_findByPrimaryKeyIndex = [[[SUPIndexMetaData alloc] init] autorelease];

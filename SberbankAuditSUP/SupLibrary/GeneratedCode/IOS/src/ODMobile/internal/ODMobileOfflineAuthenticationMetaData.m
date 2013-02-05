@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_passwordHash = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			272:
+			923:
 			[SUPDataType forName:@"int"]:@"integer":@"passwordHash":@"":@"b":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_passwordHash setColumn:@"b"];
 		SUPAttributeMetaDataRBS* a_user = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			271:
+			922:
 			[SUPDataType forName:@"string"]:@"varchar(300)":@"user":@"":@"a":
 			@"":300:0:0:
 			@"null":NO:@"":
@@ -82,7 +82,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"co_odmobile_1_20_offlineauthentication";
+		self.table = @"co_odmobile_1_21_offlineauthentication";
 		self.synchronizationGroup = @"";
 
 			

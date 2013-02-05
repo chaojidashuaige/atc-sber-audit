@@ -211,7 +211,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOCategoryPrivs_META_DATA;
 {
     switch(id_)
     {
-    case 24:
+    case 675:
         return self.surrogateKey;
     default:
          return [super getAttributeLong:id_];
@@ -222,7 +222,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOCategoryPrivs_META_DATA;
 {
     switch(id_)
     {
-    case 24:
+    case 675:
         self.surrogateKey = v;
         break;;
     default:
@@ -234,9 +234,9 @@ static SUPEntityMetaDataRBS* ODMobileMBOCategoryPrivs_META_DATA;
 {
     switch(id_)
     {
-    case 22:
+    case 673:
         return self.EMPLOYEE_ID;
-    case 23:
+    case 674:
         return self.CATEGORY_ID;
     default:
          return [super getAttributeString:id_];
@@ -247,10 +247,10 @@ static SUPEntityMetaDataRBS* ODMobileMBOCategoryPrivs_META_DATA;
 {
     switch(id_)
     {
-    case 22:
+    case 673:
         self.EMPLOYEE_ID = v;
         break;;
-    case 23:
+    case 674:
         self.CATEGORY_ID = v;
         break;;
     default:
@@ -348,7 +348,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOCategoryPrivs_META_DATA;
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:263] autorelease];
-	[_selectSQL appendString:@" x.\"a\",x.\"b\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"c\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_20_mbocategoryprivs\" x where (((x.\"_pf\" = 1 or not exists (select x_os.\"c\" from \"odmobile_1_20_mbocategoryprivs_os\" x_os where x_os.\"c\" = x.\"c\"))))"];
+	[_selectSQL appendString:@" x.\"a\",x.\"b\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"c\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_21_mbocategoryprivs\" x where (((x.\"_pf\" = 1 or not exists (select x_os.\"c\" from \"odmobile_1_21_mbocategoryprivs_os\" x_os where x_os.\"c\" = x.\"c\"))))"];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
 	[sql autorelease];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];

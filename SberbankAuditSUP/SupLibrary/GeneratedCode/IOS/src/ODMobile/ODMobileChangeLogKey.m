@@ -77,7 +77,7 @@ static SUPClassMetaDataRBS* ODMobileChangeLogKey_META_DATA;
 {
     switch(id_)
     {
-    case 265:
+    case 916:
         return self.surrogateKey;
     default:
         return [super getAttributeLong:id_];
@@ -88,7 +88,7 @@ static SUPClassMetaDataRBS* ODMobileChangeLogKey_META_DATA;
 {
     switch(id_)
     {
-    case 265:
+    case 916:
         self.surrogateKey = v;
         break;;
     default:
@@ -100,7 +100,7 @@ static SUPClassMetaDataRBS* ODMobileChangeLogKey_META_DATA;
 {
     switch(id_)
     {
-    case 264:
+    case 915:
         return self.entityType;
     default:
         return [super getAttributeInt:id_];
@@ -111,7 +111,7 @@ static SUPClassMetaDataRBS* ODMobileChangeLogKey_META_DATA;
 {
     switch(id_)
     {
-    case 264:
+    case 915:
         self.entityType = v;
         break;;
     default:

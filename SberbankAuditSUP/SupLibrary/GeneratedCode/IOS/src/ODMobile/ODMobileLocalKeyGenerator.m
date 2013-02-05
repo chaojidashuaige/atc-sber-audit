@@ -44,7 +44,7 @@ static SUPEntityMetaDataRBS* ODMobileLocalKeyGenerator_META_DATA;
 
 - (id)init
 {
-    self = [super initWithParameters:[ODMobileODMobileDB delegate]:@"co_odmobile_1_20_localkeygenerator":100000];
+    self = [super initWithParameters:[ODMobileODMobileDB delegate]:@"co_odmobile_1_21_localkeygenerator":100000];
     if (self) {
         // Initialization code here.
         [SUPLocalKeyGenerator setObjectInstance:@"ODMobile":self];

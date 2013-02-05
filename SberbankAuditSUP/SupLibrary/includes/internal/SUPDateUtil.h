@@ -7,7 +7,7 @@ extern NSCalendar* SUPgetGregorianCalendar(void);
 
 @interface SUPDateUtil : NSObject
 
-+ (SUPBoolean)equal:(SUPDate)a:(SUPDate)b;
++ (SUPBoolean)equal:(SUPDate)a :(SUPDate)b;
 + (SUPBoolean)notEqual:(SUPDate)a:(SUPDate)b;
 + (SUPDate)getDate:(SUPNullableDate)date;
 + (SUPDate)getDate_s:(SUPString)s;

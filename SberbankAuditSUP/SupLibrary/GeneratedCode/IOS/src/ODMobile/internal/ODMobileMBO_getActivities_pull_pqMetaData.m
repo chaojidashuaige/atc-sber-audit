@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_username = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			349:
+			1000:
 			[SUPDataType forName:@"string?"]:@"varchar(300)":@"username":@"":@"username":
 			@"":300:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_username setColumn:@"username"];
 		SUPAttributeMetaDataRBS* a_remoteId = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			350:
+			1001:
 			[SUPDataType forName:@"string?"]:@"varchar(300)":@"remoteId":@"":@"remoteId":
 			@"":300:0:0:
 			@"null":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_remoteId setColumn:@"remoteId"];
 		SUPAttributeMetaDataRBS* a_EMPLOYEE_IDParam = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			351:
+			1002:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"EMPLOYEE_IDParam":@"":@"EMPLOYEE_IDParam":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -58,7 +58,7 @@
 			YES:SUPPersonalizationType_None:NO];
 		[a_EMPLOYEE_IDParam setColumn:@"EMPLOYEE_IDParam"];
 		SUPAttributeMetaDataRBS* a_OBJECT_NAMEParam = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			352:
+			1003:
 			[SUPDataType forName:@"string?"]:@"varchar(280)":@"OBJECT_NAMEParam":@"":@"OBJECT_NAMEParam":
 			@"":280:0:0:
 			@"null":NO:@"":
@@ -67,7 +67,7 @@
 			YES:SUPPersonalizationType_None:NO];
 		[a_OBJECT_NAMEParam setColumn:@"OBJECT_NAMEParam"];
 		SUPAttributeMetaDataRBS* a_id = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			348:
+			999:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"id":@"":@"id":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -135,7 +135,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mbo_getactivities_pull_pq";
+		self.table = @"odmobile_1_21_mbo_getactivities_pull_pq";
 		self.synchronizationGroup = @"unsubscribe";
 
 		SUPIndexMetaData *i_remoteId = [[[SUPIndexMetaData alloc] init] autorelease];

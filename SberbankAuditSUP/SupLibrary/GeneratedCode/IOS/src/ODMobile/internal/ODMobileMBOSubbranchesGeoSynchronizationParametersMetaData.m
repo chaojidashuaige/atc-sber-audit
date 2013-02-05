@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_LAT_DELTA = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			281:
+			932:
 			[SUPDataType forName:@"string?"]:@"varchar(48)":@"LAT_DELTA":@"":@"LAT_DELTA":
 			@"":48:0:0:
 			@"null":YES:@"":
@@ -40,7 +40,7 @@
 			YES:SUPPersonalizationType_None:NO];
 		[a_LAT_DELTA setColumn:@"LAT_DELTA"];
 		SUPAttributeMetaDataRBS* a_LAT_DELTAUserDefined = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			282:
+			933:
 			[SUPDataType forName:@"boolean"]:@"tinyint":@"LAT_DELTAUserDefined":@"":@"LAT_DELTAUserDefined":
 			@"":-1:0:0:
 			@"false":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_LAT_DELTAUserDefined setColumn:@"LAT_DELTAUserDefined"];
 		SUPAttributeMetaDataRBS* a_LAT = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			283:
+			934:
 			[SUPDataType forName:@"string?"]:@"varchar(48)":@"LAT":@"":@"LAT":
 			@"":48:0:0:
 			@"null":YES:@"":
@@ -58,7 +58,7 @@
 			YES:SUPPersonalizationType_None:NO];
 		[a_LAT setColumn:@"LAT"];
 		SUPAttributeMetaDataRBS* a_LATUserDefined = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			284:
+			935:
 			[SUPDataType forName:@"boolean"]:@"tinyint":@"LATUserDefined":@"":@"LATUserDefined":
 			@"":-1:0:0:
 			@"false":NO:@"":
@@ -67,7 +67,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_LATUserDefined setColumn:@"LATUserDefined"];
 		SUPAttributeMetaDataRBS* a_LON_DELTA = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			285:
+			936:
 			[SUPDataType forName:@"string?"]:@"varchar(48)":@"LON_DELTA":@"":@"LON_DELTA":
 			@"":48:0:0:
 			@"null":YES:@"":
@@ -76,7 +76,7 @@
 			YES:SUPPersonalizationType_None:NO];
 		[a_LON_DELTA setColumn:@"LON_DELTA"];
 		SUPAttributeMetaDataRBS* a_LON_DELTAUserDefined = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			286:
+			937:
 			[SUPDataType forName:@"boolean"]:@"tinyint":@"LON_DELTAUserDefined":@"":@"LON_DELTAUserDefined":
 			@"":-1:0:0:
 			@"false":NO:@"":
@@ -85,7 +85,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_LON_DELTAUserDefined setColumn:@"LON_DELTAUserDefined"];
 		SUPAttributeMetaDataRBS* a_LON = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			287:
+			938:
 			[SUPDataType forName:@"string?"]:@"varchar(48)":@"LON":@"":@"LON":
 			@"":48:0:0:
 			@"null":YES:@"":
@@ -94,7 +94,7 @@
 			YES:SUPPersonalizationType_None:NO];
 		[a_LON setColumn:@"LON"];
 		SUPAttributeMetaDataRBS* a_LONUserDefined = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			288:
+			939:
 			[SUPDataType forName:@"boolean"]:@"tinyint":@"LONUserDefined":@"":@"LONUserDefined":
 			@"":-1:0:0:
 			@"false":NO:@"":
@@ -103,7 +103,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_LONUserDefined setColumn:@"LONUserDefined"];
 		SUPAttributeMetaDataRBS* a_size_sp = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			290:
+			941:
 			[SUPDataType forName:@"int"]:@"integer":@"size_sp":@"":@"size_sp":
 			@"":-1:0:0:
 			@"4":NO:@"":
@@ -112,7 +112,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_size_sp setColumn:@"size_sp"];
 		SUPAttributeMetaDataRBS* a_user_sp = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			289:
+			940:
 			[SUPDataType forName:@"string"]:@"varchar(300)":@"user_sp":@"":@"user_sp":
 			@"":300:0:0:
 			@"null":NO:@"":
@@ -168,7 +168,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"co_odmobile_1_20_mbosubbranchesgeosp";
+		self.table = @"co_odmobile_1_21_mbosubbranchesgeosp";
 		self.synchronizationGroup = @"";
 
 			

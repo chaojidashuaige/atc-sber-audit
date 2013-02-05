@@ -226,7 +226,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOBusinessProcess_META_DATA;
 {
     switch(id_)
     {
-    case 21:
+    case 672:
         return self.surrogateKey;
     default:
          return [super getAttributeLong:id_];
@@ -237,7 +237,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOBusinessProcess_META_DATA;
 {
     switch(id_)
     {
-    case 21:
+    case 672:
         self.surrogateKey = v;
         break;;
     default:
@@ -249,9 +249,9 @@ static SUPEntityMetaDataRBS* ODMobileMBOBusinessProcess_META_DATA;
 {
     switch(id_)
     {
-    case 19:
+    case 670:
         return self.BUSINESS_PROCESS_KEY;
-    case 20:
+    case 671:
         return self.BUSINESS_PROCESS_NAME;
     default:
          return [super getAttributeNullableString:id_];
@@ -262,10 +262,10 @@ static SUPEntityMetaDataRBS* ODMobileMBOBusinessProcess_META_DATA;
 {
     switch(id_)
     {
-    case 19:
+    case 670:
         self.BUSINESS_PROCESS_KEY = v;
         break;;
-    case 20:
+    case 671:
         self.BUSINESS_PROCESS_NAME = v;
         break;;
     default:
@@ -277,7 +277,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOBusinessProcess_META_DATA;
 {
     switch(id_)
     {
-    case 18:
+    case 669:
         return self.BUSINESS_PROCESS_ID;
     default:
          return [super getAttributeString:id_];
@@ -288,7 +288,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOBusinessProcess_META_DATA;
 {
     switch(id_)
     {
-    case 18:
+    case 669:
         self.BUSINESS_PROCESS_ID = v;
         break;;
     default:
@@ -388,7 +388,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOBusinessProcess_META_DATA;
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:275] autorelease];
-	[_selectSQL appendString:@" x.\"a\",x.\"b\",x.\"c\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"d\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_20_mbobusinessprocess\" x where (((x.\"_pf\" = 1 or not exists (select x_os.\"d\" from \"odmobile_1_20_mbobusinessprocess_os\" x_os where x_os.\"d\" = x.\"d\"))))"];
+	[_selectSQL appendString:@" x.\"a\",x.\"b\",x.\"c\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"d\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_21_mbobusinessprocess\" x where (((x.\"_pf\" = 1 or not exists (select x_os.\"d\" from \"odmobile_1_21_mbobusinessprocess_os\" x_os where x_os.\"d\" = x.\"d\"))))"];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
 	[sql autorelease];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
@@ -406,7 +406,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOBusinessProcess_META_DATA;
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:300] autorelease];
-	[_selectSQL appendString:@"SELECT x.\"a\",x.\"b\",x.\"c\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"d\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_20_mbobusinessprocess\" x WHERE (((x.\"_pf\" = 1 or not exists (select x_os.\"d\" from \"odmobile_1_20_mbobusinessprocess_os\" x_os where x_os.\"d\" = x.\"d\")))) and ( x.\"a\" = ?)"];
+	[_selectSQL appendString:@"SELECT x.\"a\",x.\"b\",x.\"c\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"d\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_21_mbobusinessprocess\" x WHERE (((x.\"_pf\" = 1 or not exists (select x_os.\"d\" from \"odmobile_1_21_mbobusinessprocess_os\" x_os where x_os.\"d\" = x.\"d\")))) and ( x.\"a\" = ?)"];
 	sql = [[NSMutableString alloc] initWithFormat:@"%@", _selectSQL];
 	[sql autorelease];
 	SUPStringList *ids = [SUPStringList listWithCapacity:0];

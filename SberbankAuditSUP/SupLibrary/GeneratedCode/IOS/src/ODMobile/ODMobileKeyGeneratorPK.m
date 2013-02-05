@@ -77,7 +77,7 @@ static SUPClassMetaDataRBS* ODMobileKeyGeneratorPK_META_DATA;
 {
     switch(id_)
     {
-    case 516:
+    case 1167:
         return self.batchId;
     default:
         return [super getAttributeLong:id_];
@@ -88,7 +88,7 @@ static SUPClassMetaDataRBS* ODMobileKeyGeneratorPK_META_DATA;
 {
     switch(id_)
     {
-    case 516:
+    case 1167:
         self.batchId = v;
         break;;
     default:
@@ -100,7 +100,7 @@ static SUPClassMetaDataRBS* ODMobileKeyGeneratorPK_META_DATA;
 {
     switch(id_)
     {
-    case 515:
+    case 1166:
         return self.remoteId;
     default:
         return [super getAttributeString:id_];
@@ -111,7 +111,7 @@ static SUPClassMetaDataRBS* ODMobileKeyGeneratorPK_META_DATA;
 {
     switch(id_)
     {
-    case 515:
+    case 1166:
         self.remoteId = v;
         break;;
     default:

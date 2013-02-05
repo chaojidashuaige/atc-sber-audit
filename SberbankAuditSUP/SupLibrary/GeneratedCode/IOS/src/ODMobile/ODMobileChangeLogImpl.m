@@ -183,9 +183,9 @@ static SUPEntityMetaDataRBS* ODMobileChangeLogImpl_META_DATA;
 {
     switch(id_)
     {
-    case 270:
+    case 921:
         return self.rootSurrogateKey;
-    case 267:
+    case 918:
         return self.surrogateKey;
     default:
          return [super getAttributeLong:id_];
@@ -196,10 +196,10 @@ static SUPEntityMetaDataRBS* ODMobileChangeLogImpl_META_DATA;
 {
     switch(id_)
     {
-    case 270:
+    case 921:
         self.rootSurrogateKey = v;
         break;;
-    case 267:
+    case 918:
         self.surrogateKey = v;
         break;;
     default:
@@ -211,7 +211,7 @@ static SUPEntityMetaDataRBS* ODMobileChangeLogImpl_META_DATA;
 {
     switch(id_)
     {
-    case 268:
+    case 919:
         return self.operationType;
     default:
          return [super getAttributeChar:id_];
@@ -222,7 +222,7 @@ static SUPEntityMetaDataRBS* ODMobileChangeLogImpl_META_DATA;
 {
     switch(id_)
     {
-    case 268:
+    case 919:
         self.operationType = v;
         break;;
     default:
@@ -234,9 +234,9 @@ static SUPEntityMetaDataRBS* ODMobileChangeLogImpl_META_DATA;
 {
     switch(id_)
     {
-    case 269:
+    case 920:
         return self.rootEntityType;
-    case 266:
+    case 917:
         return self.entityType;
     default:
          return [super getAttributeInt:id_];
@@ -247,10 +247,10 @@ static SUPEntityMetaDataRBS* ODMobileChangeLogImpl_META_DATA;
 {
     switch(id_)
     {
-    case 269:
+    case 920:
         self.rootEntityType = v;
         break;;
-    case 266:
+    case 917:
         self.entityType = v;
         break;;
     default:
@@ -327,7 +327,7 @@ static SUPEntityMetaDataRBS* ODMobileChangeLogImpl_META_DATA;
 
 + (void) deleteChangeLogs
 {
-    NSString *sql = @"truncate table odmobile_1_20_changelogimpl";
+    NSString *sql = @"truncate table odmobile_1_21_changelogimpl";
     id<SUPConnectionWrapper> connection = nil;
     id<SUPStatementWrapper> preparedStatement = nil;
     SUPLocalTransaction* transaction = nil;

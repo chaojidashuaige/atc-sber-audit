@@ -210,7 +210,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getActivityPriorities_META_DATA;
 {
     switch(id_)
     {
-    case 126:
+    case 777:
         return self.surrogateKey;
     default:
          return [super getAttributeLong:id_];
@@ -221,7 +221,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getActivityPriorities_META_DATA;
 {
     switch(id_)
     {
-    case 126:
+    case 777:
         self.surrogateKey = v;
         break;;
     default:
@@ -233,7 +233,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getActivityPriorities_META_DATA;
 {
     switch(id_)
     {
-    case 125:
+    case 776:
         return self.ACTIVITY_PRIORITY_NAME;
     default:
          return [super getAttributeNullableString:id_];
@@ -244,7 +244,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getActivityPriorities_META_DATA;
 {
     switch(id_)
     {
-    case 125:
+    case 776:
         self.ACTIVITY_PRIORITY_NAME = v;
         break;;
     default:
@@ -256,7 +256,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getActivityPriorities_META_DATA;
 {
     switch(id_)
     {
-    case 124:
+    case 775:
         return self.ACTIVITY_PRIORITY_ID;
     default:
          return [super getAttributeString:id_];
@@ -267,7 +267,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getActivityPriorities_META_DATA;
 {
     switch(id_)
     {
-    case 124:
+    case 775:
         self.ACTIVITY_PRIORITY_ID = v;
         break;;
     default:
@@ -365,7 +365,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getActivityPriorities_META_DATA;
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:281] autorelease];
-	[_selectSQL appendString:@" x.\"a\",x.\"b\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"c\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_20_mbo_getactivitypriorities\" x where (((x.\"_pf\" = 1 or not exists (select x_os.\"c\" from \"odmobile_1_20_mbo_getactivitypriorities_os\" x_os where x_os.\"c\" = x.\"c\"))))"];
+	[_selectSQL appendString:@" x.\"a\",x.\"b\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"c\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_21_mbo_getactivitypriorities\" x where (((x.\"_pf\" = 1 or not exists (select x_os.\"c\" from \"odmobile_1_21_mbo_getactivitypriorities_os\" x_os where x_os.\"c\" = x.\"c\"))))"];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
 	[sql autorelease];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
@@ -383,7 +383,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getActivityPriorities_META_DATA;
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:315] autorelease];
-	[_selectSQL appendString:@"SELECT x.\"a\",x.\"b\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"c\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_20_mbo_getactivitypriorities\" x WHERE (((x.\"_pf\" = 1 or not exists (select x_os.\"c\" from \"odmobile_1_20_mbo_getactivitypriorities_os\" x_os where x_os.\"c\" = x.\"c\")))) and ( x.\"a\" = "
+	[_selectSQL appendString:@"SELECT x.\"a\",x.\"b\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"c\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_21_mbo_getactivitypriorities\" x WHERE (((x.\"_pf\" = 1 or not exists (select x_os.\"c\" from \"odmobile_1_21_mbo_getactivitypriorities_os\" x_os where x_os.\"c\" = x.\"c\")))) and ( x.\"a\" = "
 	                               "?)"];
 	sql = [[NSMutableString alloc] initWithFormat:@"%@", _selectSQL];
 	[sql autorelease];

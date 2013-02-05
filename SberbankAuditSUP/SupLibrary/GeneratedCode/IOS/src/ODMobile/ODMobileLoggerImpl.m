@@ -8,7 +8,7 @@
 {
 	ODMobileLogRecordImpl *log = [ODMobileLogRecordImpl getInstance];
 	log.messageId = [ODMobileKeyGenerator generateId];
-	log.requestId = [NSString stringWithFormat:@"%lld",log.messageId];
+	log.requestId = [NSString stringWithFormat:@"%ld",log.messageId];
     log.timestamp = [NSDate dateWithTimeIntervalSinceNow:0];
 	log.code = 9999;
 	log.component = @"ODMobileDB";

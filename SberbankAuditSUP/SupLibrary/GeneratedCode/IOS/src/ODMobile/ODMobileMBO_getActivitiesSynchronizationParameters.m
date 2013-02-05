@@ -171,9 +171,9 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getActivitiesSynchronizationParameters_
 {
     switch(id_)
     {
-    case 342:
+    case 993:
         return self.EMPLOYEE_ID;
-    case 344:
+    case 995:
         return self.OBJECT_NAME;
     default:
          return [super getAttributeNullableString:id_];
@@ -184,10 +184,10 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getActivitiesSynchronizationParameters_
 {
     switch(id_)
     {
-    case 342:
+    case 993:
         self.EMPLOYEE_ID = v;
         break;;
-    case 344:
+    case 995:
         self.OBJECT_NAME = v;
         break;;
     default:
@@ -199,7 +199,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getActivitiesSynchronizationParameters_
 {
     switch(id_)
     {
-    case 346:
+    case 997:
         return self.user_sp;
     default:
          return [super getAttributeString:id_];
@@ -210,7 +210,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getActivitiesSynchronizationParameters_
 {
     switch(id_)
     {
-    case 346:
+    case 997:
         self.user_sp = v;
         break;;
     default:
@@ -222,7 +222,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getActivitiesSynchronizationParameters_
 {
     switch(id_)
     {
-    case 347:
+    case 998:
         return self.size_sp;
     default:
          return [super getAttributeInt:id_];
@@ -233,7 +233,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getActivitiesSynchronizationParameters_
 {
     switch(id_)
     {
-    case 347:
+    case 998:
         self.size_sp = v;
         break;;
     default:
@@ -245,9 +245,9 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getActivitiesSynchronizationParameters_
 {
     switch(id_)
     {
-    case 343:
+    case 994:
         return self.EMPLOYEE_IDUserDefined;
-    case 345:
+    case 996:
         return self.OBJECT_NAMEUserDefined;
     default:
          return [super getAttributeBoolean:id_];
@@ -258,10 +258,10 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getActivitiesSynchronizationParameters_
 {
     switch(id_)
     {
-    case 343:
+    case 994:
         self.EMPLOYEE_IDUserDefined = v;
         break;;
-    case 345:
+    case 996:
         self.OBJECT_NAMEUserDefined = v;
         break;;
     default:

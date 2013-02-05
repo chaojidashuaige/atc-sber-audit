@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_EMPLOYEE_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			361:
+			1012:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"EMPLOYEE_ID":@"":@"EMPLOYEE_ID":
 			@"":80:0:0:
 			@"0":NO:@"":
@@ -40,7 +40,7 @@
 			YES:SUPPersonalizationType_None:NO];
 		[a_EMPLOYEE_ID setColumn:@"EMPLOYEE_ID"];
 		SUPAttributeMetaDataRBS* a_EMPLOYEE_IDUserDefined = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			362:
+			1013:
 			[SUPDataType forName:@"boolean"]:@"tinyint":@"EMPLOYEE_IDUserDefined":@"":@"EMPLOYEE_IDUserDefined":
 			@"":-1:0:0:
 			@"false":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_EMPLOYEE_IDUserDefined setColumn:@"EMPLOYEE_IDUserDefined"];
 		SUPAttributeMetaDataRBS* a_OBJECT_NAME = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			363:
+			1014:
 			[SUPDataType forName:@"string?"]:@"varchar(280)":@"OBJECT_NAME":@"":@"OBJECT_NAME":
 			@"":280:0:0:
 			@"SUP_FCT_TASKS":NO:@"":
@@ -58,7 +58,7 @@
 			YES:SUPPersonalizationType_None:NO];
 		[a_OBJECT_NAME setColumn:@"OBJECT_NAME"];
 		SUPAttributeMetaDataRBS* a_OBJECT_NAMEUserDefined = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			364:
+			1015:
 			[SUPDataType forName:@"boolean"]:@"tinyint":@"OBJECT_NAMEUserDefined":@"":@"OBJECT_NAMEUserDefined":
 			@"":-1:0:0:
 			@"false":NO:@"":
@@ -67,7 +67,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_OBJECT_NAMEUserDefined setColumn:@"OBJECT_NAMEUserDefined"];
 		SUPAttributeMetaDataRBS* a_size_sp = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			366:
+			1017:
 			[SUPDataType forName:@"int"]:@"integer":@"size_sp":@"":@"size_sp":
 			@"":-1:0:0:
 			@"2":NO:@"":
@@ -76,7 +76,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_size_sp setColumn:@"size_sp"];
 		SUPAttributeMetaDataRBS* a_user_sp = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			365:
+			1016:
 			[SUPDataType forName:@"string"]:@"varchar(300)":@"user_sp":@"":@"user_sp":
 			@"":300:0:0:
 			@"null":NO:@"":
@@ -128,7 +128,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"co_odmobile_1_20_mbo_gettaskssp";
+		self.table = @"co_odmobile_1_21_mbo_gettaskssp";
 		self.synchronizationGroup = @"";
 
 			

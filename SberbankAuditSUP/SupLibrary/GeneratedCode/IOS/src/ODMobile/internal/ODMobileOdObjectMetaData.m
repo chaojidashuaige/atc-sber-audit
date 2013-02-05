@@ -24,7 +24,7 @@
  
 		SUPObjectList *attributes = [SUPObjectList listWithCapacity:7];
 		SUPAttributeMetaDataRBS* a_fl = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			0:
+			651:
 			[SUPDataType forName:@"ObjField*"]:@"ObjField*":@"fl":@"":@"":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -33,7 +33,7 @@
 			NO:SUPPersonalizationType_None:NO];
   		[attributes addThis:a_fl];
 		SUPAttributeMetaDataRBS* a_rn = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			1:
+			652:
 			[SUPDataType forName:@"long?"]:@"decimal(20,0)":@"rn":@"":@"":
 			@"":-1:0:0:
 			@"null":NO:@"":

@@ -403,7 +403,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getSubbranches_META_DATA;
 {
     switch(id_)
     {
-    case 165:
+    case 816:
         return self.surrogateKey;
     default:
          return [super getAttributeLong:id_];
@@ -414,7 +414,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getSubbranches_META_DATA;
 {
     switch(id_)
     {
-    case 165:
+    case 816:
         self.surrogateKey = v;
         break;;
     default:
@@ -426,31 +426,31 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getSubbranches_META_DATA;
 {
     switch(id_)
     {
-    case 152:
+    case 803:
         return self.SUBBRANCH_NAME;
-    case 153:
+    case 804:
         return self.CHIEF_EMPLOYEE_ID;
-    case 154:
+    case 805:
         return self.SUBBRANCH_LEVEL_ID;
-    case 155:
+    case 806:
         return self.ADDRESS;
-    case 156:
+    case 807:
         return self.LATITUDE;
-    case 157:
+    case 808:
         return self.LONGITUDE;
-    case 158:
+    case 809:
         return self.MVS_AREA_FLG;
-    case 159:
+    case 810:
         return self.ENABLED_FLG;
-    case 160:
+    case 811:
         return self.PARENT_ID;
-    case 161:
+    case 812:
         return self.OSB_ID;
-    case 162:
+    case 813:
         return self.GOSB_ID;
-    case 163:
+    case 814:
         return self.CA_ID;
-    case 164:
+    case 815:
         return self.TB_ID;
     default:
          return [super getAttributeNullableString:id_];
@@ -461,43 +461,43 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getSubbranches_META_DATA;
 {
     switch(id_)
     {
-    case 152:
+    case 803:
         self.SUBBRANCH_NAME = v;
         break;;
-    case 153:
+    case 804:
         self.CHIEF_EMPLOYEE_ID = v;
         break;;
-    case 154:
+    case 805:
         self.SUBBRANCH_LEVEL_ID = v;
         break;;
-    case 155:
+    case 806:
         self.ADDRESS = v;
         break;;
-    case 156:
+    case 807:
         self.LATITUDE = v;
         break;;
-    case 157:
+    case 808:
         self.LONGITUDE = v;
         break;;
-    case 158:
+    case 809:
         self.MVS_AREA_FLG = v;
         break;;
-    case 159:
+    case 810:
         self.ENABLED_FLG = v;
         break;;
-    case 160:
+    case 811:
         self.PARENT_ID = v;
         break;;
-    case 161:
+    case 812:
         self.OSB_ID = v;
         break;;
-    case 162:
+    case 813:
         self.GOSB_ID = v;
         break;;
-    case 163:
+    case 814:
         self.CA_ID = v;
         break;;
-    case 164:
+    case 815:
         self.TB_ID = v;
         break;;
     default:
@@ -509,7 +509,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getSubbranches_META_DATA;
 {
     switch(id_)
     {
-    case 151:
+    case 802:
         return self.SUBBRANCH_ID;
     default:
          return [super getAttributeString:id_];
@@ -520,7 +520,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getSubbranches_META_DATA;
 {
     switch(id_)
     {
-    case 151:
+    case 802:
         self.SUBBRANCH_ID = v;
         break;;
     default:
@@ -642,7 +642,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getSubbranches_META_DATA;
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:372] autorelease];
-	[_selectSQL appendString:@" x.\"a\",x.\"b\",x.\"c\",x.\"d\",x.\"e\",x.\"f\",x.\"g\",x.\"h\",x.\"i\",x.\"j\",x.\"l\",x.\"m\",x.\"n\",x.\"o\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"p\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_20_mbo_getsubbranches\" x where (((x.\"_pf\" = 1 or not exists (select x_os.\"p\" from \"odmobile_1_20_mbo_getsubbranche"
+	[_selectSQL appendString:@" x.\"a\",x.\"b\",x.\"c\",x.\"d\",x.\"e\",x.\"f\",x.\"g\",x.\"h\",x.\"i\",x.\"j\",x.\"l\",x.\"m\",x.\"n\",x.\"o\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"p\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_21_mbo_getsubbranches\" x where (((x.\"_pf\" = 1 or not exists (select x_os.\"p\" from \"odmobile_1_21_mbo_getsubbranche"
 	                               "s_os\" x_os where x_os.\"p\" = x.\"p\"))))"];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
 	[sql autorelease];
@@ -661,7 +661,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getSubbranches_META_DATA;
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:397] autorelease];
-	[_selectSQL appendString:@"SELECT x.\"a\",x.\"b\",x.\"c\",x.\"d\",x.\"e\",x.\"f\",x.\"g\",x.\"h\",x.\"i\",x.\"j\",x.\"l\",x.\"m\",x.\"n\",x.\"o\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"p\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_20_mbo_getsubbranches\" x WHERE (((x.\"_pf\" = 1 or not exists (select x_os.\"p\" from \"odmobile_1_20_mbo_getsubb"
+	[_selectSQL appendString:@"SELECT x.\"a\",x.\"b\",x.\"c\",x.\"d\",x.\"e\",x.\"f\",x.\"g\",x.\"h\",x.\"i\",x.\"j\",x.\"l\",x.\"m\",x.\"n\",x.\"o\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"p\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_21_mbo_getsubbranches\" x WHERE (((x.\"_pf\" = 1 or not exists (select x_os.\"p\" from \"odmobile_1_21_mbo_getsubb"
 	                               "ranches_os\" x_os where x_os.\"p\" = x.\"p\")))) and ( x.\"a\" = ?)"];
 	sql = [[NSMutableString alloc] initWithFormat:@"%@", _selectSQL];
 	[sql autorelease];
@@ -696,7 +696,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getSubbranches_META_DATA;
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:391] autorelease];
-	[_selectSQL appendString:@" x.\"a\",x.\"b\",x.\"c\",x.\"d\",x.\"e\",x.\"f\",x.\"g\",x.\"h\",x.\"i\",x.\"j\",x.\"l\",x.\"m\",x.\"n\",x.\"o\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"p\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_20_mbo_getsubbranches\" x WHERE (((x.\"_pf\" = 1 or not exists (select x_os.\"p\" from \"odmobile_1_20_mbo_getsubbranche"
+	[_selectSQL appendString:@" x.\"a\",x.\"b\",x.\"c\",x.\"d\",x.\"e\",x.\"f\",x.\"g\",x.\"h\",x.\"i\",x.\"j\",x.\"l\",x.\"m\",x.\"n\",x.\"o\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"p\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_21_mbo_getsubbranches\" x WHERE (((x.\"_pf\" = 1 or not exists (select x_os.\"p\" from \"odmobile_1_21_mbo_getsubbranche"
 	                               "s_os\" x_os where x_os.\"p\" = x.\"p\")))) and ( x.\"j\" = ?)"];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
 	[sql autorelease];
@@ -723,7 +723,7 @@ static SUPEntityMetaDataRBS* ODMobileMBO_getSubbranches_META_DATA;
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:53] autorelease];
-	[_selectSQL appendString:@" COUNT(*) FROM \"odmobile_1_20_mbo_getsubbranches\""];
+	[_selectSQL appendString:@" COUNT(*) FROM \"odmobile_1_21_mbo_getsubbranches\""];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
 	[sql autorelease];
 	SUPObjectList *dts = [SUPObjectList getInstance];

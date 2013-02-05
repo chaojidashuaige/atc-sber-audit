@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_UNION_TYPE_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			71:
+			722:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"UNION_TYPE_ID":@"":@"a":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_UNION_TYPE_ID setColumn:@"a"];
 		SUPAttributeMetaDataRBS* a_UNION_TYPE_NAME = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			72:
+			723:
 			[SUPDataType forName:@"string?"]:@"varchar(1200)":@"UNION_TYPE_NAME":@"":@"b":
 			@"":1200:0:0:
 			@"null":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_UNION_TYPE_NAME setColumn:@"b"];
 		SUPAttributeMetaDataRBS* a_UNION_TYPE_KEY = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			73:
+			724:
 			[SUPDataType forName:@"string?"]:@"varchar(400)":@"UNION_TYPE_KEY":@"":@"c":
 			@"":400:0:0:
 			@"null":NO:@"":
@@ -94,7 +94,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_replayFailure setColumn:@"_rf"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			74:
+			725:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"d":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -231,7 +231,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mbouniontypes";
+		self.table = @"odmobile_1_21_mbouniontypes";
 		self.synchronizationGroup = @"DIMSG";
 
 		SUPIndexMetaData *i_findByPrimaryKeyIndex = [[[SUPIndexMetaData alloc] init] autorelease];

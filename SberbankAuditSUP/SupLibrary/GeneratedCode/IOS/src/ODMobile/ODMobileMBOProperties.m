@@ -194,7 +194,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOProperties_META_DATA;
 {
     switch(id_)
     {
-    case 46:
+    case 697:
         return self.surrogateKey;
     default:
          return [super getAttributeLong:id_];
@@ -205,7 +205,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOProperties_META_DATA;
 {
     switch(id_)
     {
-    case 46:
+    case 697:
         self.surrogateKey = v;
         break;;
     default:
@@ -217,7 +217,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOProperties_META_DATA;
 {
     switch(id_)
     {
-    case 45:
+    case 696:
         return self.PROPERTIES;
     default:
          return [super getAttributeString:id_];
@@ -228,7 +228,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOProperties_META_DATA;
 {
     switch(id_)
     {
-    case 45:
+    case 696:
         self.PROPERTIES = v;
         break;;
     default:
@@ -324,7 +324,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOProperties_META_DATA;
 	NSMutableString *sql = nil;
 	NSMutableString *_selectSQL = nil;
 	_selectSQL = [[[NSMutableString alloc] initWithCapacity:249] autorelease];
-	[_selectSQL appendString:@" x.\"a\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"b\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_20_mboproperties\" x where (((x.\"_pf\" = 1 or not exists (select x_os.\"b\" from \"odmobile_1_20_mboproperties_os\" x_os where x_os.\"b\" = x.\"b\"))))"];
+	[_selectSQL appendString:@" x.\"a\",x.\"_pf\",x.\"_pc\",x.\"_rp\",x.\"_rf\",x.\"b\",x.\"_rc\",x.\"_ds\" FROM \"odmobile_1_21_mboproperties\" x where (((x.\"_pf\" = 1 or not exists (select x_os.\"b\" from \"odmobile_1_21_mboproperties_os\" x_os where x_os.\"b\" = x.\"b\"))))"];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];
 	[sql autorelease];
 	sql = [[NSMutableString alloc] initWithFormat:@"select %@", _selectSQL];

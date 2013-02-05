@@ -77,9 +77,9 @@ static SUPClassMetaDataRBS* ODMobileObjField_META_DATA;
 {
     switch(id_)
     {
-    case 2:
+    case 653:
         return self.vl;
-    case 3:
+    case 654:
         return self.nm;
     default:
         return [super getAttributeString:id_];
@@ -90,10 +90,10 @@ static SUPClassMetaDataRBS* ODMobileObjField_META_DATA;
 {
     switch(id_)
     {
-    case 2:
+    case 653:
         self.vl = v;
         break;;
-    case 3:
+    case 654:
         self.nm = v;
         break;;
     default:

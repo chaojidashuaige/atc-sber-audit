@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_emloyeeId = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			309:
+			960:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"emloyeeId":@"":@"emloyeeId":
 			@"":80:0:0:
 			@"":NO:@"":
@@ -40,7 +40,7 @@
 			YES:SUPPersonalizationType_None:NO];
 		[a_emloyeeId setColumn:@"emloyeeId"];
 		SUPAttributeMetaDataRBS* a_emloyeeIdUserDefined = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			310:
+			961:
 			[SUPDataType forName:@"boolean"]:@"tinyint":@"emloyeeIdUserDefined":@"":@"emloyeeIdUserDefined":
 			@"":-1:0:0:
 			@"false":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_emloyeeIdUserDefined setColumn:@"emloyeeIdUserDefined"];
 		SUPAttributeMetaDataRBS* a_size_sp = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			312:
+			963:
 			[SUPDataType forName:@"int"]:@"integer":@"size_sp":@"":@"size_sp":
 			@"":-1:0:0:
 			@"1":NO:@"":
@@ -58,7 +58,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_size_sp setColumn:@"size_sp"];
 		SUPAttributeMetaDataRBS* a_user_sp = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			311:
+			962:
 			[SUPDataType forName:@"string"]:@"varchar(300)":@"user_sp":@"":@"user_sp":
 			@"":300:0:0:
 			@"null":NO:@"":
@@ -108,7 +108,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"co_odmobile_1_20_mbotasktypesprivsp";
+		self.table = @"co_odmobile_1_21_mbotasktypesprivsp";
 		self.synchronizationGroup = @"";
 
 			

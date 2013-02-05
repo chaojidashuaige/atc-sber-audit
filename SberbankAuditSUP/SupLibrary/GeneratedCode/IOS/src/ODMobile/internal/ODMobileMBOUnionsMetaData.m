@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_UNION_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			75:
+			726:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"UNION_ID":@"":@"a":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_UNION_ID setColumn:@"a"];
 		SUPAttributeMetaDataRBS* a_UNION_NAME = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			76:
+			727:
 			[SUPDataType forName:@"string?"]:@"varchar(800)":@"UNION_NAME":@"":@"b":
 			@"":800:0:0:
 			@"null":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_UNION_NAME setColumn:@"b"];
 		SUPAttributeMetaDataRBS* a_UNION_TYPE_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			77:
+			728:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"UNION_TYPE_ID":@"":@"c":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -58,7 +58,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_UNION_TYPE_ID setColumn:@"c"];
 		SUPAttributeMetaDataRBS* a_SUBBRANCH_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			78:
+			729:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"SUBBRANCH_ID":@"":@"d":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -67,7 +67,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_SUBBRANCH_ID setColumn:@"d"];
 		SUPAttributeMetaDataRBS* a_ENABLED_FLG = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			79:
+			730:
 			[SUPDataType forName:@"string?"]:@"varchar(20)":@"ENABLED_FLG":@"":@"e":
 			@"":20:0:0:
 			@"null":NO:@"":
@@ -76,7 +76,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_ENABLED_FLG setColumn:@"e"];
 		SUPAttributeMetaDataRBS* a_UNION_SUBBRANCHES = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			80:
+			731:
 			[SUPDataType forName:@"string?"]:@"varchar(1600)":@"UNION_SUBBRANCHES":@"":@"f":
 			@"":1600:0:0:
 			@"null":NO:@"":
@@ -121,7 +121,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_replayFailure setColumn:@"_rf"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			81:
+			732:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"g":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -267,7 +267,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mbounions";
+		self.table = @"odmobile_1_21_mbounions";
 		self.synchronizationGroup = @"DIMSG_TASK_REL";
 
 		SUPIndexMetaData *i_findByPrimaryKeyIndex = [[[SUPIndexMetaData alloc] init] autorelease];

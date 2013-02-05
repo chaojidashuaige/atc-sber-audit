@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_UNION_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			179:
+			830:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"UNION_ID":@"":@"a":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_UNION_ID setColumn:@"a"];
 		SUPAttributeMetaDataRBS* a_TASK_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			180:
+			831:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"TASK_ID":@"":@"b":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_TASK_ID setColumn:@"b"];
 		SUPAttributeMetaDataRBS* a_TASK_TYPE_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			181:
+			832:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"TASK_TYPE_ID":@"":@"c":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -58,7 +58,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_TASK_TYPE_ID setColumn:@"c"];
 		SUPAttributeMetaDataRBS* a_TASK_STATUS_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			182:
+			833:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"TASK_STATUS_ID":@"":@"d":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -67,7 +67,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_TASK_STATUS_ID setColumn:@"d"];
 		SUPAttributeMetaDataRBS* a_CREATOR_EMPLOYEE_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			183:
+			834:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"CREATOR_EMPLOYEE_ID":@"":@"e":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -76,7 +76,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_CREATOR_EMPLOYEE_ID setColumn:@"e"];
 		SUPAttributeMetaDataRBS* a_RESOURCE_EMPLOYEE_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			184:
+			835:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"RESOURCE_EMPLOYEE_ID":@"":@"f":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -85,7 +85,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_RESOURCE_EMPLOYEE_ID setColumn:@"f"];
 		SUPAttributeMetaDataRBS* a_TASK_DURATION = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			185:
+			836:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"TASK_DURATION":@"":@"g":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -94,7 +94,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_TASK_DURATION setColumn:@"g"];
 		SUPAttributeMetaDataRBS* a_TASK_DESC = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			186:
+			837:
 			[SUPDataType forName:@"string?"]:@"varchar(2000)":@"TASK_DESC":@"":@"h":
 			@"":2000:0:0:
 			@"null":NO:@"":
@@ -103,7 +103,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_TASK_DESC setColumn:@"h"];
 		SUPAttributeMetaDataRBS* a_PLAN_START_DTTM = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			187:
+			838:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"PLAN_START_DTTM":@"":@"i":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -112,7 +112,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_PLAN_START_DTTM setColumn:@"i"];
 		SUPAttributeMetaDataRBS* a_CHECKLIST_TEMPLATE_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			188:
+			839:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"CHECKLIST_TEMPLATE_ID":@"":@"j":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -121,7 +121,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_CHECKLIST_TEMPLATE_ID setColumn:@"j"];
 		SUPAttributeMetaDataRBS* a_INITIAL_DATA = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			189:
+			840:
 			[SUPDataType forName:@"string?"]:@"LONG VARCHAR":@"INITIAL_DATA":@"":@"l":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -130,7 +130,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_INITIAL_DATA setColumn:@"l"];
 		SUPAttributeMetaDataRBS* a_SUBBRANCH_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			190:
+			841:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"SUBBRANCH_ID":@"":@"m":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -139,7 +139,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_SUBBRANCH_ID setColumn:@"m"];
 		SUPAttributeMetaDataRBS* a_FACT_START_DTTM = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			191:
+			842:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"FACT_START_DTTM":@"":@"n":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -148,7 +148,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_FACT_START_DTTM setColumn:@"n"];
 		SUPAttributeMetaDataRBS* a_FACT_END_DTTM = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			192:
+			843:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"FACT_END_DTTM":@"":@"o":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -157,7 +157,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_FACT_END_DTTM setColumn:@"o"];
 		SUPAttributeMetaDataRBS* a_SELF_CHECK_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			193:
+			844:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"SELF_CHECK_ID":@"":@"p":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -166,7 +166,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_SELF_CHECK_ID setColumn:@"p"];
 		SUPAttributeMetaDataRBS* a_SELF_CHECK_RESOURCE_FIO = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			194:
+			845:
 			[SUPDataType forName:@"string?"]:@"varchar(400)":@"SELF_CHECK_RESOURCE_FIO":@"":@"q":
 			@"":400:0:0:
 			@"null":NO:@"":
@@ -175,7 +175,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_SELF_CHECK_RESOURCE_FIO setColumn:@"q"];
 		SUPAttributeMetaDataRBS* a_SELF_CHECK_FACT_END_DTTM = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			195:
+			846:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"SELF_CHECK_FACT_END_DTTM":@"":@"r":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -184,7 +184,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_SELF_CHECK_FACT_END_DTTM setColumn:@"r"];
 		SUPAttributeMetaDataRBS* a_OTHER_CHECK_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			196:
+			847:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"OTHER_CHECK_ID":@"":@"s":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -193,7 +193,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_OTHER_CHECK_ID setColumn:@"s"];
 		SUPAttributeMetaDataRBS* a_OTHER_CHECK_RESOURCE_FIO = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			197:
+			848:
 			[SUPDataType forName:@"string?"]:@"varchar(400)":@"OTHER_CHECK_RESOURCE_FIO":@"":@"t":
 			@"":400:0:0:
 			@"null":NO:@"":
@@ -202,7 +202,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_OTHER_CHECK_RESOURCE_FIO setColumn:@"t"];
 		SUPAttributeMetaDataRBS* a_OTHER_CHECK_FACT_END_DTTM = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			198:
+			849:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"OTHER_CHECK_FACT_END_DTTM":@"":@"u":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -211,7 +211,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_OTHER_CHECK_FACT_END_DTTM setColumn:@"u"];
 		SUPAttributeMetaDataRBS* a_QUALITY_CONTROL_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			199:
+			850:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"QUALITY_CONTROL_ID":@"":@"v":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -220,7 +220,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_QUALITY_CONTROL_ID setColumn:@"v"];
 		SUPAttributeMetaDataRBS* a_QUALITY_CONTROL_RESOURCE_FIO = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			200:
+			851:
 			[SUPDataType forName:@"string?"]:@"varchar(400)":@"QUALITY_CONTROL_RESOURCE_FIO":@"":@"w":
 			@"":400:0:0:
 			@"null":NO:@"":
@@ -229,7 +229,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_QUALITY_CONTROL_RESOURCE_FIO setColumn:@"w"];
 		SUPAttributeMetaDataRBS* a_QUALITY_CONTROL_FACT_END_DTTM = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			201:
+			852:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"QUALITY_CONTROL_FACT_END_DTTM":@"":@"x":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -238,7 +238,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_QUALITY_CONTROL_FACT_END_DTTM setColumn:@"x"];
 		SUPAttributeMetaDataRBS* a_INSPECTOR_CONTROL_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			202:
+			853:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"INSPECTOR_CONTROL_ID":@"":@"y":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -247,7 +247,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_INSPECTOR_CONTROL_ID setColumn:@"y"];
 		SUPAttributeMetaDataRBS* a_INSPECTOR_CONTROL_RESOURCE_FIO = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			203:
+			854:
 			[SUPDataType forName:@"string?"]:@"varchar(400)":@"INSPECTOR_CONTROL_RESOURCE_FIO":@"":@"z":
 			@"":400:0:0:
 			@"null":NO:@"":
@@ -256,7 +256,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_INSPECTOR_CONTROL_RESOURCE_FIO setColumn:@"z"];
 		SUPAttributeMetaDataRBS* a_INSPECTOR_CONTROL_FACT_END_DTTM = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			204:
+			855:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"INSPECTOR_CONTROL_FACT_END_DTTM":@"":@"ba":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -265,7 +265,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_INSPECTOR_CONTROL_FACT_END_DTTM setColumn:@"ba"];
 		SUPAttributeMetaDataRBS* a_PLAN_END_DTTM = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			205:
+			856:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"PLAN_END_DTTM":@"":@"bb":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -274,7 +274,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_PLAN_END_DTTM setColumn:@"bb"];
 		SUPAttributeMetaDataRBS* a_CHANGED_DTTM = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			206:
+			857:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"CHANGED_DTTM":@"":@"bc":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -283,7 +283,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_CHANGED_DTTM setColumn:@"bc"];
 		SUPAttributeMetaDataRBS* a_updateCalled = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			208:
+			859:
 			[SUPDataType forName:@"boolean"]:@"tinyint":@"updateCalled":@"":@"be":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -292,7 +292,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_updateCalled setColumn:@"be"];
 		SUPAttributeMetaDataRBS* a_updateObjectName = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			209:
+			860:
 			[SUPDataType forName:@"string?"]:@"varchar(1200)":@"updateObjectName":@"":@"bf":
 			@"":1200:0:0:
 			@"null":NO:@"":
@@ -301,7 +301,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_updateObjectName setColumn:@"bf"];
 		SUPAttributeMetaDataRBS* a_updateOdObject = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			210:
+			861:
 			[SUPDataType forName:@"OdObject?"]:@"LONG VARCHAR":@"updateOdObject":@"":@"bg":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -310,7 +310,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_updateOdObject setColumn:@"bg"];
 		SUPAttributeMetaDataRBS* a_createCalled = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			211:
+			862:
 			[SUPDataType forName:@"boolean"]:@"tinyint":@"createCalled":@"":@"bh":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -319,7 +319,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_createCalled setColumn:@"bh"];
 		SUPAttributeMetaDataRBS* a_createObjectName = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			212:
+			863:
 			[SUPDataType forName:@"string?"]:@"varchar(1200)":@"createObjectName":@"":@"bi":
 			@"":1200:0:0:
 			@"null":NO:@"":
@@ -328,7 +328,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_createObjectName setColumn:@"bi"];
 		SUPAttributeMetaDataRBS* a_createOdObject = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			213:
+			864:
 			[SUPDataType forName:@"OdObject?"]:@"LONG VARCHAR":@"createOdObject":@"":@"bj":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -373,7 +373,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_replayFailure setColumn:@"_rf"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			207:
+			858:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"bd":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -654,7 +654,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mbo_gettasks";
+		self.table = @"odmobile_1_21_mbo_gettasks";
 		self.synchronizationGroup = @"TasksSG";
 
 		SUPIndexMetaData *i_findByPrimaryKeyIndex = [[[SUPIndexMetaData alloc] init] autorelease];

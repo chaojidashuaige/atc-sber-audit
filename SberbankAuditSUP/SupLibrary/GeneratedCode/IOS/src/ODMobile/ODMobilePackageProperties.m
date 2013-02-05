@@ -209,9 +209,9 @@ static SUPEntityMetaDataRBS* ODMobilePackageProperties_META_DATA;
 {
     switch(id_)
     {
-    case 263:
+    case 914:
         return self.value;
-    case 262:
+    case 913:
         return self.key;
     default:
          return [super getAttributeString:id_];
@@ -222,10 +222,10 @@ static SUPEntityMetaDataRBS* ODMobilePackageProperties_META_DATA;
 {
     switch(id_)
     {
-    case 263:
+    case 914:
         self.value = v;
         break;;
-    case 262:
+    case 913:
         self.key = v;
         break;;
     default:

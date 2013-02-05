@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_QUESTION_BLOCK_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			29:
+			680:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"QUESTION_BLOCK_ID":@"":@"a":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_QUESTION_BLOCK_ID setColumn:@"a"];
 		SUPAttributeMetaDataRBS* a_QUESTION_BLOCK_NAME = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			30:
+			681:
 			[SUPDataType forName:@"string?"]:@"varchar(1200)":@"QUESTION_BLOCK_NAME":@"":@"b":
 			@"":1200:0:0:
 			@"null":NO:@"":
@@ -85,7 +85,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_replayFailure setColumn:@"_rf"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			31:
+			682:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"c":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -221,7 +221,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mbodimquestionblocks";
+		self.table = @"odmobile_1_21_mbodimquestionblocks";
 		self.synchronizationGroup = @"DIMSG";
 
 		SUPIndexMetaData *i_findByPrimaryKeyIndex = [[[SUPIndexMetaData alloc] init] autorelease];

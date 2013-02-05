@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_OBJECT_TYPE_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			40:
+			691:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"OBJECT_TYPE_ID":@"":@"a":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_OBJECT_TYPE_ID setColumn:@"a"];
 		SUPAttributeMetaDataRBS* a_SUBBRANCH_LEVEL_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			41:
+			692:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"SUBBRANCH_LEVEL_ID":@"":@"b":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_SUBBRANCH_LEVEL_ID setColumn:@"b"];
 		SUPAttributeMetaDataRBS* a_OBJECT_TYPE_NAME = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			42:
+			693:
 			[SUPDataType forName:@"string?"]:@"varchar(200)":@"OBJECT_TYPE_NAME":@"":@"c":
 			@"":200:0:0:
 			@"null":NO:@"":
@@ -58,7 +58,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_OBJECT_TYPE_NAME setColumn:@"c"];
 		SUPAttributeMetaDataRBS* a_OBJECT_TYPE_KEY = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			43:
+			694:
 			[SUPDataType forName:@"string?"]:@"varchar(200)":@"OBJECT_TYPE_KEY":@"":@"d":
 			@"":200:0:0:
 			@"null":NO:@"":
@@ -103,7 +103,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_replayFailure setColumn:@"_rf"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			44:
+			695:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"e":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -267,7 +267,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mboobjecttypes";
+		self.table = @"odmobile_1_21_mboobjecttypes";
 		self.synchronizationGroup = @"DIMSG";
 
 		SUPIndexMetaData *i_findByPrimaryKeyIndex = [[[SUPIndexMetaData alloc] init] autorelease];

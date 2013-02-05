@@ -204,7 +204,7 @@ static SUPDatabaseDelegate *g_ODMobileODMobileDB_delegate = nil;
 
 - (id)init
 {
-    return [self initWithName:@"oDMobile1_20"];
+    return [self initWithName:@"oDMobile1_21"];
 }
 
 - (id)initWithName:(NSString*)name;
@@ -295,12 +295,12 @@ static SUPDatabaseDelegate *g_ODMobileODMobileDB_delegate = nil;
 
 - (NSString*)packageVersionedPrefix
 {
-	return @"ODMobile:1.20";
+	return @"ODMobile:1.21";
 }
 
 - (NSString*)syncParamsVersion
 {
-    return [NSString stringWithFormat:@"%@_odmobile.1_20", [[self class] getDomainName]];
+    return [NSString stringWithFormat:@"%@_odmobile.1_21", [[self class] getDomainName]];
 }
 
 + (NSString*)getSyncUsername
@@ -356,7 +356,7 @@ static BOOL _valid_ = NO;
 {
     if (_queueConnection == nil)
     {
-        self.queueConnection = [SUPQueueConnectionImpl getInstance:nil withPackage:@"ODMobile:1.20"];
+        self.queueConnection = [SUPQueueConnectionImpl getInstance:nil withPackage:@"ODMobile:1.21"];
     }
     return _queueConnection;
 }
@@ -1084,61 +1084,61 @@ static BOOL _valid_ = NO;
 - (NSMutableDictionary*)getTableMBOMap
 {
     NSMutableDictionary *map = [[[NSMutableDictionary alloc] init] autorelease];
-    [map setObject:@"ActivityStatusMBO" forKey:@"odmobile_1_20_activitystatusmbo"];;
-    [map setObject:@"MBOActivityTemplates" forKey:@"odmobile_1_20_mboactivitytemplates"];;
-    [map setObject:@"MBOBusinessProcess" forKey:@"odmobile_1_20_mbobusinessprocess"];;
-    [map setObject:@"MBOCategoryPrivs" forKey:@"odmobile_1_20_mbocategoryprivs"];;
-    [map setObject:@"MBODimMetrics" forKey:@"odmobile_1_20_mbodimmetrics"];;
-    [map setObject:@"MBODimQuestionBlocks" forKey:@"odmobile_1_20_mbodimquestionblocks"];;
-    [map setObject:@"MBOEmployeesSubordinations" forKey:@"odmobile_1_20_mboemployeessubordinations"];;
-    [map setObject:@"MBOObjectTypes" forKey:@"odmobile_1_20_mboobjecttypes"];;
-    [map setObject:@"MBOProperties" forKey:@"odmobile_1_20_mboproperties"];;
-    [map setObject:@"MBOSubbranchesGeo" forKey:@"odmobile_1_20_mbosubbranchesgeo"];;
-    [map setObject:@"MBOTaskBlockMetrics" forKey:@"odmobile_1_20_mbotaskblockmetrics"];;
-    [map setObject:@"MBOTaskTypesPriv" forKey:@"odmobile_1_20_mbotasktypespriv"];;
-    [map setObject:@"MBOUnionTypes" forKey:@"odmobile_1_20_mbouniontypes"];;
-    [map setObject:@"MBOUnions" forKey:@"odmobile_1_20_mbounions"];;
-    [map setObject:@"MBOUnionsGeo" forKey:@"odmobile_1_20_mbounionsgeo"];;
-    [map setObject:@"MBOVisitTypes" forKey:@"odmobile_1_20_mbovisittypes"];;
-    [map setObject:@"MBO_Logon" forKey:@"odmobile_1_20_mbo_logon"];;
-    [map setObject:@"MBO_getActivities" forKey:@"odmobile_1_20_mbo_getactivities"];;
-    [map setObject:@"MBO_getActivityPriorities" forKey:@"odmobile_1_20_mbo_getactivitypriorities"];;
-    [map setObject:@"MBO_getActivityTypes" forKey:@"odmobile_1_20_mbo_getactivitytypes"];;
-    [map setObject:@"MBO_getCategories" forKey:@"odmobile_1_20_mbo_getcategories"];;
-    [map setObject:@"MBO_getChecklists" forKey:@"odmobile_1_20_mbo_getchecklists"];;
-    [map setObject:@"MBO_getEmployees" forKey:@"odmobile_1_20_mbo_getemployees"];;
-    [map setObject:@"MBO_getSubbranchLevels" forKey:@"odmobile_1_20_mbo_getsubbranchlevels"];;
-    [map setObject:@"MBO_getSubbranches" forKey:@"odmobile_1_20_mbo_getsubbranches"];;
-    [map setObject:@"MBO_getTaskStatuses" forKey:@"odmobile_1_20_mbo_gettaskstatuses"];;
-    [map setObject:@"MBO_getTaskTypes" forKey:@"odmobile_1_20_mbo_gettasktypes"];;
-    [map setObject:@"MBO_getTasks" forKey:@"odmobile_1_20_mbo_gettasks"];;
-    [map setObject:@"LogRecordImpl" forKey:@"odmobile_1_20_logrecordimpl"];;
-    [map setObject:@"OperationReplay" forKey:@"odmobile_1_20_operationreplay"];;
+    [map setObject:@"ActivityStatusMBO" forKey:@"odmobile_1_21_activitystatusmbo"];;
+    [map setObject:@"MBOActivityTemplates" forKey:@"odmobile_1_21_mboactivitytemplates"];;
+    [map setObject:@"MBOBusinessProcess" forKey:@"odmobile_1_21_mbobusinessprocess"];;
+    [map setObject:@"MBOCategoryPrivs" forKey:@"odmobile_1_21_mbocategoryprivs"];;
+    [map setObject:@"MBODimMetrics" forKey:@"odmobile_1_21_mbodimmetrics"];;
+    [map setObject:@"MBODimQuestionBlocks" forKey:@"odmobile_1_21_mbodimquestionblocks"];;
+    [map setObject:@"MBOEmployeesSubordinations" forKey:@"odmobile_1_21_mboemployeessubordinations"];;
+    [map setObject:@"MBOObjectTypes" forKey:@"odmobile_1_21_mboobjecttypes"];;
+    [map setObject:@"MBOProperties" forKey:@"odmobile_1_21_mboproperties"];;
+    [map setObject:@"MBOSubbranchesGeo" forKey:@"odmobile_1_21_mbosubbranchesgeo"];;
+    [map setObject:@"MBOTaskBlockMetrics" forKey:@"odmobile_1_21_mbotaskblockmetrics"];;
+    [map setObject:@"MBOTaskTypesPriv" forKey:@"odmobile_1_21_mbotasktypespriv"];;
+    [map setObject:@"MBOUnionTypes" forKey:@"odmobile_1_21_mbouniontypes"];;
+    [map setObject:@"MBOUnions" forKey:@"odmobile_1_21_mbounions"];;
+    [map setObject:@"MBOUnionsGeo" forKey:@"odmobile_1_21_mbounionsgeo"];;
+    [map setObject:@"MBOVisitTypes" forKey:@"odmobile_1_21_mbovisittypes"];;
+    [map setObject:@"MBO_Logon" forKey:@"odmobile_1_21_mbo_logon"];;
+    [map setObject:@"MBO_getActivities" forKey:@"odmobile_1_21_mbo_getactivities"];;
+    [map setObject:@"MBO_getActivityPriorities" forKey:@"odmobile_1_21_mbo_getactivitypriorities"];;
+    [map setObject:@"MBO_getActivityTypes" forKey:@"odmobile_1_21_mbo_getactivitytypes"];;
+    [map setObject:@"MBO_getCategories" forKey:@"odmobile_1_21_mbo_getcategories"];;
+    [map setObject:@"MBO_getChecklists" forKey:@"odmobile_1_21_mbo_getchecklists"];;
+    [map setObject:@"MBO_getEmployees" forKey:@"odmobile_1_21_mbo_getemployees"];;
+    [map setObject:@"MBO_getSubbranchLevels" forKey:@"odmobile_1_21_mbo_getsubbranchlevels"];;
+    [map setObject:@"MBO_getSubbranches" forKey:@"odmobile_1_21_mbo_getsubbranches"];;
+    [map setObject:@"MBO_getTaskStatuses" forKey:@"odmobile_1_21_mbo_gettaskstatuses"];;
+    [map setObject:@"MBO_getTaskTypes" forKey:@"odmobile_1_21_mbo_gettasktypes"];;
+    [map setObject:@"MBO_getTasks" forKey:@"odmobile_1_21_mbo_gettasks"];;
+    [map setObject:@"LogRecordImpl" forKey:@"odmobile_1_21_logrecordimpl"];;
+    [map setObject:@"OperationReplay" forKey:@"odmobile_1_21_operationreplay"];;
     [map setObject:@"SISSubscription" forKey:@"sup_sis_subscription"];;
-    [map setObject:@"PackageProperties" forKey:@"odmobile_1_20_packageproperties"];;
-    [map setObject:@"ChangeLogImpl" forKey:@"odmobile_1_20_changelogimpl"];;
-    [map setObject:@"OfflineAuthentication" forKey:@"co_odmobile_1_20_offlineauthentication"];;
-    [map setObject:@"MBOCategoryPrivsSynchronizationParameters" forKey:@"co_odmobile_1_20_mbocategoryprivssp"];;
-    [map setObject:@"MBOCategoryPrivs_pull_pq" forKey:@"odmobile_1_20_mbocategoryprivs_pull_pq"];;
-    [map setObject:@"MBOSubbranchesGeoSynchronizationParameters" forKey:@"co_odmobile_1_20_mbosubbranchesgeosp"];;
-    [map setObject:@"MBOSubbranchesGeo_pull_pq" forKey:@"odmobile_1_20_mbosubbranchesgeo_pull_pq"];;
-    [map setObject:@"MBOTaskBlockMetricsSynchronizationParameters" forKey:@"co_odmobile_1_20_mbotaskblockmetricssp"];;
-    [map setObject:@"MBOTaskBlockMetrics_pull_pq" forKey:@"odmobile_1_20_mbotaskblockmetrics_pull_pq"];;
-    [map setObject:@"MBOTaskTypesPrivSynchronizationParameters" forKey:@"co_odmobile_1_20_mbotasktypesprivsp"];;
-    [map setObject:@"MBOTaskTypesPriv_pull_pq" forKey:@"odmobile_1_20_mbotasktypespriv_pull_pq"];;
-    [map setObject:@"MBOUnionsSynchronizationParameters" forKey:@"co_odmobile_1_20_mbounionssp"];;
-    [map setObject:@"MBOUnions_pull_pq" forKey:@"odmobile_1_20_mbounions_pull_pq"];;
-    [map setObject:@"MBOUnionsGeoSynchronizationParameters" forKey:@"co_odmobile_1_20_mbounionsgeosp"];;
-    [map setObject:@"MBOUnionsGeo_pull_pq" forKey:@"odmobile_1_20_mbounionsgeo_pull_pq"];;
-    [map setObject:@"MBO_getActivitiesSynchronizationParameters" forKey:@"co_odmobile_1_20_mbo_getactivitiessp"];;
-    [map setObject:@"MBO_getActivities_pull_pq" forKey:@"odmobile_1_20_mbo_getactivities_pull_pq"];;
-    [map setObject:@"MBO_getSubbranchesSynchronizationParameters" forKey:@"co_odmobile_1_20_mbo_getsubbranchessp"];;
-    [map setObject:@"MBO_getSubbranches_pull_pq" forKey:@"odmobile_1_20_mbo_getsubbranches_pull_pq"];;
-    [map setObject:@"MBO_getTasksSynchronizationParameters" forKey:@"co_odmobile_1_20_mbo_gettaskssp"];;
-    [map setObject:@"MBO_getTasks_pull_pq" forKey:@"odmobile_1_20_mbo_gettasks_pull_pq"];;
-    [map setObject:@"ClientPersonalization" forKey:@"co_odmobile_1_20_clientpersonalization"];;
-    [map setObject:@"KeyGenerator" forKey:@"odmobile_1_20_keygenerator"];;
-    [map setObject:@"LocalKeyGenerator" forKey:@"co_odmobile_1_20_localkeygenerator"];;
+    [map setObject:@"PackageProperties" forKey:@"odmobile_1_21_packageproperties"];;
+    [map setObject:@"ChangeLogImpl" forKey:@"odmobile_1_21_changelogimpl"];;
+    [map setObject:@"OfflineAuthentication" forKey:@"co_odmobile_1_21_offlineauthentication"];;
+    [map setObject:@"MBOCategoryPrivsSynchronizationParameters" forKey:@"co_odmobile_1_21_mbocategoryprivssp"];;
+    [map setObject:@"MBOCategoryPrivs_pull_pq" forKey:@"odmobile_1_21_mbocategoryprivs_pull_pq"];;
+    [map setObject:@"MBOSubbranchesGeoSynchronizationParameters" forKey:@"co_odmobile_1_21_mbosubbranchesgeosp"];;
+    [map setObject:@"MBOSubbranchesGeo_pull_pq" forKey:@"odmobile_1_21_mbosubbranchesgeo_pull_pq"];;
+    [map setObject:@"MBOTaskBlockMetricsSynchronizationParameters" forKey:@"co_odmobile_1_21_mbotaskblockmetricssp"];;
+    [map setObject:@"MBOTaskBlockMetrics_pull_pq" forKey:@"odmobile_1_21_mbotaskblockmetrics_pull_pq"];;
+    [map setObject:@"MBOTaskTypesPrivSynchronizationParameters" forKey:@"co_odmobile_1_21_mbotasktypesprivsp"];;
+    [map setObject:@"MBOTaskTypesPriv_pull_pq" forKey:@"odmobile_1_21_mbotasktypespriv_pull_pq"];;
+    [map setObject:@"MBOUnionsSynchronizationParameters" forKey:@"co_odmobile_1_21_mbounionssp"];;
+    [map setObject:@"MBOUnions_pull_pq" forKey:@"odmobile_1_21_mbounions_pull_pq"];;
+    [map setObject:@"MBOUnionsGeoSynchronizationParameters" forKey:@"co_odmobile_1_21_mbounionsgeosp"];;
+    [map setObject:@"MBOUnionsGeo_pull_pq" forKey:@"odmobile_1_21_mbounionsgeo_pull_pq"];;
+    [map setObject:@"MBO_getActivitiesSynchronizationParameters" forKey:@"co_odmobile_1_21_mbo_getactivitiessp"];;
+    [map setObject:@"MBO_getActivities_pull_pq" forKey:@"odmobile_1_21_mbo_getactivities_pull_pq"];;
+    [map setObject:@"MBO_getSubbranchesSynchronizationParameters" forKey:@"co_odmobile_1_21_mbo_getsubbranchessp"];;
+    [map setObject:@"MBO_getSubbranches_pull_pq" forKey:@"odmobile_1_21_mbo_getsubbranches_pull_pq"];;
+    [map setObject:@"MBO_getTasksSynchronizationParameters" forKey:@"co_odmobile_1_21_mbo_gettaskssp"];;
+    [map setObject:@"MBO_getTasks_pull_pq" forKey:@"odmobile_1_21_mbo_gettasks_pull_pq"];;
+    [map setObject:@"ClientPersonalization" forKey:@"co_odmobile_1_21_clientpersonalization"];;
+    [map setObject:@"KeyGenerator" forKey:@"odmobile_1_21_keygenerator"];;
+    [map setObject:@"LocalKeyGenerator" forKey:@"co_odmobile_1_21_localkeygenerator"];;
     
     return map;
 }

@@ -31,7 +31,7 @@
 
 		SUPObjectList *attributes = [SUPObjectList getInstance];
 		SUPAttributeMetaDataRBS* a_EMPLOYEE_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			139:
+			790:
 			[SUPDataType forName:@"string"]:@"varchar(80)":@"EMPLOYEE_ID":@"":@"a":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -40,7 +40,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_EMPLOYEE_ID setColumn:@"a"];
 		SUPAttributeMetaDataRBS* a_LAST_NAME = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			140:
+			791:
 			[SUPDataType forName:@"string?"]:@"varchar(400)":@"LAST_NAME":@"":@"b":
 			@"":400:0:0:
 			@"null":NO:@"":
@@ -49,7 +49,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_LAST_NAME setColumn:@"b"];
 		SUPAttributeMetaDataRBS* a_FIRST_NAME = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			141:
+			792:
 			[SUPDataType forName:@"string?"]:@"varchar(400)":@"FIRST_NAME":@"":@"c":
 			@"":400:0:0:
 			@"null":NO:@"":
@@ -58,7 +58,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_FIRST_NAME setColumn:@"c"];
 		SUPAttributeMetaDataRBS* a_PATRONYMIC = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			142:
+			793:
 			[SUPDataType forName:@"string?"]:@"varchar(400)":@"PATRONYMIC":@"":@"d":
 			@"":400:0:0:
 			@"null":NO:@"":
@@ -67,7 +67,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_PATRONYMIC setColumn:@"d"];
 		SUPAttributeMetaDataRBS* a_EMPLOYEE_POSITION = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			143:
+			794:
 			[SUPDataType forName:@"string?"]:@"varchar(1200)":@"EMPLOYEE_POSITION":@"":@"e":
 			@"":1200:0:0:
 			@"null":NO:@"":
@@ -76,7 +76,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_EMPLOYEE_POSITION setColumn:@"e"];
 		SUPAttributeMetaDataRBS* a_SUBBRANCH_ID = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			144:
+			795:
 			[SUPDataType forName:@"string?"]:@"varchar(80)":@"SUBBRANCH_ID":@"":@"f":
 			@"":80:0:0:
 			@"null":NO:@"":
@@ -85,7 +85,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_SUBBRANCH_ID setColumn:@"f"];
 		SUPAttributeMetaDataRBS* a_ENABLED_FLG = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			145:
+			796:
 			[SUPDataType forName:@"string?"]:@"varchar(20)":@"ENABLED_FLG":@"":@"g":
 			@"":20:0:0:
 			@"null":NO:@"":
@@ -130,7 +130,7 @@
 			NO:SUPPersonalizationType_None:NO];
 		[a_replayFailure setColumn:@"_rf"];
 		SUPAttributeMetaDataRBS* a_surrogateKey = [SUPAttributeMetaDataRBS attributeMetaDataWith:
-			146:
+			797:
 			[SUPDataType forName:@"long"]:@"decimal(20,0)":@"surrogateKey":@"":@"h":
 			@"":-1:0:0:
 			@"null":NO:@"":
@@ -271,7 +271,7 @@
 		SUPOperationMap *operationMap = [SUPOperationMap getInstance];
 		[operationMap setOperations:operations];
 		self.operationMap = operationMap;		
-		self.table = @"odmobile_1_20_mbo_getemployees";
+		self.table = @"odmobile_1_21_mbo_getemployees";
 		self.synchronizationGroup = @"DIMSG";
 
 		SUPIndexMetaData *i_findByPrimaryKeyIndex = [[[SUPIndexMetaData alloc] init] autorelease];

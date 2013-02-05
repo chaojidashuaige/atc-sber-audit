@@ -144,7 +144,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOUnionsSynchronizationParameters_META_DAT
 {
     switch(id_)
     {
-    case 317:
+    case 968:
         return self.RESOURCE_EMPLOYEE_ID;
     default:
          return [super getAttributeNullableString:id_];
@@ -155,7 +155,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOUnionsSynchronizationParameters_META_DAT
 {
     switch(id_)
     {
-    case 317:
+    case 968:
         self.RESOURCE_EMPLOYEE_ID = v;
         break;;
     default:
@@ -167,7 +167,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOUnionsSynchronizationParameters_META_DAT
 {
     switch(id_)
     {
-    case 319:
+    case 970:
         return self.user_sp;
     default:
          return [super getAttributeString:id_];
@@ -178,7 +178,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOUnionsSynchronizationParameters_META_DAT
 {
     switch(id_)
     {
-    case 319:
+    case 970:
         self.user_sp = v;
         break;;
     default:
@@ -190,7 +190,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOUnionsSynchronizationParameters_META_DAT
 {
     switch(id_)
     {
-    case 320:
+    case 971:
         return self.size_sp;
     default:
          return [super getAttributeInt:id_];
@@ -201,7 +201,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOUnionsSynchronizationParameters_META_DAT
 {
     switch(id_)
     {
-    case 320:
+    case 971:
         self.size_sp = v;
         break;;
     default:
@@ -213,7 +213,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOUnionsSynchronizationParameters_META_DAT
 {
     switch(id_)
     {
-    case 318:
+    case 969:
         return self.RESOURCE_EMPLOYEE_IDUserDefined;
     default:
          return [super getAttributeBoolean:id_];
@@ -224,7 +224,7 @@ static SUPEntityMetaDataRBS* ODMobileMBOUnionsSynchronizationParameters_META_DAT
 {
     switch(id_)
     {
-    case 318:
+    case 969:
         self.RESOURCE_EMPLOYEE_IDUserDefined = v;
         break;;
     default:
