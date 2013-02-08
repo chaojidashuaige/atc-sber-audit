@@ -1185,7 +1185,8 @@
         
         for (int j = 0; j < [[[blocks objectAtIndex:i] metrics] count]; j++) {
             NSString * name = [[[[blocks objectAtIndex:i] metrics] objectAtIndex:j] name];
-            NSString * value = [[[blocks objectAtIndex:i] metrics] objectAtIndex:j];
+            Metric *currentMetric = (Metric*)[[[blocks objectAtIndex:i] metrics] objectAtIndex:j];
+            NSString * value = currentMetric.value;
             NSLog(@"name: %@",name);
             NSLog(@"value: %@",value);
             

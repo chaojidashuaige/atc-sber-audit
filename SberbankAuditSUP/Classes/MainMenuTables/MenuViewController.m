@@ -43,11 +43,20 @@
         SUPObjectList * taskTypePrivs = [ODMobileMBOTaskTypesPriv findAll];
         
         if (taskTypePrivs.size == 0) {
+            
+            UIButton *dashboardB = [UIButton buttonWithType:UIButtonTypeCustom];
+            [dashboardB setBackgroundImage:[UIImage imageNamed:@"dashboard_up.png"] forState:UIControlStateNormal];
+            [dashboardB setBackgroundImage:[UIImage imageNamed:@"dashboard_down.png"] forState:UIControlStateHighlighted];
+            //            [dashboardB setFrame:CGRectMake(13, gembaB.frame.origin.y+gembaB.frame.size.height+5, 174, 56)];
+            [dashboardB setFrame:CGRectMake(13, 145, 174, 56)];
+            [dashboardB addTarget:self action:@selector(showDashboard) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:dashboardB];
+            
             UIButton *taskB = [UIButton buttonWithType:UIButtonTypeCustom];
             [taskB setBackgroundImage:[UIImage imageNamed:@"create_task_up.png"] forState:UIControlStateNormal];
             [taskB setBackgroundImage:[UIImage imageNamed:@"create_task_down.png"] forState:UIControlStateHighlighted];
             [taskB addTarget:self action:@selector(showTaskWindow) forControlEvents:UIControlEventTouchUpInside];
-            [taskB setFrame:CGRectMake(13, 145, 174, 56)];
+            [taskB setFrame:CGRectMake(13, dashboardB.frame.origin.y+dashboardB.frame.size.height+5, 174, 56)];
 //            [self.view addSubview:taskB];
             
             UIButton *gembaB = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -66,17 +75,9 @@
 //            [synchronization addTarget:self action:@selector(synchronization) forControlEvents:UIControlEventTouchUpInside];
 //            [self.view addSubview:synchronization];
             
-            UIButton *dashboardB = [UIButton buttonWithType:UIButtonTypeCustom];
-            [dashboardB setBackgroundImage:[UIImage imageNamed:@"dashboard_up.png"] forState:UIControlStateNormal];
-            [dashboardB setBackgroundImage:[UIImage imageNamed:@"dashboard_down.png"] forState:UIControlStateHighlighted];
-//            [dashboardB setFrame:CGRectMake(13, gembaB.frame.origin.y+gembaB.frame.size.height+5, 174, 56)];
-            [dashboardB setFrame:CGRectMake(13, taskB.frame.origin.y+taskB.frame.size.height+5, 174, 56)];
-            [dashboardB addTarget:self action:@selector(showDashboard) forControlEvents:UIControlEventTouchUpInside];
-            [self.view addSubview:dashboardB];
-            
 
             CLSaveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-            [CLSaveButton setFrame:CGRectMake(13, dashboardB.frame.origin.y+dashboardB.frame.size.height+5, 56, 56)];
+            [CLSaveButton setFrame:CGRectMake(13, taskB.frame.origin.y+taskB.frame.size.height+5, 56, 56)];
 //            [CLSaveButton setFrame:CGRectMake(13, settingsB.frame.origin.y+settingsB.frame.size.height+5, 56, 56)];
             [CLSaveButton setBackgroundImage:[UIImage imageNamed:@"cl_save_still.png"] forState:UIControlStateNormal];
             [CLSaveButton setBackgroundImage:[UIImage imageNamed:@"cl_save_active.png"] forState:UIControlStateHighlighted];
@@ -106,13 +107,23 @@
 //            [dashboardB release];
         }
         else {
+            
+            UIButton *dashboardB = [UIButton buttonWithType:UIButtonTypeCustom];
+            [dashboardB setBackgroundImage:[UIImage imageNamed:@"dashboard_up.png"] forState:UIControlStateNormal];
+            [dashboardB setBackgroundImage:[UIImage imageNamed:@"dashboard_down.png"] forState:UIControlStateHighlighted];
+            //        [dashboardB setBackgroundImage:[UIImage imageNamed:@"dash_still.png"] forState:UIControlStateNormal];
+            //        [dashboardB setBackgroundImage:[UIImage imageNamed:@"dash_active.png"] forState:UIControlStateHighlighted];
+            [dashboardB setFrame:CGRectMake(13, 145, 174, 56)];
+            [dashboardB addTarget:self action:@selector(showDashboard) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:dashboardB];
+            
             UIButton *taskB = [UIButton buttonWithType:UIButtonTypeCustom] ;
             [taskB setBackgroundImage:[UIImage imageNamed:@"create_task_up.png"] forState:UIControlStateNormal];
             [taskB setBackgroundImage:[UIImage imageNamed:@"create_task_down.png"] forState:UIControlStateHighlighted];
             //        [taskB setBackgroundImage:[UIImage imageNamed:@"task_button_still.png"] forState:UIControlStateNormal];
             //        [taskB setBackgroundImage:[UIImage imageNamed:@"task_button_active.png"] forState:UIControlStateHighlighted];
             [taskB addTarget:self action:@selector(showTaskWindow) forControlEvents:UIControlEventTouchUpInside];
-            [taskB setFrame:CGRectMake(13, 145, 174, 56)];
+            [taskB setFrame:CGRectMake(13, dashboardB.frame.origin.y+dashboardB.frame.size.height+5, 174, 56)];
             [self.view addSubview:taskB];
             
             UIButton *gembaB = [UIButton buttonWithType:UIButtonTypeCustom] ;
@@ -132,18 +143,9 @@
 //            [synchronization addTarget:self action:@selector(synchronization) forControlEvents:UIControlEventTouchUpInside];
 //            [self.view addSubview:synchronization];
             
-            UIButton *dashboardB = [UIButton buttonWithType:UIButtonTypeCustom];
-            [dashboardB setBackgroundImage:[UIImage imageNamed:@"dashboard_up.png"] forState:UIControlStateNormal];
-            [dashboardB setBackgroundImage:[UIImage imageNamed:@"dashboard_down.png"] forState:UIControlStateHighlighted];
-            //        [dashboardB setBackgroundImage:[UIImage imageNamed:@"dash_still.png"] forState:UIControlStateNormal];
-            //        [dashboardB setBackgroundImage:[UIImage imageNamed:@"dash_active.png"] forState:UIControlStateHighlighted];
-            [dashboardB setFrame:CGRectMake(13, gembaB.frame.origin.y+gembaB.frame.size.height+5, 174, 56)];
-            [dashboardB addTarget:self action:@selector(showDashboard) forControlEvents:UIControlEventTouchUpInside];
-            [self.view addSubview:dashboardB];
-            
             
             CLSaveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-            [CLSaveButton setFrame:CGRectMake(13, dashboardB.frame.origin.y+dashboardB.frame.size.height+5, 56, 56)];
+            [CLSaveButton setFrame:CGRectMake(13, taskB.frame.origin.y+taskB.frame.size.height+5, 56, 56)];
 //            [CLSaveButton setFrame:CGRectMake(13, settingsB.frame.origin.y+settingsB.frame.size.height+5, 56, 56)];
             [CLSaveButton setBackgroundImage:[UIImage imageNamed:@"cl_save_still.png"] forState:UIControlStateNormal];
             [CLSaveButton setBackgroundImage:[UIImage imageNamed:@"cl_save_active.png"] forState:UIControlStateHighlighted];
