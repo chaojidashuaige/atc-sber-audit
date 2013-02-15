@@ -91,6 +91,7 @@
         
         noteTextEditor = [[UITextView alloc] initWithFrame:CGRectMake(24, 511+30, 427, noteTextBody.frame.size.height - 40)];
         [noteTextEditor setBackgroundColor:[UIColor clearColor]];
+        noteTextEditor.delegate = self;
 //        [noteTextEditor setUserInteractionEnabled:NO];
         [self.view addSubview:noteTextEditor];
         
@@ -526,10 +527,21 @@
         UILabel *taskSelfResponsibleNew = [[UILabel alloc] initWithFrame:CGRectMake(15, 105, 400, 20)];
         [taskSelfResponsibleNew setFont:[UIFont systemFontOfSize:12.0f]];
         [taskSelfResponsibleNew setBackgroundColor:[UIColor clearColor]];
-        [taskSelfResponsibleNew setText:[NSString stringWithFormat:@"%@ %@ %@",[taskData valueForKey:@"c.LAST_NAME"],[taskData valueForKey:@"c.FIRST_NAME"],[taskData valueForKey:@"c.PATRONYMIC"]]];
-        if ([[NSString stringWithFormat:@"%@",[taskData valueForKey:@"c.LAST_NAME"]] isEqualToString:@""]) {
+        
+        NSMutableString *fullAuthorName = [[NSMutableString alloc] initWithString:[taskData valueForKey:@"c.LAST_NAME"]];
+        [fullAuthorName appendString:[taskData valueForKey:@"c.FIRST_NAME"]];
+        [fullAuthorName appendString:[taskData valueForKey:@"c.PATRONYMIC"]];
+        
+        fullAuthorName = [fullAuthorName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        
+        if (fullAuthorName.length == 0) {
             [taskSelfResponsibleNew setText:@"Запланировано системой"];
         }
+        else
+        {
+            [taskSelfResponsibleNew setText:[NSString stringWithFormat:@"%@ %@ %@",[taskData valueForKey:@"c.LAST_NAME"],[taskData valueForKey:@"c.FIRST_NAME"],[taskData valueForKey:@"c.PATRONYMIC"]]];
+        }
+        [fullAuthorName release];
         [mainNoteDescHeader addSubview:taskSelfResponsibleNew];
         [taskSelfResponsibleNew release];
 
@@ -1435,7 +1447,16 @@
                 [taskPole3 setText:m.value];
             }
             if ([m.key isEqualToString:DISPERSION_KEY]) {
-                [taskPole4 setText:m.value];
+        
+                float roundedValue = [m.value floatValue]*100;
+                NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+                [formatter setMaximumFractionDigits:2];
+                [formatter setRoundingMode: NSNumberFormatterRoundUp];
+                
+                NSString *numberString = [formatter stringFromNumber:[NSNumber numberWithFloat:roundedValue]];
+                [formatter release];
+                
+                [taskPole4 setText:[NSString stringWithFormat:@"%@%%",numberString]];
 //                NSString * substr = [m.value substringToIndex:4];
 //                [taskPole4 setText:substr];
             }
@@ -1443,7 +1464,17 @@
                 [taskPole5 setText:m.value];
             }
             if ([m.key isEqualToString:DISPERSED_RESULT_KEY]) {
-                [taskPole6 setText:m.value];
+                
+                float roundedValue = [m.value floatValue];
+                NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+                [formatter setMaximumFractionDigits:1];
+                [formatter setRoundingMode: NSNumberFormatterRoundUp];
+                
+                NSString *numberString = [formatter stringFromNumber:[NSNumber numberWithFloat:roundedValue]];
+                [formatter release];
+                
+                
+                [taskPole6 setText:numberString];
             }
         }
         
@@ -1457,10 +1488,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(upShift) name:UIKeyboardDidShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downShift) name:UIKeyboardDidHideNotification object:nil];
 }
 
 - (void)viewDidUnload
@@ -1499,6 +1526,15 @@
     return UIInterfaceOrientationLandscapeLeft;
 }
 
+- (void) textViewDidBeginEditing:(UITextView *)textView
+{
+    [self upShift:textView];
+}
+
+- (void) textViewDidEndEditing:(UITextView *)textView
+{
+    [self downShift:textView];
+}
 
 - (void) dealloc
 {
@@ -1523,8 +1559,11 @@
 //    [controlList release];
 }
 
-- (void)upShift
+- (void)upShift:(id)sender
 {
+    if(sender != noteTextEditor)
+        return;
+    
     NSLog(@"UIKeyboardDidShowNotification occures");
     [UIView beginAnimations:@"Shift" context:nil];
     [UIView setAnimationDuration:0.5];
@@ -1535,8 +1574,11 @@
     [UIView commitAnimations];
 }
 
-- (void)downShift
+- (void)downShift:(id)sender
 {
+    if(sender != noteTextEditor)
+        return;
+    
     NSLog(@"UIKeyboardDidHideNotification occures");
     [UIView beginAnimations:@"BackShift" context:nil];
     [UIView setAnimationDuration:0.5];

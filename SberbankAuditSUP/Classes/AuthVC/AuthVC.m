@@ -79,7 +79,7 @@
 //        userLogin.text = @"Chuvikina-AS";
 //        userLogin.text = @"Kiverova-VA";
 //        userLogin.text = @"e_larionova";
-//        userLogin.text = @"Gusatnikov-SA";
+        userLogin.text = @"Gusatnikov-SA";
 //        userLogin.text = @"Pisarenko-AB";
 //        userLogin.text = @"Azovtsev-VA";
 //        userLogin.text = @"Shvedova-AA";
@@ -90,6 +90,8 @@
 //        userLogin.text = @"HotinKA_2650";
 //        userLogin.text = @"LunyakovaNS_2621";
 //        userLogin.text = @"Isaev-VU";
+//        userLogin.text = @"Purusova-SN";
+//        userLogin.text = @"Volina-IV";
 
         [userLogin setBorderStyle:UITextBorderStyleRoundedRect];
         [userLogin setTextAlignment:UITextAlignmentCenter];
@@ -113,7 +115,7 @@
 //        userPassword.text = @"Dolgov-MM";
 //        userPassword.text = @"Kiverova-VA";
 //        userPassword.text = @"e_larionova";
-//        userPassword.text = @"Gusatnikov-SA";
+        userPassword.text = @"Gusatnikov-SA";
 //        userPassword.text = @"Arkhipova-TA";
 //        userPassword.text = @"Chuvikina-AS";
 //        userPassword.text = @"Azovtsev-VA";
@@ -126,6 +128,8 @@
 //        userPassword.text = @"HotinKA_2650";
 //        userPassword.text = @"LunyakovaNS_2621";
 //        userPassword.text = @"Isaev-VU";
+//        userPassword.text = @"Purusova-SN";
+//        userPassword.text = @"Volina-IV";
 
         userPassword.secureTextEntry = YES;
         [userPassword setBorderStyle:UITextBorderStyleRoundedRect];
@@ -329,7 +333,7 @@
                     [getLogon setEnabled:YES];
                     [getLogon setTitle:@"Войти" forState:UIControlStateNormal];
                     
-                    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Ошибка синхронизации данных" message:nil delegate:self cancelButtonTitle:@"Закрыть" otherButtonTitles:nil, nil];
+                    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Ошибка авторизации" message:nil delegate:self cancelButtonTitle:@"Закрыть" otherButtonTitles:nil, nil];
                     [alert show];
                     [alert release];
                 });

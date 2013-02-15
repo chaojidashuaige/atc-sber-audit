@@ -317,19 +317,30 @@
         }
 //        [TaskCell.taskDescription setText:[NSString stringWithFormat:@"%@",[checkClass valueForKey:@"f.ADDRESS"]]];
         [taskCell.taskStatus setText:[NSString stringWithFormat:@"%@",[checkClass valueForKey:@"b.TASK_STATUS_NAME"]]];
-        [taskCell.taskInspector setText:[NSString stringWithFormat:@"%@ %@ %@",[checkClass valueForKey:@"c.LAST_NAME"],[checkClass valueForKey:@"c.FIRST_NAME"],[checkClass valueForKey:@"c.PATRONYMIC"]]];
-        if ([[NSString stringWithFormat:@"%@",[checkClass valueForKey:@"c.LAST_NAME"]] isEqualToString:@""]) {
+        
+        NSMutableString *fullAuthorName = [[NSMutableString alloc] initWithString:[checkClass valueForKey:@"c.LAST_NAME"]];
+        [fullAuthorName appendString:[checkClass valueForKey:@"c.FIRST_NAME"]];
+        [fullAuthorName appendString:[checkClass valueForKey:@"c.PATRONYMIC"]];
+        
+        fullAuthorName = [fullAuthorName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        
+        if(fullAuthorName.length == 0)
+        {
             [taskCell.taskInspector setText:@"Запланировано системой"];
         }
-        if ([taskCell.taskInspector.text isEqualToString:@""]) {
-            [taskCell.taskInspector setText:@"(Не определено)"];
+        else
+        {
+            [taskCell.taskInspector setText:[NSString stringWithFormat:@"%@ %@ %@",[checkClass valueForKey:@"c.LAST_NAME"],[checkClass valueForKey:@"c.FIRST_NAME"],[checkClass valueForKey:@"c.PATRONYMIC"]]];
         }
+        
+        
+        [fullAuthorName release];
 //        NSLog(@"%@",[checkClass valueForKey:@"b.TASK_STATUS_NAME"]);
         
         NSDate * date;
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"HH:mm"];
-//        [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
+        [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
         NSString * str = [NSString stringWithFormat:@"%@",[checkClass valueForKey:@"x.PLAN_START_DTTM"]];
         double DOUBLE = [str doubleValue]/1000;
         date = [NSDate dateWithTimeIntervalSince1970:DOUBLE];
@@ -410,7 +421,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    id checkClass = (isTaskSearch) ? [tweetsSearch objectAtIndex:indexPath.row] : [[[self.tweets objectAtIndex:indexPath.section] valueForKey:@"content"] objectAtIndex:indexPath.row];
+    NSDictionary *checkClass = (isTaskSearch) ? [tweetsSearch objectAtIndex:indexPath.row] : [[[self.tweets objectAtIndex:indexPath.section] valueForKey:@"content"] objectAtIndex:indexPath.row];
+    
+    NSMutableDictionary *dataArray = [[NSMutableDictionary alloc] initWithDictionary:checkClass];
     
     if([checkClass valueForKey:@"TASK_OR_ACTIVITY"] == @"TASK")
     {
@@ -441,6 +454,8 @@
         [selectActivity release];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
+    
+    [dataArray release];
 
 }
 

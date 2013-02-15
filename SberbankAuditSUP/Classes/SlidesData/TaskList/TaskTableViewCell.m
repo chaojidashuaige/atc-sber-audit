@@ -4,7 +4,7 @@
 #define rowHeight 105.0f
 
 @implementation TaskTableViewCell
-@synthesize taskTime,taskTitle,taskAuthor,taskStatus,taskDescription,taskInspector = _taskInspector,taskIndicator;
+@synthesize taskTime,taskTitle,taskAuthor,taskStatus,taskDescription,taskInspector,taskIndicator;
 
 + (int)heightForTweetWithText:(NSString*)tweetText
 {

@@ -13,7 +13,7 @@
 @class ODMobileMBOVisitTypes;
 @class CheckListViewController;
 @class TaskPlan;
-@interface DetailTaskSlide : UIViewController<UIAlertViewDelegate,UIScrollViewDelegate>
+@interface DetailTaskSlide : UIViewController<UIAlertViewDelegate,UIScrollViewDelegate,UITextViewDelegate>
 {
     UIView *noteTextBody;
     UIImageView *noteTextFooter;
@@ -74,8 +74,8 @@
 - (void) setQualityMetricsWithTask:(ODMobileMBO_getTasks*)task withTaskVisitType:(ODMobileMBOVisitTypes*)taskVisitType;
 
 - (void)saveNotes;
-- (void)upShift;
-- (void)downShift;
+- (void)upShift:(id)sender;
+- (void)downShift:(id)sender;
 
 
 @property (nonatomic,retain) NSMutableDictionary *taskData;

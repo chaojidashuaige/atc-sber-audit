@@ -146,6 +146,7 @@
     self.window.rootViewController = authWindow;
     [self.window setBackgroundColor:[UIColor clearColor]];
     [self.window makeKeyAndVisible];
+
     
     self.idName = [[UIDevice currentDevice] uniqueIdentifier];
     self.serverName = SERVER_NAME;
@@ -289,33 +290,45 @@
     mainSupAppProperties.urlSuffix = @"/ias_relay_server/client/rs_client.dll/%cid%/tm";
     mainSupAppProperties.farmId = @"sigma.sbrf.msg";
     
-    @try
+    if([mainSupApp registrationStatus] != SUPRegistrationStatus_REGISTERED)
     {
-        if([mainSupApp registrationStatus] != SUPRegistrationStatus_REGISTERED)
+        @try
         {
             NSLog(@"Старт регистрации");
             [mainSupApp registerApplication:60];
             NSLog(@"Приложение зарегистрировано");
         }
-        else
+        @catch (SUPApplicationRuntimeException *appRegisterException)
         {
-            if ([mainSupApp connectionStatus] != SUPConnectionStatus_CONNECTING) {
-                NSLog(@"Старт приложения");
-                [mainSupApp startConnection:60];
-                NSLog(@"Стартовало приложение");
-            }
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [authWindow closeActivityIndicator];
+                
+                UIAlertView * runTimeAlert = [[UIAlertView alloc] initWithTitle:@"Ошибка подключения" message:@"Превышено время ожидания ответа от сервера" delegate:self cancelButtonTitle:@"Закрыть" otherButtonTitles:nil, nil];
+                [runTimeAlert show];
+                [runTimeAlert release];
+            });
+            NSLog(@"Registration block - %@: %@",[appRegisterException name],[appRegisterException message]);
         }
     }
-    @catch (SUPApplicationTimeoutException *appRegisterException)
+    else if([mainSupApp connectionStatus] != SUPConnectionStatus_CONNECTING)
     {
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [authWindow closeActivityIndicator];
-            
-            UIAlertView * runTimeAlert = [[UIAlertView alloc] initWithTitle:@"Ошибка подключения" message:@"Превышено время ожидания ответа от сервера" delegate:self cancelButtonTitle:@"Закрыть" otherButtonTitles:nil, nil];
-            [runTimeAlert show];
-            [runTimeAlert release];
-        });
-        NSLog(@"Registration block - %@: %@",[appRegisterException name],[appRegisterException message]);
+        @try
+        {
+            NSLog(@"Старт приложения");
+            [mainSupApp startConnection:60];
+            NSLog(@"Стартовало приложение");
+        }
+        @catch (SUPApplicationTimeoutException *appRegisterException)
+        {
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [authWindow closeActivityIndicator];
+                
+                UIAlertView * runTimeAlert = [[UIAlertView alloc] initWithTitle:@"Ошибка подключения" message:@"Превышено время ожидания ответа от сервера" delegate:self cancelButtonTitle:@"Закрыть" otherButtonTitles:nil, nil];
+                [runTimeAlert show];
+                [runTimeAlert release];
+            });
+            NSLog(@"Registration block - %@: %@",[appRegisterException name],[appRegisterException message]);
+        }
     }
     
 }
@@ -582,7 +595,7 @@
         dispatch_sync(dispatch_get_main_queue(), ^{
             [authWindow closeActivityIndicator];
             
-            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Ошибка синхронизации" message:nil delegate:self cancelButtonTitle:@"Закрыть" otherButtonTitles:nil, nil];
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Ошибка синхронизации по группам" message:nil delegate:self cancelButtonTitle:@"Закрыть" otherButtonTitles:nil, nil];
             [alert show];
             [alert release];
         });
