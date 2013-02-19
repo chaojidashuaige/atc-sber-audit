@@ -1498,23 +1498,6 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
 UIImage* rotate(UIImage* src, UIImageOrientation orientation)
 {
     UIGraphicsBeginImageContext(src.size);
-    
-    //CGContextRef context = UIGraphicsGetCurrentContext();
-    //CGContextTranslateCTM(context, 0, src.size.height);
-    if (orientation == UIImageOrientationRight) {
-//        CGContextTranslateCTM(context, 0, src.size.height);
-//        CGContextRotateCTM (context, radians(45));
-    } else if (orientation == UIImageOrientationLeft) {
-//        CGContextTranslateCTM(context, 0, src.size.height);
-//        CGContextRotateCTM (context, radians(-90));
-    } else if (orientation == UIImageOrientationDown) {
-//        CGContextTranslateCTM(context, -src.size.width, -src.size.height);
-//        CGContextRotateCTM (context, radians(75));
-    } else if (orientation == UIImageOrientationUp) {
-//        CGContextTranslateCTM(context, src.size.width, src.size.height);
-//        CGContextRotateCTM (context, radians(180));
-    }
-    
     [src drawAtPoint:CGPointMake(0, 0)];
     //CGContextDrawImage(context, CGRectMake(0, 0, src.size.width, src.size.height), src.CGImage);
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();

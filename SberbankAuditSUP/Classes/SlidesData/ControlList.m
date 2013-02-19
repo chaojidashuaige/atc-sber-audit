@@ -809,23 +809,26 @@ bool look = false;
 
 - (void)createNewActivity
 {
-    TaskActivity * newActivity = [[TaskActivity alloc] initWithFrame:CGRectMake(0, 0, 504 + 200, 678)];
-    newActivity.taskPlan = self;
-    
-    NSNumber * branch = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@",[taskInfo valueForKey:@"x.SUBBRANCH_ID"] ] integerValue]];
-    NSNumber * union_ID = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@",[taskInfo valueForKey:@"unions.UNION_ID"] ] integerValue]];
-
-    newActivity.SUBBRANCH_ID = branch;
-    newActivity.UNION_ID = union_ID;
-    newActivity.questionID = [NSString stringWithFormat:@"%@",[[SberbankAuditAppDelegate instance].controlListHTML stringByEvaluatingJavaScriptFromString:@"QuestionID();"]];
-    newActivity.answerID = [NSString stringWithFormat:@"%@",[[SberbankAuditAppDelegate instance].controlListHTML stringByEvaluatingJavaScriptFromString:@"ItemID();"]];
-    NSLog(@"%@", newActivity.questionID);
-    NSLog(@"%@", newActivity.answerID);
-
-    newActivity.modalPresentationStyle = UIModalPresentationFormSheet;
-    [self presentModalViewController:newActivity animated:YES];
-    [[newActivity.view superview] setFrame:CGRectMake(roundf([newActivity.view superview].center.x-352), roundf([newActivity.view superview].center.y-339), 704, 678)];
-    [newActivity release];
+    if (tmpTaskActivity == nil) {
+        TaskActivity * newActivity = [[TaskActivity alloc] initWithFrame:CGRectMake(0, 0, 504 + 200, 678)];
+        newActivity.taskPlan = self;
+        
+        NSNumber * branch = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@",[taskInfo valueForKey:@"x.SUBBRANCH_ID"] ] integerValue]];
+        NSNumber * union_ID = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@",[taskInfo valueForKey:@"unions.UNION_ID"] ] integerValue]];
+        
+        newActivity.SUBBRANCH_ID = branch;
+        newActivity.UNION_ID = union_ID;
+        newActivity.questionID = [NSString stringWithFormat:@"%@",[[SberbankAuditAppDelegate instance].controlListHTML stringByEvaluatingJavaScriptFromString:@"QuestionID();"]];
+        newActivity.answerID = [NSString stringWithFormat:@"%@",[[SberbankAuditAppDelegate instance].controlListHTML stringByEvaluatingJavaScriptFromString:@"ItemID();"]];
+        NSLog(@"%@", newActivity.questionID);
+        NSLog(@"%@", newActivity.answerID);
+        
+        newActivity.modalPresentationStyle = UIModalPresentationFormSheet;
+        [self presentModalViewController:newActivity animated:YES];
+        [[newActivity.view superview] setFrame:CGRectMake(roundf([newActivity.view superview].center.x-352), roundf([newActivity.view superview].center.y-339), 704, 678)];
+        tmpTaskActivity = [newActivity retain];
+        [newActivity release];
+    }
 
 }
 
@@ -839,6 +842,43 @@ bool look = false;
     [self presentModalViewController:selectActivity animated:YES];
     [[selectActivity.view superview] setFrame:CGRectMake(roundf([selectActivity.view superview].center.x-352), roundf([selectActivity.view superview].center.y-339), 704, 678)];
     [selectActivity release];
+}
+
+- (void) openCamera
+{
+    [self dismissModalViewControllerAnimated:NO];
+    UIImagePickerController *photoCamera = [[UIImagePickerController alloc] init];
+    //    CameraViewController *photoCamera = [[CameraViewController alloc] init];
+    photoCamera.delegate = self;
+    photoCamera.sourceType = UIImagePickerControllerSourceTypeCamera;
+    //    [self presentModalViewController:photoCamera animated:YES];
+    [[SberbankAuditAppDelegate instance].rootViewController presentModalViewController:photoCamera animated:YES];
+    [photoCamera release];
+    //    [[photoCamera.view superview] setFrame:CGRectMake(roundf([photoCamera.view superview].center.x-512), roundf([photoCamera.view superview].center.y-384), 1024, 768)];
+    
+}
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [picker dismissModalViewControllerAnimated:NO];
+    [tmpTaskActivity saveButtonCameraAction:info];
+    [self presentModalViewController:tmpTaskActivity animated:YES];
+    [[tmpTaskActivity.view superview] setFrame:CGRectMake(roundf([tmpTaskActivity.view superview].center.x-352), roundf([tmpTaskActivity.view superview].center.y-339), 704, 678)];
+}
+
+- (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissModalViewControllerAnimated:NO];
+    [self presentModalViewController:tmpTaskActivity animated:YES];
+    [[tmpTaskActivity.view superview] setFrame:CGRectMake(roundf([tmpTaskActivity.view superview].center.x-352), roundf([tmpTaskActivity.view superview].center.y-339), 704, 678)];
+}
+
+- (void)removeTmpTaskActivity
+{
+    if (tmpTaskActivity != nil) {
+        [tmpTaskActivity release];
+        tmpTaskActivity = nil;
+    }
 }
 
 - (NSMutableDictionary*)getActivity

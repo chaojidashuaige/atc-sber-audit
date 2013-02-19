@@ -10,6 +10,7 @@
 #import "SupIsTemp.h"
 #import "StackScrollViewController.h"
 
+@class TaskActivity;
 @interface ControlList : UIViewController <UIWebViewDelegate, UIScrollViewDelegate,StackScrollViewDelegate, UIAlertViewDelegate>
 {
     UIWebView *controlListHTML;
@@ -25,6 +26,7 @@
     NSString * currentTaskID;
     NSString * currentActivityID;
     UIAlertView * finishTaskAlert;
+    TaskActivity *tmpTaskActivity;
 }
 - (id)initWithFrame:(CGRect)frame;
 //- (void) readAnswers;

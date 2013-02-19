@@ -39,7 +39,7 @@
 
 - (void) registerApplication;
 - (void) createDB;
-- (void) dataForDashboardWithObjectName:(NSString*)objectName;
+- (BOOL) dataForDashboardWithObjectName:(NSString*)objectName;
 - (BOOL) setPropertiesWithLogin:(NSString*)login andPassword:(NSString*)password;
 - (BOOL) userLogonWithLogin:(NSString*)login andPassword:(NSString*)password;
 - (void) validateAppProperties;

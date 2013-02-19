@@ -115,13 +115,13 @@
     NSLog(@"SaveTask method called");
     @try {
         SUPObjectList * fieldList = [SUPObjectList new];
-        ODMobileMBO_getTasks * updateTask = [ODMobileMBO_getTasks findByPrimaryKey:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.TASK_ID"]]];
+        ODMobileMBO_getTasks * updateTask = [ODMobileMBO_getTasks findByPrimaryKey:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.TASK_ID"]]];
         
         
         //TASK_ID
         ODMobileObjField * field1 = [ODMobileObjField new];
         [field1 setNm:@"TASK_ID"];
-        [field1 setVl:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.TASK_ID"]]];
+        [field1 setVl:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.TASK_ID"]]];
         [fieldList add:field1];
         NSLog(@"name = %@, value =%@",field1.nm, field1.vl);
         [field1 release];
@@ -217,17 +217,17 @@
 
 - (void)updateData
 {
-    NSString * ID = [NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.TASK_ID"]];
-    NSLog(@"task id before update = %@",[taskData valueForKey:@"x.TASK_ID"]);
-    NSLog(@"task_status_id before update = %@",[taskData valueForKey:@"x.TASK_STATUS_ID"]);
-    NSLog(@"task_status_name before update = %@",[taskData valueForKey:@"b.TASK_STATUS_NAME"]);
+    NSString * ID = [NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.TASK_ID"]];
+    NSLog(@"task id before update = %@",[self.taskData valueForKey:@"x.TASK_ID"]);
+    NSLog(@"task_status_id before update = %@",[self.taskData valueForKey:@"x.TASK_STATUS_ID"]);
+    NSLog(@"task_status_name before update = %@",[self.taskData valueForKey:@"b.TASK_STATUS_NAME"]);
     NSMutableArray * array = [SberbankAuditAppDelegate instance].rootViewController.mainDataVC.tweets;
     bool isComplete = false;
     for (int i = 0; i < array.count; i++) {
         for (int j = 0; j < [[[array objectAtIndex:i] valueForKey:@"content"] count]; j++) {
             if ([[NSString stringWithFormat:@"%@",[[[[array objectAtIndex:i] valueForKey:@"content"] objectAtIndex:j] valueForKey:@"x.TASK_ID"]] isEqualToString:ID]) {
-//                taskData = [[[array objectAtIndex:i] objectAtIndex:j] valueForKey:@"x.TASK_ID"];
-                taskData = [[[array objectAtIndex:i] valueForKey:@"content"] objectAtIndex:j];
+//                self.taskData = [[[array objectAtIndex:i] objectAtIndex:j] valueForKey:@"x.TASK_ID"];
+                self.taskData = [[[array objectAtIndex:i] valueForKey:@"content"] objectAtIndex:j];
                 isComplete = true;
             }
         }
@@ -249,9 +249,9 @@
         [controlList.view removeFromSuperview];
         [[SberbankAuditAppDelegate instance].rootViewController.mainDataVC.detailViewController.view removeFromSuperview];
     }
-    NSLog(@"task id after update = %@",[taskData valueForKey:@"x.TASK_ID"]);
-    NSLog(@"task_status_id after update = %@",[taskData valueForKey:@"x.TASK_STATUS_ID"]);
-    NSLog(@"task_status_name after update = %@",[taskData valueForKey:@"b.TASK_STATUS_NAME"]);
+    NSLog(@"task id after update = %@",[self.taskData valueForKey:@"x.TASK_ID"]);
+    NSLog(@"task_status_id after update = %@",[self.taskData valueForKey:@"x.TASK_STATUS_ID"]);
+    NSLog(@"task_status_name after update = %@",[self.taskData valueForKey:@"b.TASK_STATUS_NAME"]);
     [self viewWillAppear:YES];
 }
 
@@ -274,15 +274,15 @@
     TaskPlan *tmpTaskPlan = [[TaskPlan alloc] initWithFrame:CGRectMake(0, 0, 477, self.view.frame.size.height)];
     self.detailViewController = tmpTaskPlan;
     [tmpTaskPlan release];
-    NSNumber * branch = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.SUBBRANCH_ID"] ] integerValue]];
+    NSNumber * branch = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.SUBBRANCH_ID"] ] integerValue]];
     self.detailViewController.branchId = branch;
-    NSNumber * union_ID = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@",[taskData valueForKey:@"unions.UNION_ID"] ] integerValue]];
+    NSNumber * union_ID = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"unions.UNION_ID"] ] integerValue]];
     self.detailViewController.unionID = union_ID;
     NSLog(@"1union = %@",union_ID);
     NSLog(@"1branch = %@",branch);
-    NSString * taskID = [NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.TASK_ID"]];
+    NSString * taskID = [NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.TASK_ID"]];
     self.detailViewController.taskID = taskID;
-    NSString * employeeID = [NSString stringWithFormat:@"%@",[taskData valueForKey:@"e.EMPLOYEE_ID"]];
+    NSString * employeeID = [NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"e.EMPLOYEE_ID"]];
     self.detailViewController.employee_ID = employeeID;
 	[[SberbankAuditAppDelegate instance].rootViewController.stackScrollViewController addViewInSlider:self.detailViewController drawShadow:YES invokeByController:self isStackStartView:NO];
     //[detailViewController release];
@@ -337,19 +337,19 @@
 //    if(controlList != nil)
 //        return;
     
-    controlList = [[ControlList alloc] initWithFrame:CGRectMake(0, 0, 954, self.view.frame.size.height) andTaskInfo:taskData];
+    controlList = [[ControlList alloc] initWithFrame:CGRectMake(0, 0, 954, self.view.frame.size.height) andTaskInfo:self.taskData];
     controlList.frameRect = CGRectMake(0, 0, 954, self.view.frame.size.height);
     [SberbankAuditAppDelegate instance].currentControlList = controlList;
-    NSString * taskID = [NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.TASK_ID"]];
+    NSString * taskID = [NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.TASK_ID"]];
     NSLog(@"TASK_ID, который передается в КЛ = %@",taskID);
-    NSLog(@"TASK_NAME = %@",[taskData valueForKey:@"b.TASK_STATUS_NAME"]);
+    NSLog(@"TASK_NAME = %@",[self.taskData valueForKey:@"b.TASK_STATUS_NAME"]);
     controlList.taskID = taskID;
-
-    if ([[NSString stringWithFormat:@"%@",[taskData valueForKey:@"b.TASK_STATUS_NAME"]] isEqualToString:@"Назначена"])
+#warning UIAlertView leak
+    if ([[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"b.TASK_STATUS_NAME"]] isEqualToString:@"Назначена"])
     {
         alert = [[UIAlertView alloc] initWithTitle:@"Контрольный лист" message:@"Начать выполнение задачи или только просмотреть?" delegate:self cancelButtonTitle:@"Просмотреть" otherButtonTitles: @"Начать", nil];
         [alert show];
-    } else if ([[NSString stringWithFormat:@"%@",[taskData valueForKey:@"b.TASK_STATUS_NAME"]] isEqualToString:@"В работе"])
+    } else if ([[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"b.TASK_STATUS_NAME"]] isEqualToString:@"В работе"])
     {
         controlList.varForLoadCL = @"false";
         [controlList loadWebView];
@@ -376,9 +376,9 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     if (screen == FALSE) {
-        NSLog(@"TASK_ID from detail = %@",[taskData valueForKey:@"x.TASK_ID"]);
+        NSLog(@"TASK_ID from detail = %@",[self.taskData valueForKey:@"x.TASK_ID"]);
         
-        [noteTextEditor setText:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.TASK_DESC"]]];
+        [noteTextEditor setText:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.TASK_DESC"]]];
         
         UIImageView *topDetailPart = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"task_cell_back.png"]];
         [topDetailPart setFrame:CGRectMake(6, 5, 464, 124)];
@@ -387,17 +387,17 @@
         UILabel *taskTitle = [[UILabel alloc] initWithFrame:CGRectMake(50, 10, 400, 20)];
         [taskTitle setFont:[UIFont boldSystemFontOfSize:16.0f]];
         [taskTitle setBackgroundColor:[UIColor clearColor]];
-        //    [taskTitle setText:[NSString stringWithFormat:@"%@ %@",[taskData valueForKey:@"y.TASK_TYPE_NAME"],[taskData valueForKey:@"f.SUBBRANCH_NAME"]]];
-        [taskTitle setText:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"y.TASK_TYPE_NAME"]]];
+        //    [taskTitle setText:[NSString stringWithFormat:@"%@ %@",[self.taskData valueForKey:@"y.TASK_TYPE_NAME"],[self.taskData valueForKey:@"f.SUBBRANCH_NAME"]]];
+        [taskTitle setText:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"y.TASK_TYPE_NAME"]]];
         [topDetailPart addSubview:taskTitle];
         
         int indicatorr = 0;//зеленый
         long MIN_3_DAYS = 3 * 24 * 60;
-        long minLeftToStart = ([[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.PLAN_START_DTTM"]] longLongValue] - [[NSDate date] timeIntervalSince1970] * 1000) / (1000 * 60) ;
+        long minLeftToStart = ([[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.PLAN_START_DTTM"]] longLongValue] - [[NSDate date] timeIntervalSince1970] * 1000) / (1000 * 60) ;
         //    NSLog(@"minLeft = %ld", minLeftToStart);
-        if ([[NSString stringWithFormat:@"%@",[taskData valueForKey:@"b.TASK_STATUS_NAME"]] isEqualToString: @"Выполнена"]) {
+        if ([[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"b.TASK_STATUS_NAME"]] isEqualToString: @"Выполнена"]) {
             indicatorr = 0;
-        } else if ([[NSString stringWithFormat:@"%@",[taskData valueForKey:@"b.TASK_STATUS_NAME"]] isEqualToString: @"Не состоялась"]) {
+        } else if ([[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"b.TASK_STATUS_NAME"]] isEqualToString: @"Не состоялась"]) {
             indicatorr = 1;
         } else if (minLeftToStart < 0) {
             indicatorr = 2;
@@ -417,7 +417,7 @@
         [taskStatus setFont:[UIFont systemFontOfSize:14.0f]];
         [taskStatus setTextAlignment:UITextAlignmentLeft];
         [taskStatus setBackgroundColor:[UIColor clearColor]];
-        [taskStatus setText:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"b.TASK_STATUS_NAME"]]];
+        [taskStatus setText:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"b.TASK_STATUS_NAME"]]];
         [topDetailPart addSubview:taskStatus];
         
         UILabel *taskDate = [[UILabel alloc] initWithFrame:CGRectMake(50, 80, 230, 20)];
@@ -429,7 +429,7 @@
         [dateFormatter setDateFormat:@"dd.MM.yyyy HH:mm"];
         //    [dateFormatter setDateFormat:@"yyyy.MM.dd HH:mm"];
         //    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
-        NSString * str = [NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.PLAN_START_DTTM"]];
+        NSString * str = [NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.PLAN_START_DTTM"]];
         double DOUBLE = [str doubleValue]/1000;
         date = [NSDate dateWithTimeIntervalSince1970:DOUBLE];
         str = [dateFormatter stringFromDate:date];
@@ -446,8 +446,8 @@
         [taskTime setFont:[UIFont systemFontOfSize:14.0f]];
         [taskTime setBackgroundColor:[UIColor clearColor]];
         [taskTime setTextAlignment:UITextAlignmentRight];
-        long duration = [[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.TASK_DURATION"]] integerValue] / 60;
-        //    [taskTime setText:[NSString stringWithFormat:@"Длительность: %@ мин.",[taskData valueForKey:@"x.TASK_DURATION"]]];
+        long duration = [[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.TASK_DURATION"]] integerValue] / 60;
+        //    [taskTime setText:[NSString stringWithFormat:@"Длительность: %@ мин.",[self.taskData valueForKey:@"x.TASK_DURATION"]]];
         [taskTime setText:[NSString stringWithFormat:@"Длительность: %ld мин.",duration]];
         [topDetailPart addSubview:taskTime];
         
@@ -479,9 +479,9 @@
         UILabel *taskBranch = [[UILabel alloc] initWithFrame:CGRectMake(15, 5, 400, 20)];
         [taskBranch setFont:[UIFont systemFontOfSize:12.0f]];
         [taskBranch setBackgroundColor:[UIColor clearColor]];
-        [taskBranch setText:[NSString stringWithFormat:@"Подразделение: %@",[taskData valueForKey:@"f.SUBBRANCH_NAME"]]];
-        if (![[NSString stringWithFormat:@"%@",[taskData valueForKey:@"unions.UNION_NAME"]] isEqualToString:@""]) {
-            [taskBranch setText:[NSString stringWithFormat:@"Подразделение: %@",[taskData valueForKey:@"unions.UNION_NAME"]]];
+        [taskBranch setText:[NSString stringWithFormat:@"Подразделение: %@",[self.taskData valueForKey:@"f.SUBBRANCH_NAME"]]];
+        if (![[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"unions.UNION_NAME"]] isEqualToString:@""]) {
+            [taskBranch setText:[NSString stringWithFormat:@"Подразделение: %@",[self.taskData valueForKey:@"unions.UNION_NAME"]]];
         }
         //    [taskBranch setText:[NSString stringWithFormat:@"Подразделение: %@",[taskData valueForKey:@"f.SUBBRANCH_NAME"]]];
         [mainNoteDescHeader addSubview:taskBranch];
@@ -491,7 +491,7 @@
         UILabel *taskAddress = [[UILabel alloc] initWithFrame:CGRectMake(15, 25, 400, 20)];
         [taskAddress setFont:[UIFont systemFontOfSize:12.0f]];
         [taskAddress setBackgroundColor:[UIColor clearColor]];
-        [taskAddress setText:[NSString stringWithFormat:@"Адрес: %@",[taskData valueForKey:@"f.ADDRESS"]]];
+        [taskAddress setText:[NSString stringWithFormat:@"Адрес: %@",[self.taskData valueForKey:@"f.ADDRESS"]]];
         [mainNoteDescHeader addSubview:taskAddress];
         [taskAddress release];
         
@@ -507,7 +507,7 @@
         UILabel *taskBranchHeadNew = [[UILabel alloc] initWithFrame:CGRectMake(15, 65, 400, 20)];
         [taskBranchHeadNew setFont:[UIFont systemFontOfSize:12.0f]];
         [taskBranchHeadNew setBackgroundColor:[UIColor clearColor]];
-        NSString * fio = [NSString stringWithFormat:@"%@ %@ %@",[taskData valueForKey:@"e.LAST_NAME"],[taskData valueForKey:@"e.FIRST_NAME"],[taskData valueForKey:@"e.PATRONYMIC"]];
+        NSString * fio = [NSString stringWithFormat:@"%@ %@ %@",[self.taskData valueForKey:@"e.LAST_NAME"],[self.taskData valueForKey:@"e.FIRST_NAME"],[self.taskData valueForKey:@"e.PATRONYMIC"]];
         [taskBranchHeadNew setText:fio];
         if ([fio isEqualToString:@"  "]) {
             [taskBranchHeadNew setText:@"Руководитель не назначен"];
@@ -528,7 +528,7 @@
         [taskSelfResponsibleNew setFont:[UIFont systemFontOfSize:12.0f]];
         [taskSelfResponsibleNew setBackgroundColor:[UIColor clearColor]];
         
-        NSString *fullAuthorName = [NSString stringWithFormat:@"%@%@%@",[taskData valueForKey:@"c.LAST_NAME"],[taskData valueForKey:@"c.FIRST_NAME"],[taskData valueForKey:@"c.PATRONYMIC"]];
+        NSString *fullAuthorName = [NSString stringWithFormat:@"%@%@%@",[self.taskData valueForKey:@"c.LAST_NAME"],[self.taskData valueForKey:@"c.FIRST_NAME"],[self.taskData valueForKey:@"c.PATRONYMIC"]];
                 
         fullAuthorName = [fullAuthorName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         
@@ -537,7 +537,7 @@
         }
         else
         {
-            [taskSelfResponsibleNew setText:[NSString stringWithFormat:@"%@ %@ %@",[taskData valueForKey:@"c.LAST_NAME"],[taskData valueForKey:@"c.FIRST_NAME"],[taskData valueForKey:@"c.PATRONYMIC"]]];
+            [taskSelfResponsibleNew setText:[NSString stringWithFormat:@"%@ %@ %@",[self.taskData valueForKey:@"c.LAST_NAME"],[self.taskData valueForKey:@"c.FIRST_NAME"],[self.taskData valueForKey:@"c.PATRONYMIC"]]];
         }
         
         [mainNoteDescHeader addSubview:taskSelfResponsibleNew];
@@ -640,7 +640,7 @@
         [taskField1 setFont:[UIFont systemFontOfSize:12.0f]];
         [taskField1 setTextAlignment:UITextAlignmentCenter];
         [taskField1 setBackgroundColor:[UIColor clearColor]];
-        //    [taskField1 setText:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.SELF_CHECK_RESOURCE_FIO"]]];
+        //    [taskField1 setText:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.SELF_CHECK_RESOURCE_FIO"]]];
         [taskField1 setText:@""];
         [mainNoteAnketaDesc addSubview:taskField1];
         
@@ -649,7 +649,7 @@
         //    [dateFormatter1 setDateFormat:@"yyyy.MM.dd HH:mm"];
         //    [dateFormatter1 setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
         //
-        //    NSString * str1 = [NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.SELF_CHECK_FACT_END_DTTM"]];
+        //    NSString * str1 = [NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.SELF_CHECK_FACT_END_DTTM"]];
         //    NSLog(@"str1 = %@",str1);
         //    if (![str1 isEqualToString:@""]) {
         //        double DOUBLE1 = [str1 doubleValue]/1000;
@@ -665,7 +665,7 @@
         [taskField2 setFont:[UIFont systemFontOfSize:12.0f]];
         [taskField2 setTextAlignment:UITextAlignmentCenter];
         [taskField2 setBackgroundColor:[UIColor clearColor]];
-        //    [taskField2 setText:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.SELF_CHECK_FACT_END_DTTM"]]];
+        //    [taskField2 setText:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.SELF_CHECK_FACT_END_DTTM"]]];
         [taskField2 setText:@""];
         [mainNoteAnketaDesc addSubview:taskField2];
         
@@ -673,7 +673,7 @@
         [taskField3 setFont:[UIFont systemFontOfSize:12.0f]];
         [taskField3 setTextAlignment:UITextAlignmentCenter];
         [taskField3 setBackgroundColor:[UIColor clearColor]];
-        //    [taskField3 setText:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.SELF_POINTS"]]];
+        //    [taskField3 setText:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.SELF_POINTS"]]];
         [taskField3 setText:@""];
         [mainNoteAnketaDesc addSubview:taskField3];
         
@@ -681,7 +681,7 @@
         [taskField4 setFont:[UIFont systemFontOfSize:12.0f]];
         [taskField4 setTextAlignment:UITextAlignmentCenter];
         [taskField4 setBackgroundColor:[UIColor clearColor]];
-        //    [taskField4 setText:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.SELF_DISPERSION"]]];
+        //    [taskField4 setText:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.SELF_DISPERSION"]]];
         [taskField4 setText:@""];
         [mainNoteAnketaDesc addSubview:taskField4];
         
@@ -689,7 +689,7 @@
         [taskField5 setFont:[UIFont systemFontOfSize:12.0f]];
         [taskField5 setTextAlignment:UITextAlignmentCenter];
         [taskField5 setBackgroundColor:[UIColor clearColor]];
-        //    [taskField5 setText:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.SELF_REDUCE_INDEX"]]];
+        //    [taskField5 setText:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.SELF_REDUCE_INDEX"]]];
         [taskField5 setText:@""];
         [mainNoteAnketaDesc addSubview:taskField5];
         
@@ -697,7 +697,7 @@
         [taskField6 setFont:[UIFont systemFontOfSize:12.0f]];
         [taskField6 setTextAlignment:UITextAlignmentCenter];
         [taskField6 setBackgroundColor:[UIColor clearColor]];
-        //    [taskField6 setText:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.SELF_CHECK_RESULT"]]];
+        //    [taskField6 setText:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.SELF_CHECK_RESULT"]]];
         [taskField6 setText:@""];
         [mainNoteAnketaDesc addSubview:taskField6];
         
@@ -716,7 +716,7 @@
         [taskPole1 setFont:[UIFont systemFontOfSize:12.0f]];
         [taskPole1 setTextAlignment:UITextAlignmentCenter];
         [taskPole1 setBackgroundColor:[UIColor clearColor]];
-        //    [taskPole1 setText:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.OTHER_CHECK_RESOURCE_FIO"]]];
+        //    [taskPole1 setText:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.OTHER_CHECK_RESOURCE_FIO"]]];
         [taskPole1 setText:@""];
         [mainNoteAnketaDesc addSubview:taskPole1];
         
@@ -725,7 +725,7 @@
         //    [dateFormatter2 setDateFormat:@"yyyy.MM.dd HH:mm"];
         //    [dateFormatter2 setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
         //
-        //    NSString * str2 = [NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.OTHER_CHECK_FACT_END_DTTM"]];
+        //    NSString * str2 = [NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.OTHER_CHECK_FACT_END_DTTM"]];
         //    NSLog(@"str2 = %@", str2);
         //    if (![str2 isEqualToString:@""]) {
         //        double DOUBLE2 = [str2 doubleValue]/1000;
@@ -741,7 +741,7 @@
         [taskPole2 setFont:[UIFont systemFontOfSize:12.0f]];
         [taskPole2 setTextAlignment:UITextAlignmentCenter];
         [taskPole2 setBackgroundColor:[UIColor clearColor]];
-        [taskPole2 setText:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.OTHER_CHECK_FACT_END_DTTM"]]];
+        [taskPole2 setText:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.OTHER_CHECK_FACT_END_DTTM"]]];
         [taskPole2 setText:@""];
         [mainNoteAnketaDesc addSubview:taskPole2];
         
@@ -749,7 +749,7 @@
         [taskPole3 setFont:[UIFont systemFontOfSize:12.0f]];
         [taskPole3 setTextAlignment:UITextAlignmentCenter];
         [taskPole3 setBackgroundColor:[UIColor clearColor]];
-        [taskPole3 setText:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.OTHER_POINTS"]]];
+        [taskPole3 setText:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.OTHER_POINTS"]]];
         [taskPole3 setText:@""];
         [mainNoteAnketaDesc addSubview:taskPole3];
         
@@ -757,7 +757,7 @@
         [taskPole4 setFont:[UIFont systemFontOfSize:12.0f]];
         [taskPole4 setTextAlignment:UITextAlignmentCenter];
         [taskPole4 setBackgroundColor:[UIColor clearColor]];
-        [taskPole4 setText:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.OTHER_DISPERSION"]]];
+        [taskPole4 setText:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.OTHER_DISPERSION"]]];
         [taskPole4 setText:@""];
         [mainNoteAnketaDesc addSubview:taskPole4];
         
@@ -765,7 +765,7 @@
         [taskPole5 setFont:[UIFont systemFontOfSize:12.0f]];
         [taskPole5 setTextAlignment:UITextAlignmentCenter];
         [taskPole5 setBackgroundColor:[UIColor clearColor]];
-        [taskPole5 setText:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.OTHER_REDUCE_INDEX"]]];
+        [taskPole5 setText:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.OTHER_REDUCE_INDEX"]]];
         [taskPole5 setText:@""];
         [mainNoteAnketaDesc addSubview:taskPole5];
         
@@ -773,7 +773,7 @@
         [taskPole6 setFont:[UIFont systemFontOfSize:12.0f]];
         [taskPole6 setTextAlignment:UITextAlignmentCenter];
         [taskPole6 setBackgroundColor:[UIColor clearColor]];
-        [taskPole6 setText:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.OTHER_CHECK_RESULT"]]];
+        [taskPole6 setText:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.OTHER_CHECK_RESULT"]]];
         [taskPole6 setText:@""];
         [mainNoteAnketaDesc addSubview:taskPole6];
         
@@ -789,10 +789,10 @@
 {
 //    bool canCancelTask;
     
-    NSLog(@"TASK_ID from CancelMethod: %@",[taskData valueForKey:@"x.TASK_ID"]);
-    ODMobileMBO_getTasks * currentTask = [ODMobileMBO_getTasks findByPrimaryKey:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.TASK_ID"]]];
+    NSLog(@"TASK_ID from CancelMethod: %@",[self.taskData valueForKey:@"x.TASK_ID"]);
+    ODMobileMBO_getTasks * currentTask = [ODMobileMBO_getTasks findByPrimaryKey:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.TASK_ID"]]];
     
-    if ([[NSString stringWithFormat:@"%@",[taskData valueForKey:@"b.TASK_STATUS_NAME"]] isEqualToString:@"Назначена"] || [[NSString stringWithFormat:@"%@",[taskData valueForKey:@"b.TASK_STATUS_NAME"]] isEqualToString:@"В работе"]){
+    if ([[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"b.TASK_STATUS_NAME"]] isEqualToString:@"Назначена"] || [[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"b.TASK_STATUS_NAME"]] isEqualToString:@"В работе"]){
 //        canCancelTask = true;
     }
     
@@ -802,10 +802,10 @@
     
     bool canCancelFromRole = false;
     
-    if ([[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.TASK_STATUS_ID"]] isEqualToString:@"8"] && [employeeID isEqualToString:creatorEmployeeID]) {
+    if ([[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.TASK_STATUS_ID"]] isEqualToString:@"8"] && [employeeID isEqualToString:creatorEmployeeID]) {
         canCancelFromRole =true;
     }
-    if ([[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.TASK_STATUS_ID"]] isEqualToString:@"4"] && [employeeID isEqualToString:resourseEmployeeID]) {
+    if ([[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.TASK_STATUS_ID"]] isEqualToString:@"4"] && [employeeID isEqualToString:resourseEmployeeID]) {
         canCancelFromRole =true;
     }
     
@@ -830,13 +830,13 @@
     NSLog(@"CancelTask method called");
     @try {
         SUPObjectList * fieldList = [SUPObjectList new];
-        ODMobileMBO_getTasks * updateTask = [ODMobileMBO_getTasks findByPrimaryKey:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.TASK_ID"]]];
+        ODMobileMBO_getTasks * updateTask = [ODMobileMBO_getTasks findByPrimaryKey:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.TASK_ID"]]];
         
         
         //TASK_ID
         ODMobileObjField * field1 = [ODMobileObjField new];
         [field1 setNm:@"TASK_ID"];
-        [field1 setVl:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.TASK_ID"]]];
+        [field1 setVl:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.TASK_ID"]]];
         [fieldList add:field1];
         NSLog(@"name = %@, value =%@",field1.nm, field1.vl);
         [field1 release];
@@ -909,7 +909,7 @@
         [[SberbankAuditAppDelegate instance] closeActivityIndicator];
 
         
-        ODMobileMBO_getTasks * task = [ODMobileMBO_getTasks findByPrimaryKey:[NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.TASK_ID"]]];
+        ODMobileMBO_getTasks * task = [ODMobileMBO_getTasks findByPrimaryKey:[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.TASK_ID"]]];
         NSLog(@"New after sync task statusID = %@",[task TASK_STATUS_ID]);
         if (![[NSString stringWithFormat:@"%@",[task TASK_STATUS_ID]] isEqualToString:@"3"]) {
             [[SberbankAuditAppDelegate instance] closeActivityIndicator];
@@ -942,7 +942,7 @@
 
 - (void) findAllMetrics
 {
-    NSString * taskID = [NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.TASK_ID"]];
+    NSString * taskID = [NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.TASK_ID"]];
     ODMobileMBO_getTasks * currentTask = [ODMobileMBO_getTasks findByPrimaryKey:taskID];
     ODMobileMBO_getTaskTypes * taskType = [ODMobileMBO_getTaskTypes findByPrimaryKey:[NSString stringWithFormat:@"%@",[currentTask TASK_TYPE_ID]]];
     ODMobileMBOVisitTypes * taskVisitType = [ODMobileMBOVisitTypes findByPrimaryKey:[NSString stringWithFormat:@"%@",[taskType VISIT_TYPE_ID]]];
@@ -1248,7 +1248,7 @@
 
 - (void)setSelfMetrics
 {
-    NSString * taskID = [NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.TASK_ID"]];
+    NSString * taskID = [NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.TASK_ID"]];
     ODMobileMBO_getTasks * currentTask = [ODMobileMBO_getTasks findByPrimaryKey:taskID];
 //    NSLog(@"current task: %@",currentTask);
     if ([currentTask SELF_CHECK_RESOURCE_FIO] != nil) {
@@ -1359,7 +1359,7 @@
 
 - (void)setAuditMetrics
 {
-    NSString * taskID = [NSString stringWithFormat:@"%@",[taskData valueForKey:@"x.TASK_ID"]];
+    NSString * taskID = [NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.TASK_ID"]];
     ODMobileMBO_getTasks * currentTask = [ODMobileMBO_getTasks findByPrimaryKey:taskID];
     if ([currentTask OTHER_CHECK_RESOURCE_FIO] != nil) {
         [taskPole1 setText:[NSString stringWithFormat:@"%@",[currentTask OTHER_CHECK_RESOURCE_FIO]]];

@@ -347,14 +347,13 @@
                 [userDefaults setObject:userLogin.text forKey:LOGIN_TEXT];
             }
 
-            [app dataForDashboardWithObjectName:userLogin.text];
-            
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                [app openMainVC];
-                [self closeActivityIndicator];
-                [self.view removeFromSuperview];
-            });
-
+            if (![app dataForDashboardWithObjectName:userLogin.text]) {
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [app openMainVC];
+                    [self closeActivityIndicator];
+                    [self.view removeFromSuperview];
+                });
+            }
         }
         
     });

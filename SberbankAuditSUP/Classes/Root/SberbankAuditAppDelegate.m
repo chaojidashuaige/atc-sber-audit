@@ -503,8 +503,9 @@
     return var;
 }
 
-- (void) dataForDashboardWithObjectName:(NSString *)objectName
+- (BOOL) dataForDashboardWithObjectName:(NSString *)objectName
 {
+    BOOL isError = NO;
     ODMobileMBO_LogonList * resource = [ODMobileMBO_Logon findAll];
     
     EMPLOYEE_ID = [[resource objectAtIndex:0] valueForKey:@"logonReturn"];
@@ -592,6 +593,7 @@
     }
     @catch (SUPPersistenceException *exception)
     {
+        isError = YES;
         dispatch_sync(dispatch_get_main_queue(), ^{
             [authWindow closeActivityIndicator];
             
@@ -601,6 +603,7 @@
         });
         NSLog(@"At-Consulting DevLog: synchronize error: %@ - %@",exception.name,exception.message);
     }
+    return isError;
 }
 
 

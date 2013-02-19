@@ -216,7 +216,7 @@
 
         NSMutableArray *taskForDate = (NSMutableArray*)[tasksDictionary objectForKey:str];
         if(taskForDate == nil)
-            taskForDate = [[[NSMutableArray alloc] init] autorelease];
+            taskForDate = [NSMutableArray arrayWithCapacity:0];
         
         [taskForDate addObject:[self.tweets objectAtIndex:i]];
         [tasksDictionary setObject:taskForDate forKey:str];
