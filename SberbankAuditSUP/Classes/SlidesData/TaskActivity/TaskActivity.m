@@ -564,6 +564,7 @@
     return self;
 }
 
+
 - (void) showCalendar
 {
     CalendarController *rtCalendar = [[CalendarController alloc] initWithNibName:nil bundle:nil];
@@ -974,10 +975,20 @@
 - (void) dismissTaskWindow
 {
     [self dismissModalViewControllerAnimated:YES];
+    [taskPlan removeTmpTaskActivity];
 }
 
 - (void) aSaveAction
 {
+    
+    //UIImage *iiimg = rotate(aPhotoImage, aPhotoImage.imageOrientation);
+    
+//    aPhotoImage = [self resizeImage:aPhotoImage width:1024 height:768];
+//    UIImageView *imggg = [[UIImageView alloc] initWithImage:aPhotoImage];
+//    imggg.frame = CGRectMake(0, 0, 200, 100);
+//    [self.view addSubview:imggg];
+//    return;
+    
     [self.view setUserInteractionEnabled:NO];
     
     largeLabel = [[UIImageView alloc] initWithFrame:CGRectMake(252-50, 309-20, 300, 100)];
@@ -1276,9 +1287,13 @@
         
         //ATTACHMENT_BODY
         if (aPhotoImage != nil) {
-            aPhotoImage = [self resizeImage:aPhotoImage width:1024 height:768];
+            UIImage *tmpImg = rotate(aPhotoImage, aPhotoImage.imageOrientation);
+            
+            aPhotoImage = [self resizeImage:tmpImg width:1024 height:768];
+            //aPhotoImage = [self resizeImage:aPhotoImage width:1024 height:768];
             NSLog(@"image.width = %f, image.length = %f",aPhotoImage.size.width, aPhotoImage.size.height);
             NSData * dataObject = UIImageJPEGRepresentation(aPhotoImage, 1.0);
+            
             NSString * photo = [self Base64Encode:dataObject];
         
             ODMobileObjField * field25 = [ODMobileObjField new];
@@ -1372,6 +1387,7 @@
     
 //    [self.taskPlan dismissModalViewControllerAnimated:YES];
     [self dismissModalViewControllerAnimated:YES];
+    [taskPlan removeTmpTaskActivity];
 //    [taskPlan updateData];
 }
 
@@ -1396,26 +1412,115 @@
 
 -(UIImage *)resizeImage:(UIImage *)anImage width:(int)width height:(int)height
 {
-    
+    //anImage = rotate(anImage, anImage.imageOrientation);
     CGImageRef imageRef = [anImage CGImage];
-    
+        
     CGImageAlphaInfo alphaInfo = CGImageGetAlphaInfo(imageRef);
     
     if (alphaInfo == kCGImageAlphaNone)
         alphaInfo = kCGImageAlphaNoneSkipLast;
-    
-    
     CGContextRef bitmap = CGBitmapContextCreate(NULL, width, height, CGImageGetBitsPerComponent(imageRef), 4 * width, CGImageGetColorSpace(imageRef), alphaInfo);
+//    if (anImage.imageOrientation == UIImageOrientationUp || anImage.imageOrientation == UIImageOrientationDown) {
+//        bitmap = CGBitmapContextCreate(NULL, height, width, CGImageGetBitsPerComponent(imageRef), 4 * width, CGImageGetColorSpace(imageRef), alphaInfo);
+//    } else {
+//        bitmap = CGBitmapContextCreate(NULL, width, height, CGImageGetBitsPerComponent(imageRef), 4 * width, CGImageGetColorSpace(imageRef), alphaInfo);
+//    }
+//    if (anImage.imageOrientation == UIImageOrientationRight) {
+//        CGContextRotateCTM (bitmap, radians(90));
+//    } else if (anImage.imageOrientation == UIImageOrientationLeft) {
+//        CGContextRotateCTM (bitmap, radians(-90));
+//    } else if (anImage.imageOrientation == UIImageOrientationDown) {
+//        // NOTHING
+//    } else if (anImage.imageOrientation == UIImageOrientationUp) {
+//        CGContextRotateCTM (bitmap, radians(90));
+//    }
+    
+    //[imageRef drawAtPoint:CGPointMake(0, 0)];
     
     CGContextDrawImage(bitmap, CGRectMake(0, 0, width, height), imageRef);
     
     CGImageRef ref = CGBitmapContextCreateImage(bitmap);
+    
     UIImage *result = [UIImage imageWithCGImage:ref];
     
     CGContextRelease(bitmap);
     CGImageRelease(ref);
     
-    return result;	
+    return result;
+	//UIImage* sourceImage = self;
+//	CGFloat targetWidth = width;
+//	CGFloat targetHeight = height;
+//    
+//	CGImageRef imageRef = [anImage CGImage];
+//	CGBitmapInfo bitmapInfo = CGImageGetBitmapInfo(imageRef);
+//	CGColorSpaceRef colorSpaceInfo = CGImageGetColorSpace(imageRef);
+//    
+//	if (bitmapInfo == kCGImageAlphaNone) {
+//		bitmapInfo = kCGImageAlphaNoneSkipLast;
+//	}
+//    
+//	CGContextRef bitmap;
+//    
+//	if (anImage.imageOrientation == UIImageOrientationUp || anImage.imageOrientation == UIImageOrientationDown) {
+//		bitmap = CGBitmapContextCreate(NULL, targetWidth, targetHeight, CGImageGetBitsPerComponent(imageRef), 4 * width, colorSpaceInfo, bitmapInfo);
+//        
+//	} else {
+//		bitmap = CGBitmapContextCreate(NULL, targetHeight, targetWidth, CGImageGetBitsPerComponent(imageRef), 4 * width, colorSpaceInfo, bitmapInfo);
+//        
+//	}
+//    
+//	if (anImage.imageOrientation == UIImageOrientationLeft) {
+//		CGContextRotateCTM (bitmap, radians(90));
+//		CGContextTranslateCTM (bitmap, 0, -targetHeight);
+//        
+//	} else if (anImage.imageOrientation == UIImageOrientationRight) {
+//		CGContextRotateCTM (bitmap, radians(-90));
+//		CGContextTranslateCTM (bitmap, -targetWidth, 0);
+//        
+//	} else if (anImage.imageOrientation == UIImageOrientationUp) {
+//		// NOTHING
+//	} else if (anImage.imageOrientation == UIImageOrientationDown) {
+//		CGContextTranslateCTM (bitmap, targetWidth, targetHeight);
+//		CGContextRotateCTM (bitmap, radians(-180.));
+//	}
+//    
+//	CGContextDrawImage(bitmap, CGRectMake(0, 0, targetWidth, targetHeight), imageRef);
+//	CGImageRef ref = CGBitmapContextCreateImage(bitmap);
+//	UIImage* newImage = [UIImage imageWithCGImage:ref];
+//    
+//	CGContextRelease(bitmap);
+//	CGImageRelease(ref);
+//    
+//	return newImage;
+}
+
+static inline double radians (double degrees) {return degrees * M_PI/180;}
+UIImage* rotate(UIImage* src, UIImageOrientation orientation)
+{
+    UIGraphicsBeginImageContext(src.size);
+    
+    //CGContextRef context = UIGraphicsGetCurrentContext();
+    //CGContextTranslateCTM(context, 0, src.size.height);
+    if (orientation == UIImageOrientationRight) {
+//        CGContextTranslateCTM(context, 0, src.size.height);
+//        CGContextRotateCTM (context, radians(45));
+    } else if (orientation == UIImageOrientationLeft) {
+//        CGContextTranslateCTM(context, 0, src.size.height);
+//        CGContextRotateCTM (context, radians(-90));
+    } else if (orientation == UIImageOrientationDown) {
+//        CGContextTranslateCTM(context, -src.size.width, -src.size.height);
+//        CGContextRotateCTM (context, radians(75));
+    } else if (orientation == UIImageOrientationUp) {
+//        CGContextTranslateCTM(context, src.size.width, src.size.height);
+//        CGContextRotateCTM (context, radians(180));
+    }
+    
+    [src drawAtPoint:CGPointMake(0, 0)];
+    //CGContextDrawImage(context, CGRectMake(0, 0, src.size.width, src.size.height), src.CGImage);
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return img;
 }
 
 -(NSString *)Base64Encode:(NSData *)data{
@@ -1487,14 +1592,16 @@
 
 - (void) openCamera
 {
-    UIImagePickerController *photoCamera = [[UIImagePickerController alloc] init];
-//    CameraViewController *photoCamera = [[CameraViewController alloc] init];
-    photoCamera.delegate = self;
-    photoCamera.sourceType = UIImagePickerControllerSourceTypeCamera;
-    //    [self presentModalViewController:photoCamera animated:YES];
-    [self presentModalViewController:photoCamera animated:YES];
-    [photoCamera release];
-//    [[photoCamera.view superview] setFrame:CGRectMake(roundf([photoCamera.view superview].center.x-512), roundf([photoCamera.view superview].center.y-384), 1024, 768)];
+//    UIImagePickerController *photoCamera = [[UIImagePickerController alloc] init];
+////    CameraViewController *photoCamera = [[CameraViewController alloc] init];
+//    photoCamera.delegate = self;
+//    photoCamera.sourceType = UIImagePickerControllerSourceTypeCamera;
+//    //    [self presentModalViewController:photoCamera animated:YES];
+//    [taskPlan presentModalViewController:photoCamera animated:YES];
+//    [photoCamera release];
+////    [[photoCamera.view superview] setFrame:CGRectMake(roundf([photoCamera.view superview].center.x-512), roundf([photoCamera.view superview].center.y-384), 1024, 768)];
+    
+    [taskPlan openCamera];
 
 }
 
@@ -1514,16 +1621,24 @@
     [[self.view superview] setFrame:CGRectMake(roundf([self.view superview].center.x-352), roundf([self.view superview].center.y-339), 704, 678)];
 }
 
-- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)saveButtonCameraAction:(NSDictionary *)info
 {
-    UITouch *userTouch = [[event allTouches] anyObject];
-    CGPoint touchLocation = [userTouch locationInView:self.view];
-    
-    if(CGRectContainsPoint(CGRectMake(360, 495, 100, 106), touchLocation))
-    {
-        [self openCamera];
-    }
+    aPhotoImage = [[UIImage alloc] init];
+    aPhotoImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    [aPhotoButton setBackgroundImage:aPhotoImage forState:UIControlStateNormal];
+    [aPhotoButton setTitle:@"" forState:UIControlStateNormal];
 }
+
+//- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    UITouch *userTouch = [[event allTouches] anyObject];
+//    CGPoint touchLocation = [userTouch locationInView:self.view];
+//    
+//    if(CGRectContainsPoint(CGRectMake(360, 495, 100, 106), touchLocation))
+//    {
+//        [self openCamera];
+//    }
+//}
 
 - (void) dealloc
 {
@@ -1591,16 +1706,26 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-        return YES;
-    }
-//	return YES;
-	return NO;
+    //    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+    //        return YES;
+    //    }
+    //    return NO;
+	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
 }
 
 - (BOOL)shouldAutorotate
 {
     return YES;
+}
+
+//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+//{
+//    return UIInterfaceOrientationMaskLandscape;
+//}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskLandscape;
 }
 
 //- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation

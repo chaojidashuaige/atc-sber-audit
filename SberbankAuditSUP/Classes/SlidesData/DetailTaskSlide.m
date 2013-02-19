@@ -528,10 +528,8 @@
         [taskSelfResponsibleNew setFont:[UIFont systemFontOfSize:12.0f]];
         [taskSelfResponsibleNew setBackgroundColor:[UIColor clearColor]];
         
-        NSMutableString *fullAuthorName = [[NSMutableString alloc] initWithString:[taskData valueForKey:@"c.LAST_NAME"]];
-        [fullAuthorName appendString:[taskData valueForKey:@"c.FIRST_NAME"]];
-        [fullAuthorName appendString:[taskData valueForKey:@"c.PATRONYMIC"]];
-        
+        NSString *fullAuthorName = [NSString stringWithFormat:@"%@%@%@",[taskData valueForKey:@"c.LAST_NAME"],[taskData valueForKey:@"c.FIRST_NAME"],[taskData valueForKey:@"c.PATRONYMIC"]];
+                
         fullAuthorName = [fullAuthorName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         
         if (fullAuthorName.length == 0) {
@@ -541,7 +539,7 @@
         {
             [taskSelfResponsibleNew setText:[NSString stringWithFormat:@"%@ %@ %@",[taskData valueForKey:@"c.LAST_NAME"],[taskData valueForKey:@"c.FIRST_NAME"],[taskData valueForKey:@"c.PATRONYMIC"]]];
         }
-        [fullAuthorName release];
+        
         [mainNoteDescHeader addSubview:taskSelfResponsibleNew];
         [taskSelfResponsibleNew release];
 
@@ -1504,27 +1502,27 @@
     [noteTextEditor setFrame:CGRectMake(24, 511+30, 427, noteTextBody.frame.size.height)];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-	return YES;
-}
-
-- (BOOL)shouldAutorotate
-{
-    return YES;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    //    return UIInterfaceOrientationMaskAll;
-    return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
-}
-
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
-{
-    return UIInterfaceOrientationLandscapeLeft;
-}
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+//{
+//    // Return YES for supported orientations
+//	return YES;
+//}
+//
+//- (BOOL)shouldAutorotate
+//{
+//    return YES;
+//}
+//
+//- (NSUInteger)supportedInterfaceOrientations
+//{
+//    //    return UIInterfaceOrientationMaskAll;
+//    return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
+//}
+//
+//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+//{
+//    return UIInterfaceOrientationLandscapeLeft;
+//}
 
 - (void) textViewDidBeginEditing:(UITextView *)textView
 {

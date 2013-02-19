@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "SupIsTemp.h"
 
-@interface TaskPlan : UIViewController <UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
+@class TaskActivity;
+@interface TaskPlan : UIViewController <UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate, UIImagePickerControllerDelegate>
 {
     UITableView*  _tableView;
 	
@@ -26,12 +27,16 @@
     NSString * employee_ID;
     
     long minLeftToFinish;
+    
+    TaskActivity *tmpTaskActivity;
 }
 
 - (id)initWithFrame:(CGRect)frame;
 - (void) openActivityEdit;
 - (void) searchToTable:(NSString*)sText;
 - (void) updateData;
+- (void) openCamera;
+- (void)removeTmpTaskActivity;
 
 @property (nonatomic,retain) NSNumber *branchId;
 @property (nonatomic,retain) NSNumber *unionID;

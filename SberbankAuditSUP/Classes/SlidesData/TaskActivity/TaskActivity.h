@@ -82,7 +82,7 @@
 - (void)openActivityIndicatorViewWithName:(NSString *)name;
 - (void) closeActivityIndicator;
 - (void)dismissPopover;
-
+- (void)saveButtonCameraAction:(NSDictionary *)info;
 
 @property (nonatomic,retain) UIButton *aTypeButton;
 @property (nonatomic,retain) UIButton *aPriorityButton;

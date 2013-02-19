@@ -318,9 +318,13 @@
 //        [TaskCell.taskDescription setText:[NSString stringWithFormat:@"%@",[checkClass valueForKey:@"f.ADDRESS"]]];
         [taskCell.taskStatus setText:[NSString stringWithFormat:@"%@",[checkClass valueForKey:@"b.TASK_STATUS_NAME"]]];
         
-        NSMutableString *fullAuthorName = [[NSMutableString alloc] initWithString:[checkClass valueForKey:@"c.LAST_NAME"]];
-        [fullAuthorName appendString:[checkClass valueForKey:@"c.FIRST_NAME"]];
-        [fullAuthorName appendString:[checkClass valueForKey:@"c.PATRONYMIC"]];
+        NSLog(@"%@", NSStringFromClass([[checkClass valueForKey:@"c.LAST_NAME"] class]));
+//        id tmp = [checkClass valueForKey:@"c.LAST_NAME"]];
+        NSString *fullAuthorName = [NSString stringWithFormat:@"%@%@%@",[checkClass valueForKey:@"c.LAST_NAME"],[checkClass valueForKey:@"c.FIRST_NAME"],[checkClass valueForKey:@"c.PATRONYMIC"]];
+//        NSMutableString *fullAuthorName = [[NSMutableString alloc] initWithString:tmpFullAuthorName];
+//        [fullAuthorName appendString:[checkClass valueForKey:@"c.LAST_NAME"]];
+//        [fullAuthorName appendString:[checkClass valueForKey:@"c.FIRST_NAME"]];
+//        [fullAuthorName appendString:[checkClass valueForKey:@"c.PATRONYMIC"]];
         
         fullAuthorName = [fullAuthorName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         
@@ -334,7 +338,7 @@
         }
         
         
-        [fullAuthorName release];
+//        [fullAuthorName release];
 //        NSLog(@"%@",[checkClass valueForKey:@"b.TASK_STATUS_NAME"]);
         
         NSDate * date;
@@ -581,9 +585,9 @@
     [super dealloc];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
-}
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+//    return YES;
+//}
 
 - (void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
@@ -595,23 +599,21 @@
 //    [detailViewController willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
 }
 
-- (BOOL)shouldAutorotate
-{
-    return YES;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    //    return UIInterfaceOrientationMaskAll;
-    return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
-}
-
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
-{
-    return UIInterfaceOrientationLandscapeLeft;
-}
-
-
+//- (BOOL)shouldAutorotate
+//{
+//    return YES;
+//}
+//
+//- (NSUInteger)supportedInterfaceOrientations
+//{
+//    //    return UIInterfaceOrientationMaskAll;
+//    return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
+//}
+//
+//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+//{
+//    return UIInterfaceOrientationLandscapeLeft;
+//}
 
 
 

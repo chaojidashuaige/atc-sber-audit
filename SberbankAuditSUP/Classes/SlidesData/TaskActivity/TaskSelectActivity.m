@@ -3242,7 +3242,26 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	return YES;
+    //    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+    //        return YES;
+    //    }
+    //    return NO;
+	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+//{
+//    return UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight;
+//}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskLandscape;
 }
 
 - (void)dismissPopover

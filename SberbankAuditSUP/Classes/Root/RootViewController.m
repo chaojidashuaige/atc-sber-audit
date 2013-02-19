@@ -109,13 +109,6 @@
     [SBTasks release];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-        return YES;
-    }
-//    return YES;
-    return NO;
-}
 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
 	[menuViewController didRotateFromInterfaceOrientation:fromInterfaceOrientation];
@@ -137,26 +130,28 @@
 	[stackScrollViewController willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    //    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+    //        return YES;
+    //    }
+    //    return NO;
+	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+}
+
 - (BOOL)shouldAutorotate
 {
-    UIInterfaceOrientation orientation = [[UIDevice currentDevice] orientation];
-    
-    if (orientation==UIInterfaceOrientationLandscapeLeft || orientation==UIInterfaceOrientationLandscapeRight) {
-        return NO;
-    }
-//    return NO;
     return YES;
 }
 
+//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+//{
+//    return UIInterfaceOrientationMaskAll;
+//}
+
 - (NSUInteger)supportedInterfaceOrientations
 {
-//    return UIInterfaceOrientationMaskAll;
-    return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
-}
-
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
-{
-    return UIInterfaceOrientationLandscapeLeft;
+    return UIInterfaceOrientationMaskLandscape;
 }
 
 

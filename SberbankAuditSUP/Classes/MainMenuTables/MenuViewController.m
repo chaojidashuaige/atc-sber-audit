@@ -356,24 +356,24 @@
 //    [footerMenu setFrame:CGRectMake(0, 768 - 150, 200, 130)];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Override to allow orientations other than the default portrait orientation
-    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-        return NO;
-    }
-    return YES;
-}
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+//    // Override to allow orientations other than the default portrait orientation
+//    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+//        return NO;
+//    }
+//    return YES;
+//}
 
-- (BOOL)shouldAutorotate
-{
-//    return NO;
-    return YES;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskAll;
-}
+//- (BOOL)shouldAutorotate
+//{
+////    return NO;
+//    return YES;
+//}
+//
+//- (NSUInteger)supportedInterfaceOrientations
+//{
+//    return UIInterfaceOrientationMaskAll;
+//}
 
 //- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 //{

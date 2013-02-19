@@ -377,22 +377,62 @@
 
 - (void) openActivityEdit
 {
-    TaskActivity *activity = [[TaskActivity alloc] initWithFrame:CGRectMake(0, 0, 504+200, 678)];
-//    activity.taskPlan = [self retain];//добавил для ввода нового мероприятия
-    activity.taskPlan = self;
-    activity.SUBBRANCH_ID = branchId;
-    activity.UNION_ID = unionID;
-    NSLog(@" branch %@",activity.SUBBRANCH_ID);
-    
-//    [self openActivityIndicatorViewWithName:@"Идет выборка данных"];
-//    [activity createListOfResponsibles];
-//    [self closeActivityIndicator];
+    if (tmpTaskActivity == nil) {
+        TaskActivity *activity = [[TaskActivity alloc] initWithFrame:CGRectMake(0, 0, 704, 678)];
+        //    activity.taskPlan = [self retain];//добавил для ввода нового мероприятия
+        activity.taskPlan = self;
+        activity.SUBBRANCH_ID = branchId;
+        activity.UNION_ID = unionID;
+        NSLog(@" branch %@",activity.SUBBRANCH_ID);
+        
+        //    [self openActivityIndicatorViewWithName:@"Идет выборка данных"];
+        //    [activity createListOfResponsibles];
+        //    [self closeActivityIndicator];
+        
+        activity.modalPresentationStyle = UIModalPresentationFormSheet;
+        [self presentModalViewController:activity animated:YES];
+        //    [[activity.view superview] setFrame:CGRectMake(roundf([activity.view superview].center.x-252), roundf([activity.view superview].center.y-339), 504, 678)];
+        [[activity.view superview] setFrame:CGRectMake(roundf([activity.view superview].center.x-352), roundf([activity.view superview].center.y-339), 704, 678)];
+        tmpTaskActivity = [activity retain];
+        [activity release];
+    } 
+}
 
-    activity.modalPresentationStyle = UIModalPresentationFormSheet;
-    [self presentModalViewController:activity animated:YES];
-//    [[activity.view superview] setFrame:CGRectMake(roundf([activity.view superview].center.x-252), roundf([activity.view superview].center.y-339), 504, 678)];
-    [[activity.view superview] setFrame:CGRectMake(roundf([activity.view superview].center.x-352), roundf([activity.view superview].center.y-339), 704, 678)];
-    [activity release];
+- (void) openCamera
+{
+    [self dismissModalViewControllerAnimated:NO];
+    UIImagePickerController *photoCamera = [[UIImagePickerController alloc] init];
+    //    CameraViewController *photoCamera = [[CameraViewController alloc] init];
+    photoCamera.delegate = self;
+    photoCamera.sourceType = UIImagePickerControllerSourceTypeCamera;
+    //    [self presentModalViewController:photoCamera animated:YES];
+    [[SberbankAuditAppDelegate instance].rootViewController presentModalViewController:photoCamera animated:YES];
+    [photoCamera release];
+    //    [[photoCamera.view superview] setFrame:CGRectMake(roundf([photoCamera.view superview].center.x-512), roundf([photoCamera.view superview].center.y-384), 1024, 768)];
+    
+}
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [picker dismissModalViewControllerAnimated:NO];
+    [tmpTaskActivity saveButtonCameraAction:info];
+    [self presentModalViewController:tmpTaskActivity animated:YES];
+    [[tmpTaskActivity.view superview] setFrame:CGRectMake(roundf([tmpTaskActivity.view superview].center.x-352), roundf([tmpTaskActivity.view superview].center.y-339), 704, 678)];
+}
+
+- (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissModalViewControllerAnimated:NO];
+    [self presentModalViewController:tmpTaskActivity animated:YES];
+    [[tmpTaskActivity.view superview] setFrame:CGRectMake(roundf([tmpTaskActivity.view superview].center.x-352), roundf([tmpTaskActivity.view superview].center.y-339), 704, 678)];
+}
+
+- (void)removeTmpTaskActivity
+{
+    if (tmpTaskActivity != nil) {
+        [tmpTaskActivity release];
+        tmpTaskActivity = nil;
+    }
 }
 
 #pragma mark -
@@ -449,7 +489,26 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	return YES;
+    //    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+    //        return YES;
+    //    }
+    //    return NO;
+	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+//{
+//    return UIInterfaceOrientationMaskAll;
+//}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskLandscape;
 }
 
 @end

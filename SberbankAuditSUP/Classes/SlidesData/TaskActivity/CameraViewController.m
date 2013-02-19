@@ -37,10 +37,10 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
-    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-        return YES;
-    }
-    return NO;
+//    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+//        return YES;
+//    }
+    return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
 }
 
 - (BOOL)shouldAutorotate
@@ -48,10 +48,10 @@
     return YES;
 }
 
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
-{
-    return UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight;
-}
+//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+//{
+//    return UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight;
+//}
 
 - (NSUInteger)supportedInterfaceOrientations
 {

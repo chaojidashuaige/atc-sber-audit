@@ -21,11 +21,11 @@
         [self setSelected:NO];
         [cellBackImage release];
         
-        createTp = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+        self.createTp = [UIButton buttonWithType:UIButtonTypeCustom];
 //        [createTp setBackgroundImage:[UIImage imageNamed:@"create_tp.png"] forState:UIControlStateNormal];
 //        [createTp setFrame:CGRectMake(424, 8, 28, 29)];
-        [createTp setBackgroundImage:[UIImage imageNamed:@"create_activity_up.png"] forState:UIControlStateNormal];
-        [createTp setFrame:CGRectMake(290, 8, 160, 49)];
+        [self.createTp setBackgroundImage:[UIImage imageNamed:@"create_activity_up.png"] forState:UIControlStateNormal];
+        [self.createTp setFrame:CGRectMake(290, 8, 160, 49)];
         [self.contentView addSubview:createTp];
         
 //        UILabel *headerTitle = [[UILabel alloc] initWithFrame:CGRectMake(35, 6, 400, 30)];
@@ -48,7 +48,7 @@
 
 - (void)dealloc
 {
-    [createTp release];
+    self.createTp = nil;
     [super dealloc];
 }
 

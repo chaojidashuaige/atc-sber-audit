@@ -73,8 +73,8 @@
 
 
 //#define SERVER_NAME @"194.186.207.157"
-#define SERVER_NAME @"skd-rel-pl.at-consulting.ru"
-//#define SERVER_NAME @"skd-rel-tst.at-consulting.ru"
+//#define SERVER_NAME @"skd-rel-pl.at-consulting.ru"
+#define SERVER_NAME @"skd-rel-tst.at-consulting.ru"
 //#define SERVER_NAME @"skd-rel-dev.at-consulting.ru"
 //#define SERVER_NAME @"91.241.12.145"
 //#define SERVER_NAME @"192.168.32.110"
@@ -303,7 +303,7 @@
             dispatch_sync(dispatch_get_main_queue(), ^{
                 [authWindow closeActivityIndicator];
                 
-                UIAlertView * runTimeAlert = [[UIAlertView alloc] initWithTitle:@"Ошибка подключения" message:@"Превышено время ожидания ответа от сервера" delegate:self cancelButtonTitle:@"Закрыть" otherButtonTitles:nil, nil];
+                UIAlertView * runTimeAlert = [[UIAlertView alloc] initWithTitle:@"Ошибка подключения" message:@"Превышено время ожидания ответа от сервера" delegate:self cancelButtonTitle:@"Закрыть" otherButtonTitles:nil];
                 [runTimeAlert show];
                 [runTimeAlert release];
             });
