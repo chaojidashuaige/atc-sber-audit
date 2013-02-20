@@ -79,7 +79,7 @@
 //        userLogin.text = @"Chuvikina-AS";
 //        userLogin.text = @"Kiverova-VA";
 //        userLogin.text = @"e_larionova";
-        userLogin.text = @"Gusatnikov-SA";
+//        userLogin.text = @"Gusatnikov-SA";
 //        userLogin.text = @"Pisarenko-AB";
 //        userLogin.text = @"Azovtsev-VA";
 //        userLogin.text = @"Shvedova-AA";
@@ -92,6 +92,7 @@
 //        userLogin.text = @"Isaev-VU";
 //        userLogin.text = @"Purusova-SN";
 //        userLogin.text = @"Volina-IV";
+//        userLogin.text = @"Gavrilowa-EA";
 
         [userLogin setBorderStyle:UITextBorderStyleRoundedRect];
         [userLogin setTextAlignment:UITextAlignmentCenter];
@@ -115,7 +116,7 @@
 //        userPassword.text = @"Dolgov-MM";
 //        userPassword.text = @"Kiverova-VA";
 //        userPassword.text = @"e_larionova";
-        userPassword.text = @"Gusatnikov-SA";
+//        userPassword.text = @"Gusatnikov-SA";
 //        userPassword.text = @"Arkhipova-TA";
 //        userPassword.text = @"Chuvikina-AS";
 //        userPassword.text = @"Azovtsev-VA";
@@ -130,6 +131,7 @@
 //        userPassword.text = @"Isaev-VU";
 //        userPassword.text = @"Purusova-SN";
 //        userPassword.text = @"Volina-IV";
+//        userPassword.text = @"Gavrilowa-EA";
 
         userPassword.secureTextEntry = YES;
         [userPassword setBorderStyle:UITextBorderStyleRoundedRect];

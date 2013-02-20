@@ -151,6 +151,7 @@
 
 - (void)cancelAction
 {
+    [locationManager stopUpdatingLocation];
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -158,12 +159,17 @@
 {
     NSLog(@"didUpdateToLocationFrom method called");
     if (!check) {
-//        locationCoord2D = [newLocation coordinate];
+        locationCoord2D = [newLocation coordinate];
 
-        locationCoord2D.longitude = 37.579894;
-        locationCoord2D.latitude = 55.700009;
+//        locationCoord2D.longitude = 37.579894;
+//        locationCoord2D.latitude = 55.700009;
+        
+//        locationCoord2D.longitude = 37.585258;
+//        locationCoord2D.latitude = 55.799014;
 
-        [self syncGeoData];
+        if ([self syncGeoData]) {
+            return;
+        }
         [self updateSubbranchesList];
         [_tableView reloadData];
         check = TRUE;
@@ -179,12 +185,14 @@
 {
     NSLog(@"didUpdateLocations method called");
     if (!check) {
-//        locationCoord2D = [[locationManager location] coordinate];
+        locationCoord2D = [[locationManager location] coordinate];
         
-        locationCoord2D.longitude = 37.579894;
-        locationCoord2D.latitude = 55.700009;
+//        locationCoord2D.longitude = 37.579894;
+//        locationCoord2D.latitude = 55.700009;
         
-        [self syncGeoData];
+        if ([self syncGeoData]) {
+            return;
+        }
         [self updateSubbranchesList];
         [_tableView reloadData];
         check = TRUE;
@@ -227,22 +235,24 @@
     [self syncGeoData];
 }
 
-- (void)syncGeoData
+- (BOOL)syncGeoData
 {
+    BOOL isSynchGeoError = NO;
     if (locationCoord2D.longitude == 0.0f && locationCoord2D.latitude == 0.0f) {
-        return ;
+        isSynchGeoError = YES;
+        return isSynchGeoError;
     }
-    
 //    NSString * LON_DELTA = @"0.08";
 //    NSString * LAT_DELTA = @"0.045";
-//    NSString * LON_DELTA = @"0.020782,";
+    NSString * LON_DELTA = @"0.07";
+    NSString * LAT_DELTA = @"0.07";
+//    NSString * LON_DELTA = @"0.020782";
 //    NSString * LAT_DELTA = @"0.010858";
-    NSString * LON_DELTA = @"0.08";
-    NSString * LAT_DELTA = @"0.045";
     
     ODMobileMBOSubbranchesGeoSynchronizationParameters * spGeoSubbranches = [ODMobileMBOSubbranchesGeo getSynchronizationParameters];
     [spGeoSubbranches delete];
-    
+//    NSLog(@"LONGITUDE %@",[NSString stringWithFormat:@"%.6f",locationCoord2D.longitude]);
+//    NSLog(@"LATITUDE %@",[NSString stringWithFormat:@"%.6f",locationCoord2D.latitude]);
     spGeoSubbranches = [ODMobileMBOSubbranchesGeo getSynchronizationParameters];
     [spGeoSubbranches setLON:[NSString stringWithFormat:@"%f",locationCoord2D.longitude]];
     [spGeoSubbranches setLAT:[NSString stringWithFormat:@"%f",locationCoord2D.latitude]];
@@ -264,11 +274,14 @@
         NSLog(@"CreateNewTaskController's message: Синхронизация прошла успешно");
     }
     @catch (SUPPersistenceException *exception) {
+        isSynchGeoError = YES;
+        
         NSLog(@"CreateNewTaskController's error: Ошибка синхронизации данных - %@, %@", exception.name,exception.message);
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Ошибка синхронизации" message:nil delegate:self cancelButtonTitle:@"Закрыть" otherButtonTitles:nil, nil];
         [alert show];
         [alert release];
     }
+    return isSynchGeoError;
 }
 
 - (void)updateSubbranchesList
@@ -300,7 +313,8 @@
         }
         
         for (ODMobileMBOSubbranchesGeo * subbranch  in result) {
-            NSDictionary * dict = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",[subbranch SUBBRANCH_ID]], @"S", [NSString stringWithFormat:@"%@",[subbranch SUBBRANCH_NAME]], nil] forKeys:[NSArray arrayWithObjects:@"OBJECT_ID", @"OBJECT_TYPE", @"OBJECT_NAME", nil]];
+            NSDictionary * dict = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",[subbranch SUBBRANCH_ID]], @"S", [NSString stringWithFormat:@"%@",[subbranch SUBBRANCH_NAME]], nil]
+                                                              forKeys:[NSArray arrayWithObjects:@"OBJECT_ID", @"OBJECT_TYPE", @"OBJECT_NAME", nil]];
             [subbranchAdapterList addObject:dict];
         }
         

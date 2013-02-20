@@ -687,7 +687,8 @@ bool look = false;
     [[SberbankAuditAppDelegate instance].controlListHTML stopLoading];
     [[SberbankAuditAppDelegate instance].controlListHTML reload];
     [[SberbankAuditAppDelegate instance].rootViewController.mainDataVC updateData];
-    [[SberbankAuditAppDelegate instance].rootViewController.mainDataVC.detailViewController updateData];
+    //[[SberbankAuditAppDelegate instance].rootViewController.mainDataVC.detailViewController updateData];
+    [[SberbankAuditAppDelegate instance].rootViewController.mainDataVC.detailViewController alertCancelTask];
 }
 
 

@@ -76,6 +76,7 @@
 - (void)saveNotes;
 - (void)upShift:(id)sender;
 - (void)downShift:(id)sender;
+- (void) alertCancelTask;
 
 
 @property (nonatomic,retain) NSMutableDictionary *taskData;

@@ -344,7 +344,7 @@
         NSDate * date;
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"HH:mm"];
-        [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
+        //[dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
         NSString * str = [NSString stringWithFormat:@"%@",[checkClass valueForKey:@"x.PLAN_START_DTTM"]];
         double DOUBLE = [str doubleValue]/1000;
         date = [NSDate dateWithTimeIntervalSince1970:DOUBLE];

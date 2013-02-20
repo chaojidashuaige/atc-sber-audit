@@ -24,7 +24,7 @@
 - (id)initWithFrame:(CGRect)frame;
 - (void)cancelAction;
 - (void)loadGeoData;
-- (void)syncGeoData;
+- (BOOL)syncGeoData;
 - (void)updateSubbranchesList;
 - (void)createTask;
 - (void)showAlert;

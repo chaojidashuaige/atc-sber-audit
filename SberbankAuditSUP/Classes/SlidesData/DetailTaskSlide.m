@@ -233,21 +233,21 @@
         }
     }
     if (!isComplete) {
-        NSString * status = nil;
-        NSString * message = nil;
-        if ([self.lastStatus isEqualToString:@"Отменена"]) {
-            status = @"Задача отменена";
-            message = @"Просмотреть задачу можно в списке 'Завершенные'";
-        }
-        if ([self.lastStatus isEqualToString:@"Выполнена"]) {
-            status = @"Задача выполнена и перенесена в 'Завершенные'";
-            message = @"Контрольный лист будет закрыт";
-        }
-        UIAlertView * completeAlert = [[UIAlertView alloc] initWithTitle:status message:message delegate:self cancelButtonTitle:@"Продолжить" otherButtonTitles:nil, nil];
-        [completeAlert show];
-        [completeAlert release];
-        [controlList.view removeFromSuperview];
-        [[SberbankAuditAppDelegate instance].rootViewController.mainDataVC.detailViewController.view removeFromSuperview];
+//        NSString * status = nil;
+//        NSString * message = nil;
+//        if ([self.lastStatus isEqualToString:@"Отменена"]) {
+//            status = @"Задача отменена";
+//            message = @"Просмотреть задачу можно в списке 'Завершенные'";
+//        }
+//        if ([self.lastStatus isEqualToString:@"Выполнена"]) {
+//            status = @"Задача выполнена и перенесена в 'Завершенные'";
+//            message = @"Контрольный лист будет закрыт";
+//        }
+//        UIAlertView * completeAlert = [[UIAlertView alloc] initWithTitle:status message:message delegate:self cancelButtonTitle:@"Продолжить" otherButtonTitles:nil, nil];
+//        [completeAlert show];
+//        [completeAlert release];
+//        [controlList.view removeFromSuperview];
+//        [[SberbankAuditAppDelegate instance].rootViewController.mainDataVC.detailViewController.view removeFromSuperview];
     }
     NSLog(@"task id after update = %@",[self.taskData valueForKey:@"x.TASK_ID"]);
     NSLog(@"task_status_id after update = %@",[self.taskData valueForKey:@"x.TASK_STATUS_ID"]);
@@ -427,6 +427,7 @@
         NSDate * date;
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"dd.MM.yyyy HH:mm"];
+        //[dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
         //    [dateFormatter setDateFormat:@"yyyy.MM.dd HH:mm"];
         //    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
         NSString * str = [NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.PLAN_START_DTTM"]];
@@ -797,12 +798,12 @@
     }
     
     NSString * employeeID = [NSString stringWithFormat:@"%@",[SberbankAuditAppDelegate instance].EMPLOYEE_ID];
-    NSString * creatorEmployeeID = [NSString stringWithFormat:@"%@",[currentTask CREATOR_EMPLOYEE_ID]];
+    //NSString * creatorEmployeeID = [NSString stringWithFormat:@"%@",[currentTask CREATOR_EMPLOYEE_ID]];
     NSString * resourseEmployeeID = [NSString stringWithFormat:@"%@",[currentTask RESOURCE_EMPLOYEE_ID]];
     
     bool canCancelFromRole = false;
     
-    if ([[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.TASK_STATUS_ID"]] isEqualToString:@"8"] && [employeeID isEqualToString:creatorEmployeeID]) {
+    if ([[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.TASK_STATUS_ID"]] isEqualToString:@"8"] && [employeeID isEqualToString:resourseEmployeeID]) {
         canCancelFromRole =true;
     }
     if ([[NSString stringWithFormat:@"%@",[self.taskData valueForKey:@"x.TASK_STATUS_ID"]] isEqualToString:@"4"] && [employeeID isEqualToString:resourseEmployeeID]) {
@@ -938,6 +939,26 @@
 //    [self updateData];
     [[SberbankAuditAppDelegate instance].rootViewController.mainDataVC updateData];
     [self updateData];
+    [self alertCancelTask];
+}
+
+- (void) alertCancelTask
+{
+    NSString * status = nil;
+    NSString * message = nil;
+    if ([self.lastStatus isEqualToString:@"Отменена"]) {
+        status = @"Задача отменена";
+        message = @"Просмотреть задачу можно в списке 'Завершенные'";
+    }
+    if ([self.lastStatus isEqualToString:@"Выполнена"]) {
+        status = @"Задача выполнена и перенесена в 'Завершенные'";
+        message = @"Контрольный лист будет закрыт";
+    }
+    UIAlertView * completeAlert = [[UIAlertView alloc] initWithTitle:status message:message delegate:self cancelButtonTitle:@"Продолжить" otherButtonTitles:nil, nil];
+    [completeAlert show];
+    [completeAlert release];
+    [controlList.view removeFromSuperview];
+    [[SberbankAuditAppDelegate instance].rootViewController.mainDataVC.detailViewController.view removeFromSuperview];
 }
 
 - (void) findAllMetrics
