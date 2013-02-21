@@ -28,6 +28,21 @@
 #import "DataViewController.h"
 
 #define GEO @"GEO"
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+#ifdef SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(6.0)
+# define LINE_BREAK_MODE NSLineBreakByWordWrapping
+#define ALIGN_CENTER NSTextAlignmentCenter
+#else
+# define LINE_BREAK_MODE UILineBreakModeWordWrap
+#define ALIGN_CENTER UITextAlignmentCenter
+#endif
+
+#define TitleString @"Ваше текущее расположение: %@. Для проверки доступны подразделения:"
 
 @interface CreateNewTaskController ()
 
@@ -131,14 +146,17 @@
 {
     [super viewWillAppear:animated];
     
-    UILabel *tmpTaskLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 30, 724, 30)];
+    UILabel *tmpTaskLabel = [[UILabel alloc] init];//WithFrame:CGRectMake(40, 30, 724, 30)];
     self.taskLabel = tmpTaskLabel;
     [tmpTaskLabel release];
-    [self.taskLabel setText:@"Создание задачи \"Проверка руководства\""];
+//    [self.taskLabel setText:@"Создание задачи \"Проверка руководства\""];
     [self.taskLabel setBackgroundColor:[UIColor clearColor]];
-    [self.taskLabel setFont:[UIFont systemFontOfSize:24]];
-    [self.taskLabel setTextAlignment:NSTextAlignmentCenter];
-    [self.self.view addSubview:self.taskLabel];
+    [self.taskLabel setFont:[UIFont systemFontOfSize:20]];
+    [self.taskLabel setTextAlignment:ALIGN_CENTER];
+    self.taskLabel.numberOfLines = 0;
+    self.taskLabel.lineBreakMode = LINE_BREAK_MODE;
+    [self.view addSubview:self.taskLabel];
+//    [self setFrameToLabel:self.taskLabel text:@"Создание задачи \"Проверка руководства\""];
     
     self.aCancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     //        [aCancelButton setFrame:CGRectMake(190, 635, 120, 35)];
@@ -147,6 +165,13 @@
     [self.aCancelButton addTarget:self action:@selector(cancelAction) forControlEvents:UIControlEventTouchUpInside];
     //        [self.view addSubview:aCancelButton];
     [self.view addSubview:self.aCancelButton];
+}
+
+- (void)setFrameToLabel:(UILabel *)label text:(NSString *)str font:(UIFont *)font
+{
+    label.text = str;
+    CGSize size = [label.text sizeWithFont:font constrainedToSize:CGSizeMake(724.0f, MAXFLOAT) lineBreakMode:LINE_BREAK_MODE];
+    label.frame = CGRectMake((self.view.frame.size.width - size.width)/2.0f, 20.0f, size.width, size.height);
 }
 
 - (void)cancelAction
@@ -161,6 +186,29 @@
     if (!check) {
         locationCoord2D = [newLocation coordinate];
 
+        CLGeocoder *geocoder = [[[CLGeocoder alloc] init] autorelease];
+        [geocoder reverseGeocodeLocation:newLocation
+                       completionHandler:^(NSArray *placemarks, NSError *error) {
+                           NSLog(@"reverseGeocodeLocation:completionHandler: Completion Handler called!");
+                           
+                           if (error){
+                               NSLog(@"Geocode failed with error: %@", error);
+                               return;
+                               
+                           }
+                           
+                           if(placemarks && placemarks.count > 0)
+                               
+                           {
+                               //do something
+                               CLPlacemark *topResult = [placemarks objectAtIndex:0];
+                               NSString *addressTxt = [NSString stringWithFormat:@"%@, %@ %@",
+                                                       [topResult locality], [topResult thoroughfare], [topResult subThoroughfare]];
+                               NSLog(@"%@",addressTxt);
+                               NSString *resultAdress = [NSString stringWithFormat:TitleString, addressTxt];
+                               [self setFrameToLabel:self.taskLabel text:resultAdress font:self.taskLabel.font];
+                           }
+                       }];
 //        locationCoord2D.longitude = 37.579894;
 //        locationCoord2D.latitude = 55.700009;
         
@@ -187,6 +235,29 @@
     if (!check) {
         locationCoord2D = [[locationManager location] coordinate];
         
+        CLGeocoder *geocoder = [[[CLGeocoder alloc] init] autorelease];
+        [geocoder reverseGeocodeLocation:manager.location
+                       completionHandler:^(NSArray *placemarks, NSError *error) {
+                           NSLog(@"reverseGeocodeLocation:completionHandler: Completion Handler called!");
+                           
+                           if (error){
+                               NSLog(@"Geocode failed with error: %@", error);
+                               return;
+                               
+                           }
+                           
+                           if(placemarks && placemarks.count > 0)
+                               
+                           {
+                               //do something
+                               CLPlacemark *topResult = [placemarks objectAtIndex:0];
+                               NSString *addressTxt = [NSString stringWithFormat:@"%@, %@ %@",
+                                                       [topResult locality], [topResult thoroughfare], [topResult subThoroughfare]];
+                               NSLog(@"%@",addressTxt);
+                               NSString *resultAdress = [NSString stringWithFormat:TitleString, addressTxt];
+                               [self setFrameToLabel:self.taskLabel text:resultAdress font:self.taskLabel.font];
+                           }
+                       }];
 //        locationCoord2D.longitude = 37.579894;
 //        locationCoord2D.latitude = 55.700009;
         
@@ -486,7 +557,7 @@
         taskTypeController.modalPresentationStyle = UIModalPresentationFormSheet;
         taskTypeController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
         [self presentModalViewController:taskTypeController animated:YES];
-        [self.taskLabel setText:@"Выберите категорию проверки"];
+        [self setFrameToLabel:self.taskLabel text:@"Выберите категорию проверки" font:self.taskLabel.font];
         [[taskTypeController.view superview] setFrame:CGRectMake(roundf([taskTypeController.view superview].center.x-190-150), roundf([taskTypeController.view superview].center.y-249), 680, 500)];
         [taskTypeController release];
     }

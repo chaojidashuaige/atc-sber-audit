@@ -72,9 +72,9 @@
 @synthesize finishTask;
 
 
-#define SERVER_NAME @"194.186.207.157"
+//#define SERVER_NAME @"194.186.207.157"
 //#define SERVER_NAME @"skd-rel-pl.at-consulting.ru"
-//#define SERVER_NAME @"skd-rel-tst.at-consulting.ru"
+#define SERVER_NAME @"skd-rel-tst.at-consulting.ru"
 //#define SERVER_NAME @"skd-rel-dev.at-consulting.ru"
 //#define SERVER_NAME @"91.241.12.145"
 //#define SERVER_NAME @"192.168.32.110"

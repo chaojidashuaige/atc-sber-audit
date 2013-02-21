@@ -93,6 +93,7 @@
 //        userLogin.text = @"Purusova-SN";
 //        userLogin.text = @"Volina-IV";
 //        userLogin.text = @"Gavrilowa-EA";
+        userLogin.text = @"Kiseleva-ES";
 
         [userLogin setBorderStyle:UITextBorderStyleRoundedRect];
         [userLogin setTextAlignment:UITextAlignmentCenter];
@@ -132,6 +133,7 @@
 //        userPassword.text = @"Purusova-SN";
 //        userPassword.text = @"Volina-IV";
 //        userPassword.text = @"Gavrilowa-EA";
+        userPassword.text = @"Kiseleva-ES";
 
         userPassword.secureTextEntry = YES;
         [userPassword setBorderStyle:UITextBorderStyleRoundedRect];
