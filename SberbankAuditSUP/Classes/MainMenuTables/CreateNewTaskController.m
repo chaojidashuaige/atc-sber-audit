@@ -43,6 +43,8 @@
 #endif
 
 #define TitleString @"Ваше текущее расположение: %@. Для проверки доступны подразделения:"
+#define LoadCellString @"Идет загрузка доступных подразделений..."
+#define NotFoundString @"Подразделений не найдено"
 
 @interface CreateNewTaskController ()
 
@@ -127,6 +129,9 @@
     
     subbranchAdapterList = [[NSMutableArray alloc] init];
     taskTypeAdapterList = [[NSMutableArray alloc] init];
+    subbranchDict = [[NSMutableDictionary alloc] init];
+    sortArray = [[NSMutableArray alloc] init];
+    cellString = [[NSString alloc] initWithString:LoadCellString];
     
     cancelAlert = [[UIAlertView alloc] initWithTitle:@"Проверка руководства" message:@"Задача успешно создана" delegate:self cancelButtonTitle:@"Закрыть" otherButtonTitles:nil, nil];
     
@@ -313,10 +318,10 @@
         isSynchGeoError = YES;
         return isSynchGeoError;
     }
-//    NSString * LON_DELTA = @"0.08";
-//    NSString * LAT_DELTA = @"0.045";
-    NSString * LON_DELTA = @"0.07";
-    NSString * LAT_DELTA = @"0.07";
+    NSString * LON_DELTA = @"0.15";
+    NSString * LAT_DELTA = @"0.15";
+//    NSString * LON_DELTA = @"0.07";
+//    NSString * LAT_DELTA = @"0.07";
 //    NSString * LON_DELTA = @"0.020782";
 //    NSString * LAT_DELTA = @"0.010858";
     
@@ -372,22 +377,54 @@
             [allowedObjectTypeIds addObject:[NSString stringWithFormat:@"%@",[taskType OBJECT_TYPE_ID]]];
         }
         
-        NSMutableArray * result = [[NSMutableArray alloc] init];
+//        NSMutableArray * result = [[NSMutableArray alloc] init];
+        NSMutableDictionary *tmpSubbranchDict = [[NSMutableDictionary alloc] init];
         
         for (ODMobileMBOSubbranchesGeo * subbranch in subbranchGeo) {
             ODMobileMBOObjectTypes * objectType = [ODMobileMBOObjectTypes getBySubbranchLevelId:[NSString stringWithFormat:@"%@",[subbranch SUBBRANCH_LEVEL_ID]]];
             for (NSString * str  in allowedObjectTypeIds) {
                 if ([str isEqualToString:[NSString stringWithFormat:@"%@",[objectType OBJECT_TYPE_ID]]]) {
-                    [result addObject:subbranch];
+                    NSDictionary * dict = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",[subbranch SUBBRANCH_ID]], @"S", [NSString stringWithFormat:@"%@",[subbranch SUBBRANCH_NAME]], [NSString stringWithFormat:@"%@",[subbranch SUBBRANCH_LEVEL_ID]], nil]
+                                                                      forKeys:[NSArray arrayWithObjects:@"OBJECT_ID", @"OBJECT_TYPE", @"OBJECT_NAME", @"OBJECT_SORT_TYPE", nil]];
+                    NSString *groupKey = [dict objectForKey:@"OBJECT_SORT_TYPE"];
+                    NSMutableArray *arrayToAdd = [tmpSubbranchDict objectForKey:groupKey];
+                    if(arrayToAdd != nil)
+                    {
+                        [arrayToAdd addObject:dict];
+                    }
+                    else
+                    {
+                        arrayToAdd = [NSMutableArray array];
+                        [arrayToAdd addObject:dict];
+                    }
+                    
+                    [tmpSubbranchDict setObject:arrayToAdd forKey:groupKey];
+//                    [result addObject:subbranch];
                 }
             }
         }
-        
-        for (ODMobileMBOSubbranchesGeo * subbranch  in result) {
-            NSDictionary * dict = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",[subbranch SUBBRANCH_ID]], @"S", [NSString stringWithFormat:@"%@",[subbranch SUBBRANCH_NAME]], nil]
-                                                              forKeys:[NSArray arrayWithObjects:@"OBJECT_ID", @"OBJECT_TYPE", @"OBJECT_NAME", nil]];
-            [subbranchAdapterList addObject:dict];
-        }
+//        NSMutableDictionary *tmpSubbranchDict = [[NSMutableDictionary alloc] init];
+//        for (ODMobileMBOSubbranchesGeo * subbranch  in result) {
+//            NSDictionary * dict = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",[subbranch SUBBRANCH_ID]], @"S", [NSString stringWithFormat:@"%@",[subbranch SUBBRANCH_NAME]], [NSString stringWithFormat:@"%@",[subbranch SUBBRANCH_LEVEL_ID]], nil]
+//                                                              forKeys:[NSArray arrayWithObjects:@"OBJECT_ID", @"OBJECT_TYPE", @"OBJECT_NAME", @"OBJECT_SORT_TYPE", nil]];
+//            NSString *groupKey = [dict objectForKey:@"OBJECT_TYPE"];
+//            NSMutableArray *arrayToAdd = [tmpSubbranchDict objectForKey:groupKey];
+//            if(arrayToAdd != nil)
+//            {
+//                [arrayToAdd addObject:dict];
+//            }
+//            else
+//            {
+//                arrayToAdd = [NSMutableArray array];
+//                [arrayToAdd addObject:dict];
+//            }
+//            
+//            [tmpSubbranchDict setObject:arrayToAdd forKey:groupKey];
+//            
+//            //[subbranchAdapterList addObject:dict];
+//        }
+        [subbranchDict setDictionary:tmpSubbranchDict];
+        [tmpSubbranchDict release];
         
         BOOL myBool= FALSE;
         
@@ -407,43 +444,70 @@
         }
         
         if (myBool) {
+            NSMutableArray *tmpArray = [NSMutableArray array];
             for (ODMobileMBOUnionsGeo * _union in unionsGeo) {
-                NSDictionary * dict = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",[_union UNION_ID]], @"U", [NSString stringWithFormat:@"%@",[_union UNION_NAME]], nil] forKeys:[NSArray arrayWithObjects:@"OBJECT_ID", @"OBJECT_TYPE", @"OBJECT_NAME", nil]];
-                [subbranchAdapterList addObject:dict];
+                NSDictionary * dict = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSString stringWithFormat:@"%@",[_union UNION_ID]], @"U", [NSString stringWithFormat:@"%@",[_union UNION_NAME]], @"1.5", nil] forKeys:[NSArray arrayWithObjects:@"OBJECT_ID", @"OBJECT_TYPE", @"OBJECT_NAME", @"OBJECT_SORT_TYPE", nil]];
+                [tmpArray addObject:dict];
             }
+            [subbranchDict setObject:tmpArray forKey:@"1.5"];
         }
         
-        NSMutableArray * sortArray = [[NSMutableArray alloc] init];
-        for (NSDictionary * dict in subbranchAdapterList) {
-            BOOL var = TRUE;
-            for (NSDictionary * d in sortArray) {
-                if ([[d valueForKey:@"OBJECT_ID"] isEqualToString:[dict valueForKey:@"OBJECT_ID"]]) {
-                    var = FALSE;
-                }
+//        NSMutableArray * sortArray = [[NSMutableArray alloc] init];
+//        for (NSDictionary * dict in subbranchAdapterList) {
+//            BOOL var = TRUE;
+//            for (NSDictionary * d in sortArray) {
+//                if ([[d valueForKey:@"OBJECT_ID"] isEqualToString:[dict valueForKey:@"OBJECT_ID"]]) {
+//                    var = FALSE;
+//                }
+//            }
+//            if (var) {
+//                [sortArray addObject:dict];
+//            }
+//        }
+//        
+//        [subbranchAdapterList release];
+//        subbranchAdapterList = [sortArray retain];
+//        
+//        [sortArray release];
+        
+        NSArray *sortedArray = [[subbranchDict allKeys] sortedArrayUsingComparator: ^(id obj1, id obj2) {
+            
+            if ([obj1 floatValue] > [obj2 floatValue]) {
+                return (NSComparisonResult)NSOrderedAscending;
             }
-            if (var) {
-                [sortArray addObject:dict];
+            
+            if ([obj1 floatValue] < [obj2 floatValue]) {
+                return (NSComparisonResult)NSOrderedDescending;
             }
-        }
+            return (NSComparisonResult)NSOrderedSame;
+        }];
         
-        [subbranchAdapterList release];
-        subbranchAdapterList = [sortArray retain];
-        
-        [sortArray release];
-        
-        
-        
-        [result release];
+        [sortArray setArray:sortedArray];
+//        [result release];
         [allowedObjectTypeIds release];
         [allowedObjectTypeIds2 release];
     }
+    cellString = NotFoundString;
 
     [_tableView reloadData];
 }
 
+- (NSString *)getNameGroupWithType:(NSString *)type
+{
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"Подразделения уровня ЦА", @"7",
+                          @"Подразделения уровня ТБ", @"4",
+                          @"Подразделения уровня ГОСБ", @"3",
+                          @"Подразделения уровня ОСБ", @"2",
+                          @"Подразделения уровня РМ", @"1.5",
+                          @"Подразделения уровня ВСП", @"1",
+                          nil];
+    NSString *result = [dict objectForKey:type];
+    return result;
+}
 
 - (void)dealloc
 {
+    [subbranchDict release];
     [_tableView release];
     [subbranchAdapterList release];
     [taskTypeAdapterList release];
@@ -459,12 +523,22 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return (sortArray.count == 0) ? 1 : sortArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [subbranchAdapterList count];
+    if (sortArray.count == 0) {
+        return 1;
+    } else {
+        NSString *currentKey = [sortArray objectAtIndex:section];
+        return [[subbranchDict objectForKey:currentKey] count];
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return (sortArray.count == 0) ? nil : [self getNameGroupWithType:[sortArray objectAtIndex:section]];
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -477,21 +551,29 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-    
-
-    cell.textLabel.text = [[subbranchAdapterList objectAtIndex:indexPath.row] objectForKey:@"OBJECT_NAME"];
+    if (sortArray.count == 0) {
+        cell.textLabel.text = cellString;
+    } else {
+        NSString *currentKey = [sortArray objectAtIndex:indexPath.section];
+        
+        cell.textLabel.text = [[[subbranchDict objectForKey:currentKey] objectAtIndex:indexPath.row] objectForKey:@"OBJECT_NAME"];
+    }
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.selectedObjectID = [[subbranchAdapterList objectAtIndex:indexPath.row] valueForKey:@"OBJECT_ID"];
+    if ([subbranchDict allKeys].count == 0) {
+        return;
+    }
+    NSString *currentKey = [sortArray objectAtIndex:indexPath.section];
+    self.selectedObjectID = [[[subbranchDict objectForKey:currentKey] objectAtIndex:indexPath.row] valueForKey:@"OBJECT_ID"];
     if ([self.selectedObjectID isEqualToString:@"0"]) {
         return ;
     }
     
-    self.selectedObjectType = [[subbranchAdapterList objectAtIndex:indexPath.row] valueForKey:@"OBJECT_TYPE"];
+    self.selectedObjectType = [[[subbranchDict objectForKey:currentKey] objectAtIndex:indexPath.row] valueForKey:@"OBJECT_TYPE"];
     
     ODMobileMBOSubbranchesGeo * selectedSubbranch = nil;
     ODMobileMBOUnionsGeo * selectedUnion = nil;

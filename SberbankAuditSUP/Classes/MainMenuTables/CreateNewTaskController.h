@@ -19,6 +19,9 @@
     UIActivityIndicatorView * indicator;
     UILabel * label;
     UIImageView * largeLabel;
+    NSMutableDictionary *subbranchDict;
+    NSMutableArray *sortArray;
+    NSString *cellString;
 }
 
 - (id)initWithFrame:(CGRect)frame;
