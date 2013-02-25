@@ -62,27 +62,28 @@
             [cellBackView release];
             [cellBackViewActive release];
             
-            taskTitle = [[UILabel alloc] initWithFrame:CGRectMake(42, 8, 400, 30)];
-            [taskTitle setFont:[UIFont boldSystemFontOfSize:16]];
+            taskTitle = [[UILabel alloc] initWithFrame:CGRectMake(42, 53, 410, 60)];
+            [taskTitle setFont:[UIFont systemFontOfSize:14]];
+            [taskTitle setLineBreakMode:UILineBreakModeWordWrap];
+            [taskTitle setNumberOfLines:2];
             [taskTitle setBackgroundColor:[UIColor clearColor]];
             [self.contentView addSubview:taskTitle];
+            
+            taskDescription = [[UILabel alloc] initWithFrame:CGRectMake(42, 8, 400, 30)];
+            [taskDescription setFont:[UIFont boldSystemFontOfSize:16]];
+            [taskDescription setBackgroundColor:[UIColor clearColor]];
+            [self.contentView addSubview:taskDescription];
             
             taskIndicator = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 25, 25)];
             [self.contentView addSubview:taskIndicator];
             
-            taskDescription = [[UILabel alloc] initWithFrame:CGRectMake(42, 45, 410, 60)];
-            [taskDescription setFont:[UIFont systemFontOfSize:14]];
-            [taskDescription setLineBreakMode:UILineBreakModeWordWrap];
-            [taskDescription setNumberOfLines:2];
-            [taskDescription setBackgroundColor:[UIColor clearColor]];
-            [self.contentView addSubview:taskDescription];
             
-            taskStatus = [[UILabel alloc] initWithFrame:CGRectMake(42, 30, 150, 30)];
+            taskStatus = [[UILabel alloc] initWithFrame:CGRectMake(42, 45, 150, 30)];
             [taskStatus setFont:[UIFont systemFontOfSize:12]];
             [taskStatus setBackgroundColor:[UIColor clearColor]];
             [self.contentView addSubview:taskStatus];
             
-            taskDate = [[UILabel alloc] initWithFrame:CGRectMake(140, 30, 310, 30)];
+            taskDate = [[UILabel alloc] initWithFrame:CGRectMake(140, 45, 310, 30)];
             [taskDate setFont:[UIFont systemFontOfSize:12]];
             [taskDate setTextAlignment:UITextAlignmentRight];
             [taskDate setBackgroundColor:[UIColor clearColor]];

@@ -2376,7 +2376,7 @@
             if ([self.lastStatus isEqualToString:@"1"]) {//назначено
                 [self.arrayWithStatuses addObject:assigned];
                 [self.arrayWithStatuses addObject:canceled];
-                [self.arrayWithStatuses addObject:closed];
+//                [self.arrayWithStatuses addObject:closed];
 
 
                 if ([self.currentStatus isEqualToString:@"1"]) {//назначено

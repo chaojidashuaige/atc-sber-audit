@@ -318,10 +318,10 @@
         isSynchGeoError = YES;
         return isSynchGeoError;
     }
-    NSString * LON_DELTA = @"0.15";
-    NSString * LAT_DELTA = @"0.15";
-//    NSString * LON_DELTA = @"0.07";
-//    NSString * LAT_DELTA = @"0.07";
+//    NSString * LON_DELTA = @"0.15";
+//    NSString * LAT_DELTA = @"0.15";
+    NSString * LON_DELTA = @"0.07";
+    NSString * LAT_DELTA = @"0.07";
 //    NSString * LON_DELTA = @"0.020782";
 //    NSString * LAT_DELTA = @"0.010858";
     

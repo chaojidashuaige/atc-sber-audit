@@ -357,12 +357,27 @@
                     [self closeActivityIndicator];
                     [self.view removeFromSuperview];
                 });
+            } else {
+                [self setEnabledButtonGetLogon:YES];
             }
         }
         
     });
 
     
+}
+
+- (void) setEnabledButtonGetLogon:(BOOL)state
+{
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        if (state) {
+            [getLogon setEnabled:YES];
+            [getLogon setTitle:@"Войти" forState:UIControlStateNormal];
+        } else {
+            [getLogon setEnabled:NO];
+            [getLogon setTitle:@"Загрузка..." forState:UIControlStateNormal];
+        }
+    });
 }
 
 - (void)openActivityIndicatorViewWithName:(NSString *)name

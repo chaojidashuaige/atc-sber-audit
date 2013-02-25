@@ -54,6 +54,13 @@
 
 #define BASE_EXIST                  @"BASE_EXIST"
 
+#define SUCCESSFULL_OPERATION @"0"
+#define UNKNOWN_LOGIN @"0101"
+#define INVALID_PASSWORD @"0102"
+#define LOGIN_NOT_FOUND @"0103"
+#define EMPLOYEE_NOT_FOUND @"0104"
+#define SUBBRANCH_NOT_FOUND @"0105"
+
 @implementation SberbankAuditAppDelegate
 
 @synthesize window;
@@ -76,6 +83,7 @@
 //#define SERVER_NAME @"skd-rel-pl.at-consulting.ru"
 #define SERVER_NAME @"skd-rel-tst.at-consulting.ru"
 //#define SERVER_NAME @"skd-rel-dev.at-consulting.ru"
+//#define SERVER_NAME @"skd-rel-uat.at-consulting.ru"
 //#define SERVER_NAME @"91.241.12.145"
 //#define SERVER_NAME @"192.168.32.110"
 
@@ -153,6 +161,7 @@
     self.typeOfTasks = @"";
     self.IPAdress = [self GetOurIpAddress];
     self.connectionID = [NSString stringWithFormat:@"%@",[[SUPApplication applicationSettings] connectionId]];
+//    EMPLOYEE_ID = [[NSString alloc] init];
     NSLog(@"IP adress: %@",self.IPAdress);
     
     return YES;
@@ -508,17 +517,32 @@
     BOOL isError = NO;
     ODMobileMBO_LogonList * resource = [ODMobileMBO_Logon findAll];
     
-    EMPLOYEE_ID = [[resource objectAtIndex:0] valueForKey:@"logonReturn"];
+    //EMPLOYEE_ID = [[resource objectAtIndex:0] valueForKey:@"logonReturn"];
     
     NSMutableString * emp = [[NSMutableString alloc] initWithString:[[resource objectAtIndex:0] valueForKey:@"logonReturn"]];
-    NSString * str = @";";
-    NSRange substr = [emp rangeOfString:str];
-    NSLog(@"Index = %i, length = %i",substr.location, substr.length);
-    if (substr.location != 0) {
-        EMPLOYEE_ID = [emp substringToIndex:substr.location];
+    
+    NSArray *logonRequest = [emp componentsSeparatedByString:@";"];
+    if (logonRequest == nil || logonRequest.count == 0) {
+        isError = YES;
+        return isError;
     }
-
-    [emp release];
+    NSString *logonStatusError = [logonRequest objectAtIndex:0];
+    if (![logonStatusError isEqualToString:SUCCESSFULL_OPERATION]) {
+        [self getLogonError:logonStatusError];
+        return YES;
+    }
+    //self.EMPLOYEE_ID = @"sds";
+    [self setNewEMPLOYEE_ID:[logonRequest objectAtIndex:1]];
+    
+    
+//    NSString * str = @";";
+//    NSRange substr = [emp rangeOfString:str];
+//    NSLog(@"Index = %i, length = %i",substr.location, substr.length);
+//    if (substr.length != 0) {
+//        EMPLOYEE_ID = [emp substringToIndex:substr.location];
+//    }
+//
+//    [emp release];
     
     ODMobileMBO_getTasksSynchronizationParameters * sp = [ODMobileMBO_getTasks getSynchronizationParameters];
     [sp delete];
@@ -606,6 +630,34 @@
     return isError;
 }
 
+- (void)getLogonError:(NSString *)str
+{
+    NSString *error = @"Ошибка авторизации";
+    if ([str isEqualToString:UNKNOWN_LOGIN]) {
+        error = @"Не найден пользователь. Проверьте введенное имя.";
+    }else if ([str isEqualToString:INVALID_PASSWORD]) {
+        error = @"Введен некорректный пароль";
+    }else if ([str isEqualToString:LOGIN_NOT_FOUND]) {
+        error = @"Профиль пользователя отсутствует в базе данных";
+    }else if ([str isEqualToString:EMPLOYEE_NOT_FOUND]) {
+        error = @"Отсутствуют сведения о сотруднике: обратитесь к администратору";
+    }else if ([str isEqualToString:SUBBRANCH_NOT_FOUND]) {
+        error = @"Отсутствуют сведения о подразделении: обратитесь к прикладному администратору";
+    }
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [authWindow closeActivityIndicator];
+        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:error delegate:nil cancelButtonTitle:@"ОК" otherButtonTitles:nil];
+        [errorAlert show];
+        [errorAlert release];
+    });
+}
+
+- (void)setNewEMPLOYEE_ID:(NSString *)newEMPLOYEE_ID
+{
+    [newEMPLOYEE_ID retain];
+    [EMPLOYEE_ID release];
+    EMPLOYEE_ID = newEMPLOYEE_ID;
+}
 
 - (void)validateAppProperties
 {
@@ -803,13 +855,14 @@
 
 
 //- (void)dealloc {
+//    [super dealloc];
 //    [authWindow release];
 //    [rootViewController release];
 //    [mapViewController release];
-//    [self.window release];
-//    [self.typeOfTasks release];
-//    [self.IPAdress release];
-//    [super dealloc];
+////    [EMPLOYEE_ID release];
+////    [self.window release];
+////    [self.typeOfTasks release];
+////    [self.IPAdress release];
 //}
 
 #pragma mark - SUPApplicationCallback
